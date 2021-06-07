@@ -1,0 +1,97 @@
+*{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.bg-transparent{
+  background: rgba(0,0,0,0);
+}
+
+.navbar-collapse, .navbar{
+  z-index: 10;
+}
+
+.c-white{
+  color: white!important; 
+  background: none;
+}
+
+.c-mostaza{
+  background: #DBB90F;
+
+}
+
+.lang-flag{
+  border-radius: 3px;
+}
+
+.section-principal{
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.img-house{
+  height: 100vh!important;
+	object-fit: none;
+}
+
+.title{
+  color: white;
+  width: 70%;
+  position: absolute;
+  bottom: 20vh;
+  left: 10vw;
+  font-size: 5em;
+}
+
+.container-buttons{
+  position:absolute;
+  width: 100%;
+  bottom: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boton{
+  width: 160px;
+  margin: 0 10px;
+  padding: 5px 15px;
+  border-radius: 25px;
+  border: none;
+  background: #DBB90F;
+}
+
+
+@media (max-width: 992px) {
+  .title{
+    font-size: 4em;
+    bottom: 30vh;
+    margin: 0 1vw ;
+  }
+
+  .boton{
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .title{
+    font-size: 3em;
+    width: 80%;
+    position: absolute;
+    bottom: 30vh;
+    margin: 0 0.5vw ;
+
+  }
+
+  .container-buttons{
+    flex-direction: column;
+    
+  }
+
+  .boton{
+    margin: 10px  0;
+  }
+}
