@@ -1,21 +1,29 @@
 <!doctype html>
 <html lang="en">
   <head>
-    
+
+    <!-- Meta configs -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    
+    <!-- Hojas de bootstrap y propia -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
 
+    <!-- Font desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+
+
+    <title>Palermo Lender</title>
   </head>
   <body>
     <%- include('./partials/navbar') -%>
+    
     <section class="section-principal">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -40,13 +48,51 @@
       </div>
       <p class="title">We provee Residential Loan</p>
       <div class="container-buttons">
-        <button class="boton">Get Pre-Qualifity</button>
-        <button class="boton">Apply Now</button>
+        <button class="principal-button">Get Pre-Qualifity</button>
+        <button class="principal-button">Apply Now</button>
+      </div>
+  </section>
+
+  
+  <section class="section-whyus container">
+    <label class="whyus-title">Why Us?</label>
+    <div class="whyus-items-container">    
+      <div class="whyus-back-container">
+        <hr class="whyus-back-line">
+      </div>    
+      <div class="whyus-item">
+          <div class="whyus-item-icon-circle">
+            <i class="fas fa-history"></i>
+          </div>
+          <label class="whyus-item-title">Fast Closing</label>
+          <label class="whyus-item-description">Aproval with 24-48 hours, average closing within 7-12 days</label>
+        </div>
+        <div class="whyus-item">
+          <div class="whyus-item-icon-circle">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <label class="whyus-item-title">No Prepayment Penalty</label>
+          <label class="whyus-item-description">There are no penalties for paying off or partially amortizing the debt at any time.</label>
+        </div>
+        <div class="whyus-item">
+          <div class="whyus-item-icon-circle">
+            <i class="fas fa-users"></i>
+          </div>
+          <label class="whyus-item-title">Everyone Welcome</label>
+          <label class="whyus-item-description">Including borrowers with no credit history, new businesses and foreign nationals.</label>
+        </div>
+        <div class="whyus-item">
+          <div class="whyus-item-icon-circle">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <label class="whyus-item-title">Low rates, Low payments</label>
+          <label class="whyus-item-description">Competitive rates and flexible programs with interest only payment until maturity.</label>
+        </div>
       </div>
     </section>
-    
-    
-    
+
+
+
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
