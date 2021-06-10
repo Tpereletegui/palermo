@@ -1,38 +1,57 @@
-<nav class="container navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="#">
-    <img src="/images/logo-navbar.png" alt="" width="124" height="100">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="container container-nav">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">
+      <img src="/images/logo-navbar.png" class="icono" alt="" width="124" height="100">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse text-center navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
+    <div class="collapse text-center navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
 
 
-      <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Loan Programs</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Apply Now</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Recent Deals</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Testimonials</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
-      </li>
-      <a class="navbar-brand ml-3 " href="#">
-        <img src="/images/flag-spain.png" class="lang-flag" alt="">
-      </a>
-  </div>
-</nav>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Loan Programs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Apply Now</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Recent Deals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Testimonials</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <a class="navbar-brand ml-3 " href="#">
+          <img src="/images/flag-spain.png" class="lang-flag" alt="">
+        </a>
+    </div>
+  </nav>
+
+  <script type="text/javascript">
+    var nav = document.querySelector('nav');
+    var img = document.querySelector('.navbar-brand');
+
+    console.log('HOLAAAAAAAAA '+img);
+
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 100) {
+        nav.classList.add('navbar-dark');
+        img.innerHTML= '<img src="/images/logo-navbar-landscape.png" class="icono" alt="" width="150" height="52">';
+      } else {
+        nav.classList.remove('navbar-dark');
+        img.innerHTML= '<img src="/images/logo-navbar.png" class="icono" alt="" width="124" height="100">';
+      }
+    });
+  </script>
+</div>

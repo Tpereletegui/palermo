@@ -6,14 +6,20 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 100vw;
 }
 
 /* NAVBAR */
 
+
 .navbar{
   background: rgba(0,0,0,0);
-  position: absolute;
-  top: 0;
+  padding: 0 5%;
+  
+}
+
+.navbar-dark{
+  background: rgba(0,0,0,0.3);
 }
 
 .navbar-collapse, .navbar{
@@ -42,6 +48,7 @@ body{
 
 .img-house{
   height: 100vh!important;
+  width: 100%!important;
 	object-fit: cover;
   
 }
@@ -87,10 +94,11 @@ body{
   padding: 0 3%;
 }
 
-.section-whyus .whyus-title{
+.section-title{
   font-size: 3.7em;
   font-weight: 700;
   margin: 5% 0;
+  align-self: center;
 }
 
 .whyus-items-container{
@@ -148,6 +156,93 @@ body{
 }
 
 
+/* RECENT DEALS */
+
+.section-recent-deals{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.card{
+  border: none!important;
+}
+
+.card.deal-dates{
+  margin: 0;
+}
+
+.card.deal-dates.img-price,
+.card.deal-dates.img-text{
+  margin: 0!important;
+}
+
+.card-body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-rd{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit:cover;
+  margin: 5% 0;
+}
+
+.carousel-control-prev{
+  position:absolute;
+  top:-60px;
+  
+}
+
+.carousel-control-next{
+  position:absolute;
+  top: -60px;
+  
+}
+
+p.img-price,
+p.img-text{
+  margin: 0;
+}
+
+
+@media (max-width: 768px) {
+  .carousel-inner .carousel-item > div {
+      display: none;
+  }
+  .carousel-inner .carousel-item > div:first-child {
+      display: block;
+  }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* display 3 */
+@media (min-width: 768px) {
+  
+  .carousel-inner .carousel-item-right.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(33.333%);
+  }
+  
+  .carousel-inner .carousel-item-left.active, 
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-33.333%);
+  }
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{ 
+  transform: translateX(0);
+}
 
 
 /* AJUSTES RESPONSIVE */
@@ -173,7 +268,7 @@ body{
     height: auto;
   }
 
-  .section-whyus .whyus-title{
+  .section-title{
     font-size: 3em;
   }
 
@@ -195,9 +290,22 @@ body{
     max-width: 50%;
     margin: 3vh 0;
   }
+
+  .carousel-control-prev{
+    position:absolute;
+    left: 10vh;
+    top:-60px;
+  }
+  
+  .carousel-control-next{
+    position:absolute;
+    right: 10vh;
+    top: -60px;
+  }
+  
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .title{
     font-size: 3em;
     width: 80%;
@@ -216,7 +324,7 @@ body{
   }
 
   
-  .section-whyus .whyus-title{
+  .section-title{
     font-size: 2.7em;
   
   }
