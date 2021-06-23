@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') -%>
+<body>
+
+    <%- include('./partials/navbar') -%>
+    <section class="section-calculator">
+        <div class="calculator-title-container">
+            <h1 class="calculator-title">
+                Palermo Lender Mortgage Calculator
+            </h1>
+        </div>
+        <div class="calculator-container">
+
+            <div class="calc-calc-item">
+                <label for="">Mortgage Amount</label>
+                <div id="select-value-amount"></div>
+                <input type="range" class="input-range" name="mortgage-amount" id="slider-calculator-amount" min="0" max="100000000" value="500000">
+            </div>
+
+
+            <div class="calc-item">
+                <label for="">Interest Rate (%)</label>
+                <div id="select-value-interest"></div>
+                <input type="range" class="input-range" name="interest-rate" id="slider-calculator-interest" min="0" max="100" value="50">
+            </div>
+
+
+            <div class="calc-item">
+                <label for="">Down Payment (%)</label>
+                <div id="select-value-payment"></div>
+                <input type="range" class="input-range" name="down-payment" id="slider-calculator-payment" min="0" max="99" value="60">
+            </div>
+
+
+            <div class="calc-item">
+                <label for="">Years / Months</label>
+                <div id="select-value-date"></div>
+                <input type="range" class="input-range" name="years-months" id="slider-calculator-date" min="0" max="30" value="5">
+            </div>
+        </div>
+
+     
+
+    </section>
+    <%- include('./sections/footer') -%>
+    
+    <script>
+
+
+        function formatMoney(number, decPlaces, decSep, thouSep) {
+            decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
+            decSep = typeof decSep === "undefined" ? "." : decSep;
+            thouSep = typeof thouSep === "undefined" ? "," : thouSep;
+            var sign = number < 0 ? "-" : "";
+            var i = String(parseInt(number = Math.abs(Number(number) || 0).toFixed(decPlaces)));
+            var j = (j = i.length) > 3 ? j % 3 : 0;
+
+            return sign +
+                (j ? i.substr(0, j) + thouSep : "") +
+                i.substr(j).replace(/(\decSep{3})(?=\decSep)/g, "$1" + thouSep) +
+                (decPlaces ? decSep + Math.abs(number - i).toFixed(decPlaces).slice(2) : "");
+        }
+
+        
+
+
+        var sliderAmount = document.getElementById("slider-calculator-amount");
+        var valueAmount = document.getElementById("select-value-amount");
+        var sliderInterest = document.getElementById("slider-calculator-interest");
+        var valueInterest = document.getElementById("select-value-interest");
+        var sliderPayment = document.getElementById("slider-calculator-payment");
+        var valuePayment = document.getElementById("select-value-payment");
+        var sliderDate = document.getElementById("slider-calculator-date");
+        var valueDate = document.getElementById("select-value-date");
+
+        valueAmount.innerHTML = "$"+formatMoney(sliderAmount.value);
+        valueInterest.innerHTML = sliderInterest.value;
+        valuePayment.innerHTML = sliderPayment.value;
+        valueDate.innerHTML = sliderDate.value;
+
+        
+
+        sliderAmount.oninput = function () {
+
+            valueAmount.innerHTML = "$"+formatMoney(this.value);
+        }
+
+        sliderInterest.oninput = function () {
+            valueInterest.innerHTML = this.value;
+        }
+
+        sliderPayment.oninput = function () {
+            valuePayment.innerHTML = this.value;
+        }
+
+        sliderDate.oninput = function () {
+            valueDate.innerHTML = this.value;
+        }
+
+
+        
+        
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<section class="section-faq">
+  <div class="section-title">
+    Frequently Asked Questions
+  </div>
+  <div class="accordion">
+    <div class="content-box">
+      <div class="label">What is a Private Lender?</div>
+      <div class="content">
+        <p>A Private Lender is an investor who makes loans secured by real estate, typically charging higher rates than banks but
+          also making loans that banks would not make, funding more quickly than banks and/or requiring less documentation than
+          banks.</p>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <div class="label">Why do Private Lenders exist?</div>
+      <div class="content">
+        <p>Private Lenders exist because many real estate investors need a quick response / funding to secure a deal when looking
+          for a real estate loan. Banks and other institutional lenders that offer the lowest interest rates don’t provide the same
+          combination of speed and transparency in their decision-making process, along with quick access to capital.</p>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <div class="label">When should one use a Private Lender?</div>
+      <div class="content">
+        <p>A borrower might consider using a private money / private money loan in situations where he or she is willing to pay a
+          higher interest rate and/or higher up-front fees in the interest of gaining access to capital more quickly, dealing with less
+          bureaucracy and more transparency during the application process, and finding capital to pursue an opportunity that
+          banks will not finance, either because they are unwilling or unable to do so.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const accordion = document.getElementsByClassName('content-box');
+
+    for (i = 0; i < accordion.length; i++) {
+      accordion[i].addEventListener('click',function(){
+        this.classList.toggle('active');
+      })
+    }
+  </script>
+</section>
