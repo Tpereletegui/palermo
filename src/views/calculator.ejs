@@ -5,48 +5,93 @@
 
     <%- include('./partials/navbar') -%>
     <section class="section-calculator">
-        <div class="calculator-title-container">
-            <h1 class="calculator-title">
-                Palermo Lender Mortgage Calculator
-            </h1>
-        </div>
+        
         <div class="calculator-container">
+        
+            <div class="content-container">
+            
+                <div class="first-line">
+                    <!-- Estimated Property Value -->
+                    <div class="item-container">
+                        <label for="" class="slider-title">Estimated Property Value</label>
+                        <p class="value">$<span id="value1"></span></p>
+                        <hr>
+                        <input type="range" id="range1" min="1" max="10000000" value="2500000" class="slider">
+                    </div>
 
-            <div class="calc-calc-item">
-                <label for="">Mortgage Amount</label>
-                <div id="select-value-amount"></div>
-                <input type="range" class="input-range" name="mortgage-amount" id="slider-calculator-amount" min="0" max="100000000" value="500000">
+                    <!-- Mortgage Amount -->
+                    <div class="item-container">
+                        <label for="" class="slider-title">Mortgage Amount</label>
+                        <p class="value"><span id="value2"></span>%</p>
+                        <hr>
+                        <input type="range" id="range2" step="0.1" min="0" max="75" value="15" class="slider">
+                    </div>
+
+                    <!-- Tenor -->
+                    <div class="item-container">
+                        <label for="" class="slider-title">Tenor</label>
+                        
+                        <div class="radio-container">
+                            <input type="radio" name="select" id="option-1" checked>
+                            <input type="radio" name="select" id="option-2">
+                              <label for="option-1" class="option option-1">
+                                <div class="dot"></div>
+                                 <span>Student</span>
+                                 </label>
+                              <label for="option-2" class="option option-2">
+                                <div class="dot"></div>
+                                 <span>Teacher</span>
+                              </label>
+                           </div>
+            
+                        <p class="value"><span id="value3"></span> Months</p>
+                        <hr>
+                        <input type="range" id="range3" min="1" max="36" value="36" class="slider">
+                    </div>
+                </div>
+                <div class="second-line">
+
+                    <!-- Interest Rate (%)  -->
+                <div class="item-container">
+                    <label for="" class="slider-title">Interest Rate (%)</label>
+                    <p class="value"><span id="value4"></span>%</p>
+                    <hr>
+                    <input type="range" id="range4" step="0.01" min="7.99" max="13.99" value="8.50" class="slider">
+                </div>
+
+                <!-- Est. Origination Fee   -->
+                <div class="item-container">
+                    <label for="" class="slider-title">Est. Origination Fee</label>
+                    <p class="value"><span id="value5"></span>%</p>
+                    <hr>
+                    <input type="range" id="range5" step="0.1" min="0" max="5" value="2.5" class="slider">
+                </div>
+
+                <!-- Est. Loan Costs -->
+                <div class="item-container">
+                    <label for="" class="slider-title">Est. Loan Costs</label>
+                    <p class="value"><span id="value6"></span>%</p>
+                    <hr>
+                    <input type="range" id="range6" step="0.1" min="0" max="5" value="2.0" class="slider">
+                </div>
+
+                </div>
+                
+
+
+                
             </div>
-
-
-            <div class="calc-item">
-                <label for="">Interest Rate (%)</label>
-                <div id="select-value-interest"></div>
-                <input type="range" class="input-range" name="interest-rate" id="slider-calculator-interest" min="0" max="100" value="50">
-            </div>
-
-
-            <div class="calc-item">
-                <label for="">Down Payment (%)</label>
-                <div id="select-value-payment"></div>
-                <input type="range" class="input-range" name="down-payment" id="slider-calculator-payment" min="0" max="99" value="60">
-            </div>
-
-
-            <div class="calc-item">
-                <label for="">Years / Months</label>
-                <div id="select-value-date"></div>
-                <input type="range" class="input-range" name="years-months" id="slider-calculator-date" min="0" max="30" value="5">
-            </div>
+            <button class="button-calculator principal-button">
+                Submit
+            </button>
         </div>
-
      
 
     </section>
     <%- include('./sections/footer') -%>
     
-    <script>
 
+    <script>
 
         function formatMoney(number, decPlaces, decSep, thouSep) {
             decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
@@ -62,46 +107,66 @@
                 (decPlaces ? decSep + Math.abs(number - i).toFixed(decPlaces).slice(2) : "");
         }
 
-        
 
+        /* Estimated Property Value */
+        var slider1 = document.getElementById("range1");
+        var output1 = document.getElementById("value1");
 
-        var sliderAmount = document.getElementById("slider-calculator-amount");
-        var valueAmount = document.getElementById("select-value-amount");
-        var sliderInterest = document.getElementById("slider-calculator-interest");
-        var valueInterest = document.getElementById("select-value-interest");
-        var sliderPayment = document.getElementById("slider-calculator-payment");
-        var valuePayment = document.getElementById("select-value-payment");
-        var sliderDate = document.getElementById("slider-calculator-date");
-        var valueDate = document.getElementById("select-value-date");
+        output1.innerHTML = slider1.value;
 
-        valueAmount.innerHTML = "$"+formatMoney(sliderAmount.value);
-        valueInterest.innerHTML = sliderInterest.value;
-        valuePayment.innerHTML = sliderPayment.value;
-        valueDate.innerHTML = sliderDate.value;
-
-        
-
-        sliderAmount.oninput = function () {
-
-            valueAmount.innerHTML = "$"+formatMoney(this.value);
+        slider1.oninput = function(){
+            output1.innerHTML = formatMoney(this.value);
         }
 
-        sliderInterest.oninput = function () {
-            valueInterest.innerHTML = this.value;
+        /* Mortgage Amount */
+        var slider2 = document.getElementById("range2");
+        var output2 = document.getElementById("value2");
+
+        output2.innerHTML = slider2.value;
+
+        slider2.oninput = function(){
+            output2.innerHTML = formatMoney(this.value);
         }
 
-        sliderPayment.oninput = function () {
-            valuePayment.innerHTML = this.value;
+        /* Tenor */
+        var slider3 = document.getElementById("range3");
+        var output3 = document.getElementById("value3");
+
+        output3.innerHTML = slider3.value;
+
+        slider3.oninput = function(){
+            output3.innerHTML = this.value;
         }
 
-        sliderDate.oninput = function () {
-            valueDate.innerHTML = this.value;
+        /* Interest Rate (%)  */
+        var slider4 = document.getElementById("range4");
+        var output4 = document.getElementById("value4");
+
+        output4.innerHTML = slider4.value;
+
+        slider4.oninput = function(){
+            output4.innerHTML = formatMoney(this.value);
         }
 
+        /* Est. Origination Fee  */
+        var slider5 = document.getElementById("range5");
+        var output5 = document.getElementById("value5");
 
-        
-        
-        
+        output5.innerHTML = slider5.value;
+
+        slider5.oninput = function(){
+            output5.innerHTML = formatMoney(this.value);
+        }
+
+        /* Est. Loan Costs */
+        var slider6 = document.getElementById("range6");
+        var output6 = document.getElementById("value6");
+
+        output6.innerHTML = slider6.value;
+
+        slider6.oninput = function(){
+            output6.innerHTML = formatMoney(this.value);
+        }
     </script>
 
 </body>

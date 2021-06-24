@@ -14,7 +14,6 @@
     <%- include('./sections/contact') -%>
     <%- include('./sections/footer') -%>
 
-    <script src="/js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
 
     <script>
@@ -22,6 +21,19 @@
       for ( var i = 0, len = elms.length; i < len; i++ ) {
 	      new Splide( elms[ i ] ).mount();
       }
+    </script>
+
+    <script>
+      window.addEventListener('scroll', function () {
+            let navbar = document.getElementById('navbar');
+            let windowPosition = window.scrollY > 0;
+            let normalLogo = document.getElementById('logo-normal');
+            let landscapeLogo= document.getElementById('logo-horizontal');
+            navbar.classList.toggle('scrolling-active', windowPosition);
+        })
+      
+
+
     </script>
 
   </body>
