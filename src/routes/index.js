@@ -1,5 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var indexController = require('../controllers/indexController');
+var messageValidator = require('../middlewares/messageValidator');
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,5 +14,8 @@ router.get('/', function(req, res, next) {
 router.get('/calculator', function(req,res){
   res.render('calculator', {title: 'Palermo Lender'})
 })
+
+
+router.post('/message', messageValidator.message , indexController.message);
 
 module.exports = router;

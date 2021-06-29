@@ -1,23 +1,67 @@
 <nav id="navbar">
   <input type="checkbox" id="check">
   <label for="check" class="checkbtn">
-    <i class="fas fa-bars"></i>
+    <i id="icon" class="fas fa-bars"></i>
   </label>
   <label class="logo">
-    <img id="logo-normal" src="/images/logo-navbar.png" alt="" width="120px">
-    <img id="logo-horizontal" src="/images/logo-navbar-landscape.png" alt="" width="120px">
+    <img id="logo-img" src="/images/logo-navbar.png" alt="" width="120px">
   </label>
+
+
+  <div class="fade-navbar"></div>
   
   <ul>
     
-    <li><a href="#">About Us</a></li>
+    <li><a href="#aboutus-section">About Us</a></li>
     <li><a href="#">Loan Programs</a></li>
-    <li><a href="#">Recent Deals</a></li>
-    <li><a href="#">Testimonials</a></li>
+    <li><a href="#recent-deals-section">Recent Deals</a></li>
+    <li><a href="#testimonials-section">Testimonials</a></li>
     <li><a href="#">Brokers & Realtors</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#"><img src="/images/flag-spain.png" alt=""></a></li>
+    <li><a href="#contact-section">Contact</a></li>
+    <li><a class="lang" ><img class="lang-img" src="/images/flag-spain.png" alt=""></a></li>
     
 
   </ul>
+
+  <script>
+    let btn = document.querySelector('.checkbtn');
+    let icon = document.querySelector('#icon');
+    let overlayNav = document.querySelector('.fade-navbar');
+    let navbar = document.querySelector('#navbar');
+    let lang = document.querySelector('.lang');
+    let logo = document.querySelector('.logo');
+
+    btn.addEventListener("click", () =>{
+      if (icon.classList.contains('fa-bars')){
+        overlayNav.style.display = "block";
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      }else{
+        overlayNav.style.display = "none";
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    })
+
+    lang.addEventListener("click", () =>{
+      if (lang.innerHTML == '<img src="/images/flag-spain.png" alt="">'){
+        lang.innerHTML = '<img src="/images/flag-american.png" alt="">'
+      }else{
+        lang.innerHTML = '<img src="/images/flag-spain.png" alt="">'
+      }
+    })
+
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 100) {
+        navbar.classList.add('scroll-fade');
+        logo.innerHTML = '<img id="logo-img" src="/images/logo-navbar-landscape.png" alt="" width="160px" style="margin-top:15px;">'
+      }else{
+        navbar.classList.remove('scroll-fade');
+        logo.innerHTML = '<img id="logo-img" src="/images/logo-navbar.png" alt="" width="120px" >'
+
+      }
+    });
+
+  </script>
+
 </nav>

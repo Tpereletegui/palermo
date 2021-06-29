@@ -5,6 +5,12 @@
 
     <%- include('./partials/navbar') -%>
     <section class="section-calculator">
+
+        <div class="section-title">
+            <label class="calculator-title">
+                Palermo Lender Mortgage Calculator 
+            </label>
+        </div>
         
         <div class="calculator-container">
         
@@ -29,20 +35,22 @@
 
                     <!-- Tenor -->
                     <div class="item-container">
-                        <label for="" class="slider-title">Tenor</label>
-                        
-                        <div class="radio-container">
-                            <input type="radio" name="select" id="option-1" checked>
-                            <input type="radio" name="select" id="option-2">
-                              <label for="option-1" class="option option-1">
-                                <div class="dot"></div>
-                                 <span>Student</span>
-                                 </label>
-                              <label for="option-2" class="option option-2">
-                                <div class="dot"></div>
-                                 <span>Teacher</span>
-                              </label>
-                           </div>
+
+                        <div class="label-container">
+                            
+                            <div class="radio-container">
+                                <label class="container slider-title" for="month">Months
+                                    <input type="radio" checked="checked" id="month" name="monthyear">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="radio-container">
+                                <label class="container slider-title" for="year">Years
+                                    <input type="radio" name="monthyear" id="year">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
             
                         <p class="value"><span id="value3"></span> Months</p>
                         <hr>

@@ -26,8 +26,8 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 100vw!important;
   scroll-behavior: smooth;
+  overflow-x: hidden!important;
 }
 
 /* ESTILOS GENERALES */
@@ -58,20 +58,18 @@ nav{
   justify-content: space-between;
   padding: 0 50px;
   font-family: var(--fuente-principal);
+  
 }
 
-#logo-normal{
-  display:block;
-}
-
-#logo-horizontal{
-  display:none;
+.scroll-fade{
+  background: rgba(0,0,0,.5)!important; 
 }
 
 nav label.logo{
-  color: white;
+  
   order: -1;
-  font-weight: bold;
+
+
 }
 nav ul{
   margin: 0 10px;
@@ -87,6 +85,8 @@ nav ul li a{
   border-radius: 3px;
 
 }
+
+
 nav a.active,a:hover{
   background: none;
   transition: .5s;
@@ -102,45 +102,7 @@ nav .checkbtn{
 nav #check{
   display: none;
 }
-@media (max-width: 952px){
-  nav  label.logo{
-    font-size: 30px;
-  }
-  nav  nav ul li a{
-    font-size: 12px;
-  }
-}
-@media (max-width: 858px){
-  nav  .checkbtn{
-    display: block;
-  }
-  nav ul{
-    position: fixed;
-    width: 60%;
-    height: 100vh;
-    background: var(--color-mostaza);
-    top: 0;
-    padding-top: 80px;
-    left: -100%;
-    text-align: center;
-    transition: all .5s;
-  }
-  nav ul li{
-    display: block;
-    margin: 50px 0;
-    line-height: 30px;
-  }
-  nav ul li a{
-    font-size: 20px;
-  }
-  nav  a:hover,a.active{
-    background: none;
-    color: #0082e6;
-  }
-  nav  #check:checked ~ ul{
-    left: 0;
-  }
-}
+
 
 
 .scrolling-active{
@@ -154,13 +116,15 @@ nav #check{
 .section-principal{
   height: 100vh;
   width: 100vw;
+  max-width: 100vw!important;
   font-family: var(--fuente-principal);
+  
 }
 
 
 .img-carousel-house{
   object-fit: cover;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
@@ -478,38 +442,6 @@ nav #check{
 }
 
 
-@media (max-width: 1000px){
-  .aboutus-text-container{
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    padding-left: 80px;
-    padding-top: 40px;
-    padding-bottom: 20px;
-    padding-right: 10px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .aboutus-logo{
-    display:none;
-  }
-
-  .aboutus-logo-int{
-    width: 100px;
-    height: auto;
-    display: block;
-    align-self: flex-end;
-    justify-self: flex-end;
-    margin-right: 20px;
-  }
-}
-
-
-
-
-
-
 
 /* TESTIMONIALS */
 
@@ -639,6 +571,24 @@ nav #check{
 }
 
 
+.faq-more-button{
+  background: var(--color-azul);
+  border-radius: 25px;
+
+  color:white;
+  text-decoration: none;
+}
+.faq-more-button a{
+  font-family: var(--fuente-principal);
+  font-size: x-large;
+  padding: 25px 25px;
+  color:white;
+  text-decoration: none;
+}
+
+
+
+
 /* CONTACT */
 
 .contain-contact{
@@ -718,6 +668,11 @@ nav #check{
 
 .footer-item{
   margin: 0 30px;
+
+}
+
+.footer-item p{
+  margin: 10px 0;
 }
 
 .footer-container{
@@ -733,8 +688,9 @@ nav #check{
   display: flex;
 }
 
-.footer-title{
+.footer-item .footer-title{
   font-weight: 700;
+  margin: 15px 0;
 }
 
 #logo-pl-footer{
@@ -742,33 +698,34 @@ nav #check{
 }
 
 
-@media (max-width: 992px){
-  .footer-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .footer-items{
-    flex-direction: row;
-  }
-}
 
 /* CALCULATOR */
 
 .section-calculator{
+  padding-top: 300px;
   height: 100vh;
   width: 100%;
-
+  padding-bottom: 100px;
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--color-azul);
+  
+  background-image: url("/images/other/calculator-section.jpeg");
+  background-size: cover;
+}
+
+.calculator-title{
+  color:var(--color-fog);
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: 5px solid var(--color-mostaza);
 }
 
 .calculator-container{
+  margin: 40px 0;
   padding: 20px;
-  border: 3px solid var(--color-mostaza);
+  border: 10px solid var(--color-azul);
   display: flex;
   flex-direction: column;
   background: var(--color-fog);
@@ -832,168 +789,231 @@ nav #check{
 }
 
 .radio-container{
-  display: inline-flex;
-  background: #fff;
-  height: 100px;
-  width: 400px;
-  align-items: center;
-  justify-content: space-evenly;
-  border-radius: 5px;
-  padding: 20px 15px;
-  box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
-}
-.radio-container .option{
-  background: #fff;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin: 0 10px;
-  border-radius: 5px;
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
   cursor: pointer;
-  padding: 0 10px;
-  border: 2px solid lightgrey;
-  transition: all 0.3s ease;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-.radio-container .option .dot{
+
+.label-container{
+  display: flex;
+}
+
+.slider-monthyear{
+  margin-right: 20px;
+  opacity: 1;
+  font-size: small;
+
+}
+
+.radio-container{
+  margin-right: 20px;
+}
+
+
+/* Hide the browser's default radio button */
+.radio-container input {
+  
+  
+  position: absolute;
+  opacity: 0;
+  display: none;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 20px;
   width: 20px;
-  background: #d9d9d9;
   border-radius: 50%;
-  position: relative;
 }
-.radio-container .option .dot::before{
-  position: absolute;
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .checkmark {
+  margin-right: 20px;
+  background-color: var(--color-mostaza);
+  opacity: 1;
+  
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
   content: "";
-  top: 4px;
-  left: 4px;
-  width: 12px;
-  height: 12px;
-  background: #0069d9;
-  border-radius: 50%;
-  opacity: 0;
-  transform: scale(1.5);
-  transition: all 0.3s ease;
-}
-input[type="radio"]{
+  position: absolute;
   display: none;
 }
-#option-1:checked:checked ~ .option-1,
-#option-2:checked:checked ~ .option-2{
-  border-color: #0069d9;
-  background: #0069d9;
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
 }
-#option-1:checked:checked ~ .option-1 .dot,
-#option-2:checked:checked ~ .option-2 .dot{
-  background: #fff;
-}
-#option-1:checked:checked ~ .option-1 .dot::before,
-#option-2:checked:checked ~ .option-2 .dot::before{
-  opacity: 1;
-  transform: scale(1);
-}
-.radio-container .option span{
-  font-size: 20px;
-  color: #808080;
-}
-#option-1:checked:checked ~ .option-1 span,
-#option-2:checked:checked ~ .option-2 span{
-  color: #fff;
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  
 }
 
 .button-calculator{
   align-self: center;
-
+  background: var(--color-azul)!important;
+  color: var(--color-fog)!important;
 }
 
-/* AJUSTES RESPONSIVE */
 
-@media (max-width: 1000px) {
-  .title{
-    font-size: 2em;
-    bottom: 30vh;
-    margin: 0 1vw ;
+
+
+
+
+/* RESPONSIVE ADJUSTS */
+
+
+
+/* Teléfono */
+@media (max-width: 576px){
+
+  .section-title,.title-aboutus{
+    font-size: 25px!important;
   }
 
-  .principal-button{
-    margin: 0 10px;
 
+  /* Whyus */
+  .section-whyus-title{
+    width: fit-content;
+  }
+  
+  /* Recent Deals */
+  .section-recent-deals{
+    padding: 60px;
   }
 
-  .section-whyus .whyus-back-container{
+  /* Testimonials */
+  .container-testimonials{
+    width: 90%!important;
+  }
+
+  .splide__arrow--next{
+    padding-left: 120px!important;
+  }
+
+  .splide__arrow--prev{
+    padding-right: 120px!important;
+  }
+
+  .splide-testimonial-item{
+    padding:50px!important;
+  }
+
+  /* FAQ */
+
+  .accordion{
+    width: 460px;
+  }
+
+  .label{
+    font-size: 18px!important;
+  }
+
+
+  /* Contact */
+
+  .contain-contact{
+    width: 400px;
+    padding: 15px;
+    padding-top: 40px;
+  }
+
+
+  /* Footer */
+
+  .footer-items{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+
+
+/* TABLET */
+@media (max-width: 768px){
+
+  /* General */
+  .section-title{
+    font-size: 2.7em;
+  }
+
+
+  
+
+  /* Navbar */
+  .fade-navbar{
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    opacity: 0.5;
     display: none;
   }
 
-  .whyus-items-container{
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    justify-content: space-around;
-    
+
+  nav  .checkbtn{
+    display: block;
+    z-index: 2;
   }
-
-  .section-whyus .whyus-items-firstline,
-.section-whyus .whyus-items-secondline{
-  flex-direction: column;
-  align-items: center;
-}
-
-
-
-  .section-whyus .whyus-item{
-    max-width: 50%;
-    margin: 3vh 0;
-  }
-
-  .carousel-control-prev{
-    position:absolute;
-    left: 10vh;
-    top:-60px;
-  }
-  
-  .carousel-control-next{
-    position:absolute;
-    right: 10vh;
-    top: -60px;
-  }
-
-  .testimonials-section-title-text{
-    font-size: 2em;
-    left: 3vw;
-  }
-  .testimonials-section-title-sub{
-    font-size: 0.9em;
-    left: 5vw;
-  }
-
-
-
-  .testimonials-section-title-img{
-    position: block;
-    margin: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    color: black!important;
-    width: auto;
-  }
-  
-}
-
-@media (min-width: 1000px) {
-  .title{
-    font-size: 3em;
+  nav ul{
+    position: fixed;
     width: 60%;
-    position: absolute;
-    bottom: 30vh;
-    margin: 0 0.5vw ;
+    height: 100vh;
+    background: var(--color-mostaza);
+    top: 0;
+    padding-top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
   }
-}
+  nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  nav  a:hover,a.active{
+    background: none;
+    color: #0082e6;
+  }
+  nav  #check:checked ~ ul{
+    left: 0;
+  }
 
-@media (max-width: 768px) {
+
+  /* Principal section */
   .title{
     font-size: 2em;
     width: 80%;
@@ -1011,56 +1031,119 @@ input[type="radio"]{
     margin: 10px  0;
   }
 
-  
-  .section-title{
-    font-size: 2.7em;
-  
-  }
 
-  /* TESTIMONIALS */
-  .container-testimonials{
+  /* Whyus */
+
+
+  .whyus-items-firstline,
+  .whyus-items-secondline{
     flex-direction: column;
-  }
-  .testimonials-section-title-img{
-    height: 35vh;
-    width: 100vw;
-    object-fit: cover;
-  }
-
-
-  .testimonials-section-title{
-    width: 100%;
-    height: 35vh;
-    
-  }
-
-  .testimonials-section-comment{
-    width: 100%;
-  }
-
-  .testimonials-section-title-text,
-  .testimonials-section-title-sub{
-    position: relative;
-    margin: 0;
-    color: white;
-    top: -25vh;
-    left: 0;
-    width: auto;
-    text-align: center;
-  }
-
-  .section-testimonials{
-    height: 100%;
-  }
-
-  .testimonials-section-comment{
-    display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 10vh;
   }
 
-  .comment-box{
-    border-radius: 10px;
+  .whyus-item{
+    width: 50%!important;
+    margin: 20px 0;
   }
+
+
+  /* Aboutus */
+  .aboutus-text-container{
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    padding-left: 80px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .aboutus-logo{
+    display:none;
+  }
+
+
+  /* Recent Deals */ 
+
+  .section-recent-deals{
+    padding: 60px 0;
+  }
+
+
+  .section-title .recent-deal-title{
+    width: 100px!important;
+  }
+
+  .aboutus-logo-int{
+    width: 100px;
+    height: auto;
+    display: block;
+    align-self: flex-end;
+    justify-self: flex-end;
+    margin-right: 20px;
+  }
+
+
+  /* Testimonials ---- */
+  .container-testimonials{
+    padding: 10px 10px;
+    width: 80%;
+  }
+
+  .splide-testimonial-item{
+    padding: 10px 80px;
+  }
+
+
+  /* FAQ */
+
+  .accordion{
+    max-width: 600px;
+  }
+
+  /* Contact */
+  .contain-contact{
+    width: 500px;
+    display: flex;
+  }
+
+  .contact-button{
+    margin: 10px 0;
+  }
+
+
+  /* Footer */
+  .footer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+}
+
+
+/* 1024 PX */
+
+@media (max-width: 1024px){
+
+  .aboutus-text-container{
+    padding-left: 80px;
+  }
+
+
+  .aboutus-ref{
+    width: 90%;
+  }
+
+
+  .container-testimonials{
+    width: 80%;
+  }
+
+  .accordion{
+    width: 70%;
+  }
+
 }

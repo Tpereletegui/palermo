@@ -1,4 +1,4 @@
-<section class="section section-contact">
+<section id="contact-section" class="section section-contact">
   
   <div class="section-title">
     <label class="contact-title">
@@ -6,13 +6,25 @@
     </label>
   </div>
   <div class="contain-contact">
-      
     
-    <input type="text" class="input input-name" placeholder="name">
-    <input type="email" class="input input-email" placeholder="email">
-    <textarea type="text" class="input input-message"  placeholder="message..." maxlength="240"></textarea>
+    <form action="/message" method="post">
+      <input type="text" name="name" class="input input-name" placeholder="name">
+      <input type="email" name="email" class="input input-email" placeholder="email">
+      <textarea type="text" name="message" class="input input-message"  placeholder="message..." maxlength="240"></textarea>
+      <button type="submit" class="contact-button">Send</button>
+    </form>
 
-    <button class="contact-button">Send</button>
+    <div class="errores">
+      <% if(typeof errors != 'undefined'){ %>
+          <p class="errorTitle">ERROR</p>
+          <ul>
+              <% for(let i=0; i<errors.length; i++){ %>
+                  <li style="font-size: 13px"><%= errors[i].msg %> </li> 
+              <% } %> 
+          </ul> 
+      <% } %>
+    </div>
+
   </div>
 
   
