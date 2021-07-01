@@ -1,6 +1,9 @@
 const { validationResult } = require('express-validator');
 const nodemailer = require('nodemailer'); 
-const Swal = require('sweetalert2');
+
+const fs = require('fs');
+const path = require('path');
+
 
 module.exports = {
     message: function(req, res, next) {
@@ -45,5 +48,27 @@ module.exports = {
             res.render("index", {errors:errors.errors})
         }
          */
+    },
+    loadAllFaqs: function(req,res){
+
+        var faqs = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/faq.json'))); 
+
+        faqs.forEach(faq => {
+            if (faq.text.includes("$")){
+                let bullets = faq.text.split("$");
+                faq.text = faq.text.substr(0, faq.text.indexOf("$"));
+                faq.bullets = bullets;
+            }else if (faq.text.includes("#")){
+                let texts = faq.text.split("#");
+                faq.text = texts[0];
+                faq.textAlt = texts[1];
+            }
+        });
+
+     
+        return res.render('faq-complete',{questions: faqs});
+    },
+    applyNow: function(req,res){
+        res.render('apply-now');
     }
 }

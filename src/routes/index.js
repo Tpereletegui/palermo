@@ -12,9 +12,12 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/calculator', function(req,res){
-  res.render('calculator', {title: 'Palermo Lender'})
+  res.render('calculator')
 })
 
+
+router.get('/faq', indexController.loadAllFaqs);
+router.get('/apply-now', indexController.applyNow);
 
 router.post('/message', messageValidator.message , indexController.message);
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') -%>
+<body>
+
+    <%- include('./partials/navbar') -%>
+
+    <div class="container-faq-view">
+        <div class="section-title section-view-title">
+            <label class="faq-title">
+            Frequently Asked Questions
+            </label>
+        </div>
+    
+
+        <div class="questions-container">
+            <% for (let i = 0; i < questions.length; i++) {%>
+                <div class=" question-container-all <%= i<questions.length/2 ? 'question-container-first':'question-container-second' %>">
+                    <label class="question-title"> <%=questions[i].title %></label>
+                    <p class="question-text"> <%=questions[i].text %></p>
+                    <p class="question-text-alt"> <%=questions[i].textAlt ? questions[i].textAlt : "" %></p>
+                    <% if (questions[i].bullets){ %>
+                        <% for (let j = 1; j < questions[i].bullets.length; j++ ){  %>
+                            <p class="question-text-bullet"> <%= questions[i].bullets[j] %></p>
+                        <% } %>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+
+
+        
+    </div>
+
+
+    <%- include('./sections/footer') -%>
+
+</body>
+</html>

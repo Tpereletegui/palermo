@@ -3,8 +3,8 @@
     <div class="aboutus-container">
         <div class="aboutus-text-container">
             <p class="aboutus-text"> 
-                <label class="title-aboutus">About Us</label>
-                <p class="aboutus-ref">
+                <label class="title-aboutus" data-aos="fade-down">About Us</label>
+                <p class="aboutus-ref" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
                     We are a Miami-based private money lender providing investment property loans in many states. 
                     We specialize in asset-backed loans with an easy, quick loan application
                     company text.
@@ -18,7 +18,9 @@
                     We offer tailor-made loans to suit your specific needs.
                 </p>
             </p>
-            <img src="/images/logo-navbar-landscape-alt.png" class="aboutus-logo-int" alt="">
+            <div class="aboutus-logo-container" data-aos="flip-left">
+                <img src="/images/logo-navbar-landscape-alt.png" class="aboutus-logo-int" alt="" data-aos="fade-down">
+            </div>
         </div>
         <img src="/images/logo-navbar-big.png"  class="aboutus-logo" alt="">
     </div>
@@ -38,11 +40,5 @@
             window.requestAnimationFrame(step);
         }
 
-        const obj = document.querySelector('#value').getBoundingClientRect();
-
-        console.log(obj);
-
-
-        animateValue(obj, 0, 1000, 3000);
     </script>
 </section>
