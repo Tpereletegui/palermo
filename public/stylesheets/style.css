@@ -359,7 +359,7 @@ nav #check{
 /* RECENT DEALS */
 
 .section-recent-deals{
-  padding: 50px 300px;
+  padding: 50px 0px;
   width: 100%;
   background: var(--color-azul);
   color: var(--color-fog);
@@ -372,13 +372,12 @@ nav #check{
 }
 
 .recent-deal-container{
-  padding-top:60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 300px;
+  width: 100%!important;
   height: auto;
   font-family: var(--fuente-principal);
 }
@@ -1150,15 +1149,29 @@ button.submit-btn {
     font-size: 25px!important;
   }
 
-
   /* Whyus */
   .section-whyus-title{
     width: fit-content;
   }
   
+  .whyus-item-description{
+    width: 250px;
+  }
+  
   /* Recent Deals */
   .section-recent-deals{
     padding: 60px;
+  }
+
+
+  /* About Us */
+  .aboutus-text-container{
+    padding: 40px 20px!important;
+    
+  }
+
+  .aboutus-logo{
+    margin-top: 20px;
   }
 
   /* Testimonials */

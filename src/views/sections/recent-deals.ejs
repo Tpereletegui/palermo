@@ -4,7 +4,27 @@
         <label class="recent-deal-title" >Recent Deals</label>
     </div>
 
-    <div class="splide" data-splide='{"type"   : "loop", "perPage": 3,"perMove": 1,"focus"  : "center","pagination": false, "arrows": false, "autoplay": true}'>
+    <div class="splide" 
+        data-splide='{
+                        "type"   : "loop", 
+                        "perPage": 3,
+                        "perMove": 1,
+                        "focus"  : "center",
+                        "pagination": false, 
+                        "arrows": false, 
+                        "autoplay": true,
+                        
+                        "breakpoints": {
+                            "768":{
+                                "perPage": 2
+                            },
+                            "576":{
+                                "perPage": 1
+                            }
+                        }
+                }'>
+        
+        
         <div class="splide__track">
             <ul class="splide__list">
                 <li class="splide__slide">
