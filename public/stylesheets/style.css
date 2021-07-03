@@ -1328,12 +1328,14 @@ button.submit-btn {
     display: block;
     margin: 10px 0;
     line-height: 30px;
-    padding-left: 20px;
+    padding-left: 40px;
     width: max-content;
+    
   }
  
   nav ul li a.overeable{
-    font-size: 20px;
+    font-size: 16px!important;
+    font-weight: normal;
   }
   nav  a:hover,a.active{
     background: none;
@@ -1345,8 +1347,11 @@ button.submit-btn {
 
   i.navbar-icon{
     display: inline-block;
-
+    font-weight: bold;
     color: white;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
   }
 
 
