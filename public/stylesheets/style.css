@@ -117,7 +117,9 @@ nav #check{
   display: none;
 }
 
-
+i.navbar-icon{
+  display:none;
+} 
 
 
 .scrolling-active{
@@ -1319,13 +1321,15 @@ button.submit-btn {
     top: 0;
     padding-top: 80px;
     left: -100%;
-    text-align: center;
+    text-align: left;
     transition: all .5s;
   }
   nav ul li{
     display: block;
     margin: 10px 0;
     line-height: 30px;
+    padding-left: 20px;
+    width: max-content;
   }
  
   nav ul li a.overeable{
@@ -1337,6 +1341,12 @@ button.submit-btn {
   }
   nav  #check:checked ~ ul{
     left: 0;
+  }
+
+  i.navbar-icon{
+    display: inline-block;
+
+    color: white;
   }
 
 
