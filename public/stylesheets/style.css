@@ -436,7 +436,7 @@ nav #check{
   width: 50%;
   height: 100%;
   background: white fixed no-repeat 80% 50%;
-  background-image: url('../images/other/office.jpeg');
+  background-image: url('../images/other/office.jpg');
   background-size: cover;
   display: flex;
   flex-direction: column;
