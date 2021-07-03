@@ -3,26 +3,27 @@
   <label for="check" class="checkbtn">
     <i id="icon" class="fas fa-bars"></i>
   </label>
-  <label class="logo">
-    <img id="logo-img" src="/images/logo-navbar.png" alt="" width="120px">
-  </label>
+  <a href="/" class="logo">
+    <img id="logo-img" src="/images/logos/logo-navbar.png" alt="" width="120px">
+  </a>
 
 
   <div class="fade-navbar"></div>
   
   <ul>
     
-    <li><a href="#aboutus-section">About Us</a></li>
-    <li><a href="#">Loan Programs</a></li>
-    <li><a href="#recent-deals-section">Recent Deals</a></li>
-    <li><a href="#testimonials-section">Testimonials</a></li>
-    <li><a href="#">Brokers & Realtors</a></li>
-    <li><a href="#contact-section">FAQ</a></li>
-    <li><a href="#contact-section">Contact</a></li>
-    <li><a ><img class="lang-img" src="/images/flag-spain.png" alt=""></a></li>
+    <li><a class="overeable" href="#aboutus-section">About Us</a></li>
+    <li><a class="overeable" href="#">Loan Programs</a></li>
+    <li><a class="overeable" href="#recent-deals-section">Recent Deals</a></li>
+    <li><a class="overeable" href="#testimonials-section">Testimonials</a></li>
+    <li><a class="overeable" href="#">Brokers & Realtors</a></li>
+    <li><a class="overeable" href="#contact-section">FAQ</a></li>
+    <li><a class="overeable" href="#contact-section">Contact</a></li>
+    <li></li>
     
 
   </ul>
+  <a class="lang-img"><img class="lang-img" src="/images/icons/flag-spain.png" alt=""></a>
 
   <script>
     let btn = document.querySelector('.checkbtn');
@@ -45,20 +46,20 @@
     })
 
     lang.addEventListener("click", () =>{
-      if (lang.innerHTML == '<img src="/images/flag-spain.png" alt="">'){
-        lang.innerHTML = '<img src="/images/flag-american.png" alt="">'
+      if (lang.innerHTML == '<img src="/images/icons/flag-spain.png" alt="">'){
+        lang.innerHTML = '<img src="/images/icons/flag-american.png" alt="">'
       }else{
-        lang.innerHTML = '<img src="/images/flag-spain.png" alt="">'
+        lang.innerHTML = '<img src="/images/icons/flag-spain.png" alt="">'
       }
     })
 
     window.addEventListener('scroll', function () {
       if (window.pageYOffset > 100) {
         navbar.classList.add('scroll-fade');
-        logo.innerHTML = '<img id="logo-img" src="/images/logo-navbar-landscape.png" alt="" width="160px" style="margin-top:15px;">'
+        logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-landscape.png" alt="" width="160px" style="margin-top:15px;">'
       }else{
         navbar.classList.remove('scroll-fade');
-        logo.innerHTML = '<img id="logo-img" src="/images/logo-navbar.png" alt="" width="120px" >'
+        logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar.png" alt="" width="120px" >'
 
       }
     });

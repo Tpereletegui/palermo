@@ -4,97 +4,194 @@
 <body>
 
     <%- include('./partials/navbar') -%>
+    <%- include('./partials/float-button') -%>
+    
     <section class="section-calculator">
 
-        <div class="section-title">
-            <label class="calculator-title">
-                Palermo Lender Mortgage Calculator 
-            </label>
-        </div>
-        
-        <div class="calculator-container">
-        
-            <div class="content-container">
-            
-                <div class="first-line">
-                    <!-- Estimated Property Value -->
-                    <div class="item-container">
-                        <label for="" class="slider-title">Estimated Property Value</label>
-                        <p class="value">$<span id="value1"></span></p>
-                        <hr>
-                        <input type="range" id="range1" min="1" max="10000000" value="2500000" class="slider">
-                    </div>
-
-                    <!-- Mortgage Amount -->
-                    <div class="item-container">
-                        <label for="" class="slider-title">Mortgage Amount</label>
-                        <p class="value"><span id="value2"></span>%</p>
-                        <hr>
-                        <input type="range" id="range2" step="0.1" min="0" max="75" value="15" class="slider">
-                    </div>
-
-                    <!-- Tenor -->
-                    <div class="item-container">
-
-                        <div class="label-container">
-                            
-                            <div class="radio-container">
-                                <label class="container slider-title" for="month">Months
-                                    <input type="radio" checked="checked" id="month" name="monthyear">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="radio-container">
-                                <label class="container slider-title" for="year">Years
-                                    <input type="radio" name="monthyear" id="year">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-            
-                        <p class="value"><span id="value3"></span> Months</p>
-                        <hr>
-                        <input type="range" id="range3" min="1" max="36" value="36" class="slider">
-                    </div>
-                </div>
-                <div class="second-line">
-
-                    <!-- Interest Rate (%)  -->
-                <div class="item-container">
-                    <label for="" class="slider-title">Interest Rate (%)</label>
-                    <p class="value"><span id="value4"></span>%</p>
-                    <hr>
-                    <input type="range" id="range4" step="0.01" min="7.99" max="13.99" value="8.50" class="slider">
-                </div>
-
-                <!-- Est. Origination Fee   -->
-                <div class="item-container">
-                    <label for="" class="slider-title">Est. Origination Fee</label>
-                    <p class="value"><span id="value5"></span>%</p>
-                    <hr>
-                    <input type="range" id="range5" step="0.1" min="0" max="5" value="2.5" class="slider">
-                </div>
-
-                <!-- Est. Loan Costs -->
-                <div class="item-container">
-                    <label for="" class="slider-title">Est. Loan Costs</label>
-                    <p class="value"><span id="value6"></span>%</p>
-                    <hr>
-                    <input type="range" id="range6" step="0.1" min="0" max="5" value="2.0" class="slider">
-                </div>
-
-                </div>
-                
-
-
-                
+        <div class="calculator-title-container">
+            <div class="section-title">
+                <label class="calculator-title">
+                    Mortgage Calculator 
+                </label>
             </div>
-            <button class="button-calculator principal-button">
-                Submit
-            </button>
         </div>
-     
 
+        <div class="calculator-container">
+
+            
+            <form action="/calculator/" method="post" class="calculator-form-container">
+            
+                <div class="content-container">
+                
+                    <div class="first-line">
+                        <!-- Estimated Property Value -->
+                        <div class="item-container">
+                            <label for="" class="slider-title">Estimated Property Value</label>
+                            <p class="value">$<span id="value1"></span></p>
+                            <hr>
+                            <% if(typeof output != 'undefined'){ %>
+                                <input name="estimatedValue" type="range" id="range1" min="1" max="10000000" value="<%=output.estimatedValue%>" class="slider">        
+                            <% } else { %>
+                                <input name="estimatedValue" type="range" id="range1" min="1" max="10000000" value="1000000>" class="slider">
+                            <% }  %>
+                        </div>
+
+                        <!-- Mortgage Amount -->
+                        <div class="item-container">
+                            <label for="" class="slider-title">Mortgage Amount</label>
+                            <p class="value"><span id="value2"></span>%</p>
+                            <hr>
+                            <% if(typeof output != 'undefined'){ %>
+                                <input name="mortgageAmount" type="range" id="range2" step="0.1" min="0" max="75" value="<%=output.mortgageAmount%>" class="slider">
+                            <% } else { %>
+                                <input  name="mortgageAmount" type="range" id="range2" step="0.1" min="0" max="75" value="15" class="slider">
+                            <% }  %>
+                        </div>
+
+                        <!-- Tenor -->
+                        <div class="item-container">
+
+                            <div class="label-container">
+                                
+                                <div class="radio-container">
+                                    <label class="container slider-title" for="month">Months
+                                        <input type="radio" checked="checked" id="month" name="monthyear">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="radio-container">
+                                    <label class="container slider-title" for="year">Years
+                                        <input type="radio" name="monthyear" id="year">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                
+                            <p class="value"><span id="value3"></span> Months</p>
+                            <hr>
+
+                            <% if(typeof output != 'undefined'){ %>
+                                <input name="mortgageTenor" type="range" id="range3" min="1" max="36" value="<%=output.mortgageTenor%>" class="slider">
+                            <% } else { %>
+                                <input name="mortgageTenor" type="range" id="range3" min="1" max="36" value="36" class="slider">
+
+                            <% }  %>
+                        </div>
+                    </div>
+                    <div class="second-line">
+
+                        <!-- Interest Rate (%)  -->
+                    <div class="item-container">
+                        <label for="" class="slider-title">Interest Rate (%)</label>
+                        <p class="value"><span id="value4"></span>%</p>
+                        <hr>
+                        <% if(typeof output != 'undefined'){ %>
+                            <input name="mortgageInterest" type="range" id="range4" step="0.01" min="7.99" max="13.99"  value="<%=output.mortgageInterest%>" class="slider">
+                        <% } else { %>
+                            <input name="mortgageInterest" type="range" id="range4" step="0.01" min="7.99" max="13.99" value="8.50" class="slider">
+                        <% }  %>
+                    </div>
+
+                    <!-- Est. Origination Fee   -->
+                    <div class="item-container">
+                        <label for="" class="slider-title">Est. Origination Fee</label>
+                        <p class="value"><span id="value5"></span>%</p>
+                        <hr>
+                        <% if(typeof output != 'undefined'){ %>
+                            <input name="estOrigFree" type="range" id="range5" step="0.1" min="0" max="5" value="<%=output.estOrigFree%>" class="slider">
+                        <% } else { %>
+                            <input name="estOrigFree" type="range" id="range5" step="0.1" min="0" max="5" value="2.5" class="slider">
+                        <% }  %>
+                    </div>
+
+                    <!-- Est. Loan Costs -->
+                    <div class="item-container">
+                        <label for="" class="slider-title">Est. Loan Costs</label>
+                        <p class="value"><span id="value6"></span>%</p>
+                        <hr>
+                        <% if(typeof output != 'undefined'){ %>
+                            <input name="estLoanCosts" type="range" id="range6" step="0.1" min="0" max="5" value="<%=output.estLoanCosts%>" class="slider">
+                        <% } else { %>
+                            <input name="estLoanCosts" type="range" id="range6" step="0.1" min="0" max="5" value="2.0" class="slider">
+                        <% }  %>
+                    </div>
+
+                    </div>           
+                </div>
+                <button type="submit" class="button-calculator principal-button">
+                    Submit
+                </button>
+            </form>
+        
+            <% if(typeof output != 'undefined'){ %>
+                <div class="output-container" >
+                    <label class="output-title">Loan Details</label>
+
+                    <div class="output-container-first">
+                        <div class="output-detail-item">
+                            <label>Estimated Property Value: </label>
+                            <label><%= output.estimatedValue %></label>
+                        </div>
+                        <div class="output-detail-item">
+                            <label>Down Payment: </label>
+                            <label><%= output.mortgageAmount %></label>
+                        </div>
+                        <div class="output-detail-item">
+                            <label>Loan Amount: </label>
+                            <label><%= output.loanAmount %></label>
+                        </div>
+                        <div class="output-detail-item">
+                            <label>Interest: </label>
+                            <label><%= output.mortgageInterest %></label>
+                        </div>
+                        <div class="output-detail-item">
+                            <label>Term: </label>
+                            <label><%= output.mortgageTenor %></label>
+                        </div>         
+                    </div>
+
+                    
+
+                    <div class="output-container-second">
+                        <div class="output-detail-item">
+                            <label>Month Interest Payment: </label>
+                            <label><%= output.monthInterest %></label>
+                        </div>
+                        <div class="output-detail-item">
+                            <label>Annual Interest Payment: </label>
+                            <label><%= output.annualInterest %></label>
+                        </div>
+                        <div class="output-detail-item">
+                            <label>Est. Loan Costs: </label>
+                            <label><%= output.estLoanCosts %></label>
+                        </div>
+                        <div class="output-detail-item">
+                            <label>Est. Origination Free: </label>
+                            <label><%= output.estOrigFree %></label>
+                        </div>
+                        <div class="output-detail-item">
+                            <label>Total Closing Costs:</label>
+                            <label><%= output.totalClosing %></label>
+                        </div>
+                    </div>
+                    <div class="table-payments">
+                        <div class="table-payments-header">
+                            <label class="table-payment-date">&nbsp;</label>
+                            <label class="table-payment-date">Interest Payment</label>
+                            <label class="table-payment-date">Cumulative Payment</label>    
+                        </div>
+                        <% for (let j = 0; j < payments.length; j++) { %>
+                            <div class="table-payments-item">
+                                <label class="table-payment-date"> <%= payments[j].id %></label>
+                                <label class="table-payment-date"><%= output.monthInterest %></label>
+                                <label class="table-payment-date"><%= payments[j].cumulativePayment %></label>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            <% } %>
+
+        </div>
     </section>
     <%- include('./sections/footer') -%>
     
@@ -175,6 +272,15 @@
         slider6.oninput = function(){
             output6.innerHTML = formatMoney(this.value);
         }
+
+        window.onload = () =>{
+            output1.innerHTML = formatMoney(output1.innerHTML);
+            output2.innerHTML = formatMoney(output2.innerHTML);
+            output4.innerHTML = formatMoney(output4.innerHTML);
+            output5.innerHTML = formatMoney(output5.innerHTML);
+            output6.innerHTML = formatMoney(output6.innerHTML);
+        }
+        
     </script>
 
 </body>

@@ -1,0 +1,5 @@
+{
+    "title":"Contact Us",
+    "placeholders": ["name", "email", "message..."],
+    "button" : "Send"
+}

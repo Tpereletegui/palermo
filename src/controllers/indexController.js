@@ -6,6 +6,9 @@ const path = require('path');
 
 
 module.exports = {
+    index: function(req,res,next){
+      res.render('index');
+    },
     message: function(req, res, next) {
         
 
@@ -51,24 +54,72 @@ module.exports = {
     },
     loadAllFaqs: function(req,res){
 
-        var faqs = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/faq.json'))); 
+      var faqs = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/faq.json'))); 
 
-        faqs.forEach(faq => {
-            if (faq.text.includes("$")){
-                let bullets = faq.text.split("$");
-                faq.text = faq.text.substr(0, faq.text.indexOf("$"));
-                faq.bullets = bullets;
-            }else if (faq.text.includes("#")){
-                let texts = faq.text.split("#");
-                faq.text = texts[0];
-                faq.textAlt = texts[1];
-            }
-        });
+      faqs.forEach(faq => {
+          if (faq.text.includes("$")){
+              let bullets = faq.text.split("$");
+              faq.text = faq.text.substr(0, faq.text.indexOf("$"));
+              faq.bullets = bullets;
+          }else if (faq.text.includes("#")){
+              let texts = faq.text.split("#");
+              faq.text = texts[0];
+              faq.textAlt = texts[1];
+          }
+      });
 
-     
-        return res.render('faq-complete',{questions: faqs});
+    
+      return res.render('faq-complete',{questions: faqs});
     },
     applyNow: function(req,res){
-        res.render('apply-now');
+    
+
+    },
+    getCalculator: function(req,res){
+      res.render('calculator');
+    }
+    ,
+    processCalculator: function(req,res){
+
+      let _loanAmount = Math.floor(req.body.estimatedValue*(req.body.mortgageAmount/100));
+      let _annualPayment = Math.floor(_loanAmount/req.body.mortgageInterest);
+      let _monthPayment = Math.floor(_annualPayment/ 12);
+      let _loanCostPercent = req.body.estLoanCosts;
+      let _estOriginPercent = req.body.estOrigFree;
+      let _estimatedValue = Math.floor(req.body.estimatedValue);
+      let _mortgageAmount = req.body.mortgageAmount; 
+      let _mortgageInterest = req.body.mortgageInterest;
+      let _mortgageTenor =  req.body.mortgageTenor;
+
+      let _payments = []
+      let _cumulativePayment = 0;
+      for (let i = 0; i < _mortgageTenor; i++) {
+
+        _cumulativePayment+= _monthPayment;
+        _id = i+1;
+        _payments.push({
+          id: _id,
+          cumulativePayment: _cumulativePayment
+        })
+      }
+
+
+      var output = {
+        estimatedValue: _estimatedValue, //VALOR DE LA CASA COMO VIENE EN INPUT
+        mortgageAmount: _mortgageAmount, //PORCENTAJE DE PRESTAMO COMO VIENE
+        loanAmount: _loanAmount,
+        mortgageInterest: _mortgageInterest, // TAL COMO VIENE 
+        mortgageTenor: _mortgageTenor, // TAL COMO VIENE
+        annualInterest: _annualPayment,
+        monthInterest: _monthPayment, 
+        loanCostPercent: _loanCostPercent, // TAL COMO VIENE
+        estOrigPercent: _estOriginPercent, // TAL COMO VIENE
+        estLoanCosts: _loanAmount/_loanCostPercent, // % DEL LOAN AMOUNT
+        estOrigFree: _loanAmount/_estOriginPercent, // % DEL LOAN AMOUNT 
+        totalClosing: (_loanAmount/req.body.estLoanCosts) + (_loanAmount/req.body.estOrigFree), // estLoanCost+ estOrignFree
+        payments: _payments
+      }
+      
+      res.render('calculator', {output: output, payments: _payments})
     }
 }
