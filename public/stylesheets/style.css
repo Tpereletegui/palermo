@@ -117,7 +117,7 @@ nav #check{
   display: none;
 }
 
-i.navbar-icon{
+nav i.navbar-icon{
   display:none;
 } 
 
@@ -186,7 +186,7 @@ i.navbar-icon{
 
 /* ------ BOTON FLOTANTE ----*/
 
-.fab{
+.flab{
   position: fixed;
   bottom: 32px;
   right: 32px;
@@ -201,12 +201,12 @@ i.navbar-icon{
   justify-content: center;
 }
 
-.fab:hover{
+.flab:hover{
   cursor: pointer;
 
 }
 
-.fab img{
+.flab img{
   height: 60px;
   width: 60px;
   text-align: center;
@@ -276,7 +276,7 @@ i.navbar-icon{
   height: 160px;
 }
 
-.fab-active{
+.flab-active{
   transform: rotate(360deg);
   transition: all 0.5s;
 }
@@ -866,95 +866,146 @@ i.navbar-icon{
           transform: scale(1);
 }
 
+
+
+/* CONTENEDOR PRINCIPAL DE CADA STEP */
 .step-container{
   width: 100%;
   height: 380px;
+  font-family: var(--fuente-principal);
 }
 
-.loan-type-container{
+
+/* STEP 1 & STEP 2 */
+
+.loan-type-container, .property-type-container{
   width: 100%;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
-.property-type-container{
-  width: 100%;
-  height: 100%;
+.multiple-step-title{
+  width: 100%;  
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 }
 
-.loan-type-field{
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.loan-property-field{
-  margin:0!important;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.loan-type-field h3, .loan-property-field h3{
-  font-size: medium;
-}
-
-.loan-type-field h6 , .loan-property-field h6{
-  width: 60%;
+.multiple-step-title label{
+  height: fit-content;
+  font-weight: 600;
+  font-size: 26px;
+  padding-top: 5px;
+  margin-bottom: 5px;
   text-align: center;
-  font-size: small;
+  border-bottom: 3px solid var(--color-mostaza);
 }
 
-.loan-select{
-
+.loan-type-field, .loan-property-field{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-
-.loan-select-other{
-  align-self: center;
+  margin: 0 5px;
 }
 
 
-.loan-details-container{
-  padding: 0 30px;
-}
-
-
-/* HIDE RADIO */
-.loan-select input[type=radio] { 
+/* CUSTOM RADIO BUTTOM / FIELDS STYLES */
+.loan-type-field input[type="radio"], 
+.loan-property-field input[type="radio"]{ 
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* IMAGE STYLES */
-.loan-select input[type=radio] + img {
-  cursor: pointer;
-  width: 56px;
-  height: auto;
+.loan-type-field .loan-select, 
+.loan-property-field .loan-select{
+  padding:10px;
+  height: 130px;
+  width: 270px;
+  color: var(--color-azul);
+  border-radius: 20px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+  text-align: center;
+}
+.loan-type-field .loan-select i, 
+.loan-property-field .loan-select i{
+  font-size: 3em;
+  padding-top: 5px;
 }
 
-/* CHECKED STYLES */
-.loan-select input[type=radio]:checked + img {
-  outline: 2px solid #f00;
+.loan-type-field .loan-select h3, 
+.loan-property-field .loan-select h3{
+  font-size:medium;
+}
+
+.loan-type-field .loan-select h6, 
+.loan-property-field .loan-select h6{
+  font-size: small;
+  opacity: 0;
+  transition: .7s;
+}
+
+.loan-type-field  input[type="radio"]:checked + .loan-select,
+.loan-property-field input[type="radio"]:checked + .loan-select{
+  background-color: var(--color-azul);
+  color: var(--color-fog);
+  box-shadow: 0 15px 45px rgba(0,0,0,.5);
+}
+
+/* Other input display when active radio button */
+.loan-type-field .loan-select .other-loan-type,
+.loan-property-field .loan-select .other-property-type{
+  opacity: 0;
+}
+
+.loan-type-field input[type="radio"]:checked + label  .other-loan-type , 
+.loan-property-field input[type="radio"]:checked + label .other-property-type{
+  opacity: 1;
+  display: block;
+  cursor:text;
+}
+
+.loan-type-field-other i{
+  justify-content: flex-start;
+}
+
+input.other-loan-type,
+input.other-property-type{
+  cursor:default;
+  content:'';
+  animation: .5s;
+  color:var(--color-fog);
+}
+
+input.other-loan-type::placeholder,
+input.other-property-type::placeholder{
+  color:var(--color-fog);
+  opacity: .8 ;
+}
+
+
+input.other-loan-type:focus,
+input.other-property-type:focus
+{
+  outline-style: none;
   
 }
 
+/* Field description display when active radio button */
+
+.loan-type-field input[type="radio"]:checked + label  h6 , .loan-property-field input[type="radio"]:checked + label h6{
+  opacity: 1;
+}
+
+.loan-select-other{
+  align-self: center;
+}
 
 
 /* STEP 4 */
@@ -964,11 +1015,15 @@ i.navbar-icon{
   flex-direction: column;
   align-items: space-between;
 }
-.inputs-container-subtitle{
-  width: 100%;
-}
 
 .deal-info-container .inputs-container{
+  margin: 15px 0;
+  display: flex;
+}
+
+.deal-info-container .inputs-container .inputs-fields-container{
+  height: 100%;
+  width: 75%;
   display: flex;
   flex-wrap: wrap;
   height: 50%;
@@ -976,22 +1031,24 @@ i.navbar-icon{
   align-items: center;
 }
 
-.deal-info-container .inputs-container .field{
-  height: 50%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
+
+.deal-info-container .inputs-container .inputs-container-subtitle{
+  margin: auto 0;
+  width: 25%;
+  height: 100%;
+  font-size: 14px;
+  text-align: center;
 }
 
-.deal-info-container .inputs-container .field label{
-  width: 24%;
+.deal-info-container .inputs-container .field{
+  width: 40%;
 }
+
+
 
 .deal-info-container .range-container{
   display: flex;
   flex-direction: column;
-  padding-left: 50px;
-  padding-right: 50px;
   padding-bottom: 30px;
 }
 
@@ -1006,6 +1063,25 @@ i.navbar-icon{
 }
 
 /* STEP 5 */
+.broker-work-cont label{
+  opacity: .5;
+  animation: .5s;
+}
+
+.broker-work-cont input[type="radio"]{
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+.broker-work-cont input[type="radio"]:checked + label{
+  color:var(--color-azul);
+  font-weight: bold;
+  opacity: 1;
+}
+
 .broker-contact-info, .borrower-contact-info{
   width: 100%;
   display: flex;
@@ -1019,23 +1095,6 @@ i.navbar-icon{
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.broker-contact-info .field input, .borrower-contact-info .field input{
-  margin: 10px 0;
-  border: none;
-  border-bottom: 2px solid var(--color-mostaza);
-  padding-left: 15px;
-  width: 70%;;
-}
-
-.broker-contact-info .field input:focus, .borrower-contact-info .field input:focus{
-  outline-style: none;
-}
-
-.broker-contact-info .field input::placeholder, .borrower-contact-info .field input::placeholder{
-  font-size: small;
-  opacity: 0.7;
 }
 
 
@@ -1061,6 +1120,46 @@ i.navbar-icon{
 
 .howyouhear-container-secondl{
   padding: 0 20%;
+}
+
+.howyouhear-container label{
+  font-size: xx-large;
+  text-align: center;
+}
+.howyouhear-container label h3{
+  font-size: medium;
+}
+
+.howyouhear-container input[type="radio"]{
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.howyouhear-container input[type="radio"]:checked + label{
+  color:var(--color-mostaza);
+}
+
+
+
+/* MULTIPLE STEPS INPUT */
+.multiple-step-input-design{
+  margin: 5px 0;
+  border: none;
+  border-bottom: 2px solid var(--color-mostaza);
+  width: 70%;
+  background: none;
+  font-size: small;
+}
+
+.multiple-step-input-design:focus{
+  outline-style: none;
+}
+
+.multiple-step-input-design::placeholder{
+  font-size: small;
+  opacity: 0.7;
 }
 
 /* CONTACT */
@@ -1265,17 +1364,17 @@ i.navbar-icon{
   font-family: var(--fuente-principal);
 }
 
-.item-container .slider-title{
+.slider-title{
   opacity: 1;
   font-size: small;
 }
 
-.item-container .value{
+.value{
   font-size: large;
   margin: 10px 0;
 }
 
-.item-container hr{
+hr{
   margin-top: 3px;
   margin-bottom: 10px;
 }
@@ -1674,7 +1773,7 @@ i.navbar-icon{
     left: 0;
   }
 
-  i.navbar-icon{
+  nav i.navbar-icon{
     display: inline-block;
     font-weight: bold;
     color: white;

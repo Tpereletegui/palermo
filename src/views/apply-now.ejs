@@ -53,50 +53,51 @@
                       <div class="step-container">
 
                         <div class="loan-type-container"> <!-- PRIMER PANTALLA -->
+                          <div class="multiple-step-title"><label>Loan type</label></div>
 
                           <div class="loan-type-field">
-                            <label class="loan-select">
-                              <input type="radio" name="loan-type">
-                              <img src="/images/apply-now/loan-type/bridge.png" alt="">
+                            <input type="radio" name="loan-type" id="bridge-loan">
+                            <label class="loan-select" for="bridge-loan">
+                              <i class="fas fa-search-dollar"></i>
+                              <h3>Bridge Loan</h3>
+                              <h6>Short-term financing to bridge to longer-term financing</h6>
                             </label>
-                            <h3>Bridge Loan</h3>
-                            <h6>(i) Short-term financing to bridge to longer-term financing</h6>
                           </div>
 
                           <div class="loan-type-field">
-                            <label class="loan-select">
-                              <input type="radio" name="loan-type">
-                              <img src="/images/apply-now/loan-type/rehab.png" alt="">
+                            <input type="radio" name="loan-type" id="rehab-loan">
+                            <label class="loan-select" for="rehab-loan">
+                              <i class="fas fa-sign"></i>
+                              <h3>Rehab / Fix & Flip</h3>
+                              <h6>Financing for the purchase & rehab of property that is to be re-sold</h6>
                             </label>
-                            <h3>Rehab / Fix & Flip</h3>
-                            <h6>(i) Financing for the purchase & rehab of property that is to be re-sold</h6>
                           </div>
 
                           <div class="loan-type-field">
-                            <label class="loan-select">
-                              <input type="radio" name="loan-type">
-                              <img src="/images/apply-now/loan-type/cash.png" alt="">
+                            <input type="radio" name="loan-type" id="cash-loan">
+                            <label class="loan-select" for="cash-loan">
+                              <i class="fas fa-percent"></i>
+                              <h3>Cash Out / Refinance</h3>
+                              <h6>Financing to cash out on an encumbered / unencumbered property</h6>
                             </label>
-                            <h3>Cash Out / Refinance</h3>
-                            <h6>(i) Financing to cash out on an encumbered / unencumbered property</h6>
                           </div>
                           
                           <div class="loan-type-field">
-                            <label class="loan-select">
-                              <input type="radio" name="loan-type">
-                              <img src="/images/apply-now/loan-type/rental.png" alt="">
+                            <input type="radio" name="loan-type" id="rental-loan">
+                            <label class="loan-select" for="rental-loan">
+                              <i class="fas fa-key"></i>
+                              <h3>Rental Loan</h3>
+                              <h6>Financing for the purchase of property that is to be rented out</h6>
                             </label>
-                            <h3>Rental Loan</h3>
-                            <h6>(i) Financing for the purchase of property that is to be rented out</h6>
                           </div>
                           
                           <div class="loan-type-field">
-                            <label class="loan-select loan-type-field-other">
-                              <input type="radio" name="loan-type">
-                              <img src="/images/apply-now/other.png" alt="">
+                            <input type="radio" name="loan-type" id="other-type-loan">
+                            <label class="loan-select loan-type-field-other" for="other-type-loan">
+                              <i class="fas fa-bullseye"></i>
+                              <h3>Other</h3>
+                              <input type="text" class=" multiple-step-input-design other-loan-type" placeholder="Other Loan type..">
                             </label>
-                            <h3>Other</h3>
-                            <input type="text">
                           </div>            
                         </div>
                       </div>
@@ -112,46 +113,44 @@
                       <div class="step-container">
 
                         <div class="property-type-container"> <!-- SEGUNDA PANTALLA -->
+                          <div class="multiple-step-title"><label>Property type</label></div>
 
                           <div class="loan-property-field">
-                            <label class="loan-select">
-                              <input type="radio" name="loan-type">
-                              <img  src="/images/apply-now/property-type/residential.png" alt="">
+                            <input type="radio" name="property-type" id="property-residential">
+                            <label class="loan-select" for="property-residential">
+                              <i class="fas fa-home"></i>
+                              <h3>Residential</h3>
+                              <h6>(i) Single Family, Condo, Co-Op, Townhouse, Duplex, Triplex, Fourplex</h6>
                             </label>
-                            <h3>Residential</h3>
-                            <h6>(i) Single Family, Condo, Co-Op, Townhouse, Duplex, Triplex, Fourplex</h6>
                           </div>
 
                           <div class="loan-property-field">
-                            <label class="loan-select">
-                              <input type="radio" name="loan-type">
-                              <img  src="/images/apply-now/property-type/multifamily.png" height="90px" alt="">
+                            <input type="radio" name="property-type" id="property-multifamily">
+                            <label class="loan-select" for="property-multifamily">
+                              <i class="fas fa-building"></i>
+                              <h3>Multifamily</h3>
+                              <h6>(i) ≥ 5 Units</h6>
                             </label>
-                            <h3>Multifamily</h3>
-                            <h6>(i) ≥ 5 Units</h6>
                           </div>
 
                           <div class="loan-property-field">
-                            <label class="loan-select">
-                              <input type="radio" name="loan-type">
-                              <img  src="/images/apply-now/property-type/commercial.png" alt="">
+                            <input type="radio" name="property-type" id="property-commercial">
+                            <label class="loan-select" for="property-commercial">
+                              <i class="fas fa-city"></i>
+                              <h3>Commercial</h3>
+                              <h6>(i) Office, Retail, Warehouse, Mixed Use, Land</h6>
                             </label>
-                            <h3>Commercial</h3>
-                            <h6>(i) Office, Retail, Warehouse, Mixed Use, Land</h6>
                           </div>
                           
                           
                           <div class="loan-property-field">
-                            <label class="loan-select">
-                              <input type="radio" name="loan-type">
-                              <img  src="/images/apply-now/other.png" alt="">
+                            <input type="radio" name="property-type" id="property-other">
+                            <label class="loan-select" for="property-other">
+                              <i class="fas fa-bullseye"></i>
+                              <h3>Other</h3>
+                              <input type="text"  class="multiple-step-input-design other-property-type" placeholder="Other Loan type..">
                             </label>
-                            <h3>Other</h3>
-                            <input type="text">
                           </div>
-                          
-
-                          
 
                         </div>
                       </div>
@@ -167,23 +166,27 @@
                       <div class="step-container">
 
                         <div class="loan-details-container"> <!-- TERCER PANTALLA -->
+                          <div class="multiple-step-title"><label>Loan details</label></div>
 
                           <div class="field">
                             <label class="slider-title">Loan</label>
-                            <p class="value">$<span id="value-an-1"></span></p>
+                            <p class="value"  style="font-size: 14px; margin:0;">$<span id="value-an-1"></span></p>
                             <input name="anEstimatedValue" type="range" id="range-an-1" min="1" max="10000000" value="1000000>" class="slider">
+                            <hr>
                           </div>
 
                           <div class="field">
                             <label class="slider-title">Loan Tenor</label>
-                            <p class="value"><span id="value-an-2"></span> Months</p>
+                            <p class="value" style="font-size: 14px; margin:0;"><span  id="value-an-2"></span> Months</p>
                             <input name="anMortgageTenor" type="range" id="range-an-2" min="1" max="36" value="36" class="slider">
+                            <hr>
                           </div>
 
                           <div class="field">
                             <label for="" class="slider-title">Interest Rate (%)</label>
-                            <p class="value"><span id="value-an-3"></span>%</p>
+                            <p class="value" style="font-size: 14px; margin:0;"><span  id="value-an-3"></span>%</p>
                             <input name="anMortgageInterest" type="range" id="range-an-3" step="0.01" min="7.99" max="13.99" value="8.50" class="slider">
+                            
                           </div>
                         </div>
                       </div>
@@ -199,42 +202,43 @@
                       <div class="step-container">
 
                         <div class="deal-info-container"> <!-- CUARTA PANTALLA -->
+                          <div class="multiple-step-title"><label>Property / Deal Information</label></div>
                           <div class="inputs-container">
                             <label class="inputs-container-subtitle">Subject Property Address:</label>
-                            <div class="field">
-                              <label>Adress</label>
-                              <input type="text" placeholder="Adress">
-                            </div>
-                            <div class="field">
-                              <label>City</label>
-                              <input type="text" placeholder="Adress">
-                            </div>
-                            <div class="field">
-                              <label>State</label>
-                              <input type="text" placeholder="Adress">
-                            </div>
-                            <div class="field">
-                              <label>Zip Code</label>
-                              <input type="text" placeholder="Adress">
+                            <div class="inputs-fields-container">
+                              <div class="field">
+                                <input type="text" class="multiple-step-input-design" placeholder="Adress">
+                              </div>
+                              <div class="field">
+                                <input type="text" class="multiple-step-input-design" placeholder="City">
+                              </div>
+                              <div class="field">
+                                <input type="text" class="multiple-step-input-design" placeholder="State">
+                              </div>
+                              <div class="field">
+                                <input type="text" class="multiple-step-input-design" placeholder="ZIP Code">
+                              </div>
                             </div>
                           </div>
 
                           <div class="range-container">
                             <div class="field">
-                              <label class="slider-title">Purchase Price / Estimated As-Is Value</label>
-                              <p class="value">$<span id="value-di-1"></span></p>
+                              <label style="margin:0;" class="slider-title">Purchase Price / Estimated As-Is Value</label>
+                              <p class="value"   style="margin: 0!important; font-size: 14px;">$<span id="value-di-1"></span></p>
                               <input name="anEstimatedValue" type="range" id="range-di-1" min="1" max="10000000" value="1000000>" class="slider">
+                              <hr>
                             </div>
     
                             <div class="field">
-                              <label class="slider-title">After Repair Value (if Rehab Loan)</label>
-                              <p class="value"><span id="value-di-2"></span> Months</p>
+                              <label style="margin:0;" class="slider-title">After Repair Value (if Rehab Loan)</label>
+                              <p class="value"   style="margin: 0!important; font-size: 14px;"><span id="value-di-2"></span> Months</p>
                               <input name="anMortgageTenor" type="range" id="range-di-2" min="1" max="36" value="36" class="slider">
+                              <hr>
                             </div>
     
                             <div class="field">
-                              <label for="" class="slider-title">Target Closing Timing:</label>
-                              <p class="value"><span id="value-di-3"></span>%</p>
+                              <label style="margin:0;" for="" class="slider-title">Target Closing Timing:</label>
+                              <p class="value"   style="margin: 0!important; font-size: 14px;"><span id="value-di-3"></span>%</p>
                               <input name="anMortgageInterest" type="range" id="range-di-3" step="0.01" min="7.99" max="13.99" value="8.50" class="slider">
                             </div>
                           </div>
@@ -251,25 +255,30 @@
                     <div class="multisteps-form__content">
                       <div class="step-container">
 
-                        <div class="field"> <!-- QUINTA PANTALLA -->
+                        <div style="margin-bottom: 10px;" class="multiple-step-title"><label>Property / Deal Information</label></div>
+                        <div class="field" style="display: flex;"> <!-- QUINTA PANTALLA -->
                           <label>Are you a Broker Working on Behalf of a Client?</label>
-                          <label>Yes</label><input type="radio" name="brokerwork" id="">
-                          <label>No</label><input type="radio" name="brokerwork" id="">
+                          <div style="width: fit-content; margin-left: 20px;" class="broker-work-cont">
+                            <input type="radio" name="brokerwork" id="yesbrokerwork" checked>
+                            <label for="yesbrokerwork">Yes</label>
+                            <input type="radio" name="brokerwork" id="nobrokerwork">
+                            <label for="nobrokerwork">No</label>
+                          </div>
                         </div>
 
 
                         <div class="broker-contact-info">
                           <div class="field">
-                            <input type="text" placeholder="First Name">
+                            <input type="text" class="multiple-step-input-design" placeholder="First Name">
                           </div>
                           <div class="field">
-                            <input type="text"  placeholder="First Name">
+                            <input type="text"  class="multiple-step-input-design" placeholder="First Name">
                           </div>
                           <div class="field">
-                            <input type="email"  placeholder="Email">
+                            <input type="email" class="multiple-step-input-design"  placeholder="Email">
                           </div>
                           <div class="field">
-                            <input type="number" placeholder="Phone">
+                            <input type="number" class="multiple-step-input-design" placeholder="Phone">
                           </div>
                         </div>
 
@@ -277,29 +286,29 @@
                         
                         <div class="borrower-contact-info">
                           <div class="field">
-                            <input type="text" placeholder="First Name">
+                            <input type="text" class="multiple-step-input-design" placeholder="First Name">
                             
                           </div>
                           <div class="field">
-                            <input type="text" placeholder="Last Name">
+                            <input type="text" class="multiple-step-input-design" placeholder="Last Name">
                           </div>
                           <div class="field">
-                            <input type="email" placeholder="Borrower Email">
+                            <input type="email" class="multiple-step-input-design" placeholder="Borrower Email">
                           </div>
                           <div class="field">
-                            <input type="number" placeholder="Cell Phone">
+                            <input type="number"class="multiple-step-input-design"  placeholder="Cell Phone">
                           </div>
                           <div class="field">
-                            <input type="text" placeholder="Adress">
+                            <input type="text" class="multiple-step-input-design" placeholder="Adress">
                           </div>
                           <div class="field">
-                            <input type="text" placeholder="City">
+                            <input type="text" class="multiple-step-input-design" placeholder="City">
                           </div>
                           <div class="field">
-                            <input type="text" placeholder="State">
+                            <input type="text" class="multiple-step-input-design" placeholder="State">
                           </div>
                           <div class="field">
-                            <input type="text" placeholder="Zip Code">
+                            <input type="text" class="multiple-step-input-design" placeholder="Zip Code">
                           </div>
                           
                         </div>
@@ -337,32 +346,65 @@
 
                           <div class="howyouhear-container-firstl">
                             <div class="field">
-                              <label for="">Facebook Add</label><input type="radio" name="estimated-fico" id="">
+                              <input type="radio" name="howyouhear" id="facebook-ad">
+                              <label for="facebook-ad">
+                                <i class="fab fa-facebook-square"></i>
+                                <h3>Facebook Ad</h3>
+                              </label>
                             </div>
                             <div class="field">
-                              <label for="">Google</label><input type="radio" name="estimated-fico" id="">
+                              <input type="radio" name="howyouhear" id="google-ad">
+                              <label for="google-ad">
+                                <i class="fab fa-google"></i>
+                                <h3>Google</h3>
+                              </label>
                             </div>
                             <div class="field">
-                              <label for="">Email Campaign</label><input type="radio" name="estimated-fico" id="">
+                              <input type="radio" name="howyouhear" id="email-ad">
+                              <label for="email-ad">
+                                <i class="far fa-envelope"></i>
+                                <h3>Email Campaign</h3>
+                              </label>
                             </div> 
                           </div>
                           <div class="howyouhear-container-secondl">
                             <div class="field">
-                              <label for="">Linkedin</label><input type="radio" name="estimated-fico" id="">
+                              <input type="radio" name="howyouhear" id="linkedin-ad">
+                              <label for="linkedin-ad">
+                                <i class="fab fa-linkedin"></i>
+                                <h3>Linkedin</h3>
+                              </label>
                             </div>
                             <div class="field">
-                              <label for="">Other Social Media</label><input type="radio" name="estimated-fico" id="">
+                              <input type="radio" name="howyouhear" id="social-ad">
+                              <label for="social-ad">
+                                <i class="fas fa-user-friends"></i>
+                                <h3>Other Social Media</h3>
+                                
+                              </label>
                             </div>
                           </div>
                           <div class="howyouhear-container-thirdl">
                             <div class="field">
-                              <label for="">Personal Referral</label><input type="radio" name="estimated-fico" id="">
+                              <input type="radio" name="howyouhear" id="personal-ad">
+                              <label for="personal-ad">
+                                <i class="far fa-comments"></i>
+                                <h3>Personal Referral</h3>
+                              </label>
                             </div>
                             <div class="field">
-                              <label for="">Broker / Agent</label><input type="radio" name="estimated-fico" id="">
+                              <input type="radio" name="howyouhear" id="broker-ad">
+                              <label for="broker-ad">
+                                <i class="fas fa-user-tie"></i>
+                                <h3>Broker / Agent</h3>
+                              </label>
                             </div>
                             <div class="field">
-                              <label for="">Other</label><input type="radio" name="estimated-fico" id="">
+                              <input type="radio" name="howyouhear" id="other-ad">
+                              <label for="other-ad" style="display: flex; flex-direction: column; align-items: center;">
+                                <i class="fas fa-bullseye"></i>
+                                <input type="text"  class="multiple-step-input-design" placeholder="Other Loan type..">
+                              </label>
                             </div>
                           </div>
                         </div>
