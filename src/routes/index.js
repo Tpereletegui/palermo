@@ -10,6 +10,7 @@ router.get('/calculator', indexController.getCalculator)
 router.post('/calculator', indexController.processCalculator)
 router.get('/faq', indexController.loadAllFaqs);
 router.get('/apply-now', indexController.applyNow);
+router.post('/apply-now', indexController.processApplyNow);
 router.post('/message', messageValidator.message , indexController.message);
 
 module.exports = router;

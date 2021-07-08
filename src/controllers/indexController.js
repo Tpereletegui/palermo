@@ -74,6 +74,12 @@ module.exports = {
     applyNow: function(req,res){
     
 
+      res.render('apply-now');
+    },
+    processApplyNow: function(req,res){
+    
+      
+
     },
     getCalculator: function(req,res){
       res.render('calculator');

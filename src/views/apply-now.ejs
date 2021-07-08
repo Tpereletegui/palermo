@@ -5,107 +5,460 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <%- include('./partials/head') -%>
 </head>
-<body>
+<body>  
 
-    <section class="apply-now-container">
-        <div class="container">
-          <form>
-      
-            <div class="step step-1 active">
-              <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="first-name">
+  <%- include('./partials/navbar') -%>
+  <%- include('./partials/float-button') -%>
+
+  
+
+  <section class="section-apply-now">
+
+
+    <div class="applynow-title-container">
+      <div class="section-title">
+          <label class="applynow-title">
+              Apply Now 
+          </label>
+      </div>
+    </div>
+
+
+    <div class="content" style="padding-top: 10vh;">
+      <div class="content__inner">
+        <div class="container overflow-hidden">
+          <div class="multisteps-form">
+            <div class="row">
+              <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+                <div class="multisteps-form__progress">
+                  <button class="multisteps-form__progress-btn js-active" type="button" title="User Info">Loan Type</button>
+                  <button class="multisteps-form__progress-btn" type="button" title="Address">Property Type</button>
+                  <button class="multisteps-form__progress-btn" type="button" title="Order Info">Loan Details</button>
+                  <button class="multisteps-form__progress-btn" type="button" title="Message">Property / Deal Information</button>
+                  <button class="multisteps-form__progress-btn" type="button" title="Order Info">Borrower Details</button>
+                  <button class="multisteps-form__progress-btn" type="button" title="Message">How Did You Hear About Us?</button>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="last-name">
-              </div>
-              <div class="form-group">
-                <label for="nickName">Nick Name</label>
-                <input type="text" id="nickName" name="nick-name">
-              </div>
-              <button type="button" class="next-btn">Next</button>
             </div>
-      
-            <div class="step step-2">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email">
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="number" id="phone" name="phone-number">
-              </div>
-              <button type="button" class="previous-btn">Prev</button>
-              <button type="button" class="next-btn">Next</button>
-            </div>
-      
-            <div class="step step-3">
-              <div class="form-group">
-                <label for="country">country</label>
-                <input type="text" id="country" name="country">
-              </div>
-              <div class="form-group">
-                <label for="city">City</label>
-                <input type="text" id="city" name="city">
-              </div>
-              <div class="form-group">
-                <label for="postCode">Post Code</label>
-                <input type="text" id="postCode" name="post-code">
-              </div>
-              <button type="button" class="previous-btn">Prev</button>
-              <button type="submit" class="submit-btn">Submit</button>
-            </div>
-      
-          </form>
-        </div>
-      </section>
+            <div class="row">
+              <div class="col-12 col-lg-8 m-auto">
+                <form class="multisteps-form__form">
+                  <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
+                    <div class="multisteps-form__content">
+                      
+                      <div class="step-container">
+
+                        <div class="loan-type-container"> <!-- PRIMER PANTALLA -->
+
+                          <div class="loan-type-field">
+                            <label class="loan-select">
+                              <input type="radio" name="loan-type">
+                              <img src="/images/apply-now/loan-type/bridge.png" alt="">
+                            </label>
+                            <h3>Bridge Loan</h3>
+                            <h6>(i) Short-term financing to bridge to longer-term financing</h6>
+                          </div>
+
+                          <div class="loan-type-field">
+                            <label class="loan-select">
+                              <input type="radio" name="loan-type">
+                              <img src="/images/apply-now/loan-type/rehab.png" alt="">
+                            </label>
+                            <h3>Rehab / Fix & Flip</h3>
+                            <h6>(i) Financing for the purchase & rehab of property that is to be re-sold</h6>
+                          </div>
+
+                          <div class="loan-type-field">
+                            <label class="loan-select">
+                              <input type="radio" name="loan-type">
+                              <img src="/images/apply-now/loan-type/cash.png" alt="">
+                            </label>
+                            <h3>Cash Out / Refinance</h3>
+                            <h6>(i) Financing to cash out on an encumbered / unencumbered property</h6>
+                          </div>
+                          
+                          <div class="loan-type-field">
+                            <label class="loan-select">
+                              <input type="radio" name="loan-type">
+                              <img src="/images/apply-now/loan-type/rental.png" alt="">
+                            </label>
+                            <h3>Rental Loan</h3>
+                            <h6>(i) Financing for the purchase of property that is to be rented out</h6>
+                          </div>
+                          
+                          <div class="loan-type-field">
+                            <label class="loan-select loan-type-field-other">
+                              <input type="radio" name="loan-type">
+                              <img src="/images/apply-now/other.png" alt="">
+                            </label>
+                            <h3>Other</h3>
+                            <input type="text">
+                          </div>            
+                        </div>
+                      </div>
+                      
+                      <div class="button-row d-flex mt-4">
+                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                      </div>
+                    </div>
+                  </div>
     
+                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                    <div class="multisteps-form__content">
+                      <div class="step-container">
 
-      <script>
-            const steps = Array.from(document.querySelectorAll("form .step"));
-            const nextBtn = document.querySelectorAll("form .next-btn");
-            const prevBtn = document.querySelectorAll("form .previous-btn");
-            const form = document.querySelector("form");
+                        <div class="property-type-container"> <!-- SEGUNDA PANTALLA -->
 
-            nextBtn.forEach((button) => {
-            button.addEventListener("click", () => {
-                changeStep("next");
-            });
-            });
-            prevBtn.forEach((button) => {
-            button.addEventListener("click", () => {
-                changeStep("prev");
-            });
-            });
+                          <div class="loan-property-field">
+                            <label class="loan-select">
+                              <input type="radio" name="loan-type">
+                              <img  src="/images/apply-now/property-type/residential.png" alt="">
+                            </label>
+                            <h3>Residential</h3>
+                            <h6>(i) Single Family, Condo, Co-Op, Townhouse, Duplex, Triplex, Fourplex</h6>
+                          </div>
 
-            form.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const inputs = [];
-            form.querySelectorAll("input").forEach((input) => {
-                const { name, value } = input;
-                inputs.push({ name, value });
-            });
-            console.log(inputs);
-            form.reset();
-            });
+                          <div class="loan-property-field">
+                            <label class="loan-select">
+                              <input type="radio" name="loan-type">
+                              <img  src="/images/apply-now/property-type/multifamily.png" height="90px" alt="">
+                            </label>
+                            <h3>Multifamily</h3>
+                            <h6>(i) ≥ 5 Units</h6>
+                          </div>
 
-            function changeStep(btn) {
-            let index = 0;
-            const active = document.querySelector(".active");
-            index = steps.indexOf(active);
-            steps[index].classList.remove("active");
-            if (btn === "next") {
-                index++;
-            } else if (btn === "prev") {
-                index--;
-            }
-            steps[index].classList.add("active");
-            }
+                          <div class="loan-property-field">
+                            <label class="loan-select">
+                              <input type="radio" name="loan-type">
+                              <img  src="/images/apply-now/property-type/commercial.png" alt="">
+                            </label>
+                            <h3>Commercial</h3>
+                            <h6>(i) Office, Retail, Warehouse, Mixed Use, Land</h6>
+                          </div>
+                          
+                          
+                          <div class="loan-property-field">
+                            <label class="loan-select">
+                              <input type="radio" name="loan-type">
+                              <img  src="/images/apply-now/other.png" alt="">
+                            </label>
+                            <h3>Other</h3>
+                            <input type="text">
+                          </div>
+                          
 
-      </script>
+                          
+
+                        </div>
+                      </div>
+                      <div class="button-row d-flex mt-4">
+                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                    <div class="multisteps-form__content">
+                      <div class="step-container">
+
+                        <div class="loan-details-container"> <!-- TERCER PANTALLA -->
+
+                          <div class="field">
+                            <label class="slider-title">Loan</label>
+                            <p class="value">$<span id="value-an-1"></span></p>
+                            <input name="anEstimatedValue" type="range" id="range-an-1" min="1" max="10000000" value="1000000>" class="slider">
+                          </div>
+
+                          <div class="field">
+                            <label class="slider-title">Loan Tenor</label>
+                            <p class="value"><span id="value-an-2"></span> Months</p>
+                            <input name="anMortgageTenor" type="range" id="range-an-2" min="1" max="36" value="36" class="slider">
+                          </div>
+
+                          <div class="field">
+                            <label for="" class="slider-title">Interest Rate (%)</label>
+                            <p class="value"><span id="value-an-3"></span>%</p>
+                            <input name="anMortgageInterest" type="range" id="range-an-3" step="0.01" min="7.99" max="13.99" value="8.50" class="slider">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="button-row d-flex mt-4">
+                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                    <div class="multisteps-form__content">
+                      <div class="step-container">
+
+                        <div class="deal-info-container"> <!-- CUARTA PANTALLA -->
+                          <div class="inputs-container">
+                            <label class="inputs-container-subtitle">Subject Property Address:</label>
+                            <div class="field">
+                              <label>Adress</label>
+                              <input type="text" placeholder="Adress">
+                            </div>
+                            <div class="field">
+                              <label>City</label>
+                              <input type="text" placeholder="Adress">
+                            </div>
+                            <div class="field">
+                              <label>State</label>
+                              <input type="text" placeholder="Adress">
+                            </div>
+                            <div class="field">
+                              <label>Zip Code</label>
+                              <input type="text" placeholder="Adress">
+                            </div>
+                          </div>
+
+                          <div class="range-container">
+                            <div class="field">
+                              <label class="slider-title">Purchase Price / Estimated As-Is Value</label>
+                              <p class="value">$<span id="value-di-1"></span></p>
+                              <input name="anEstimatedValue" type="range" id="range-di-1" min="1" max="10000000" value="1000000>" class="slider">
+                            </div>
+    
+                            <div class="field">
+                              <label class="slider-title">After Repair Value (if Rehab Loan)</label>
+                              <p class="value"><span id="value-di-2"></span> Months</p>
+                              <input name="anMortgageTenor" type="range" id="range-di-2" min="1" max="36" value="36" class="slider">
+                            </div>
+    
+                            <div class="field">
+                              <label for="" class="slider-title">Target Closing Timing:</label>
+                              <p class="value"><span id="value-di-3"></span>%</p>
+                              <input name="anMortgageInterest" type="range" id="range-di-3" step="0.01" min="7.99" max="13.99" value="8.50" class="slider">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="button-row d-flex mt-4">
+                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                    <div class="multisteps-form__content">
+                      <div class="step-container">
+
+                        <div class="field"> <!-- QUINTA PANTALLA -->
+                          <label>Are you a Broker Working on Behalf of a Client?</label>
+                          <label>Yes</label><input type="radio" name="brokerwork" id="">
+                          <label>No</label><input type="radio" name="brokerwork" id="">
+                        </div>
 
 
+                        <div class="broker-contact-info">
+                          <div class="field">
+                            <input type="text" placeholder="First Name">
+                          </div>
+                          <div class="field">
+                            <input type="text"  placeholder="First Name">
+                          </div>
+                          <div class="field">
+                            <input type="email"  placeholder="Email">
+                          </div>
+                          <div class="field">
+                            <input type="number" placeholder="Phone">
+                          </div>
+                        </div>
+
+                        <label>Principal Borrower Contact Info</label>
+                        
+                        <div class="borrower-contact-info">
+                          <div class="field">
+                            <input type="text" placeholder="First Name">
+                            
+                          </div>
+                          <div class="field">
+                            <input type="text" placeholder="Last Name">
+                          </div>
+                          <div class="field">
+                            <input type="email" placeholder="Borrower Email">
+                          </div>
+                          <div class="field">
+                            <input type="number" placeholder="Cell Phone">
+                          </div>
+                          <div class="field">
+                            <input type="text" placeholder="Adress">
+                          </div>
+                          <div class="field">
+                            <input type="text" placeholder="City">
+                          </div>
+                          <div class="field">
+                            <input type="text" placeholder="State">
+                          </div>
+                          <div class="field">
+                            <input type="text" placeholder="Zip Code">
+                          </div>
+                          
+                        </div>
+
+                        <label for="">Principal Borrower Estimated FICO Score</label>
+                        <div class="estimated-fico">
+                          <div class="field">
+                            <label for="">Below 600</label><input type="radio" name="estimated-fico" id="">
+                          </div>
+                          <div class="field">
+                            <label for="">600-700</label><input type="radio" name="estimated-fico" id="">
+                          </div>
+                          <div class="field">
+                            <label for="">Over 700</label><input type="radio" name="estimated-fico" id="">
+                          </div>
+                          <div class="field">
+                            <label for="">N/A</label><input type="radio" name="estimated-fico" id="">
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="button-row d-flex mt-4">
+                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                    <div class="multisteps-form__content">
+                      <div class="step-container">
+
+                        <div class="howyouhear-container"> <!-- SEXTA PANTALLA -->
+                          
+
+                          <div class="howyouhear-container-firstl">
+                            <div class="field">
+                              <label for="">Facebook Add</label><input type="radio" name="estimated-fico" id="">
+                            </div>
+                            <div class="field">
+                              <label for="">Google</label><input type="radio" name="estimated-fico" id="">
+                            </div>
+                            <div class="field">
+                              <label for="">Email Campaign</label><input type="radio" name="estimated-fico" id="">
+                            </div> 
+                          </div>
+                          <div class="howyouhear-container-secondl">
+                            <div class="field">
+                              <label for="">Linkedin</label><input type="radio" name="estimated-fico" id="">
+                            </div>
+                            <div class="field">
+                              <label for="">Other Social Media</label><input type="radio" name="estimated-fico" id="">
+                            </div>
+                          </div>
+                          <div class="howyouhear-container-thirdl">
+                            <div class="field">
+                              <label for="">Personal Referral</label><input type="radio" name="estimated-fico" id="">
+                            </div>
+                            <div class="field">
+                              <label for="">Broker / Agent</label><input type="radio" name="estimated-fico" id="">
+                            </div>
+                            <div class="field">
+                              <label for="">Other</label><input type="radio" name="estimated-fico" id="">
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="button-row d-flex mt-4">
+                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
+                        <button class="btn btn-success ml-auto" type="button" title="Send">Send</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('./sections/footer') -%>
+
+  <script  src="/js/function.js"></script>
+  <script>
+
+    /************** RANGE STYLES  **************/
+
+
+    /*LOAN DETAILS - STEP 3*/
+
+
+    /* Estimated Property Value */
+    var slider1 = document.getElementById("range-an-1");
+    var output1 = document.getElementById("value-an-1");
+
+    output1.innerHTML = slider1.value;
+
+    slider1.oninput = function(){
+        output1.innerHTML = this.value;
+    }
+
+    /* Loan tenor */
+    var slider2 = document.getElementById("range-an-2");
+    var output2 = document.getElementById("value-an-2");
+
+    output2.innerHTML = slider2.value;
+
+    slider2.oninput = function(){
+        output2.innerHTML = this.value;
+    }
+
+    /* Estimated Property Value */
+    var slider3 = document.getElementById("range-an-3");
+    var output3 = document.getElementById("value-an-3");
+
+    output3.innerHTML = slider3.value;
+
+    slider3.oninput = function(){
+        output3.innerHTML = this.value;
+    }
+
+
+
+    /* PROPERTY / DEAL INFORMATION - STEP 4 */
+
+    /* Purchase Price / Estimated As-Is Value */
+    var sliderDealInformation1 = document.getElementById("range-di-1");
+    var outputDealInformation1 = document.getElementById("value-di-1");
+
+    outputDealInformation1.innerHTML = sliderDealInformation1.value;
+
+    sliderDealInformation1.oninput = function(){
+        outputDealInformation1.innerHTML = this.value;
+    }
+
+    /* After Repair Value (if Rehab Loan) */
+    var sliderDealInformation2 = document.getElementById("range-di-2");
+    var outputDealInformation2 = document.getElementById("value-di-2");
+
+    outputDealInformation2.innerHTML = sliderDealInformation2.value;
+
+    sliderDealInformation2.oninput = function(){
+        outputDealInformation2.innerHTML = this.value;
+    }
+
+    /* Target Closing Timing: */
+    var sliderDealInformation3 = document.getElementById("range-di-3");
+    var outputDealInformation3 = document.getElementById("value-di-3");
+
+    outputDealInformation3.innerHTML = sliderDealInformation3.value;
+
+    sliderDealInformation3.oninput = function(){
+        outputDealInformation3.innerHTML = this.value;
+    }
+
+
+  </script>
 </body>
 </html>
