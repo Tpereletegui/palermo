@@ -47,7 +47,7 @@
             <div class="row">
               <div class="col-12 col-lg-8 m-auto">
                 <form class="multisteps-form__form">
-                  <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
+                  <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="slideHorz">
                     <div class="multisteps-form__content">
                       
                       <div class="step-container">
@@ -255,80 +255,89 @@
                     <div class="multisteps-form__content">
                       <div class="step-container">
 
-                        <div style="margin-bottom: 10px;" class="multiple-step-title"><label>Property / Deal Information</label></div>
-                        <div class="field" style="display: flex;"> <!-- QUINTA PANTALLA -->
-                          <label>Are you a Broker Working on Behalf of a Client?</label>
-                          <div style="width: fit-content; margin-left: 20px;" class="broker-work-cont">
-                            <input type="radio" name="brokerwork" id="yesbrokerwork" checked>
-                            <label for="yesbrokerwork">Yes</label>
-                            <input type="radio" name="brokerwork" id="nobrokerwork">
-                            <label for="nobrokerwork">No</label>
-                          </div>
-                        </div>
-
-
-                        <div class="broker-contact-info">
-                          <div class="field">
-                            <input type="text" class="multiple-step-input-design" placeholder="First Name">
-                          </div>
-                          <div class="field">
-                            <input type="text"  class="multiple-step-input-design" placeholder="First Name">
-                          </div>
-                          <div class="field">
-                            <input type="email" class="multiple-step-input-design"  placeholder="Email">
-                          </div>
-                          <div class="field">
-                            <input type="number" class="multiple-step-input-design" placeholder="Phone">
-                          </div>
-                        </div>
-
-                        <label>Principal Borrower Contact Info</label>
                         
-                        <div class="borrower-contact-info">
-                          <div class="field">
-                            <input type="text" class="multiple-step-input-design" placeholder="First Name">
+                        <div class="borrower-details-container"><!-- QUINTA PANTALLA -->
+                          <div style="margin-bottom: 10px;" class="multiple-step-title"><label>Borrower Details</label></div>
+                          <div class="field" style="display: flex;"> 
+                            <label class="step5-subtitle" >Are you a Broker Working on Behalf of a Client?</label>
+                            <div style="width: fit-content; margin-left: 20px;" class="broker-work-cont">
+                              <input type="radio" name="brokerwork" id="yesbrokerwork" checked>
+                              <label for="yesbrokerwork">Yes</label>
+                              <input type="radio" name="brokerwork" id="nobrokerwork">
+                              <label for="nobrokerwork">No</label>
+                            </div>
+                          </div>
+
+
+                          <div class="broker-contact-info">
+                            <div class="field">
+                              <input type="text" class="multiple-step-input-design" placeholder="First Name">
+                            </div>
+                            <div class="field">
+                              <input type="text"  class="multiple-step-input-design" placeholder="First Name">
+                            </div>
+                            <div class="field">
+                              <input type="email" class="multiple-step-input-design"  placeholder="Email">
+                            </div>
+                            <div class="field">
+                              <input type="number" class="multiple-step-input-design" placeholder="Phone">
+                            </div>
+                          </div>
+
+                          <label class="step5-subtitle" >Principal Borrower Contact Info</label>
+                          
+                          <div class="borrower-contact-info">
+                            <div class="field">
+                              <input type="text" class="multiple-step-input-design" placeholder="First Name">
+                              
+                            </div>
+                            <div class="field">
+                              <input type="text" class="multiple-step-input-design" placeholder="Last Name">
+                            </div>
+                            <div class="field">
+                              <input type="email" class="multiple-step-input-design" placeholder="Borrower Email">
+                            </div>
+                            <div class="field">
+                              <input type="number"class="multiple-step-input-design"  placeholder="Cell Phone">
+                            </div>
+                            <div class="field">
+                              <input type="text" class="multiple-step-input-design" placeholder="Adress">
+                            </div>
+                            <div class="field">
+                              <input type="text" class="multiple-step-input-design" placeholder="City">
+                            </div>
+                            <div class="field">
+                              <input type="text" class="multiple-step-input-design" placeholder="State">
+                            </div>
+                            <div class="field">
+                              <input type="text" class="multiple-step-input-design" placeholder="Zip Code">
+                            </div>
                             
                           </div>
-                          <div class="field">
-                            <input type="text" class="multiple-step-input-design" placeholder="Last Name">
-                          </div>
-                          <div class="field">
-                            <input type="email" class="multiple-step-input-design" placeholder="Borrower Email">
-                          </div>
-                          <div class="field">
-                            <input type="number"class="multiple-step-input-design"  placeholder="Cell Phone">
-                          </div>
-                          <div class="field">
-                            <input type="text" class="multiple-step-input-design" placeholder="Adress">
-                          </div>
-                          <div class="field">
-                            <input type="text" class="multiple-step-input-design" placeholder="City">
-                          </div>
-                          <div class="field">
-                            <input type="text" class="multiple-step-input-design" placeholder="State">
-                          </div>
-                          <div class="field">
-                            <input type="text" class="multiple-step-input-design" placeholder="Zip Code">
+
+                          <label class="step5-subtitle" >Principal Borrower Estimated FICO Score</label>
+                          <div class="estimated-fico">
+                            <div class="field">
+                              <input type="radio" name="estimated-fico" id="fico-below600">
+                              <label for="fico-below600">Below 600</label>
+                            </div>
+                            <div class="field">
+                              <input type="radio" name="estimated-fico" id="fico-600700">
+                              <label for="fico-600700">600-700</label>
+                            </div>
+                            <div class="field">
+                              <input type="radio" name="estimated-fico" id="fico-over700">
+                              <label for="fico-over700">Over 700</label>
+                            </div>
+                            <div class="field">
+                              <input type="radio" name="estimated-fico" id="fico-na">
+                              <label for="fico-na">N/A</label>
+                            </div>
                           </div>
                           
+                        
+                          
                         </div>
-
-                        <label for="">Principal Borrower Estimated FICO Score</label>
-                        <div class="estimated-fico">
-                          <div class="field">
-                            <label for="">Below 600</label><input type="radio" name="estimated-fico" id="">
-                          </div>
-                          <div class="field">
-                            <label for="">600-700</label><input type="radio" name="estimated-fico" id="">
-                          </div>
-                          <div class="field">
-                            <label for="">Over 700</label><input type="radio" name="estimated-fico" id="">
-                          </div>
-                          <div class="field">
-                            <label for="">N/A</label><input type="radio" name="estimated-fico" id="">
-                          </div>
-                        </div>
-
                       </div>
                       <div class="button-row d-flex mt-4">
                         <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
@@ -341,44 +350,52 @@
                     <div class="multisteps-form__content">
                       <div class="step-container">
 
-                        <div class="howyouhear-container"> <!-- SEXTA PANTALLA -->
-                          
+                        <div style="margin-bottom: 10px;" class="multiple-step-title"><label>How Did You Hear About Us?</label></div>
 
+                        <div class="howyouhear-container"> <!-- SEXTA PANTALLA -->
                           <div class="howyouhear-container-firstl">
                             <div class="field">
                               <input type="radio" name="howyouhear" id="facebook-ad">
                               <label for="facebook-ad">
-                                <i class="fab fa-facebook-square"></i>
+                                <i class="fab fa-facebook-square icon-facebook"></i>
                                 <h3>Facebook Ad</h3>
                               </label>
                             </div>
                             <div class="field">
                               <input type="radio" name="howyouhear" id="google-ad">
                               <label for="google-ad">
-                                <i class="fab fa-google"></i>
+                                <i class="fab fa-google icon-google"></i>
                                 <h3>Google</h3>
                               </label>
                             </div>
                             <div class="field">
-                              <input type="radio" name="howyouhear" id="email-ad">
-                              <label for="email-ad">
-                                <i class="far fa-envelope"></i>
-                                <h3>Email Campaign</h3>
-                              </label>
-                            </div> 
-                          </div>
-                          <div class="howyouhear-container-secondl">
-                            <div class="field">
                               <input type="radio" name="howyouhear" id="linkedin-ad">
                               <label for="linkedin-ad">
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fab fa-linkedin icon-linkedin"></i>
                                 <h3>Linkedin</h3>
                               </label>
                             </div>
+                            
+                          </div>
+                          <div class="howyouhear-container-secondl">
+                            
+
+                            <div class="field">
+                              <input type="radio" name="howyouhear" id="email-ad">
+                              <label for="email-ad">
+                                <i class="far fa-envelope icon-email"></i>
+                                <h3>Email Campaign</h3>
+                              </label>
+                            </div> 
+
+                            <div class="field" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                              <img src="/images/logos/logo-navbar.png" height="100px" width="auto" alt="" style="justify-self: center;">
+                            </div>
+
                             <div class="field">
                               <input type="radio" name="howyouhear" id="social-ad">
                               <label for="social-ad">
-                                <i class="fas fa-user-friends"></i>
+                                <i class="fas fa-user-friends icon-other-social"></i>
                                 <h3>Other Social Media</h3>
                                 
                               </label>
@@ -388,24 +405,26 @@
                             <div class="field">
                               <input type="radio" name="howyouhear" id="personal-ad">
                               <label for="personal-ad">
-                                <i class="far fa-comments"></i>
+                                <i class="far fa-comments icon-comments"></i>
                                 <h3>Personal Referral</h3>
                               </label>
                             </div>
                             <div class="field">
                               <input type="radio" name="howyouhear" id="broker-ad">
                               <label for="broker-ad">
-                                <i class="fas fa-user-tie"></i>
+                                <i class="fas fa-user-tie icon-broker"></i>
                                 <h3>Broker / Agent</h3>
                               </label>
                             </div>
                             <div class="field">
                               <input type="radio" name="howyouhear" id="other-ad">
                               <label for="other-ad" style="display: flex; flex-direction: column; align-items: center;">
-                                <i class="fas fa-bullseye"></i>
-                                <input type="text"  class="multiple-step-input-design" placeholder="Other Loan type..">
+                                <i class="fas fa-bullseye icon-other-o"></i>
+                                <input type="text"  class="multiple-step-input-design" placeholder="Other..">
                               </label>
                             </div>
+
+
                           </div>
                         </div>
 

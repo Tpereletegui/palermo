@@ -66,37 +66,38 @@ nav{
 
 
 nav ul{
-  margin: 0 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
+
 nav ul li{
-  display: inline-block;
-  line-height: 80px;
+  display: inline-block;  
+  margin:0 5px;
+  cursor: pointer;
 }
 nav ul li a{
   color: white;
-  font-size: 18px;
-  padding: 7px 6px;
+  font-size: 16px;
   border-radius: 3px;
   margin: 0;
 }
 
 nav a.lang-img{
-  top: 25px!important;
-  right: 15px;
-  position: fixed;
-  cursor: pointer;
+  margin-left: 35px;
 }
 
 nav ul li a.overeable::after{
   content:"";
   position: relative;
-  bottom: 30px;
+  top: 2px;
+  right: 4.5px;
   display: block;
   width: 0;
   height: 3px;
   background: var(--color-mostaza);
   transition: width 0.3s;
-  margin-left: 3px;
+  margin-left: 5px;
 }
 
 nav ul li a.overeable:hover::after{
@@ -799,6 +800,7 @@ nav i.navbar-icon{
 
 .multisteps-form__form {
   position: relative;
+  
 }
 
 .multisteps-form__panel {
@@ -871,8 +873,9 @@ nav i.navbar-icon{
 /* CONTENEDOR PRINCIPAL DE CADA STEP */
 .step-container{
   width: 100%;
-  height: 380px;
+  height: 400px;
   font-family: var(--fuente-principal);
+  
 }
 
 
@@ -883,10 +886,11 @@ nav i.navbar-icon{
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .multiple-step-title{
+  margin:10px auto;
   width: 100%;  
   display: flex;
   justify-content: center;
@@ -932,11 +936,12 @@ nav i.navbar-icon{
   align-items: center;
   transition: .5s;
   text-align: center;
+  background: rgba(0, 0, 0, 0.03)
 }
 .loan-type-field .loan-select i, 
 .loan-property-field .loan-select i{
   font-size: 3em;
-  padding-top: 5px;
+  margin: 5px 0;
 }
 
 .loan-type-field .loan-select h3, 
@@ -1008,6 +1013,15 @@ input.other-property-type:focus
 }
 
 
+/* STEP 3 */
+.loan-details-container,
+.deal-info-container,
+.borrowers-container,
+.borrower-details-container{
+  padding: 0 30px;
+}
+
+
 /* STEP 4 */
 
 .deal-info-container{
@@ -1017,7 +1031,7 @@ input.other-property-type:focus
 }
 
 .deal-info-container .inputs-container{
-  margin: 15px 0;
+  margin: 5px 0;
   display: flex;
 }
 
@@ -1033,15 +1047,17 @@ input.other-property-type:focus
 
 
 .deal-info-container .inputs-container .inputs-container-subtitle{
-  margin: auto 0;
-  width: 25%;
+  margin: auto 0; 
+  width: 50%;
   height: 100%;
   font-size: 14px;
   text-align: center;
 }
 
+
 .deal-info-container .inputs-container .field{
-  width: 40%;
+  width: 50%;
+  margin: 5px 0;
 }
 
 
@@ -1063,9 +1079,14 @@ input.other-property-type:focus
 }
 
 /* STEP 5 */
+.step5-subtitle{
+  margin: 10px 0;
+}
+
 .broker-work-cont label{
   opacity: .5;
   animation: .5s;
+  margin: 10px 0;
 }
 
 .broker-work-cont input[type="radio"]{
@@ -1103,9 +1124,31 @@ input.other-property-type:focus
   justify-content: space-around;
 }
 
+
+.estimated-fico .field input{
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.estimated-fico .field label{
+  color:var(--color-cement);
+  transition: .3s;
+}
+
+
+.estimated-fico input[type="radio"]:checked + label{
+  color: var(--color-azul);
+  font-size: 17px;
+  font-weight: bold;
+}
+
+
 /* STEP 6*/
 .howyouhear-container{
-  height: 100%;
+  margin-top: 30px;
+  height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -1115,19 +1158,22 @@ input.other-property-type:focus
 .howyouhear-container-firstl, .howyouhear-container-secondl, .howyouhear-container-thirdl{
   display: flex;
   justify-content: space-around;
-  
+  align-items: center;
 }
 
-.howyouhear-container-secondl{
-  padding: 0 20%;
-}
+
 
 .howyouhear-container label{
+  padding: 10px;
   font-size: xx-large;
   text-align: center;
+  width: 140px;
+  height: 90px;
+  border-radius: 20px;
+  transition: .3s;
 }
 .howyouhear-container label h3{
-  font-size: medium;
+  font-size: small;
 }
 
 .howyouhear-container input[type="radio"]{
@@ -1135,12 +1181,48 @@ input.other-property-type:focus
   opacity: 0;
   width: 0;
   height: 0;
+  
+}
+
+.howyouhear-container .field .multiple-step-input-design{
+  opacity: 0;
+  cursor: default;
 }
 
 .howyouhear-container input[type="radio"]:checked + label{
-  color:var(--color-mostaza);
+  color:var(--color-fog);
+  
+  background: var(--color-azul);
 }
 
+.howyouhear-container input[type="radio"]:checked + label i{
+  color:var(--color-fog)!important;
+}
+
+.howyouhear-container input[type="radio"]:checked + label  .multiple-step-input-design{
+  opacity: 1;
+  cursor:text;
+  color:var(--color-fog);
+}
+
+
+
+.icon-facebook{
+  color: #3B5998;
+}
+
+.icon-google{
+  color: #ea4335;
+}
+
+.icon-linkedin{
+  color: #0e7ea8;
+}
+
+
+.icon-email, .icon-other-o, .icon-other-social, .icon-comments, .icon-broker{
+  color: var(--color-azul);
+}
 
 
 /* MULTIPLE STEPS INPUT */
