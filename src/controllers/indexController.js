@@ -128,10 +128,23 @@ module.exports = {
       
       res.render('calculator', {output: output, payments: _payments})
     },
+    bridgeLoan: function(req,res){
+
+      res.render('loan-criteria', {loan:'bridge-loan'})
+    },
+    fixFlip: function(req,res){
+      res.render('loan-criteria', {loan:'fix-flip'})
+    },
+    cashOut: function(req,res){
+      res.render('loan-criteria', {loan:'cash-out'})
+    },
+    rental: function(req,res){
+      res.render('loan-criteria', {loan:'rental'})
+    },
     brokersAndRealtors: function(req,res){
-
-
-
       res.render('brokers');
+    },
+    loanPrograms:function(req,res){
+      res.render('loan-programs')
     }
 }

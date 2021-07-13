@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') -%>
+    <head>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.0.943/pdf.min.js"></script>
+        </script>
+    </head>
+<body>
+
+    <%- include('./partials/navbar') -%>
+    <%- include('./partials/float-button') -%>
+
+    <div style="display:none;" id="hidden-property">
+        <%- loan %>
+    </div>
+    
+    <div class="criteria-title-container">
+        <div class="section-title">
+            <label class="section-title-label" style="z-index: 99999;color:white;"> Loan Criteria </label>
+        </div>
+    </div>
+
+    <div id="my_pdf_viewer">
+        <div id="canvas_container">
+            <canvas id="pdf_renderer"></canvas>
+        </div>
+        <div id="navigation_controls">
+            <button id="go_previous">Previous</button>
+            <input id="current_page" value="1" type="number"/>
+            <button id="go_next">Next</button>
+        </div>
+        <div id="zoom_controls">  
+            <button id="zoom_in">+</button>
+            <button id="zoom_out">-</button>
+        </div>
+    </div>
+
+
+
+
+    <%- include('./sections/footer') -%>
+    
+    <script>
+        var myState = {
+            pdf: null,
+            currentPage: 1,
+            zoom: 1.31
+        }
+
+        var loan = document.getElementById("hidden-property").innerHTML.trim();
+
+
+        pdfjsLib.getDocument('pdf/'+loan+'.pdf').then(pdf =>{
+        
+            myState.pdf = pdf;
+            render();
+        })
+
+
+        function render() {
+            myState.pdf.getPage(myState.currentPage).then((page) => {
+
+                var canvas = document.getElementById("pdf_renderer");
+                var ctx = canvas.getContext('2d');
+
+                var viewport = page.getViewport(myState.zoom);
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                page.render({
+                    canvasContext: ctx,
+                    viewport: viewport
+                });
+            });
+        }
+
+
+        document.getElementById('go_previous').addEventListener('click', (e) => {
+            if(myState.pdf == null || myState.currentPage == 1) return;
+            
+            myState.currentPage -= 1;
+            document.getElementById("current_page").value = myState.currentPage;
+            render();
+        });
+
+
+        document.getElementById('go_next')
+        .addEventListener('click', (e) => {
+            if(myState.pdf == null || myState.currentPage > myState.pdf._pdfInfo.numPages) return;
+        
+            myState.currentPage += 1;
+            document.getElementById("current_page").value = myState.currentPage;
+            render();
+        });
+
+        document.getElementById('current_page')
+        .addEventListener('keypress', (e) => {
+            if(myState.pdf == null) return;
+        
+            // Get key code
+            var code = (e.keyCode ? e.keyCode : e.which);
+        
+            // If key code matches that of the Enter key
+            if(code == 13) {
+                var desiredPage = 
+                        document.getElementById('current_page')
+                                .valueAsNumber;
+                                
+                if(desiredPage >= 1 
+                   && desiredPage <= myState.pdf
+                                            ._pdfInfo.numPages) {
+                        myState.currentPage = desiredPage;
+                        document.getElementById("current_page")
+                                .value = desiredPage;
+                        render();
+                }
+            }
+        });
+
+        document.getElementById('zoom_in')
+        .addEventListener('click', (e) => {
+            if(myState.pdf == null) return;
+            if (myState.zoom > 2.7) return;
+            myState.zoom += 0.2;
+            render();
+        });
+
+        document.getElementById('zoom_out')
+        .addEventListener('click', (e) => {
+            if(myState.pdf == null) return;
+            if (myState.zoom <= 1.31) return;
+            myState.zoom -= 0.2;
+            render();
+        });
+
+    </script>
+  
+  
+    <style>
+        #canvas_container {
+            
+            width: 800px;
+            height: 450px;
+            overflow: auto;
+            background: black;
+        }
+
+        #my_pdf_viewer{
+            margin: 5vh 0;
+        }
+      
+    </style>
+</body>
+</html>

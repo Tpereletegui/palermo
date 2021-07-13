@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') -%>
+<body>
+
+    <%- include('./partials/navbar') -%>
+    <%- include('./partials/float-button') -%>
+    
+    <section class="section-programs">
+
+        <div class="brokers-title-container">
+            <div class="section-title">
+                <label class="brokers-title">
+                    Loan Program
+                </label>
+            </div>
+        </div>
+
+        <div class="programs-container">
+
+            <a href="/bridge-loan" class="programs-container-item">
+                <div class="program-container-item-icon">
+                    <img src="/images/icons/programs/program-1.png" alt="">
+                </div>
+                <h3>Bridge Loan</h3>
+            </a>
+            <a href="/fix-flip" class="programs-container-item">
+                <div class="program-container-item-icon">
+                    <img src="/images/icons/programs/program-2.png" alt="">
+                </div>
+                <h3>Rehab / Fix & Flip</h3>
+            </a>
+            <a href="/cash-out" class="programs-container-item">
+                <div class="program-container-item-icon">
+                    <img src="/images/icons/programs/program-3.png" alt="">
+                </div>
+                <h3>Cash Out / Refinance</h3>
+            </a>
+            <a href="/rental" class="programs-container-item">
+                <div class="program-container-item-icon">
+                    <img src="/images/icons/programs/program-4.png" alt="">
+                </div>
+                <h3>Rental Loan</h3>
+            </a>
+        </div>
+        <button class="principal-button"> <a href="/apply-now">Apply Now</a> </button>
+    </section>
+    <%- include('./sections/footer') -%>
+</body>
+</html>
