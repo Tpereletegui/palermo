@@ -713,7 +713,7 @@ nav i.navbar-icon{
 
 .content {
   width: 95%;
-  margin: 0 auto 50px;
+  margin: 1px 0;
 }
 
 .content__title {
@@ -1342,12 +1342,23 @@ input.other-property-type:focus
   background-position: 30px;
 }
 
+#canvas_container {
+            
+  width: 800px;
+  height: 450px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: black;
+}
 
+#my_pdf_viewer{
+  margin: 5vh 0;
+}
 
 
 /* BROKERS Y REALTORS VIEW */
 .brokers-title-container{
-  background-image: url("/images/section/calculator.png");
+  background-image: url("/images/sections/brokers.png");
 }
 
 
@@ -1359,6 +1370,86 @@ input.other-property-type:focus
   padding-bottom: 5px;
   border-bottom: 5px solid var(--color-mostaza);
 }
+
+.brokers-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px 0;
+}
+
+.brokers-subtitle-container{
+  padding: 0 10vw;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.brokers-subtitle-container label{
+  font-size: medium;
+  font-family: var(--fuente-secundaria);
+  color: var(--color-fog);
+  text-align: center;
+}
+
+.brokers-programs-container{
+  padding: 0 300px;
+  display: flex;
+  width:100%;
+  margin-bottom: 20px;
+}
+
+.brokers-programs-container .broker-field input[type="radio"]{
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0; 
+}
+
+.brokers-programs-container .broker-field h3{
+  font-family: var(--fuente-principal);
+  font-size: small;
+  text-align: center;
+  width: 70%;
+}
+
+.broker-field{
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.broker-field label{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.broker-field label img{
+  width: 60%;
+  opacity: .5;
+  transition: .5s;
+  justify-self: center;
+}
+
+.brokers-programs-container .broker-field input[type="radio"]:checked + label img,
+.brokers-programs-container .broker-field input[type="radio"]:checked +  h3{
+  opacity: 1;
+  width: 65%;
+}
+
+
+.broker-button-contain{
+  display:flex;
+  justify-content: center;
+}
+
+.brokers-pdf-out{
+  display: flex;
+  justify-content: center;
+}
+
 
 /* LOAN PROGRAMS VIEW */
 .section-programs{

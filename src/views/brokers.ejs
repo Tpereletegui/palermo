@@ -11,15 +11,113 @@
         <div class="brokers-title-container section-title-container">
             <div class="section-title">
                 <label class="brokers-title">
-                    Brokers y Realtors 
+                    Brokers
                 </label>
+            </div>
+            <div class="brokers-subtitle-container">
+                <label>Palermo Lender offers simple referral options for brokers.  Gain access to our loan programs and become a part of the Palermo Lender Family.</label>
             </div>
         </div>
 
         <div class="brokers-container">
-            BROKERSS
+            <form action="/brokers" method="post" >
+                <div class="brokers-programs-container">
+                    <div class="broker-field">
+                        <input type="radio" name="brokerOption" value="bridge-loan" id="bridge-loan">
+                        <label for="bridge-loan" class="program-container-item-icon">
+                            <img src="/images/icons/programs/program-1.png" alt="">
+                        </label>
+                        <h3>Bridge Loan</h3>
+                    </div>
+    
+                    <div class="broker-field">
+                        <input type="radio" name="brokerOption" value="fix-flip" id="fix-flip">
+                        <label for="fix-flip" class="program-container-item-icon">
+                            <img src="/images/icons/programs/program-2.png" alt="">
+                        </label>
+                        <h3>Rehab / Fix & Flip</h3>
+                    </div>
+    
+                    <div class="broker-field">
+                        <input type="radio" name="brokerOption" value="cash-out" id="cash-out">
+                        <label for="cash-out" class="program-container-item-icon">
+                            <img src="/images/icons/programs/program-3.png" alt="">
+                        </label>
+                        <h3>Cash Out / Refinance</h3>
+                    </div>
+    
+                    <div class="broker-field">
+                        <input type="radio" name="brokerOption" value="rental" id="rental">
+                        <label for="rental" class="program-container-item-icon">
+                            <img src="/images/icons/programs/program-4.png" alt="">
+                        </label>
+                        <h3>Rental Loan</h3>
+                    </div>
+                </div>
+                
+                <div class="broker-button-contain">
+                    <button type="submit" class="principal-button">View Document</button>
+                </div>
+            </form>
         </div>
+
+        
+        <% if(typeof loan != 'undefined'){ %>
+            <div style="display:none;" class="property">
+                <%- loan %>
+            </div>
+            <div class="brokers-pdf-out">
+                <div id="my_pdf_viewer">
+                    <div id="canvas_container">
+                        <canvas id="pdf_renderer"></canvas>
+                    </div>
+                    <div class="download-button">
+                        <a href="./pdf/<%-loan%>.pdf"><button class="principal-button" >Download</button></a>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+        
+                  
     </section>
-    <%- include('./partials/footer') -%>
+
+    <script>
+        var myState = {
+            pdf: null,
+            currentPage: 2,
+            zoom: 1.31
+        }
+
+        var loan = document.querySelector(".property").innerHTML.trim();
+
+        console.log(loan);
+        if (loan){
+            pdfjsLib.getDocument('pdf/'+loan+'.pdf').then(pdf =>{
+        
+            myState.pdf = pdf;
+            render();
+            })
+        }
+
+        function render() {
+            myState.pdf.getPage(myState.currentPage).then((page) => {
+
+                var canvas = document.getElementById("pdf_renderer");
+                var ctx = canvas.getContext('2d');
+
+                var viewport = page.getViewport(myState.zoom);
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                page.render({
+                    canvasContext: ctx,
+                    viewport: viewport
+                });
+            });
+        }
+
+        
+
+    </script>
 </body>
 </html>

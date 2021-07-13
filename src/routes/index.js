@@ -11,12 +11,13 @@ router.post('/apply-now', indexController.processApplyNow);
 router.get('/loan-programs', indexController.loanPrograms);
 router.get('/faq', indexController.loadAllFaqs);
 router.post('/message', messageValidator.message , indexController.message);
-router.get('/brokers', indexController.brokersAndRealtors);
 router.get('/bridge-loan', indexController.bridgeLoan);
 router.get('/fix-flip', indexController.fixFlip);
 router.get('/cash-out', indexController.cashOut);
 router.get('/rental', indexController.rental);
 router.get('/calculator', indexController.getCalculator)
 router.post('/calculator', indexController.processCalculator)
+router.get('/brokers', indexController.brokersAndRealtors);
+router.post('/brokers', indexController.loanSelect)
 
 module.exports = router;

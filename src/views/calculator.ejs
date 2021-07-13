@@ -16,13 +16,10 @@
             </div>
         </div>
 
-        <div class="calculator-container">
-
-            
-            <form action="/calculator/" method="post" class="calculator-form-container">
-            
+        <div class="calculator-container">     
+            <form action="/calculator/" method="post" class="calculator-form-container">        
                 <div class="content-container">
-                
+
                     <div class="first-line">
                         <!-- Estimated Property Value -->
                         <div class="item-container">
@@ -81,40 +78,40 @@
                     <div class="second-line">
 
                         <!-- Interest Rate (%)  -->
-                    <div class="item-container">
-                        <label for="" class="slider-title">Interest Rate (%)</label>
-                        <p class="value"><span id="value4"></span>%</p>
-                        <hr>
-                        <% if(typeof output != 'undefined'){ %>
-                            <input name="mortgageInterest" type="range" id="range4" step="0.01" min="7.99" max="13.99"  value="<%=output.mortgageInterest%>" class="slider">
-                        <% } else { %>
-                            <input name="mortgageInterest" type="range" id="range4" step="0.01" min="7.99" max="13.99" value="8.50" class="slider">
-                        <% }  %>
-                    </div>
+                        <div class="item-container">
+                            <label for="" class="slider-title">Interest Rate (%)</label>
+                            <p class="value"><span id="value4"></span>%</p>
+                            <hr>
+                            <% if(typeof output != 'undefined'){ %>
+                                <input name="mortgageInterest" type="range" id="range4" step="0.01" min="7.99" max="13.99"  value="<%=output.mortgageInterest%>" class="slider">
+                            <% } else { %>
+                                <input name="mortgageInterest" type="range" id="range4" step="0.01" min="7.99" max="13.99" value="8.50" class="slider">
+                            <% }  %>
+                        </div>
 
-                    <!-- Est. Origination Fee   -->
-                    <div class="item-container">
-                        <label for="" class="slider-title">Est. Origination Fee</label>
-                        <p class="value"><span id="value5"></span>%</p>
-                        <hr>
-                        <% if(typeof output != 'undefined'){ %>
-                            <input name="estOrigFree" type="range" id="range5" step="0.1" min="0" max="5" value="<%=output.estOrigFree%>" class="slider">
-                        <% } else { %>
-                            <input name="estOrigFree" type="range" id="range5" step="0.1" min="0" max="5" value="2.5" class="slider">
-                        <% }  %>
-                    </div>
+                        <!-- Est. Origination Fee   -->
+                        <div class="item-container">
+                            <label for="" class="slider-title">Est. Origination Fee</label>
+                            <p class="value"><span id="value5"></span>%</p>
+                            <hr>
+                            <% if(typeof output != 'undefined'){ %>
+                                <input name="estOrigFree" type="range" id="range5" step="0.1" min="0" max="5" value="<%=output.estOrigFree%>" class="slider">
+                            <% } else { %>
+                                <input name="estOrigFree" type="range" id="range5" step="0.1" min="0" max="5" value="2.5" class="slider">
+                            <% }  %>
+                        </div>
 
-                    <!-- Est. Loan Costs -->
-                    <div class="item-container">
-                        <label for="" class="slider-title">Est. Loan Costs</label>
-                        <p class="value"><span id="value6"></span>%</p>
-                        <hr>
-                        <% if(typeof output != 'undefined'){ %>
-                            <input name="estLoanCosts" type="range" id="range6" step="0.1" min="0" max="5" value="<%=output.estLoanCosts%>" class="slider">
-                        <% } else { %>
-                            <input name="estLoanCosts" type="range" id="range6" step="0.1" min="0" max="5" value="2.0" class="slider">
-                        <% }  %>
-                    </div>
+                        <!-- Est. Loan Costs -->
+                        <div class="item-container">
+                            <label for="" class="slider-title">Est. Loan Costs</label>
+                            <p class="value"><span id="value6"></span>%</p>
+                            <hr>
+                            <% if(typeof output != 'undefined'){ %>
+                                <input name="estLoanCosts" type="range" id="range6" step="0.1" min="0" max="5" value="<%=output.estLoanCosts%>" class="slider">
+                            <% } else { %>
+                                <input name="estLoanCosts" type="range" id="range6" step="0.1" min="0" max="5" value="2.0" class="slider">
+                            <% }  %>
+                        </div>
 
                     </div>           
                 </div>

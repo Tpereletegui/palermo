@@ -146,5 +146,10 @@ module.exports = {
     },
     loanPrograms:function(req,res){
       res.render('loan-programs')
+    },
+    loanSelect: function(req,res){
+      let loan = req.body.brokerOption;
+      
+      res.render('brokers', {loan: loan})
     }
 }
