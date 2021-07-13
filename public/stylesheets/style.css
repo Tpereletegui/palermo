@@ -35,6 +35,15 @@ body{
   margin: 40px 0;
 }
 
+.section-title-container{
+  background-size: cover;
+  height: 30vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 
 .section-title{
   text-align: center;
@@ -444,7 +453,7 @@ nav i.navbar-icon{
   width: 50%;
   height: 100%;
   background: white fixed no-repeat 80% 50%;
-  background-image: url('../images/other/office.jpg');
+  background-image: url('../images/sections/office.png');
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -542,6 +551,9 @@ nav i.navbar-icon{
 
 .accordion{
   max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start ;
 }
 
 .faq-title{
@@ -552,7 +564,6 @@ nav i.navbar-icon{
 
 .accordion .content-box{
   position: relative;
-  margin: 10px 20px;
 }
 
 .accordion .content-box .label{
@@ -597,7 +608,7 @@ nav i.navbar-icon{
 
 .accordion .content-box.active .content{
   height: max-content;
-  padding:40px;
+  padding:20px;
 }
 
 
@@ -611,7 +622,7 @@ nav i.navbar-icon{
 .faq-more-button a{
   font-family: var(--fuente-principal);
   font-size: x-large;
-  padding: 25px 25px;
+  padding: 25px;
   color:white;
   text-decoration: none;
 }
@@ -621,15 +632,7 @@ nav i.navbar-icon{
 /* FAQ VIEW */
 
 .faqview-title-container{
-  background-image: url("/images/other/faq-section.jpeg");
-  background-size: cover;
-  background-color: var(--color-azul);
-  height: 30vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  background-image: url("/images/sections/faq.png");
 }
 
 
@@ -694,13 +697,7 @@ nav i.navbar-icon{
 }
 
 .applynow-title-container{
-  background-image: url("/images/other/apply-now-section.jpg");
-  background-size:cover;
-  height: 30vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  background-image: url("/images/sections/apply-now.png");
 }
 
 .applynow-title{
@@ -1333,7 +1330,7 @@ input.other-property-type:focus
 .loan-programs-contain{
   width: 100vw;
   height: 300px;
-  background-image: url("/images/other/loan-program.jpg");
+  background-image: url("/images/sections/loan-program.png");
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -1341,18 +1338,14 @@ input.other-property-type:focus
   align-items: center;
 }
 
+.programs-title-container{
+  background-image: url("/images/sections/loan-info.png");
+}
 
 /* LOAN CRITERIA */
 .criteria-title-container{
-  width: 100vw;
-  height: 300px;
-  background:chocolate;
-  background-image: url("/images/other/loan-program.jpg");
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-image: url("/images/sections/loan-criteria.png");
+  background-position: 30px;
 }
 
 
@@ -1360,13 +1353,7 @@ input.other-property-type:focus
 
 /* BROKERS Y REALTORS VIEW */
 .brokers-title-container{
-  background-image: url("/images/other/calculator-section.jpeg");
-  background-size: cover;
-  height: 30vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  background-image: url("/images/section/calculator.png");
 }
 
 
@@ -1443,6 +1430,15 @@ input.other-property-type:focus
   font-family: var(--fuente-principal);
   margin: 15px 0;
 }
+
+/* LOAN CRITERIA */
+
+.download-button{
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+}
+
 /* FOOTER */
 
 .section-footer{
@@ -1509,13 +1505,7 @@ input.other-property-type:focus
 }
 
 .calculator-title-container{
-  background-image: url("/images/other/calculator-section.jpeg");
-  background-size: cover;
-  height: 30vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  background-image: url("/images/sections/calculator.png");
 }
 
 

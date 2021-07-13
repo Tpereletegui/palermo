@@ -130,16 +130,16 @@ module.exports = {
     },
     bridgeLoan: function(req,res){
 
-      res.render('loan-criteria', {loan:'bridge-loan'})
+      res.render('loan-criteria', {loan:'bridge-loan', title: 'Bridge Loan'})
     },
     fixFlip: function(req,res){
-      res.render('loan-criteria', {loan:'fix-flip'})
+      res.render('loan-criteria', {loan:'fix-flip', title: 'Rehab / Fix & Flip'})
     },
     cashOut: function(req,res){
-      res.render('loan-criteria', {loan:'cash-out'})
+      res.render('loan-criteria', {loan:'cash-out', title: 'Cash Out / Refinance'})
     },
     rental: function(req,res){
-      res.render('loan-criteria', {loan:'rental'})
+      res.render('loan-criteria', {loan:'rental', title: 'Rental Loan'})
     },
     brokersAndRealtors: function(req,res){
       res.render('brokers');

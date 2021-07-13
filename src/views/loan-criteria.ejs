@@ -15,9 +15,11 @@
         <%- loan %>
     </div>
     
-    <div class="criteria-title-container">
+    <div class="criteria-title-container section-title-container">
         <div class="section-title">
-            <label class="section-title-label" style="z-index: 99999;color:white;"> Loan Criteria </label>
+            <label class="section-title-label" style="z-index: 99999;color:white;"> 
+                Loan Criteria <%- title %>
+            </label>
         </div>
     </div>
 
@@ -25,26 +27,29 @@
         <div id="canvas_container">
             <canvas id="pdf_renderer"></canvas>
         </div>
-        <div id="navigation_controls">
-            <button id="go_previous">Previous</button>
+        <!-- <div id="navigation_controls">
+            <button  class="principal-button" id="go_previous">Previous</button>
             <input id="current_page" value="1" type="number"/>
-            <button id="go_next">Next</button>
+            <button class="principal-button" id="go_next">Next</button>
         </div>
         <div id="zoom_controls">  
-            <button id="zoom_in">+</button>
-            <button id="zoom_out">-</button>
+            <button class="principal-button" id="zoom_in">+</button>
+            <button class="principal-button" id="zoom_out">-</button>
+        </div> -->
+        <div class="download-button">
+            <button class="principal-button">Download</button>
         </div>
     </div>
 
 
 
 
-    <%- include('./sections/footer') -%>
+    <%- include('./partials/footer') -%>
     
     <script>
         var myState = {
             pdf: null,
-            currentPage: 1,
+            currentPage: 2,
             zoom: 1.31
         }
 
@@ -76,7 +81,7 @@
         }
 
 
-        document.getElementById('go_previous').addEventListener('click', (e) => {
+        /* ocument.getElementById('go_previous').addEventListener('click', (e) => {
             if(myState.pdf == null || myState.currentPage == 1) return;
             
             myState.currentPage -= 1;
@@ -132,7 +137,7 @@
             if (myState.zoom <= 1.31) return;
             myState.zoom -= 0.2;
             render();
-        });
+        }); */
 
     </script>
   
@@ -142,7 +147,8 @@
             
             width: 800px;
             height: 450px;
-            overflow: auto;
+            overflow-y: auto;
+            overflow-x: hidden;
             background: black;
         }
 
