@@ -127,5 +127,11 @@ module.exports = {
       }
       
       res.render('calculator', {output: output, payments: _payments})
+    },
+    brokersAndRealtors: function(req,res){
+
+
+
+      res.render('brokers');
     }
 }

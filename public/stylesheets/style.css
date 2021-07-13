@@ -71,6 +71,10 @@ nav ul{
   align-items: center;
 }
 
+nav ul .logo-nav-responsive{
+  display: none;
+}
+
 nav ul li{
   display: inline-block;  
   margin:0 5px;
@@ -1314,8 +1318,26 @@ input.other-property-type:focus
   justify-content: center;
 }
 
+/* BROKERS Y REALTORS VIEW */
+.brokers-title-container{
+  background-image: url("/images/other/calculator-section.jpeg");
+  background-size: cover;
+  height: 30vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 
 
+.brokers-title{
+  height: fit-content;
+  justify-self: flex-end;
+  color:var(--color-fog);
+  text-align: center;
+  padding-bottom: 5px;
+  border-bottom: 5px solid var(--color-mostaza);
+}
 
 /* FOOTER */
 
@@ -1803,6 +1825,7 @@ hr{
   
 
   /* Navbar */
+  
   .fade-navbar{
 
     top: 0;
@@ -1814,9 +1837,6 @@ hr{
     opacity: 0.5;
     display: none;
   }
-  .lang-img{
-    display:none;
-  }
 
   nav  .checkbtn{
     display: block;
@@ -1825,23 +1845,51 @@ hr{
   }
   nav ul{
     position: fixed;
-    width: 60%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 70%;
     height: 100vh;
     background: var(--color-mostaza);
     top: 0;
-    padding-top: 80px;
     left: -100%;
     text-align: left;
     transition: all .5s;
   }
+
   nav ul li{
     display: block;
-    margin: 10px 0;
-    line-height: 30px;
-    padding-left: 40px;
     width: max-content;
-    
+    padding-left: 10vw;
+    margin: 10px 0;
   }
+
+  nav ul li a {
+    margin-left: 10px;
+  }
+
+  nav ul .logo-nav-contain{
+    
+    margin:0;
+    margin-bottom: 20px;
+    padding:0;
+    background: var(--color-fog);
+    width: 100%;
+    height: 20vh;
+    justify-self: flex-start!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav ul .logo-nav-responsive{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+  }
+
  
   nav ul li a.overeable{
     font-size: 16px!important;
