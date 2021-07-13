@@ -700,15 +700,6 @@ nav i.navbar-icon{
   background-image: url("/images/sections/apply-now.png");
 }
 
-.applynow-title{
-  height: fit-content;
-  justify-self: flex-end;
-  color:var(--color-fog);
-  text-align: center;
-  padding-bottom: 5px;
-  border-bottom: 5px solid var(--color-mostaza);
-}
-
 .header {
   max-width: 600px;
   margin: 50px auto;
@@ -917,7 +908,10 @@ nav i.navbar-icon{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 5px;
+  width: 48%;
+  height: 30%;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 
 
@@ -933,9 +927,9 @@ nav i.navbar-icon{
 .loan-type-field .loan-select, 
 .loan-property-field .loan-select{
   padding:10px;
-  height: 130px;
-  width: 270px;
-  color: var(--color-azul);
+  height: 100%;
+  width: 100%;
+  color: var(--color-cement);
   border-radius: 20px;
   display:flex;
   flex-direction: column;
@@ -943,7 +937,6 @@ nav i.navbar-icon{
   align-items: center;
   transition: .5s;
   text-align: center;
-  background: rgba(0, 0, 0, 0.03)
 }
 .loan-type-field .loan-select i, 
 .loan-property-field .loan-select i{
@@ -959,15 +952,15 @@ nav i.navbar-icon{
 .loan-type-field .loan-select h6, 
 .loan-property-field .loan-select h6{
   font-size: small;
+  width: 80%;
   opacity: 0;
-  transition: .7s;
+  transition: .4s;
+  
 }
 
 .loan-type-field  input[type="radio"]:checked + .loan-select,
 .loan-property-field input[type="radio"]:checked + .loan-select{
-  background-color: var(--color-azul);
-  color: var(--color-fog);
-  box-shadow: 0 15px 45px rgba(0,0,0,.5);
+  color: var(--color-azul);
 }
 
 /* Other input display when active radio button */
@@ -997,7 +990,7 @@ input.other-property-type{
 
 input.other-loan-type::placeholder,
 input.other-property-type::placeholder{
-  color:var(--color-fog);
+  color:var(--color-azul);
   opacity: .8 ;
 }
 
@@ -1177,7 +1170,8 @@ input.other-property-type:focus
   width: 140px;
   height: 90px;
   border-radius: 20px;
-  transition: .3s;
+  color:var(--color-cement);
+
 }
 .howyouhear-container label h3{
   font-size: small;
@@ -1188,7 +1182,11 @@ input.other-property-type:focus
   opacity: 0;
   width: 0;
   height: 0;
-  
+}
+
+.howyouhear-container .field label{
+  transition: .6s;
+
 }
 
 .howyouhear-container .field .multiple-step-input-design{
@@ -1197,38 +1195,34 @@ input.other-property-type:focus
 }
 
 .howyouhear-container input[type="radio"]:checked + label{
-  color:var(--color-fog);
-  
-  background: var(--color-azul);
+  color:var(--color-azul);
+  font-size: 40px;  
 }
 
-.howyouhear-container input[type="radio"]:checked + label i{
-  color:var(--color-fog)!important;
+
+.howyouhear-container input[type="radio"]:checked + label h3{
+  color:var(--color-azul);
+  font-size: small;  
 }
+
 
 .howyouhear-container input[type="radio"]:checked + label  .multiple-step-input-design{
   opacity: 1;
   cursor:text;
-  color:var(--color-fog);
+  color:var(--color-azul);
 }
 
 
-
-.icon-facebook{
+.howyouhear-container input[type="radio"]:checked + label  .icon-facebook{
   color: #3B5998;
 }
 
-.icon-google{
-  color: #ea4335;
+.howyouhear-container input[type="radio"]:checked + label  .icon-google{
+  color: #D50F25;
 }
 
-.icon-linkedin{
-  color: #0e7ea8;
-}
-
-
-.icon-email, .icon-other-o, .icon-other-social, .icon-comments, .icon-broker{
-  color: var(--color-azul);
+.howyouhear-container input[type="radio"]:checked + label  .icon-linkedin{
+  color: #0077b5;
 }
 
 
@@ -1236,7 +1230,7 @@ input.other-property-type:focus
 .multiple-step-input-design{
   margin: 5px 0;
   border: none;
-  border-bottom: 2px solid var(--color-mostaza);
+  border-bottom: 2px solid var(--color-azul);
   width: 70%;
   background: none;
   font-size: small;
@@ -1248,7 +1242,7 @@ input.other-property-type:focus
 
 .multiple-step-input-design::placeholder{
   font-size: small;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 /* CONTACT */
@@ -1894,6 +1888,115 @@ hr{
     padding-top: 40px;
   }
 
+  /* Apply Now */
+  .loan-type-container, .property-type-container{
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap:nowrap;
+  }
+
+  .loan-type-field{
+    display: flex;
+
+    flex-direction: column;
+
+    width: 50%;
+  }
+
+  .loan-select{
+    display: flex;
+    width: 300px!important;
+    flex-direction: row!important;
+    padding: 0!important;
+    margin: 0!important;
+  }
+
+  .loan-select i{
+    justify-self: flex-start;
+    font-size: xx-large!important;
+    padding-right: 20px;
+  }
+
+  .loan-select h3{
+    text-align: left;
+  }
+
+  .loan-select h6{
+    text-align: right;
+  }
+
+  .loan-type-field-other{
+    display: none;
+    justify-self: flex-start;
+  }
+
+  .inputs-container{
+    flex-direction: column;
+  }
+
+  .inputs-container .inputs-container-subtitle{
+    width: 100%!important;
+  }
+
+  .inputs-container .inputs-fields-container{
+    width: 100%!important;
+  }
+
+  .property-type-container .loan-select{
+    height: fit-content;
+    font-size: xx-large;
+  }
+
+  .property-type-container .loan-property-field{
+    height: fit-content;
+  }
+
+  label.letra-chica{
+    font-size:large;
+  }
+
+  .borrower-details-container{
+    padding:0;
+  }
+
+  .step5-subtitle{
+    margin: 5px 0;
+    width: 100%;
+  }
+
+  .broker-work-cont{
+    display: flex;
+    flex-direction: row;
+    margin: 0!important;
+  }
+
+  .broker-work-cont label{
+    margin: 0 3px;
+  }
+
+
+
+  .howyouhear-container{
+    margin:0;
+  }
+
+
+  .howyouhear-container .field{
+
+    width: 100%;
+
+  }
+
+  .howyouhear-container label{
+
+    width: 100%;
+
+  }
+
+
 
   /* Footer */
 
@@ -2114,6 +2217,10 @@ hr{
     margin: 10px 0;
   }
 
+  /* Apply Now */
+  .loan-type-field {
+    padding: 0;
+  }
 
   /* Footer */
   .footer-container{
