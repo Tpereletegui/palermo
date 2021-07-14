@@ -160,16 +160,64 @@ module.exports = {
     },
     bridgeLoan: function(req,res){
 
-      res.render('loan-criteria', {loan:'bridge-loan', title: 'Bridge Loan'})
+      let lang = null;
+      
+      
+      if (req.cookies.lang == undefined){
+        lang='eng';
+      }else{
+        lang=req.cookies.lang;
+      }
+      
+      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
+
+      res.render('loan-criteria', {loan:'bridge-loan', title: 'Bridge Loan',navbarDat:_navbarDat, langFlag: lang})
     },
     fixFlip: function(req,res){
-      res.render('loan-criteria', {loan:'fix-flip', title: 'Rehab / Fix & Flip'})
+
+      let lang = null;
+      
+      
+      if (req.cookies.lang == undefined){
+        lang='eng';
+      }else{
+        lang=req.cookies.lang;
+      }
+      
+      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
+
+      res.render('loan-criteria', {loan:'fix-flip', title: 'Rehab / Fix & Flip',navbarDat:_navbarDat, langFlag: lang})
     },
     cashOut: function(req,res){
-      res.render('loan-criteria', {loan:'cash-out', title: 'Cash Out / Refinance'})
+
+      let lang = null;
+      
+      
+      if (req.cookies.lang == undefined){
+        lang='eng';
+      }else{
+        lang=req.cookies.lang;
+      }
+      
+      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
+
+
+      res.render('loan-criteria', {loan:'cash-out', title: 'Cash Out / Refinance',navbarDat:_navbarDat, langFlag: lang})
     },
     rental: function(req,res){
-      res.render('loan-criteria', {loan:'rental', title: 'Rental Loan'})
+
+      let lang = null;
+      
+      
+      if (req.cookies.lang == undefined){
+        lang='eng';
+      }else{
+        lang=req.cookies.lang;
+      }
+      
+      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
+
+      res.render('loan-criteria', {loan:'rental', title: 'Rental Loan',navbarDat:_navbarDat, langFlag: lang})
     },
     brokersAndRealtors: function(req,res){
 
