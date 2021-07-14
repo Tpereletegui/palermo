@@ -18,7 +18,7 @@
     <div class="criteria-title-container section-title-container">
         <div class="section-title">
             <label class="section-title-label" style="z-index: 99999;color:white;"> 
-                Loan Criteria <%- title %>
+                <%- title %>
             </label>
         </div>
     </div>
@@ -50,9 +50,20 @@
         var myState = {
             pdf: null,
             currentPage: 2,
-            zoom: 1.31
+            zoom: 1.31,
         }
 
+        let screenW = window.screen.width;
+
+
+        if (screenW < 768 && screenW > 576){
+            myState.zoom = 0.82;
+        } else if (screenW <= 576){
+            myState.zoom = 0.5;
+        }
+
+        
+        
         var loan = document.getElementById("hidden-property").innerHTML.trim();
 
 

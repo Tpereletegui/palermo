@@ -2,16 +2,16 @@
   
   <div class="section-title" data-aos="fade-down">
     <label class="section-title-label" style="color:black;">
-      Contact Us
+      <%-contactDat.title%>
     </label>
   </div>
   <div class="contain-contact" data-aos="zoom-in-up">
     
     <form class="form-message"action="/message" method="post">
-      <input type="text" name="name" class="input input-name" placeholder="name">
-      <input type="email" name="email" class="input input-email" placeholder="email">
-      <textarea type="text" name="message" class="input input-message"  placeholder="message..." maxlength="240"></textarea>
-      <button type="submit" class="contact-button">Send</button>
+      <input type="text" name="name" class="input input-name" placeholder="<%-contactDat.placeholders[0]%>">
+      <input type="email" name="email" class="input input-email" placeholder="<%-contactDat.placeholders[1]%>">
+      <textarea type="text" name="message" class="input input-message"  placeholder="<%-contactDat.placeholders[2]%>" maxlength="240"></textarea>
+      <button type="submit" class="contact-button"><%-contactDat.button%></button>
     </form>
 
     <div class="errores">

@@ -7,7 +7,29 @@ const path = require('path');
 
 module.exports = {
     index: function(req,res,next){
-      res.render('index');
+      var _principalDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/principal.json'))); 
+      var _whyusDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/whyus.json'))); 
+      var _aboutusDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/aboutus.json'))); 
+      var _recentdealsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/recent-deals.json'))); 
+      var _loanprogramDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/loan-program-section.json'))); 
+      var _testimonialDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/testimonials.json'))); 
+      var _faqSectionDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/faq-section.json'))); 
+      var _faqsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/faq.json'))); 
+      var _contactDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/contact-us.json'))); 
+      var _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/navbar.json'))); 
+      
+      res.render('index',{
+        principalDat: _principalDat, 
+        whyusDat: _whyusDat, 
+        aboutusDat:_aboutusDat, 
+        recentdealsDat:_recentdealsDat, 
+        loanprogramDat:_loanprogramDat, 
+        testimonialDat:_testimonialDat, 
+        faqSectionDat: _faqSectionDat,
+        faqsDat: _faqsDat,
+        contactDat: _contactDat,
+        navbarDat:_navbarDat
+      });
     },
     message: function(req, res, next) {
         
@@ -83,8 +105,7 @@ module.exports = {
     },
     getCalculator: function(req,res){
       res.render('calculator');
-    }
-    ,
+    },
     processCalculator: function(req,res){
 
       let _loanAmount = Math.floor(req.body.estimatedValue*(req.body.mortgageAmount/100));

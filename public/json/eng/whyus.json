@@ -1,5 +1,5 @@
 {
     "title":"Why Us?",
-    "items-titles": ["Fast Approval", "Lenient Qualifying Requirements", "Reliable Closings", "Competitive Rates, Low Payments", "Personalized Service", "Common Sense Underwriting"],
-    "items-descriptions": ["Pre-qualify in 5 minutes or get approved in less than 24 hours", "Borrowers with no credit history, foreign nationals and new businesses welcome", "Quick, definitive, and hassle-free closings within 7-12 days of approval","Interest-only loans as low as 7.99%","Flexible loan programs to meet your specific needs", "In-house approvals with focus on underlying value of subject property"]
+    "itemsTitles": ["Fast Approval", "Lenient Qualifying Requirements", "Reliable Closings", "Competitive Rates, Low Payments", "Personalized Service", "Common Sense Underwriting"],
+    "itemsDescriptions": ["Pre-qualify in 5 minutes or get approved in less than 24 hours", "Borrowers with no credit history, foreign nationals and new businesses welcome", "Quick, definitive, and hassle-free closings within 7-12 days of approval","Interest-only loans as low as 7.99%","Flexible loan programs to meet your specific needs", "In-house approvals with focus on underlying value of subject property"]
 }

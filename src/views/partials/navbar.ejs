@@ -4,7 +4,7 @@
     <i id="icon" class="fas fa-bars"></i>
   </label>
   <a href="/" class="logo">
-    <img id="logo-img" src="/images/logos/logo-navbar.png" alt="" width="120px">
+    <img id="logo-img" src="/images/logos/logo-navbar.png" alt="" width="100px">
   </a>
 
 
@@ -13,13 +13,16 @@
   <ul>
 
     <li class="logo-nav-contain"><img class="logo-nav-responsive" src="/images/logos/logo-navbar-landscape.png" alt="" width="120px"></li>
-    <li><i class="navbar-icon fas fa-user-tie"></i><a id="aboutus-link" class="overeable">About Us</a></li>
-    <li><i class="navbar-icon far fa-building"></i><a id="programs-link" class="overeable">Loan Programs</a></li>
-    <li><i class="navbar-icon fas fa-dollar-sign"></i><a id="deals-link" class="overeable">Recent Deals</a></li>
-    <li><i class="navbar-icon far fa-comment-dots"></i><a id="testimonials-link" class="overeable">Testimonials</a></li>
-    <li><i class="navbar-icon far fa-handshake"></i><a href="/brokers" id="brokers-link" class="overeable">Brokers</a></li>
-    <li><i class="navbar-icon far fa-question-circle"></i><a id="faq-link" class="overeable">FAQ</a></li>
-    <li><i class="navbar-icon far fa-paper-plane"></i><a id="contact-link"class="overeable">Contact</a></li>
+    
+
+
+    <li><i class="navbar-icon fas fa-user-tie"></i><a id="aboutus-link" class="overeable"><%- navbarDat.titles[0] %></a></li>
+    <li><i class="navbar-icon far fa-building"></i><a id="programs-link" class="overeable"><%- navbarDat.titles[1] %></a></li>
+    <li><i class="navbar-icon fas fa-dollar-sign"></i><a id="deals-link" class="overeable"><%- navbarDat.titles[2] %></a></li>
+    <li><i class="navbar-icon far fa-comment-dots"></i><a id="testimonials-link" class="overeable"><%- navbarDat.titles[3] %></a></li>
+    <li><i class="navbar-icon far fa-handshake"></i><a href="/brokers" id="brokers-link" class="overeable"><%- navbarDat.titles[4] %></a></li>
+    <li><i class="navbar-icon far fa-question-circle"></i><a id="faq-link" class="overeable"><%- navbarDat.titles[5] %></a></li>
+    <li><i class="navbar-icon far fa-paper-plane"></i><a id="contact-link"class="overeable"><%- navbarDat.titles[6] %></a></li>
     <li><a class="lang-img"><img class="lang-img" src="/images/icons/flag-spain.png" alt=""></a></li>
 
   </ul>
@@ -31,6 +34,7 @@
     let navbar = document.querySelector('#navbar');
     let lang = document.querySelector('.lang-img');
     let logo = document.querySelector('.logo');
+    let links = document.querySelectorAll('.overeable');
 
     btn.addEventListener("click", () =>{
       if (icon.classList.contains('fa-bars')){
@@ -55,11 +59,16 @@
     window.addEventListener('scroll', function () {
       if (window.pageYOffset > 100) {
         navbar.classList.add('scroll-fade');
-        logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-landscape.png" alt="" width="160px" style="margin-top:15px;">'
+        logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-landscape.png" alt="" width="160px">'
+        links.forEach(link =>{
+          link.style.color="gray";
+        })
       }else{
         navbar.classList.remove('scroll-fade');
         logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar.png" alt="" width="120px" >'
-
+        links.forEach(link =>{
+          link.style.color="white";
+        })
       }
     });
 

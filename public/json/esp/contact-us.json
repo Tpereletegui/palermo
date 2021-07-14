@@ -1,0 +1,5 @@
+{
+    "title":"Contacto",
+    "placeholders": ["nombre", "correo", "mensaje..."],
+    "button" : "Enviar"
+}

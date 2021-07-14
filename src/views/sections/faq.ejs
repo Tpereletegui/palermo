@@ -2,43 +2,36 @@
   
   <div class="section-title" data-aos="fade-down">
     <label class="faq-title">
-      Frequently Asked Questions
+      <%-faqSectionDat.title%>
     </label>
   </div>
 
   
   <div class="accordion">
     <div class="content-box" data-aos="fade-up">
-      <div class="label">What is a Private Lender?</div>
+      <div class="label"><%-faqsDat[0].title%></div>
       <div class="content">
-        <p>A Private Lender is an investor who makes loans secured by real estate, typically charging higher rates than banks but
-          also making loans that banks would not make, funding more quickly than banks and/or requiring less documentation than
-          banks.</p>
+        <p><%-faqsDat[0].text%></p>
       </div>
     </div>
     
 
     <div class="content-box" data-aos="fade-up" data-aos-delay="100">
-      <div class="label">Why do Private Lenders exist?</div>
+      <div class="label"><%-faqsDat[1].title%></div>
       <div class="content">
-        <p>Private Lenders exist because many real estate investors need a quick response / funding to secure a deal when looking
-          for a real estate loan. Banks and other institutional lenders that offer the lowest interest rates don’t provide the same
-          combination of speed and transparency in their decision-making process, along with quick access to capital.</p>
+        <p><%-faqsDat[1].text%></p>
       </div>
     </div>
 
     <div class="content-box" data-aos="fade-up" data-aos-delay="200">
-      <div class="label">When should one use a Private Lender?</div>
+      <div class="label"><%-faqsDat[2].title%></div>
       <div class="content">
-        <p>A borrower might consider using a private money / private money loan in situations where he or she is willing to pay a
-          higher interest rate and/or higher up-front fees in the interest of gaining access to capital more quickly, dealing with less
-          bureaucracy and more transparency during the application process, and finding capital to pursue an opportunity that
-          banks will not finance, either because they are unwilling or unable to do so.</p>
+        <p><%-faqsDat[2].text%></p>
       </div>
     </div>
   </div>
 
-  <label class="faq-more-button" for=""><a href="/faq">More..</a></label>
+  <label class="faq-more-button" for=""><a href="/faq"><%-faqSectionDat.button%></a></label>
 
 
   <script>

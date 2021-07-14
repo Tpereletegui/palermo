@@ -1,0 +1,14 @@
+{
+    "titles": ["Loan Type", "Property Type", "Loan details","Property / Deal Information", "Borrower Details", "How Did You Hear About Us?"],
+    "loanTypeTitles":["Bridge Loan","Rehab / Fix & Flip","Cash Out / Refinance", "Rental Loan"],
+    "loanTypeDesc": ["Short-term financing to bridge to longer-term financing", "Financing for the purchase & rehab of property that is to be re-sold", "Financing to cash out on an encumbered / unencumbered property", "Financing for the purchase of property that is to be rented out"],
+    "propertyTypeTitles": ["Residential", "Multifamily", "Commercial"],
+    "propertyTypeDesc": ["Single Family, Condo, Co-Op, Townhouse, Duplex, Triplex, Fourplex", "≥ 5 Units", "Office, Retail, Warehouse, Mixed Use, Land"],
+    "loanDetailsTitles": ["Loan","Loan Tenor", "Interest Rate"],
+    "dealInformationTitles": ["Subject Property Address", "Purchase Price / Estimated As-Is Value", "After Repair Value (if Rehab Loan)", "Target Closing Timing"],
+    "dealInformationPlaceHolders" : ["Adress", "City", "State", "ZIP Code"],
+    "borrowerDetailsTitles": ["Are you a Broker Working on Behalf of a Client?", "Principal Borrower Contact Info","Principal Borrower Estimated FICO Score"],
+    "brokerWorkPlaceholders" : ["First Name", "Last Name", "Email", "Phone"],
+    "borrowerContactPlaceholders": ["First Name", "Last Name", "Borrower Email", "Cell Phone", "Adress", "City", "State", "Zip Code"],
+    "ficoScore": ["Below 600", "600-700", "Over 700", "N/A"]
+}

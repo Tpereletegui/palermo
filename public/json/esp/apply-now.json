@@ -1,0 +1,14 @@
+{
+    "titles": ["Tipo de Préstamo", "Tipo de Propiedad", "Detalles del Préstamo","Información de Propiedad / Oferta", "Detalles del Préstamo", "¿Cómo te enteraste de nosotros?"],
+    "loanTypeTitles":["Crédito a corto plazo","Rehabilitación / Reparación y volteo","Retiro / Refinanciamiento", "Préstamo de Alquiler"],
+    "loanTypeDesc": ["Financiamiento a corto plazo para tender un puente hacia el financiamiento a largo plazo", "Financiamiento para la compra y rehabilitación de propiedad que se venderá", "Financiamiento para cobrar en una propiedad gravada / no gravada", "Financiamiento para la compra de propiedad que se va a alquilar"],
+    "propertyTypeTitles": ["Residencial", "Multifamiliar", "Comercial"],
+    "propertyTypeDesc": ["Unifamiliar, Condominio, Cooperativa, Casa de ciudad, Duplex, Triplex, Fourplex", "≥ 5 Unidades", "Oficina, Minorista, Almacén, Uso mixto, Terreno"],
+    "loanDetailsTitles": ["Préstamo","Tenor del préstamo", "Tasa de interés"],
+    "dealInformationTitles": ["Dirección de la propiedad", "Precio de compra / Valor estimado tal como está", "Valor después de la reparación (si es un préstamo de rehabilitación)", "Tiempo de cierre del objetivo"],
+    "dealInformationPlaceHolders" : ["Dirección", "Ciudad", "Estado", "Código postal"],
+    "borrowerDetailsTitles": ["¿Es usted un corredor que trabaja en nombre de un cliente?", "Información de contacto del prestatario principal", "Puntaje FICO estimado del prestatario principal"],
+    "brokerWorkPlaceholders" : ["Nombre", "Apellido", "Correo", "Teléfono"],
+    "borrowerContactPlaceholders": ["Nombre", "Apellido", "Email del prestario", "Tel. Celular", "Dirección", "Ciudad", "Estado", "Código postal"],
+    "ficoScore": ["Below 600", "600-700", "Over 700", "N/A"]
+}

@@ -15,7 +15,8 @@
                 </label>
             </div>
             <div class="brokers-subtitle-container">
-                <label>Palermo Lender offers simple referral options for brokers.  Gain access to our loan programs and become a part of the Palermo Lender Family.</label>
+                <p>Palermo Lender offers simple referral options for brokers.  </p>
+                <p>Gain access to our loan programs and become a part of the Palermo Lender Family.</p>
             </div>
         </div>
 
@@ -81,6 +82,7 @@
                   
     </section>
 
+    <%-include('./partials/footer')%>
     <script>
         var myState = {
             pdf: null,
@@ -89,6 +91,14 @@
         }
 
         var loan = document.querySelector(".property").innerHTML.trim();
+        let screenW = window.screen.width;
+
+
+        if (screenW < 768 && screenW > 576){
+            myState.zoom = 0.82;
+        } else if (screenW < 576){
+            myState.zoom = 0.5;
+        }
 
         console.log(loan);
         if (loan){
