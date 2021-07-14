@@ -4,19 +4,30 @@ const nodemailer = require('nodemailer');
 const fs = require('fs');
 const path = require('path');
 
-
 module.exports = {
     index: function(req,res,next){
-      var _principalDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/principal.json'))); 
-      var _whyusDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/whyus.json'))); 
-      var _aboutusDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/aboutus.json'))); 
-      var _recentdealsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/recent-deals.json'))); 
-      var _loanprogramDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/loan-program-section.json'))); 
-      var _testimonialDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/testimonials.json'))); 
-      var _faqSectionDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/faq-section.json'))); 
-      var _faqsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/faq.json'))); 
-      var _contactDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/contact-us.json'))); 
-      var _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/navbar.json'))); 
+
+      var lang = null;
+
+
+      if (req.cookies.lang == undefined){
+        lang='eng';
+      }else{
+        lang=req.cookies.lang;
+      }
+
+      
+
+      var _principalDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/principal.json'))); 
+      var _whyusDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/whyus.json'))); 
+      var _aboutusDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/aboutus.json'))); 
+      var _recentdealsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/recent-deals.json'))); 
+      var _loanprogramDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/loan-program-section.json'))); 
+      var _testimonialDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/testimonials.json'))); 
+      var _faqSectionDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/faq-section.json'))); 
+      var _faqsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/faq.json'))); 
+      var _contactDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/contact-us.json'))); 
+      var _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
       
       res.render('index',{
         principalDat: _principalDat, 
@@ -28,7 +39,8 @@ module.exports = {
         faqSectionDat: _faqSectionDat,
         faqsDat: _faqsDat,
         contactDat: _contactDat,
-        navbarDat:_navbarDat
+        navbarDat:_navbarDat,
+        langFlag: lang
       });
     },
     message: function(req, res, next) {
@@ -172,5 +184,21 @@ module.exports = {
       let loan = req.body.brokerOption;
       
       res.render('brokers', {loan: loan})
+    },
+    langChange: function(req,res){
+
+      try {
+        if (req.cookies.lang == undefined){
+          res.cookie("lang","eng");
+        } else if (req.cookies.lang == "eng" ){
+          res.cookie("lang","esp");
+        } else {
+          res.cookie("lang", "eng")
+        }
+        
+      } catch (error) {
+        console.log(error);
+      }
+      res.redirect('/')
     }
 }

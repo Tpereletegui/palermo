@@ -19,5 +19,6 @@ router.get('/calculator', indexController.getCalculator)
 router.post('/calculator', indexController.processCalculator)
 router.get('/brokers', indexController.brokersAndRealtors);
 router.post('/brokers', indexController.loanSelect)
+router.post('/lang', indexController.langChange)
 
 module.exports = router;

@@ -23,7 +23,14 @@
     <li><i class="navbar-icon far fa-handshake"></i><a href="/brokers" id="brokers-link" class="overeable"><%- navbarDat.titles[4] %></a></li>
     <li><i class="navbar-icon far fa-question-circle"></i><a id="faq-link" class="overeable"><%- navbarDat.titles[5] %></a></li>
     <li><i class="navbar-icon far fa-paper-plane"></i><a id="contact-link"class="overeable"><%- navbarDat.titles[6] %></a></li>
-    <li><a class="lang-img"><img class="lang-img" src="/images/icons/flag-spain.png" alt=""></a></li>
+    <li>
+      <form action="/lang" method="post">
+        
+        <button type="submit" class="lang-img" href="/lang" style="background: none; border:none;">
+          <img class="lang-img"  src="/images/icons/<%- langFlag %>.png" alt="">
+        </button>
+      </form>
+    </li>
 
   </ul>
 
@@ -32,7 +39,6 @@
     let icon = document.querySelector('#icon');
     let overlayNav = document.querySelector('.fade-navbar');
     let navbar = document.querySelector('#navbar');
-    let lang = document.querySelector('.lang-img');
     let logo = document.querySelector('.logo');
     let links = document.querySelectorAll('.overeable');
 
@@ -47,14 +53,7 @@
         icon.classList.add('fa-bars');
       }
     })
-
-    lang.addEventListener("click", () =>{
-      if (lang.innerHTML == '<img src="/images/icons/flag-spain.png" alt="">'){
-        lang.innerHTML = '<img src="/images/icons/flag-american.png" alt="">'
-      }else{
-        lang.innerHTML = '<img src="/images/icons/flag-spain.png" alt="">'
-      }
-    })
+    
 
     window.addEventListener('scroll', function () {
       if (window.pageYOffset > 100) {
