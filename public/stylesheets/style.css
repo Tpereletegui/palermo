@@ -1851,6 +1851,12 @@ hr{
 
 
 
+.video-youtube{
+  width: 640px;
+  height: 480px;
+}
+
+
 /* RESPONSIVE ADJUSTS */
 
 /* Teléfonos batatas */
@@ -2469,5 +2475,7 @@ hr{
   .accordion{
     width: 70%;
   }
+
+  
 
 }

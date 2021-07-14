@@ -1,13 +1,12 @@
 const { validationResult } = require('express-validator');
 const nodemailer = require('nodemailer'); 
-
 const fs = require('fs');
 const path = require('path');
 
 module.exports = {
     index: function(req,res,next){
 
-      var lang = null;
+      let lang = null;
 
 
       if (req.cookies.lang == undefined){
@@ -16,18 +15,16 @@ module.exports = {
         lang=req.cookies.lang;
       }
 
-      
-
-      var _principalDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/principal.json'))); 
-      var _whyusDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/whyus.json'))); 
-      var _aboutusDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/aboutus.json'))); 
-      var _recentdealsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/recent-deals.json'))); 
-      var _loanprogramDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/loan-program-section.json'))); 
-      var _testimonialDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/testimonials.json'))); 
-      var _faqSectionDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/faq-section.json'))); 
-      var _faqsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/faq.json'))); 
-      var _contactDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/contact-us.json'))); 
-      var _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
+      let _principalDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/principal.json'))); 
+      let _whyusDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/whyus.json'))); 
+      let _aboutusDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/aboutus.json'))); 
+      let _recentdealsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/recent-deals.json'))); 
+      let _loanprogramDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/loan-program-section.json'))); 
+      let _testimonialDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/testimonials.json'))); 
+      let _faqSectionDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/faq-section.json'))); 
+      let _faqsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/faq.json'))); 
+      let _contactDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/contact-us.json'))); 
+      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
       
       res.render('index',{
         principalDat: _principalDat, 
@@ -88,7 +85,7 @@ module.exports = {
     },
     loadAllFaqs: function(req,res){
 
-      var faqs = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/faq.json'))); 
+      let faqs = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/faq.json'))); 
 
       faqs.forEach(faq => {
           if (faq.text.includes("$")){
@@ -143,7 +140,7 @@ module.exports = {
       }
 
 
-      var output = {
+      let output = {
         estimatedValue: _estimatedValue, //VALOR DE LA CASA COMO VIENE EN INPUT
         mortgageAmount: _mortgageAmount, //PORCENTAJE DE PRESTAMO COMO VIENE
         loanAmount: _loanAmount,
@@ -175,15 +172,51 @@ module.exports = {
       res.render('loan-criteria', {loan:'rental', title: 'Rental Loan'})
     },
     brokersAndRealtors: function(req,res){
-      res.render('brokers');
+
+      let lang = null;
+      
+      
+      if (req.cookies.lang == undefined){
+        lang='eng';
+      }else{
+        lang=req.cookies.lang;
+      }
+      
+      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
+
+      res.render('brokers',{navbarDat:_navbarDat, langFlag: lang});
     },
     loanPrograms:function(req,res){
-      res.render('loan-programs')
+      
+      
+      let lang = null;
+      
+      
+      if (req.cookies.lang == undefined){
+        lang='eng';
+      }else{
+        lang=req.cookies.lang;
+      }
+      
+      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
+
+      res.render('loan-programs',{navbarDat:_navbarDat, langFlag: lang})
     },
     loanSelect: function(req,res){
       let loan = req.body.brokerOption;
       
-      res.render('brokers', {loan: loan})
+      let lang = null;
+      
+      if (req.cookies.lang == undefined){
+        lang='eng';
+      }else{
+        lang=req.cookies.lang;
+      }
+      
+      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
+      
+      
+      res.render('brokers', {loan: loan, navbarDat: _navbarDat, langFlag: lang})
     },
     langChange: function(req,res){
 

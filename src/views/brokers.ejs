@@ -90,7 +90,12 @@
             zoom: 1.31
         }
 
-        var loan = document.querySelector(".property").innerHTML.trim();
+        var loadP = document.querySelector(".property");
+        var loan; 
+        if (loadP){
+            loan = loadP.innerHTML.trim();
+
+        }
         let screenW = window.screen.width;
 
 
