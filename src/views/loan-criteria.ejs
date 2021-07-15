@@ -37,7 +37,7 @@
             <button class="principal-button" id="zoom_out">-</button>
         </div> -->
         <div class="download-button">
-            <a href="./pdf/<%-loan%>.pdf"><button class="principal-button" >Download</button></a>
+            <a href="../pdf/<%-loan%>.pdf"><button class="principal-button" >Download</button></a>
         </div>
     </div>
 
@@ -67,7 +67,7 @@
         var loan = document.getElementById("hidden-property").innerHTML.trim();
 
 
-        pdfjsLib.getDocument('pdf/'+loan+'.pdf').then(pdf =>{
+        pdfjsLib.getDocument('../pdf/'+loan+'.pdf').then(pdf =>{
         
             myState.pdf = pdf;
             render();

@@ -1,4 +1,4 @@
-const DOMstrings = {
+  const DOMstrings = {
     stepsBtnClass: 'multisteps-form__progress-btn',
     stepsBtns: document.querySelectorAll(`.multisteps-form__progress-btn`),
     stepsBar: document.querySelector('.multisteps-form__progress'),
@@ -7,7 +7,13 @@ const DOMstrings = {
     stepFormPanelClass: 'multisteps-form__panel',
     stepFormPanels: document.querySelectorAll('.multisteps-form__panel'),
     stepPrevBtnClass: 'js-btn-prev',
-    stepNextBtnClass: 'js-btn-next' };
+    stepNextBtnClass: 'js-btn-next',
+    firstStepInputs: document.querySelectorAll(".first-step-input"),
+    secondStepInputs: document.querySelectorAll(".second-step-input"),
+    fourStepInputs: document.querySelectorAll(".four-step-input"),
+    fiveStepInputs: document.querySelectorAll(".five-step-input"),
+    
+  };
   
   
   const removeClasses = (elemSet, className) => {
@@ -126,12 +132,64 @@ const DOMstrings = {
     let activePanelNum = Array.from(DOMstrings.stepFormPanels).indexOf(activePanel);
   
     if (eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`)) {
+
       activePanelNum--;
   
     } else {
-  
-      activePanelNum++;
-  
+      
+      switch (activePanelNum) {
+        case 0:
+            (DOMstrings.firstStepInputs).forEach(input => {
+              if (input.checked == true){
+                activePanelNum++;
+              }
+            });
+            
+        break;
+        case 1:
+
+          (DOMstrings.secondStepInputs).forEach(input => {
+            if (input.checked == true){
+              activePanelNum++;
+            }
+          });
+
+        break;
+
+        case 2:
+          activePanelNum++;
+        break;
+
+        case 3:
+
+          let count3 = 0;
+
+          (DOMstrings.fourStepInputs).forEach(input => {
+            if (input.value.length > 0 ){
+              count3++;
+            }
+          });
+
+          if (count3 == DOMstrings.fourStepInputs.length){
+            activePanelNum++;
+          } 
+
+        break;
+
+        case 4:
+          let count4 = 0;
+
+          (DOMstrings.fiveStepInputs).forEach(input => {
+            if (input.value.length>0){
+              count4 ++
+            }
+          });
+
+          if (count4 == DOMstrings.fiveStepInputs.length){
+            activePanelNum++;
+          } 
+        break;
+        }
     }
   
     setActiveStep(activePanelNum);

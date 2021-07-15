@@ -10,7 +10,7 @@
 
         <div class="brokers-title-container section-title-container">
             <div class="section-title">
-                <label class="brokers-title">
+                <label class="section-title-label" style="color: white; ">
                     Brokers
                 </label>
             </div>
@@ -55,29 +55,34 @@
                         <h3>Rental Loan</h3>
                     </div>
                 </div>
-                
+
                 <div class="broker-button-contain">
-                    <button type="submit" class="principal-button">View Document</button>
+                    <button type="submit" class="principal-button">Select Loan</button>
+                    <% if(typeof loan != 'undefined'){ %>
+                        <a href="./pdf/<%-loan%>.pdf"><button class="principal-button" >Download</button></a>
+                    <% } %>
                 </div>
+
+                <% if(typeof loan != 'undefined'){ %>
+                    <div style="display:none;" class="property">
+                        <%- loan %>
+                    </div>
+                    <div class="brokers-pdf-out">
+                        <div id="my_pdf_viewer">
+                            <div id="canvas_container">
+                                <canvas id="pdf_renderer"></canvas>
+                            </div>
+                            
+                        </div>
+                    </div>
+                <% } %>
+                
+                
             </form>
         </div>
 
         
-        <% if(typeof loan != 'undefined'){ %>
-            <div style="display:none;" class="property">
-                <%- loan %>
-            </div>
-            <div class="brokers-pdf-out">
-                <div id="my_pdf_viewer">
-                    <div id="canvas_container">
-                        <canvas id="pdf_renderer"></canvas>
-                    </div>
-                    <div class="download-button">
-                        <a href="./pdf/<%-loan%>.pdf"><button class="principal-button" >Download</button></a>
-                    </div>
-                </div>
-            </div>
-        <% } %>
+        
         
                   
     </section>

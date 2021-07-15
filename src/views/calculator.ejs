@@ -10,8 +10,8 @@
 
         <div class="calculator-title-container section-title-container">
             <div class="section-title">
-                <label class="calculator-title">
-                    Mortgage Calculator 
+                <label class="section-title-label" style="color:white;">
+                    <%=calculatorDat.title%>
                 </label>
             </div>
         </div>
@@ -23,20 +23,20 @@
                     <div class="first-line">
                         <!-- Estimated Property Value -->
                         <div class="item-container">
-                            <label for="" class="slider-title">Estimated Property Value</label>
-                            <p class="value">$<span id="value1"></span></p>
+                            <label for="" class="slider-title"><%=calculatorDat.itemTitles[0]%></label>
+                            <p class="value">$<span class="moneyValueToChange" id="value1"></span></p>
                             <hr>
                             <% if(typeof output != 'undefined'){ %>
                                 <input name="estimatedValue" type="range" id="range1" min="1" max="10000000" value="<%=output.estimatedValue%>" class="slider">        
                             <% } else { %>
-                                <input name="estimatedValue" type="range" id="range1" min="1" max="10000000" value="1000000>" class="slider">
+                                <input name="estimatedValue" type="range" id="range1" min="1" max="10000000" value="100000>" class="slider">
                             <% }  %>
                         </div>
 
                         <!-- Mortgage Amount -->
                         <div class="item-container">
-                            <label for="" class="slider-title">Mortgage Amount</label>
-                            <p class="value"><span id="value2"></span>%</p>
+                            <label for="" class="slider-title"><%=calculatorDat.itemTitles[1]%></label>
+                            <p class="value"><span class="moneyValueToChange" id="value2"></span>%</p>
                             <hr>
                             <% if(typeof output != 'undefined'){ %>
                                 <input name="mortgageAmount" type="range" id="range2" step="0.1" min="0" max="75" value="<%=output.mortgageAmount%>" class="slider">
@@ -51,13 +51,13 @@
                             <div class="label-container">
                                 
                                 <div class="radio-container">
-                                    <label class="container slider-title" for="month">Months
+                                    <label class="container slider-title" for="month"><%=calculatorDat.tenorSubs[0]%>
                                         <input type="radio" checked="checked" id="month" name="monthyear">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
                                 <div class="radio-container">
-                                    <label class="container slider-title" for="year">Years
+                                    <label class="container slider-title" for="year"><%=calculatorDat.tenorSubs[1]%>
                                         <input type="radio" name="monthyear" id="year">
                                         <span class="checkmark"></span>
                                     </label>
@@ -79,8 +79,8 @@
 
                         <!-- Interest Rate (%)  -->
                         <div class="item-container">
-                            <label for="" class="slider-title">Interest Rate (%)</label>
-                            <p class="value"><span id="value4"></span>%</p>
+                            <label for="" class="slider-title"><%= calculatorDat.itemTitles[2]%> (%)</label>
+                            <p class="value"><span class="moneyValueToChange" id="value4"></span>%</p>
                             <hr>
                             <% if(typeof output != 'undefined'){ %>
                                 <input name="mortgageInterest" type="range" id="range4" step="0.01" min="7.99" max="13.99"  value="<%=output.mortgageInterest%>" class="slider">
@@ -91,8 +91,8 @@
 
                         <!-- Est. Origination Fee   -->
                         <div class="item-container">
-                            <label for="" class="slider-title">Est. Origination Fee</label>
-                            <p class="value"><span id="value5"></span>%</p>
+                            <label for="" class="slider-title"><%= calculatorDat.itemTitles[3]%></label>
+                            <p class="value"><span class="moneyValueToChange" id="value5"></span>%</p>
                             <hr>
                             <% if(typeof output != 'undefined'){ %>
                                 <input name="estOrigFree" type="range" id="range5" step="0.1" min="0" max="5" value="<%=output.estOrigFree%>" class="slider">
@@ -103,8 +103,8 @@
 
                         <!-- Est. Loan Costs -->
                         <div class="item-container">
-                            <label for="" class="slider-title">Est. Loan Costs</label>
-                            <p class="value"><span id="value6"></span>%</p>
+                            <label for="" class="slider-title"><%= calculatorDat.itemTitles[4]%></label>
+                            <p class="value"><span class="moneyValueToChange" id="value6"></span>%</p>
                             <hr>
                             <% if(typeof output != 'undefined'){ %>
                                 <input name="estLoanCosts" type="range" id="range6" step="0.1" min="0" max="5" value="<%=output.estLoanCosts%>" class="slider">
@@ -116,72 +116,70 @@
                     </div>           
                 </div>
                 <button type="submit" class="button-calculator principal-button">
-                    Submit
+                    <%= calculatorDat.submitButton%>
                 </button>
             </form>
         
             <% if(typeof output != 'undefined'){ %>
                 <div class="output-container" >
-                    <label class="output-title">Loan Details</label>
+                    <label class="output-title"><%= calculatorDat.outputTitle%></label>
 
                     <div class="output-container-first">
                         <div class="output-detail-item">
-                            <label>Estimated Property Value: </label>
-                            <label><%= output.estimatedValue %></label>
+                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[0] %>: </label>
+                            <label class="output-detail-item-value">$<span class="moneyValueToChange"><%= output.estimatedValue %></span></label>
                         </div>
                         <div class="output-detail-item">
-                            <label>Down Payment: </label>
-                            <label><%= output.mortgageAmount %></label>
+                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[1] %>: </label>
+                            <label class="output-detail-item-value"><span class="moneyValueToChange"><%= output.mortgageAmount %></span>%</label>
                         </div>
                         <div class="output-detail-item">
-                            <label>Loan Amount: </label>
-                            <label><%= output.loanAmount %></label>
+                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[2] %>: </label>
+                            <label class="output-detail-item-value">$<span class="moneyValueToChange"><%= output.loanAmount %></span></label>
                         </div>
                         <div class="output-detail-item">
-                            <label>Interest: </label>
-                            <label><%= output.mortgageInterest %></label>
+                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[3] %>: </label>
+                            <label class="output-detail-item-value"><span class="moneyValueToChange"><%= output.mortgageInterest %></span>%</label>
                         </div>
                         <div class="output-detail-item">
-                            <label>Term: </label>
-                            <label><%= output.mortgageTenor %></label>
+                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[4] %>: </label>
+                            <label class="output-detail-item-value"><span><%=output.mortgageTenor %></span></label>
                         </div>         
-                    </div>
-
-                    
+                    </div>                 
 
                     <div class="output-container-second">
                         <div class="output-detail-item">
-                            <label>Month Interest Payment: </label>
-                            <label><%= output.monthInterest %></label>
+                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[5] %>: </label>
+                            <label class="output-detail-item-value">$<span class="moneyValueToChange"><%= output.monthInterest %></span></label>
                         </div>
                         <div class="output-detail-item">
-                            <label>Annual Interest Payment: </label>
-                            <label><%= output.annualInterest %></label>
+                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[6] %>: </label>
+                            <label class="output-detail-item-value">$<span class="moneyValueToChange"><%= output.annualInterest %></span></label>
                         </div>
                         <div class="output-detail-item">
-                            <label>Est. Loan Costs: </label>
-                            <label><%= output.estLoanCosts %></label>
+                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[7] %>: </label>
+                            <label class="output-detail-item-value">$<span class="moneyValueToChange"><%= output.estLoanCosts %></span></label>
                         </div>
                         <div class="output-detail-item">
-                            <label>Est. Origination Free: </label>
-                            <label><%= output.estOrigFree %></label>
+                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[8] %>: </label>
+                            <label class="output-detail-item-value">$<span class="moneyValueToChange"><%= output.estOrigFree %></span></label>
                         </div>
                         <div class="output-detail-item">
-                            <label>Total Closing Costs:</label>
-                            <label><%= output.totalClosing %></label>
+                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[9] %>:</label>
+                            <label class="output-detail-item-value">$<span class="moneyValueToChange"><%= output.totalClosing %></span></label>
                         </div>
                     </div>
                     <div class="table-payments">
                         <div class="table-payments-header">
-                            <label class="table-payment-date">&nbsp;</label>
-                            <label class="table-payment-date">Interest Payment</label>
-                            <label class="table-payment-date">Cumulative Payment</label>    
+                            <label class="table-payment-date table-payment-indice">&nbsp;</label>
+                            <label class="table-payment-date"><%= calculatorDat.paymentsTitles[0] %></label>
+                            <label class="table-payment-date"><%= calculatorDat.paymentsTitles[1] %></label>    
                         </div>
                         <% for (let j = 0; j < payments.length; j++) { %>
                             <div class="table-payments-item">
-                                <label class="table-payment-date"> <%= payments[j].id %></label>
-                                <label class="table-payment-date"><%= output.monthInterest %></label>
-                                <label class="table-payment-date"><%= payments[j].cumulativePayment %></label>
+                                <label class="table-payment-date table-payment-indice"> <%= payments[j].id %></label>
+                                <label class="table-payment-date">$<span class="moneyValueToChange"><%= output.monthInterest %></span></label>
+                                <label class="table-payment-date">$<span class="moneyValueToChange"><%= payments[j].cumulativePayment %></span></label>
                             </div>
                         <% } %>
                     </div>
@@ -192,23 +190,9 @@
     </section>
     <%- include('./partials/footer') -%>
     
+    <script src="/js/numberFormat.js"></script>
 
     <script>
-
-        function formatMoney(number, decPlaces, decSep, thouSep) {
-            decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
-            decSep = typeof decSep === "undefined" ? "." : decSep;
-            thouSep = typeof thouSep === "undefined" ? "," : thouSep;
-            var sign = number < 0 ? "-" : "";
-            var i = String(parseInt(number = Math.abs(Number(number) || 0).toFixed(decPlaces)));
-            var j = (j = i.length) > 3 ? j % 3 : 0;
-
-            return sign +
-                (j ? i.substr(0, j) + thouSep : "") +
-                i.substr(j).replace(/(\decSep{3})(?=\decSep)/g, "$1" + thouSep) +
-                (decPlaces ? decSep + Math.abs(number - i).toFixed(decPlaces).slice(2) : "");
-        }
-
 
         /* Estimated Property Value */
         var slider1 = document.getElementById("range1");
@@ -217,7 +201,7 @@
         output1.innerHTML = slider1.value;
 
         slider1.oninput = function(){
-            output1.innerHTML = formatMoney(this.value);
+            output1.innerHTML = this.value;
         }
 
         /* Mortgage Amount */
@@ -227,7 +211,7 @@
         output2.innerHTML = slider2.value;
 
         slider2.oninput = function(){
-            output2.innerHTML = formatMoney(this.value);
+            output2.innerHTML = this.value;
         }
 
         /* Tenor */
@@ -247,7 +231,7 @@
         output4.innerHTML = slider4.value;
 
         slider4.oninput = function(){
-            output4.innerHTML = formatMoney(this.value);
+            output4.innerHTML =this.value;
         }
 
         /* Est. Origination Fee  */
@@ -257,7 +241,7 @@
         output5.innerHTML = slider5.value;
 
         slider5.oninput = function(){
-            output5.innerHTML = formatMoney(this.value);
+            output5.innerHTML = this.value;
         }
 
         /* Est. Loan Costs */
@@ -267,15 +251,7 @@
         output6.innerHTML = slider6.value;
 
         slider6.oninput = function(){
-            output6.innerHTML = formatMoney(this.value);
-        }
-
-        window.onload = () =>{
-            output1.innerHTML = formatMoney(output1.innerHTML);
-            output2.innerHTML = formatMoney(output2.innerHTML);
-            output4.innerHTML = formatMoney(output4.innerHTML);
-            output5.innerHTML = formatMoney(output5.innerHTML);
-            output6.innerHTML = formatMoney(output6.innerHTML);
+            output6.innerHTML = this.value;
         }
         
     </script>

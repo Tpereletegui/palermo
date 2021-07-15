@@ -4,7 +4,7 @@
     <i id="icon" class="fas fa-bars"></i>
   </label>
   <a href="/" class="logo">
-    <img id="logo-img" src="/images/logos/logo-navbar.png" alt="" width="100px">
+    <img id="logo-img" src="/images/logos/logo-navbar-big-alt.png" style="margin-left: 20px; margin-top:15px;" alt="" width="100px">
   </a>
 
 
@@ -25,8 +25,7 @@
     <li><i class="navbar-icon far fa-paper-plane"></i><a id="contact-link"class="overeable"><%- navbarDat.titles[6] %></a></li>
     <li>
       <form action="/lang" method="post">
-        
-        <button type="submit" class="lang-img" href="/lang" style="background: none; border:none;">
+        <button type="submit" href="/lang" style="background: none; border:none; cursor:pointer;">
           <img class="lang-img"  src="/images/icons/<%- langFlag %>.png" alt="">
         </button>
       </form>
@@ -41,16 +40,19 @@
     let navbar = document.querySelector('#navbar');
     let logo = document.querySelector('.logo');
     let links = document.querySelectorAll('.overeable');
+    let body = document.querySelector('body');
 
     btn.addEventListener("click", () =>{
       if (icon.classList.contains('fa-bars')){
         overlayNav.style.display = "block";
         icon.classList.remove('fa-bars');
         icon.classList.add('fa-times');
+        body.classList.add('no-scroll');
       }else{
         overlayNav.style.display = "none";
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
+        body.classList.remove('no-scroll');
       }
     })
     
@@ -59,15 +61,19 @@
       if (window.pageYOffset > 100) {
         navbar.classList.add('scroll-fade');
         logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-landscape.png" alt="" width="160px">'
-        links.forEach(link =>{
-          link.style.color="gray";
-        })
+        if (window.innerWidth > 768){
+          links.forEach(link =>{
+            link.style.color="gray";
+          })
+        }
       }else{
         navbar.classList.remove('scroll-fade');
-        logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar.png" alt="" width="120px" >'
-        links.forEach(link =>{
-          link.style.color="white";
-        })
+        logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-big-alt.png" style="margin-left: 20px; margin-top:15px;"  alt="" width="100px" >'
+        if (window.innerWidth > 768){
+          links.forEach(link =>{
+            link.style.color="white";
+          })
+        }
       }
     });
 

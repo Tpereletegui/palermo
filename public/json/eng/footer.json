@@ -2,6 +2,6 @@
     "titles" : ["Company", "Follow", "Apply Now"],
     "company" : ["About Us", "Contact Us", "FAQ", "Testimonials", "Brokers & Realtors"],
     "follow": ["Facebook", "Instagram", "Linkedin"],
-    "apply-now": ["Get Pre-Apoved"]
+    "applyNow": ["Get Pre-Apoved"]
 
 }

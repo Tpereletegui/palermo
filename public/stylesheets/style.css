@@ -1,7 +1,7 @@
 :root{
   --color-mostaza: #DBB90F;
   --color-azul: #093147;
-  --color-smoke: #093147;
+  --color-smoke: #303030;
   --color-cement: #999999;
   --color-fog: #E5E5E5;
   --fuente-principal: 'Josefin Sans', sans-serif;
@@ -21,6 +21,7 @@
   box-sizing: border-box; 
 }
 
+
 body{
   display: flex;
   flex-direction: column;
@@ -28,6 +29,11 @@ body{
   scroll-behavior: smooth;
   overflow-x: hidden!important;
 }
+
+.no-scroll{
+  overflow-y: hidden!important;
+}
+
 
 /* ESTILOS GENERALES */
 
@@ -38,7 +44,7 @@ body{
 .section-title-container{
   background-size: cover;
   height: 30vh;
-  width: 100vw;
+  width: 100vw!important;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -47,7 +53,7 @@ body{
 
 .section-title{
   text-align: center;
-  font-size: xx-large;
+  font-size: x-large;
   margin-bottom: 30px;
   font-family: var(--fuente-principal);
 }
@@ -172,9 +178,13 @@ nav i.navbar-icon{
   color: var(--color-fog);
   width: 70%;
   position: absolute;
-  bottom: 20vh;
+  bottom: 40vh;
   left: 10vw;
   font-size: 4em;
+}
+
+.section-title-label{
+  font-size: 40px;
 }
 
 .container-buttons{
@@ -197,6 +207,11 @@ nav i.navbar-icon{
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.288);
   cursor: pointer;
   transition: .3s;
+}
+
+.mas-grande{
+  width:240px;
+  font-size: x-large;
 }
 
 
@@ -575,6 +590,12 @@ nav i.navbar-icon{
 
 .accordion .content-box{
   position: relative;
+  background:var(--color-mostaza);
+  border-radius: 25px;
+  transition: .3s;
+  height: fit-content;
+  margin: 10px 0;
+  
 }
 
 .accordion .content-box .label{
@@ -587,6 +608,7 @@ nav i.navbar-icon{
   cursor: pointer;
   font-size: x-large;
   font-family: var(--fuente-principal);
+  
 }
 
 
@@ -606,6 +628,11 @@ nav i.navbar-icon{
 }
 
 
+.accordion .content-box.active .label{
+  background:var(--color-mostaza);
+  color:var(--color-azul);
+}
+
 .accordion .content-box .content{
   position: relative;
   background: none;
@@ -620,19 +647,21 @@ nav i.navbar-icon{
 .accordion .content-box.active .content{
   height: max-content;
   padding:20px;
+  opacity: 1;
 }
 
 
 .faq-more-button{
   background: var(--color-azul);
   border-radius: 25px;
+  font-size: small;
   padding: 5px 30px;
   color:white;
   text-decoration: none;
 }
 .faq-more-button a{
   font-family: var(--fuente-principal);
-  font-size: x-large;
+  font-size: medium;
   padding: 25px;
   color:white;
   text-decoration: none;
@@ -1345,6 +1374,21 @@ input.other-property-type:focus
   background-image: url("/images/sections/loan-info.png");
 }
 
+.loan-programs-icons-container{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+
+.loan-programs-icons-container i{
+  margin: 0 20px;
+  font-size: 34px;
+  color: var(--color-fog);
+  opacity: .7;
+}
+
 /* LOAN CRITERIA */
 .criteria-title-container{
   background-image: url("/images/sections/loan-criteria.png");
@@ -1784,14 +1828,14 @@ hr{
 }
 
 .output-container{
-  margin-top: 30px;
-  padding: 40px;
+  margin: 30px 0;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-self: center;
   align-items: center;
   max-height: 300px;
-  width: 65%;
+  width: 85%;
   overflow-y:scroll;
   border: 5px solid var(--color-azul);
 }
@@ -1811,42 +1855,55 @@ hr{
 }
 
 .output-detail-item{
+
   width: 180px;
   display: flex;
   align-content: center;
   flex-direction: column;
   text-align: center;
+  font-family: var(--fuente-principal);
+}
+
+.output-detail-item-title{
+  font-weight: bold;
+  padding-bottom: 10px;
 }
 
 
 .table-payments{
   margin-top: 50px;
-  width: 50%;
+  width: 80%;
   display: flex;
   flex-direction: column;
 }
 
 .table-payments-header{
+  margin-bottom: 15px;
   text-align: center;
-  font-size: 14px;
+  font-size: 20px;
   font-family: var(--fuente-principal);
-  background:gainsboro;
+  font-weight: bold;
   display: flex;
   justify-content: space-around;
 }
 
 .table-payments-item{
   text-align: center;
-  
-  background:cornflowerblue;
   display: flex;
   justify-content: space-around;
+  font-family: var(--fuente-principal);
   width: 100%;
-  height: 20px;
+  height: 30px;
+  border-bottom: 1px dashed gray;
+}
+
+.table-payment-indice{
+  width: 30px!important;
 }
 
 .table-payment-date{
   width: 220px;
+  margin-top: 8px;
 }
 
 
@@ -1859,8 +1916,19 @@ hr{
 
 /* RESPONSIVE ADJUSTS */
 
-/* Teléfonos batatas */
+/* Teléfonos chicos */
 @media (max-width: 460px){
+
+  /* NAV */
+
+  nav ul {
+    width: 70%!important;
+  }
+
+  nav ul li a{
+    font-size: 20px!important;
+  }
+
 
   /*Testimonials*/
   .container-testimonials{
@@ -1892,7 +1960,16 @@ hr{
 
   /* Aboutus */
   .aboutus-text-container{
-    padding: 40px 20px!important;
+    padding: 40px 0!important;
+    align-items: center;
+  }
+
+
+  p.aboutus-ref{
+    width: 90vw!important;
+    height: 300px;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
   }
 
   /* Contact */
@@ -1915,19 +1992,50 @@ hr{
     height: 160px!important;
   }
 
+  /*CALCULATOR*/
+  .output-container{
+    width: 100vw!important;
+    border-left: none;
+    border-right: none;
+  }
 
+  .output-container .output-container-first,
+  .output-container .output-container-second{
+    flex-wrap: wrap;
+    margin: 0;
+  }
+  
+  .output-container .output-container-first .output-detail-item,
+  .output-container .output-container-second .output-detail-item{
+    width: 50%!important;
+    margin: 15px 0;
+  }
 }
 
-/* Teléfono */
+/* Teléfonos grandes */
 @media (max-width: 576px){
 
-  .section-title,.title-aboutus{
+  /* Nav */
+
+  nav ul li a.overeable{
+    font-size: medium!important;
+  }
+
+  .section-title{
+    font-size: 25px!important;
+    width: 100vw!important;
+  }
+
+  .title-aboutus{
     font-size: 25px!important;
     
   }
 
   .section-principal p.title{
-    margin-bottom: 60px!important;
+    left: 0!important;
+    width: 100vw!important;
+    text-align: center!important;
+    margin: 0!important;
   }
 
   .section-principal .container-buttons{
@@ -1937,6 +2045,11 @@ hr{
   .principal-button{
     margin: 10px 0;
     
+  }
+
+  .mas-grande{
+    width: 160px;
+    font-size: medium;
   }
 
   /* Whyus */
@@ -2011,6 +2124,22 @@ hr{
 
   .calculator-title{
     content: 'Mortgage Calculator';
+  }
+
+  .output-container{
+    width: 90%;
+  }
+
+  .output-container .output-container-first,
+  .output-container .output-container-second{
+    flex-wrap: wrap;
+    margin: 0;
+  }
+  
+  .output-container .output-container-first .output-detail-item,
+  .output-container .output-container-second .output-detail-item{
+    width: 30%;
+    margin: 15px 0;
   }
 
   /* Contact */
@@ -2126,6 +2255,11 @@ hr{
 
   }
 
+  /* Programs section */
+  .loan-programs-contain{
+    background-position: -150px;
+  }
+
   /* Programs View */
   .programs-container{
     flex-wrap: nowrap;
@@ -2177,7 +2311,7 @@ hr{
   }
 }
 
-/* TABLET */
+/* Tablet */
 @media (max-width: 768px){
 
   /* General */
@@ -2204,12 +2338,11 @@ hr{
     display: none;
   }
 
-  nav{
-    position:fixed!important;
-  }
 
   nav  .checkbtn{
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 2;
     order: 2;
   }
@@ -2218,8 +2351,8 @@ hr{
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 70%;
-    height: 100vh;
+    width: 50%;
+    min-height: 100vh;
     background: var(--color-mostaza);
     top: 0;
     left: -100%;
@@ -2230,12 +2363,12 @@ hr{
   nav ul li{
     display: block;
     width: max-content;
-    padding-left: 10vw;
     margin: 10px 0;
+    padding-left: 15px;
   }
 
   nav ul li a {
-    margin-left: 10px;
+    margin-left: 20px;
   }
 
   nav ul .logo-nav-contain{
@@ -2262,24 +2395,27 @@ hr{
 
  
   nav ul li a.overeable{
-    font-size: 16px!important;
+    font-size: 22px;
     font-weight: normal;
   }
   nav  a:hover,a.active{
     background: none;
     color: #0082e6;
   }
+
   nav  #check:checked ~ ul{
     left: 0;
   }
+
 
   nav i.navbar-icon{
     display: inline-block;
     font-weight: bold;
     color: white;
+    font-size: x-large;
     width: 16px;
     height: 16px;
-    margin-right: 5px;
+    margin: 0 15px;
   }
 
 
@@ -2403,11 +2539,15 @@ hr{
 
   /* Calculator */
 
+
   .content-container{
     display: flex;
     flex-direction: column;
   }
+  .calculator-container{
 
+    max-width: 100vw!important;
+  }
   .first-line,
   .second-line{
     padding: 0 10px;  
@@ -2420,6 +2560,13 @@ hr{
     margin-top: 30px;
   }
 
+  .output-container{
+    width: 90%;
+  }
+
+  .table-payment-date{
+    font-size: 16px;
+  }
 
   /* Programs View */
   .programs-container{
@@ -2460,7 +2607,7 @@ hr{
   }
 }
 
-/* 1024 PX */
+/* Pc chica */
 @media (max-width: 1024px){
 
   /* Navbar */

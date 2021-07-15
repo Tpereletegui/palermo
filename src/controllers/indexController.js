@@ -11,6 +11,7 @@ module.exports = {
 
       if (req.cookies.lang == undefined){
         lang='eng';
+        res.cookie("lang","eng");
       }else{
         lang=req.cookies.lang;
       }
@@ -25,6 +26,7 @@ module.exports = {
       let _faqsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/faq.json'))); 
       let _contactDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/contact-us.json'))); 
       let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
+      let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json'))); 
       
       res.render('index',{
         principalDat: _principalDat, 
@@ -37,7 +39,8 @@ module.exports = {
         faqsDat: _faqsDat,
         contactDat: _contactDat,
         navbarDat:_navbarDat,
-        langFlag: lang
+        langFlag: lang,
+        footerDat: _footerDat
       });
     },
     message: function(req, res, next) {
@@ -83,9 +86,19 @@ module.exports = {
         }
          */
     },
-    loadAllFaqs: function(req,res){
+    loadAllFaqs: function(req,res){ 
 
-      let faqs = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/eng/faq.json'))); 
+      let lang = null;
+
+
+      if (req.cookies.lang == undefined){
+        lang='eng';
+      }else{
+        lang=req.cookies.lang;
+      }
+
+      let faqs = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/faq.json'))); 
+      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
 
       faqs.forEach(faq => {
           if (faq.text.includes("$")){
@@ -100,31 +113,40 @@ module.exports = {
       });
 
     
-      return res.render('faq-complete',{questions: faqs});
+      return res.render('faq-complete',{questions: faqs, navbarDat: _navbarDat, langFlag: lang});
     },
-    applyNow: function(req,res){
-    
+    getCalculator: function(req,res){
+
       let lang = null;
-      
-      
+
+
       if (req.cookies.lang == undefined){
         lang='eng';
       }else{
         lang=req.cookies.lang;
       }
-      
+
       let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
-      res.render('apply-now',{navbarDat:_navbarDat, langFlag: lang});
-    },
-    processApplyNow: function(req,res){
-    
+      let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json')));
+      let _calculatorDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/calculator.json')));
       
 
-    },
-    getCalculator: function(req,res){
-      res.render('calculator');
+      res.render('calculator',{navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat, calculatorDat: _calculatorDat});
     },
     processCalculator: function(req,res){
+
+      let lang = null;
+
+
+      if (req.cookies.lang == undefined){
+        lang='eng';
+      }else{
+        lang=req.cookies.lang;
+      }
+
+      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
+      let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json'))); 
+      let _calculatorDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/calculator.json')));
 
       let _loanAmount = Math.floor(req.body.estimatedValue*(req.body.mortgageAmount/100));
       let _annualPayment = Math.floor(_loanAmount/req.body.mortgageInterest);
@@ -165,125 +187,15 @@ module.exports = {
         payments: _payments
       }
       
-      res.render('calculator', {output: output, payments: _payments})
-    },
-    bridgeLoan: function(req,res){
-
-      let lang = null;
-      
-      
-      if (req.cookies.lang == undefined){
-        lang='eng';
-      }else{
-        lang=req.cookies.lang;
-      }
-      
-      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
-
-      res.render('loan-criteria', {loan:'bridge-loan', title: 'Bridge Loan',navbarDat:_navbarDat, langFlag: lang})
-    },
-    fixFlip: function(req,res){
-
-      let lang = null;
-      
-      
-      if (req.cookies.lang == undefined){
-        lang='eng';
-      }else{
-        lang=req.cookies.lang;
-      }
-      
-      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
-
-      res.render('loan-criteria', {loan:'fix-flip', title: 'Rehab / Fix & Flip',navbarDat:_navbarDat, langFlag: lang})
-    },
-    cashOut: function(req,res){
-
-      let lang = null;
-      
-      
-      if (req.cookies.lang == undefined){
-        lang='eng';
-      }else{
-        lang=req.cookies.lang;
-      }
-      
-      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
-
-
-      res.render('loan-criteria', {loan:'cash-out', title: 'Cash Out / Refinance',navbarDat:_navbarDat, langFlag: lang})
-    },
-    rental: function(req,res){
-
-      let lang = null;
-      
-      
-      if (req.cookies.lang == undefined){
-        lang='eng';
-      }else{
-        lang=req.cookies.lang;
-      }
-      
-      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
-
-      res.render('loan-criteria', {loan:'rental', title: 'Rental Loan',navbarDat:_navbarDat, langFlag: lang})
-    },
-    brokersAndRealtors: function(req,res){
-
-      let lang = null;
-      
-      
-      if (req.cookies.lang == undefined){
-        lang='eng';
-      }else{
-        lang=req.cookies.lang;
-      }
-      
-      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
-
-      res.render('brokers',{navbarDat:_navbarDat, langFlag: lang});
-    },
-    loanPrograms:function(req,res){
-      
-      
-      let lang = null;
-      
-      
-      if (req.cookies.lang == undefined){
-        lang='eng';
-      }else{
-        lang=req.cookies.lang;
-      }
-      
-      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
-
-      res.render('loan-programs',{navbarDat:_navbarDat, langFlag: lang})
-    },
-    loanSelect: function(req,res){
-      let loan = req.body.brokerOption;
-      
-      let lang = null;
-      
-      if (req.cookies.lang == undefined){
-        lang='eng';
-      }else{
-        lang=req.cookies.lang;
-      }
-      
-      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
-      
-      
-      res.render('brokers', {loan: loan, navbarDat: _navbarDat, langFlag: lang})
+      res.render('calculator', {output: output, payments: _payments,navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat, calculatorDat: _calculatorDat})
     },
     langChange: function(req,res){
 
       try {
-        if (req.cookies.lang == undefined){
-          res.cookie("lang","eng");
-        } else if (req.cookies.lang == "eng" ){
+        if (req.cookies.lang == "eng" ){
           res.cookie("lang","esp");
-        } else {
-          res.cookie("lang", "eng")
+        }else{
+          res.cookie("lang","eng");
         }
         
       } catch (error) {

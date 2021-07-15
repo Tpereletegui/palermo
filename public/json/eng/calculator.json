@@ -1,0 +1,9 @@
+{
+    "title": "Mortgage Calculator",
+    "itemTitles": ["Estimated Property Value","Mortgage Amount", "Interest Rate", "Est. Origination Fee","Est. Loan Costs"],
+    "tenorSubs" : ["Months","Years"],
+    "submitButton" : "Submit",
+    "outputTitle" : "Loan Details",
+    "outputsTitles" : ["Estimated Property Value", "Down Payment", "Loan Amount", "Interest", "Term", "Month Interest Payment", "Annual Interest Payment", "Est. Loan Costs", "Est. Origination Free", "Total Closing Costs"],
+    "paymentsTitles" : ["Interest Payment", "Cumulative Payment"]
+}
