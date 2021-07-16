@@ -48,10 +48,12 @@
           </button>
         </div>
         <div class="modal-body" style="border:none!important;">
-          <h5 class="text-center">
+          <h3 class="text-center">
             “Disclaimer: Owner Occupied Properties”
+          </h3>
+          <h6 class="text-center">
             “We provide loans for investment properties, and cannot lend to owner occupied properties.”
-          </h5>
+          </h6>
         </div>
         <div class="modal-footer d-flex justify-content-center" style="border:none!important;">
           <button type="button" class="principal-button w-60" data-dismiss="modal" onclick="unselect()">Ok</button>
@@ -149,7 +151,7 @@
                       </div>
                       
                       <div class="button-row d-flex mt-4">
-                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
                       </div>
                     </div>
                   </div>
@@ -162,11 +164,10 @@
                           <div class="multiple-step-title"><label>Property type</label></div>
 
                           <div class="loan-property-field">
-
                             
                             <input type="radio" name="property-type" class="second-step-input"  id="property-residential">
-                            <label class="loan-select" for="property-residential"  type="button" data-toggle="modal" data-target="#modalQ">    
-                                <i class="fas fa-home "></i>
+                            <label id="property-residential-label"  class="loan-select" for="property-residential" data-toggle="modal" data-target="#modalQ" onclick="notAbleOnly()" >    
+                                <i class="fas fa-home"></i>
                                 <h3>Residential</h3>
                                 <h6>Single Family, Condo, Co-Op, Townhouse, Duplex, Triplex, Fourplex</h6>
                             </label>
@@ -204,8 +205,8 @@
                         </div>
                       </div>
                       <div class="button-row d-flex mt-4">
-                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
+                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
                       </div>
                     </div>
                   </div>
@@ -240,8 +241,8 @@
                         </div>
                       </div>
                       <div class="button-row d-flex mt-4">
-                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
+                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
                       </div>
                     </div>
                   </div>
@@ -294,8 +295,8 @@
                         </div>
                       </div>
                       <div class="button-row d-flex mt-4">
-                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
+                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
                       </div>
                     </div>
                   </div>
@@ -389,8 +390,8 @@
                         </div>
                       </div>
                       <div class="button-row d-flex mt-4">
-                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Next</button>
+                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
+                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
                       </div>
                     </div>
                   </div>
@@ -479,8 +480,8 @@
 
                       </div>
                       <div class="button-row d-flex mt-4">
-                        <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="btn btn-success ml-auto" type="button" title="Send">Send</button>
+                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
+                        <button class="principal-button ml-auto" type="button" title="Send">Send</button>
                       </div>
                     </div>
                   </div>
@@ -573,13 +574,26 @@
   </script>
 
 <script>
+  let propResidential = document.getElementById('property-residential');
+  let propResLabel = document.getElementById('property-residential-label')
+
+
+  let notAbleOnly = () => {
+    propResLabel.addEventListener('click', () =>{
+      if (propResidential.checked==false){
+        propResLabel.setAttribute("data-toggle", "modal");
+        propResLabel.setAttribute("data-target", "#modalQ")
+      }else{
+        propResLabel.removeAttribute("data-toggle", "modal");
+        propResLabel.removeAttribute("data-target", "#modalQ")
+      }
+    })
+  }
+
   let unselect = ()=>{
-
-    let propResidential = document.getElementById('property-residential');
-
     propResidential.checked =false;
 
-}
+  }
 </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
