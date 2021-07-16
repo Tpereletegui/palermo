@@ -12,8 +12,6 @@
     secondStepInputs: document.querySelectorAll(".second-step-input"),
     fourStepInputs: document.querySelectorAll(".four-step-input"),
     fiveStepInputs: document.querySelectorAll(".five-step-input"),
-    residentialSelect: document.querySelector("#property-residential"), // es el input de la casa
-    residentialYesNo: document.querySelector(".live-property-container") // 
   };
   
   
@@ -212,22 +210,9 @@
     });
   };
   
-  //changing animation
-  const animationSelect = document.querySelector('.pick-animation__select');
-  
-  animationSelect.addEventListener('change', () => {
-    const newAnimationType = animationSelect.value;
-  
-    setAnimationType(newAnimationType);
-  });
 
+  // no lyfe in house
 
-  
-
-  DOMstrings.residentialSelect.addEventListener('change',()=>{
-
-    if (DOMstrings.residentialSelect.checked){
-      DOMstrings.residentialYesNo.style.display = "hidden";
-    }
     
-  })
+
+  

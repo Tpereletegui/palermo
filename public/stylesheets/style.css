@@ -1043,6 +1043,13 @@ input.other-property-type:focus
   
 }
 
+
+
+
+
+
+
+
 /* Field description display when active radio button */
 
 .loan-type-field input[type="radio"]:checked + label  h6 , .loan-property-field input[type="radio"]:checked + label h6{

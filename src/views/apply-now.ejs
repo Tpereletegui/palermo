@@ -14,6 +14,51 @@
   <%- include('./partials/navbar') -%>
   <%- include('./partials/float-button') -%>
 
+  <!-- tienes pensado ir a vivir ahí? -->
+  <div class="modal fade" id="modalQ" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class=" modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content ">
+        <div class="modal-header" style="border:none!important;">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="border:none!important;">
+          <h5 class="text-center">
+            Do you currently live or expect to live in the subject property?
+          </h5>
+        </div>
+        <div class="modal-footer d-flex justify-content-center" style="border:none!important;">
+
+          <button type="button" class="principal-button w-60" data-dismiss="modal">No</button>
+          <button type="button" class="principal-button w-60"  data-dismiss="modal" data-toggle="modal" data-target="#modalW">Yes</button>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No es posible -->
+  <div class="modal fade" id="modalW" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class=" modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content ">
+        <div class="modal-header" style="border:none!important;">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="border:none!important;">
+          <h5 class="text-center">
+            “Disclaimer: Owner Occupied Properties”
+            “We provide loans for investment properties, and cannot lend to owner occupied properties.”
+          </h5>
+        </div>
+        <div class="modal-footer d-flex justify-content-center" style="border:none!important;">
+          <button type="button" class="principal-button w-60" data-dismiss="modal" onclick="unselect()">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
   
 
   <section class="section-apply-now">
@@ -54,7 +99,7 @@
 
                         <div class="loan-type-container"> <!-- PRIMER PANTALLA -->
                           <div class="multiple-step-title"><label>Loan type</label></div>
-
+                          
                           <div class="loan-type-field">
                             <input type="radio" name="loan-type" class="first-step-input" id="bridge-loan">
                             <label class="loan-select" for="bridge-loan">
@@ -117,26 +162,15 @@
                           <div class="multiple-step-title"><label>Property type</label></div>
 
                           <div class="loan-property-field">
-                            <input type="radio" name="property-type" class="second-step-input" id="property-residential">
-                            <label class="loan-select property-type-residential" for="property-residential">
-                              
-                              <i class="fas fa-home"></i>
-                              <h3>Residential</h3>
-                              <h6>Single Family, Condo, Co-Op, Townhouse, Duplex, Triplex, Fourplex</h6>
-                              
-                              
+
+                            
+                            <input type="radio" name="property-type" class="second-step-input"  id="property-residential">
+                            <label class="loan-select" for="property-residential"  type="button" data-toggle="modal" data-target="#modalQ">    
+                                <i class="fas fa-home "></i>
+                                <h3>Residential</h3>
+                                <h6>Single Family, Condo, Co-Op, Townhouse, Duplex, Triplex, Fourplex</h6>
                             </label>
-                            <div class="live-property-container">
-                                <label class="live-property-title">Do you currently live or expect to live in the subject property?</label>
-                                <div class="live-property-field">
-                                  <input type="radio" name="live-property" id="live-property-yes">
-                                  <label for="live-property-yes">Yes</label>
-                                </div>
-                                <div class="live-property-field">
-                                  <input type="radio" name="live-property" id="live-property-no">
-                                  <label for="live-property-no">No</label>
-                                </div>
-                              </div>
+
                           </div>
 
                           <div class="loan-property-field">
@@ -461,6 +495,7 @@
 
   <%- include('./partials/footer') -%>
 
+
   <script  src="/js/function.js"></script>
   <script>
 
@@ -536,5 +571,18 @@
 
 
   </script>
+
+<script>
+  let unselect = ()=>{
+
+    let propResidential = document.getElementById('property-residential');
+
+    propResidential.checked =false;
+
+}
+</script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
