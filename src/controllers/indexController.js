@@ -100,9 +100,10 @@ module.exports = {
       let faqs = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/faq.json'))); 
       let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
       let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json'))); 
+      let _contactDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/contact-us.json'))); 
 
     
-      return res.render('faq-complete',{questions: faqs, navbarDat: _navbarDat, langFlag: lang, footerDat:_footerDat});
+      return res.render('faq-complete',{questions: faqs, navbarDat: _navbarDat, langFlag: lang, footerDat:_footerDat, contactDat: _contactDat});
     },
     getCalculator: function(req,res){
 
@@ -125,13 +126,6 @@ module.exports = {
     processCalculator: function(req,res){
 
       let lang = null;
-
-      /* Format number */
-      const moneyFormat = new Intl.NumberFormat('en-US',{
-        style:'currency',
-        currency:'USD',
-      })
-
 
       if (req.cookies.lang == undefined){
         lang='eng';

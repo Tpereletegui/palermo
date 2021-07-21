@@ -1,7 +1,7 @@
 {
     "titles": ["Loan Type", "Property Type", "Loan details","Property / Deal Information", "Borrower Details", "How Did You Hear About Us?"],
     "loanTypeTitles":["Bridge Loan","Rehab / Fix & Flip","Cash Out / Refinance", "Rental Loan"],
-    "loanTypeDesc": ["Short-term financing to bridge to longer-term financing", "Financing for the purchase & rehab of property that is to be re-sold", "Financing to cash out on an encumbered / unencumbered property", "Financing for the purchase of property that is to be rented out"],
+    "loanTypeDesc": ["Short-term financing to bridge to longer-term financing", "Financing for the purchase & rehab of property that is to be re-sold", "Financing to cash out on an owned property", "Financing for the purchase of property that is to be rented out"],
     "propertyTypeTitles": ["Residential", "Multifamily", "Commercial"],
     "propertyTypeDesc": ["Single Family, Condo, Co-Op, Townhouse, Duplex, Triplex, Fourplex", "≥ 5 Units", "Office, Retail, Warehouse, Mixed Use, Land"],
     "loanDetailsTitles": ["Loan","Loan Tenor", "Interest Rate"],

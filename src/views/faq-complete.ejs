@@ -12,7 +12,7 @@
             <div class="section-title">
 
                 <label class="section-title-label" style="color:white;">
-                    Frequently Asked Questions
+                Frequently Asked Questions
                 </label>
             </div>
         
@@ -34,6 +34,14 @@
             <% } %>
         </div>
 
+        <div class="section-title">
+            <label class="section-title-label" style="color:black;">
+                More Questions? 
+            </label>
+        </div>
+        <%- include('./sections/contact') -%>
+
+
 
         
     </div>
@@ -41,5 +49,9 @@
 
     <%- include('./partials/footer') -%>
     <script src="/js/navbarLinks.js"></script>
+    <script src="/js/navbarResponsive.js"></script>
+    <!-- Para las animaciones 'on scroll' -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script> AOS.init(); </script> 
 </body>
 </html>

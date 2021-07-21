@@ -632,6 +632,7 @@ nav i.navbar-icon{
   position: relative;
   background: none;
   border-radius: 25px;
+  width:100%;
   height: 0;
   overflow: hidden;
   transition: 0.5s;
@@ -649,17 +650,14 @@ nav i.navbar-icon{
 
 
 .faq-more-button{
-  background: var(--color-azul);
-  border-radius: 25px;
-  font-size: small;
-  padding: 5px 30px;
-  color:white;
-  text-decoration: none;
+  margin-top: 20px;
 }
 .faq-more-button a{
+  border-radius: 15px;
+  background: var(--color-azul);
   font-family: var(--fuente-principal);
   font-size: medium;
-  padding: 25px;
+  padding: 15px 25px;
   color:white;
   text-decoration: none;
 }
@@ -667,6 +665,12 @@ nav i.navbar-icon{
 
 
 /* FAQ VIEW */
+
+.container-faq-view{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .faqview-title-container{
   background-image: url("/images/sections/faq.png");
