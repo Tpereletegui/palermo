@@ -804,7 +804,7 @@ nav i.navbar-icon{
   transition: all 0.15s linear 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
   transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
   transition: all 0.15s linear 0s, transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s, -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
-  border: 2px solid currentColor;
+  border: 2px solid var(--color-azul);
   border-radius: 50%;
   background-color: #fff;
   box-sizing: border-box;
@@ -822,14 +822,14 @@ nav i.navbar-icon{
   width: 100%;
   height: 2px;
   content: '';
-  background-color: currentColor;
+  background-color: var(--color-azul);
   z-index: 1;
 }
 .multisteps-form__progress-btn:first-child:after {
   display: none;
 }
 .multisteps-form__progress-btn.js-active {
-  color: #007bff;
+  color: var(--color-azul);
 }
 .multisteps-form__progress-btn.js-active:before {
   -webkit-transform: translateX(-50%) scale(1.2);
@@ -969,10 +969,9 @@ nav i.navbar-icon{
 }
 
 .loan-type-field .loan-select, 
-.loan-property-field .loan-select{
-  
-  height: 100%;
-  width: 100%;
+.loan-property-field .loan-select{  
+  height: fit-content;
+  width: fit-content;
   color: var(--color-cement);
   border-radius: 20px;
   display:flex;
@@ -982,10 +981,12 @@ nav i.navbar-icon{
   transition: .5s;
   text-align: center;
 }
-.loan-type-field .loan-select i, 
-.loan-property-field .loan-select i{
-  font-size: 3em;
-  margin: 5px 0;
+.loan-type-field .loan-select img, 
+.loan-property-field .loan-select img{
+  height: 60px;
+  width: auto;
+  margin: 10px 0;
+  opacity: .4;
 }
 
 .loan-type-field .loan-select h3, 
@@ -998,11 +999,17 @@ nav i.navbar-icon{
   font-size: small;
   width: 80%;
   opacity: 0;
+  transition: .5s;
 }
 
 .loan-type-field  input[type="radio"]:checked + .loan-select,
 .loan-property-field input[type="radio"]:checked + .loan-select{
   color: var(--color-azul);
+}
+
+.loan-type-field  input[type="radio"]:checked + .loan-select img ,
+.loan-property-field input[type="radio"]:checked + .loan-select img{
+  opacity: 1;
 }
 
 /* Other input display when active radio button */
@@ -1018,7 +1025,15 @@ nav i.navbar-icon{
   cursor:text;
 }
 
-.loan-type-field-other i{
+.loan-type-field-other{
+  height: 40px;
+  position: relative;
+  bottom: 20px
+}
+
+.loan-type-field-other img{
+  height: 10px!important;
+  width: auto;
   justify-content: flex-start;
 }
 
@@ -1386,20 +1401,8 @@ input.other-property-type:focus
   background-image: url("/images/sections/loan-info.png");
 }
 
-.loan-programs-icons-container{
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
 
 
-.loan-programs-icons-container i{
-  margin: 0 20px;
-  font-size: 34px;
-  color: var(--color-fog);
-  opacity: .7;
-}
 
 /* LOAN CRITERIA */
 .criteria-title-container{
@@ -1495,8 +1498,8 @@ input.other-property-type:focus
 
 
 .broker-field label img{
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: auto;
   opacity: .5;
   transition: .2s;
   justify-self: center;
@@ -1504,8 +1507,8 @@ input.other-property-type:focus
 
 .brokers-programs-container .broker-field input[type="radio"]:checked + label img{
   opacity: 1;
-  width: 160px;
-  height: 160px;
+  width: 110px;
+  height: auto;
 }
 
 
@@ -1557,18 +1560,18 @@ input.other-property-type:focus
 
 
 .programs-container .program-container-item-icon{
-  
+  width: 130px;
+  height: 130px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   transition: .5s;
 }
 
 
 .programs-container .program-container-item-icon img{
-  color:var(--color-fog);
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: auto;
 }
 
 

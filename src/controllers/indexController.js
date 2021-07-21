@@ -99,21 +99,10 @@ module.exports = {
 
       let faqs = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/faq.json'))); 
       let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
-
-      faqs.forEach(faq => {
-          if (faq.text.includes("$")){
-              let bullets = faq.text.split("$");
-              faq.text = faq.text.substr(0, faq.text.indexOf("$"));
-              faq.bullets = bullets;
-          }else if (faq.text.includes("#")){
-              let texts = faq.text.split("#");
-              faq.text = texts[0];
-              faq.textAlt = texts[1];
-          }
-      });
+      let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json'))); 
 
     
-      return res.render('faq-complete',{questions: faqs, navbarDat: _navbarDat, langFlag: lang});
+      return res.render('faq-complete',{questions: faqs, navbarDat: _navbarDat, langFlag: lang, footerDat:_footerDat});
     },
     getCalculator: function(req,res){
 

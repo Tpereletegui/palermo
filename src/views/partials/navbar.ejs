@@ -1,28 +1,20 @@
 <nav id="navbar">
   <input type="checkbox" id="check">
-  <label for="check" class="checkbtn">
-    <i id="icon" class="fas fa-bars"></i>
-  </label>
+  <label for="check" class="checkbtn"><i id="icon" class="fas fa-bars"></i></label>
   <a href="/" class="logo">
     <img id="logo-img" src="/images/logos/logo-navbar-big-alt.png" style="margin-left: 20px; margin-top:15px;" alt="" width="100px">
   </a>
-
-
   <div class="fade-navbar"></div>
   
   <ul>
-
     <li class="logo-nav-contain"><img class="logo-nav-responsive" src="/images/logos/logo-navbar-landscape.png" alt="" width="120px"></li>
-    
-
-
-    <li><i class="navbar-icon fas fa-user-tie"></i><a id="aboutus-link" class="overeable"><%- navbarDat.titles[0] %></a></li>
-    <li><i class="navbar-icon far fa-building"></i><a id="programs-link" class="overeable"><%- navbarDat.titles[1] %></a></li>
-    <li><i class="navbar-icon fas fa-dollar-sign"></i><a id="deals-link" class="overeable"><%- navbarDat.titles[2] %></a></li>
-    <li><i class="navbar-icon far fa-comment-dots"></i><a id="testimonials-link" class="overeable"><%- navbarDat.titles[3] %></a></li>
-    <li><i class="navbar-icon far fa-handshake"></i><a href="/brokers" id="brokers-link" class="overeable"><%- navbarDat.titles[4] %></a></li>
-    <li><i class="navbar-icon far fa-question-circle"></i><a id="faq-link" class="overeable"><%- navbarDat.titles[5] %></a></li>
-    <li><i class="navbar-icon far fa-paper-plane"></i><a id="contact-link"class="overeable"><%- navbarDat.titles[6] %></a></li>
+    <li><i class="navbar-icon fas fa-user-tie"></i><a id="aboutus-link" class="overeable nav-link"><%- navbarDat.titles[0] %></a></li>
+    <li><i class="navbar-icon far fa-building"></i><a id="programs-link" class="overeable nav-link"><%- navbarDat.titles[1] %></a></li>
+    <li><i class="navbar-icon fas fa-dollar-sign"></i><a id="deals-link" class="overeable nav-link"><%- navbarDat.titles[2] %></a></li>
+    <li><i class="navbar-icon far fa-comment-dots"></i><a id="testimonials-link" class="overeable nav-link"><%- navbarDat.titles[3] %></a></li>
+    <li><i class="navbar-icon far fa-handshake"></i><a href="/brokers" id="brokers-link" class="overeable nav-link"><%- navbarDat.titles[4] %></a></li>
+    <li><i class="navbar-icon far fa-question-circle"></i><a id="faq-link" class="overeable nav-link"><%- navbarDat.titles[5] %></a></li>
+    <li><i class="navbar-icon far fa-paper-plane"></i><a id="contact-link"class="overeable nav-link"><%- navbarDat.titles[6] %></a></li>
     <li>
       <form action="/lang" method="post">
         <button type="submit" href="/lang" style="background: none; border:none; cursor:pointer;">
@@ -30,54 +22,5 @@
         </button>
       </form>
     </li>
-
   </ul>
-
-  <script>
-    let btn = document.querySelector('.checkbtn');
-    let icon = document.querySelector('#icon');
-    let overlayNav = document.querySelector('.fade-navbar');
-    let navbar = document.querySelector('#navbar');
-    let logo = document.querySelector('.logo');
-    let links = document.querySelectorAll('.overeable');
-    let body = document.querySelector('body');
-
-    btn.addEventListener("click", () =>{
-      if (icon.classList.contains('fa-bars')){
-        overlayNav.style.display = "block";
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-        body.classList.add('no-scroll');
-      }else{
-        overlayNav.style.display = "none";
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-        body.classList.remove('no-scroll');
-      }
-    })
-    
-
-    window.addEventListener('scroll', function () {
-      if (window.pageYOffset > 100) {
-        navbar.classList.add('scroll-fade');
-        logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-landscape.png" alt="" width="160px">'
-        if (window.innerWidth > 768){
-          links.forEach(link =>{
-            link.style.color="gray";
-          })
-        }
-      }else{
-        navbar.classList.remove('scroll-fade');
-        logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-big-alt.png" style="margin-left: 20px; margin-top:15px;"  alt="" width="100px" >'
-        if (window.innerWidth > 768){
-          links.forEach(link =>{
-            link.style.color="white";
-          })
-        }
-      }
-    });
-
-  </script>
-
-  
 </nav>

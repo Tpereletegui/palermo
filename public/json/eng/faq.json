@@ -9,12 +9,13 @@
     },
     {
         "title" : "What are some of the advantages of using Private Lenders?",
-        "text" : "Private Loans can have a number of advantages over traditional bank financing including:$A simpler application process and quicker approval/disapproval decision$Less scrutiny of the borrower’s personal financial situation, including income and historical tax returns, compared to bank loans.$Borrowers can allocate less time to seeking financing and instead concentrate on other business$Most private money lenders do not expect perfect credit and substantial amounts of disposable income from borrowers, but instead focus on the merits of the specific deal under consideration$Self-employment is acceptable to private lenders, whereas many banks view self-employment negatively and strongly prefer lending to professionals with very steady income."
-        
+        "text" : "Private Loans can have a number of advantages over traditional bank financing including:",
+        "bullets" : ["A simpler application process and quicker approval/disapproval decision","Less scrutiny of the borrower’s personal financial situation, including income and historical tax returns, compared to bank loans.","Borrowers can allocate less time to seeking financing and instead concentrate on other business","Most private money lenders do not expect perfect credit and substantial amounts of disposable income from borrowers, but instead focus on the merits of the specific deal under consideration","Self-employment is acceptable to private lenders, whereas many banks view self-employment negatively and strongly prefer lending to professionals with very steady income."]
     },
     {
         "title" : "What are some of the disadvantages of using Private Lenders?",
-        "text" : "Disadvantages of seeking a private money loan may include:$Private money loans are more expensive than bank loans, with higher interest rates and origination fees$The quality of private money lenders varies substantially from one lender to another; some are unscrupulous and may be seeking to have the borrower default in order to foreclose on the underlying real estate as a business strategy$Some lenders may collect non-refundable deposits without having the capital required to make the loan; they may either hope to find the capital once the loan is “tied up” or in rare cases, they may simply aim to collect the deposit with no intention of funding the loan."
+        "text" : "Disadvantages of seeking a private money loan may include:",
+        "bullets" : ["Private money loans are more expensive than bank loans, with higher interest rates and origination fees","The quality of private money lenders varies substantially from one lender to another; some are unscrupulous and may be seeking to have the borrower default in order to foreclose on the underlying real estate as a business strategy","Some lenders may collect non-refundable deposits without having the capital required to make the loan; they may either hope to find the capital once the loan is “tied up” or in rare cases, they may simply aim to collect the deposit with no intention of funding the loan."]
     },
     {
         "title" : "When should one use a Private Lender?",
