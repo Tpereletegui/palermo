@@ -590,8 +590,8 @@ nav i.navbar-icon{
 
 .accordion .content-box{
   position: relative;
-  background:var(--color-mostaza);
-  border-radius: 25px;
+  background:var(--color-azul);
+  border-radius: 10px;
   transition: .3s;
   height: fit-content;
   margin: 10px 0;
@@ -602,7 +602,7 @@ nav i.navbar-icon{
   position: relative;
   width: 100%;
   padding: 20px;
-  border-radius: 25px;
+  border-radius: 10px;
   background: var(--color-azul);
   color: var(--color-fog);
   cursor: pointer;
@@ -628,11 +628,6 @@ nav i.navbar-icon{
 }
 
 
-.accordion .content-box.active .label{
-  background:var(--color-mostaza);
-  color:var(--color-azul);
-}
-
 .accordion .content-box .content{
   position: relative;
   background: none;
@@ -640,8 +635,10 @@ nav i.navbar-icon{
   height: 0;
   overflow: hidden;
   transition: 0.5s;
+  font-size: large;
   overflow-y: hidden;
-  font-family: var(--fuente-secundaria);
+  color: var(--color-fog);
+  font-family: var(--fuente-principal);
 }
 
 .accordion .content-box.active .content{
@@ -1031,7 +1028,8 @@ nav i.navbar-icon{
   bottom: 20px
 }
 
-.loan-type-field-other img{
+.loan-type-field-other img,
+.loan-property-field-other img{
   height: 10px!important;
   width: auto;
   justify-content: flex-start;

@@ -126,6 +126,12 @@ module.exports = {
 
       let lang = null;
 
+      /* Format number */
+      const moneyFormat = new Intl.NumberFormat('en-US',{
+        style:'currency',
+        currency:'USD',
+      })
+
 
       if (req.cookies.lang == undefined){
         lang='eng';
@@ -157,11 +163,11 @@ module.exports = {
           id: _id,
           cumulativePayment: _cumulativePayment
         })
-      }
+      } 
 
 
       let output = {
-        estimatedValue: _estimatedValue, //VALOR DE LA CASA COMO VIENE EN INPUT
+        estimatedValue:  _estimatedValue, //VALOR DE LA CASA COMO VIENE EN INPUT
         mortgageAmount: _mortgageAmount, //PORCENTAJE DE PRESTAMO COMO VIENE
         loanAmount: _loanAmount,
         mortgageInterest: _mortgageInterest, // TAL COMO VIENE 
