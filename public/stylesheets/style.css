@@ -291,14 +291,14 @@ nav i.navbar-icon{
 
 .item-1{
   transition-delay: 0.3s;
-  background:khaki;
+  background:#4FCE5D;
 }
 
 
 .item-2{
   transition-delay: 0.2s;
   margin-bottom: 60px;
-  background: khaki;  ;
+  background: #E5E5E5 ;
 }
 
 .item-1 img,
@@ -1476,11 +1476,13 @@ input.other-property-type:focus
   opacity: 0; 
 }
 
-.brokers-programs-container .broker-field h3{
+.brokers-programs-container .broker-field h2{
   font-family: var(--fuente-principal);
-  font-size: small;
+  font-size: large;
   text-align: center;
+  color:var(--color-azul);
   width: 70%;
+  font-weight: 400;
 }
 
 .broker-field{
@@ -1500,16 +1502,17 @@ input.other-property-type:focus
 
 
 .broker-field label img{
-  width: 100px;
+  width: 130px;
   height: auto;
   opacity: .5;
   transition: .2s;
   justify-self: center;
 }
 
-.brokers-programs-container .broker-field input[type="radio"]:checked + label img{
+.brokers-programs-container .broker-field input[type="radio"]:checked + label img,
+.brokers-programs-container .broker-field label img:hover{
   opacity: 1;
-  width: 110px;
+  width: 135px;
   height: auto;
 }
 
@@ -1534,7 +1537,7 @@ input.other-property-type:focus
 }
 
 .programs-container{
-  margin: 10vh 0; 
+  margin-top: 100px; 
   padding: 0 15%;
   width: 100%;
   display: flex;
@@ -1542,18 +1545,27 @@ input.other-property-type:focus
 
 }
 
+.program-button-contain,.broker-button-contain{
+  margin-top: 60px;
+}
+
 .programs-container-item{
+  text-align: center;
+  width: 160px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
+  font-family: var(--fuente-principal);
 }
 
 .programs-container-item:visited,
-.programs-container-item:link,
-.programs-container-item:hover{
+.programs-container-item:link{
   text-decoration: none!important;
   color:var(--color-azul);
 }
+
 
 .programs-container-item:active{
   opacity: .6;
@@ -1574,8 +1586,15 @@ input.other-property-type:focus
 .programs-container .program-container-item-icon img{
   width: 130px;
   height: auto;
+  opacity: .4;
+  transition: .3s;
 }
 
+.programs-container .program-container-item-icon img:hover{
+  opacity: 1;
+  width: 135px;
+  height: auto;
+}
 
 .programs-container h3{
   font-family: var(--fuente-principal);

@@ -1,4 +1,5 @@
 {
     "title":"Loan Programs",
-    "programs": ["Bridge Loan", "Rehab / Fix & Flip", "Cash Out / Refinance", "Rental Loan"]
+    "programs": ["Bridge Loan", "Rehab / Fix & Flip", "Cash Out / Refinance", "Rental Loan"],
+    "buttons": ["Apply Now","Download"]
 }

@@ -11,39 +11,41 @@
         <div class="programs-title-container section-title-container">
             <div class="section-title">
                 <label class="section-title-label" style="color:white;">
-                    Loan Programs
+                    <%= programsDat.title %>
                 </label>
             </div>
         </div>
 
         <div class="programs-container">
 
-            <a href="programs/bridge-loan" class="programs-container-item">
+            <a href="/programs/bridge-loan" class="programs-container-item">
                 <div class="program-container-item-icon">
                     <img src="/images/icons/programs/program-1.png" alt="">
                 </div>
-                <h3>Bridge Loan</h3>
+                <h3><%= programsDat.programs[0] %></h3>
             </a>
-            <a href="programs/fix-flip" class="programs-container-item">
+            <a href="/programs/fix-flip" class="programs-container-item">
                 <div class="program-container-item-icon">
                     <img src="/images/icons/programs/program-2.png" alt="">
                 </div>
-                <h3>Rehab / Fix & Flip</h3>
+                <h3><%= programsDat.programs[1] %></h3>
             </a>
-            <a href="programs/cash-out" class="programs-container-item">
+            <a href="/programs/cash-out" class="programs-container-item">
                 <div class="program-container-item-icon">
                     <img src="/images/icons/programs/program-3.png" alt="">
                 </div>
-                <h3>Cash Out / Refinance</h3>
+                <h3><%= programsDat.programs[2] %></h3>
             </a>
-            <a href="programs/rental" class="programs-container-item">
+            <a href="/programs/rental" class="programs-container-item">
                 <div class="program-container-item-icon">
                     <img src="/images/icons/programs/program-4.png" alt="">
                 </div>
-                <h3>Rental Loan</h3>
+                <h3><%= programsDat.programs[3] %></h3>
             </a>
         </div>
-        <a href="/apply-now"><button class="principal-button">Apply Now</button></a>
+        <div class="program-button-contain" style="justify-self: flex-end ;">
+            <a href="/apply-now"><button style="margin:auto;" class="principal-button"><%= programsDat.buttons[0] %></button></a>
+        </div>
     </section>
     
     <%- include('./partials/footer') -%>

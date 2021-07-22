@@ -11,12 +11,11 @@
         <div class="brokers-title-container section-title-container">
             <div class="section-title">
                 <label class="section-title-label" style="color: white; ">
-                    Brokers
+                    <%=brokersDat.title%>
                 </label>
             </div>
             <div class="brokers-subtitle-container">
-                <p>Palermo Lender offers simple referral options for brokers.  </p>
-                <p>Gain access to our loan programs and become a part of the Palermo Lender Family.</p>
+                <p><%=brokersDat.subtitle%></p>
             </div>
         </div>
 
@@ -28,7 +27,7 @@
                         <label for="bridge-loan" class="program-container-item-icon">
                             <img src="/images/icons/programs/program-1.png" alt="">
                         </label>
-                        <h3>Bridge Loan</h3>
+                        <h2><%=programsDat.programs[0]%></h2>
                     </div>
     
                     <div class="broker-field">
@@ -36,7 +35,7 @@
                         <label for="fix-flip" class="program-container-item-icon">
                             <img src="/images/icons/programs/program-2.png" alt="">
                         </label>
-                        <h3>Rehab / Fix & Flip</h3>
+                        <h2><%=programsDat.programs[1]%></h2>
                     </div>
     
                     <div class="broker-field">
@@ -44,7 +43,7 @@
                         <label for="cash-out" class="program-container-item-icon">
                             <img src="/images/icons/programs/program-3.png" alt="">
                         </label>
-                        <h3>Cash Out / Refinance</h3>
+                        <h2><%=programsDat.programs[2]%></h2>
                     </div>
     
                     <div class="broker-field">
@@ -52,14 +51,14 @@
                         <label for="rental" class="program-container-item-icon">
                             <img src="/images/icons/programs/program-4.png" alt="">
                         </label>
-                        <h3>Rental Loan</h3>
+                        <h2><%=programsDat.programs[3]%></h2>
                     </div>
                 </div>
 
                 <div class="broker-button-contain">
-                    <button type="submit" class="principal-button">Select Loan</button>
+                    <button type="submit" class="principal-button"><%=brokersDat.buttons[0]%></button>
                     <% if(typeof loan != 'undefined'){ %>
-                        <a href="./pdf/<%-loan%>.pdf"><button class="principal-button" >Download</button></a>
+                        <a href="./pdf/<%-loan%>.pdf"><button class="principal-button" ><%=brokersDat.buttons[1]%></button></a>
                     <% } %>
                 </div>
 
@@ -71,13 +70,10 @@
                         <div id="my_pdf_viewer">
                             <div id="canvas_container">
                                 <canvas id="pdf_renderer"></canvas>
-                            </div>
-                            
+                            </div>     
                         </div>
                     </div>
-                <% } %>
-                
-                
+                <% } %>        
             </form>
         </div>
 

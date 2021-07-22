@@ -16,8 +16,10 @@ module.exports = {
     
     let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
     let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json'))); 
+    let _brokersDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/brokers.json'))); 
+    let _programsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/loan-program.json'))); 
 
-    res.render('brokers',{navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat});
+    res.render('brokers',{navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat,brokersDat: _brokersDat, programsDat: _programsDat});
   },
   
   loanSelect: function(req,res){
@@ -33,7 +35,9 @@ module.exports = {
     
     let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
     let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json'))); 
+    let _brokersDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/brokers.json'))); 
+    let _programsDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/loan-program.json'))); 
     
-    res.render('brokers', {loan: loan, navbarDat: _navbarDat, langFlag: lang,footerDat: _footerDat})
+    res.render('brokers', {loan: loan, navbarDat: _navbarDat, langFlag: lang,footerDat: _footerDat,brokersDat: _brokersDat, programsDat: _programsDat})
   }
 }

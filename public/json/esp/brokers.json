@@ -1,5 +1,5 @@
 {
     "title":"Corredores",
     "subtitle": "Palermo Lender ofrece opciones simples de referencia para los corredores. Obtenga acceso a nuestros programas de préstamos y forme parte de la familia Palermo Lender.",
-    "buttonView": "Detalles"
+    "buttons": ["Seleccionar", "Descargar"]
 }
