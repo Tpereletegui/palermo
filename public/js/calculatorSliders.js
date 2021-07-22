@@ -1,18 +1,50 @@
+const cleave = new Cleave('#value1-hidden-input',{
+    numeral: true,
+    prefix: '$',
+    onValueChanged: function(e){
+        document.getElementById("range1").value = e.target.rawValue.replace( /^\D+/g, '');;
+    }
+})
+
 /* Format number */
 const moneyFormat = new Intl.NumberFormat('en-US',{
     style:'currency',
     currency:'USD',
 })
 
+
 /* Estimated Property Value */
-var slider1 = document.getElementById("range1");
-var output1 = document.getElementById("value1");
+var slider1 = document.getElementById("range1"); // input range
+var output1 = document.getElementById("value1"); // span
+var hiddenInput = document.getElementById("value1-hidden-input"); // input text
 
 output1.innerHTML = moneyFormat.format(slider1.value);
+hiddenInput.style.display = "none"; 
+
+output1.addEventListener('click',()=>{
+    output1.style.display="none";
+    hiddenInput.style.display="block";
+    hiddenInput.value = output1.innerHTML;
+})
+ 
+hiddenInput.addEventListener('blur',()=>{
+    hiddenInput.style.display="none";
+    output1.style.display="block";
+    output1.innerHTML = hiddenInput.value; 
+     if (parseInt(output1).value>10000000){
+        output1.innerHTML = moneyFormat.format(10000000);
+        slider1.value = 10000000;
+    }else{
+        output1.innerHTML = hiddenInput.value;
+    } 
+})
+
 
 slider1.oninput = function(){
     output1.innerHTML = moneyFormat.format(this.value);
 }
+
+
 
 /* Mortgage Amount */
 var slider2 = document.getElementById("range2");

@@ -24,7 +24,7 @@
                         <!-- Estimated Property Value -->
                         <div class="item-container">
                             <label for="" class="slider-title"><%=calculatorDat.itemTitles[0]%></label>
-                            <p class="value"><span class="moneyValueToChange" id="value1"></span></p>
+                            <p class="value"><input type="text" id="value1-hidden-input"><span class="moneyValueToChange" id="value1"></span></p>
                             <hr>
                             <% if(typeof output != 'undefined'){ %>
                                 <input name="estimatedValue" type="range" id="range1" min="1" max="10000000" value="<%=output.estimatedValue%>" class="slider">        
@@ -48,18 +48,20 @@
                         <!-- Tenor -->
                         <div class="item-container">
 
-                            <div class="label-container">
-                                
-                                <div class="radio-container">
-                                    <label class="container slider-title" for="month"><%=calculatorDat.tenorSubs[0]%>
-                                        <input type="radio" checked="checked" id="month" name="monthyear">
-                                        <span class="checkmark"></span>
+                            <div class="calculator-tenor-radio-buttons">
+                                <div class="calculator-tenor-field">
+                                    <input type="radio" name="calcMonthWeeks" id="calcMonths">
+                                    <label class="calculator-tenor-label" for="calcMonths">
+                                        <p class="calculator-tenor-unit">Months</p>
+                                        <div class="calculator-tenor-circle">&nbsp;</div>
                                     </label>
                                 </div>
-                                <div class="radio-container">
-                                    <label class="container slider-title" for="year"><%=calculatorDat.tenorSubs[1]%>
-                                        <input type="radio" name="monthyear" id="year">
-                                        <span class="checkmark"></span>
+    
+                                <div class="calculator-tenor-field">
+                                    <input type="radio" name="calcMonthWeeks" id="calcWeeks">
+                                    <label class="calculator-tenor-label" for="calcWeeks">
+                                        <p class="calculator-tenor-unit">Weeks</p>
+                                        <div class="calculator-tenor-circle">&nbsp;</div>
                                     </label>
                                 </div>
                             </div>
@@ -190,6 +192,7 @@
     </section>
     <%- include('./partials/footer') -%>
 
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
     <script src="/js/calculatorSliders.js"></script>
     <script src="/js/navbarResponsive.js"></script>
 </body>

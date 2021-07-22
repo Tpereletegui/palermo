@@ -240,7 +240,7 @@ nav i.navbar-icon{
   height: 60px;
   width: 60px;
   box-shadow: 1px 2px 4px grey;
-  z-index: 10;
+  z-index: 20;
   display: flex!important;
   flex-direction: column;
   align-items: center;
@@ -271,10 +271,11 @@ nav i.navbar-icon{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  z-index: 19;
 }
 
 .item{
+  
   overflow: hidden;
   border-radius: 50%;
   transition: 0.4s ease-in;
@@ -1033,10 +1034,15 @@ nav i.navbar-icon{
 }
 
 .loan-type-field-other img,
-.loan-property-field-other img{
+.property-field-other img{
   height: 10px!important;
   width: auto;
   justify-content: flex-start;
+}
+
+.property-field-other{
+  position: relative;
+  top: 40px;
 }
 
 input.other-loan-type,
@@ -1061,7 +1067,9 @@ input.other-property-type:focus
   
 }
 
-
+.property-type-container .loan-property-field input[type="radio"]:checked + label.property-field-other{
+    bottom:0;   
+}
 
 
 
@@ -1750,6 +1758,40 @@ input.other-property-type:focus
   margin: 10px 0;
 }
 
+#value1-hidden-input{
+  border: none;
+  font-size: large;
+  font-family: var(--fuente-principal);
+  margin: 10px 0;
+}
+
+#value1-hidden-input:active,
+#value1-hidden-input:focus{
+  outline-style: none;
+  border-style: none;
+  outline: none;
+}
+
+#value1-hidden-input{
+  content:"$";
+  display: flex;
+}
+
+
+/* WITHOUT ARROWS */
+/* Chrome, Safari, Edge, Opera */
+input#value1-hidden-input::-webkit-outer-spin-button,
+input#value1-hidden-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input#value1-hidden-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
 hr{
   margin-top: 3px;
   margin-bottom: 10px;
@@ -1791,75 +1833,41 @@ hr{
   user-select: none;
 }
 
-.label-container{
+
+/* Tenor input styles */
+
+.calculator-tenor-radio-buttons, .calculator-tenor-label{
   display: flex;
 }
 
-.slider-monthyear{
-  margin-right: 20px;
-  opacity: 1;
-  font-size: small;
-
+.calculator-tenor-label{
+  margin-right: 10px;
 }
 
-.radio-container{
-  margin-right: 20px;
-}
+.calculator-tenor-field label .calculator-tenor-unit{
+  font-family: var(--fuente-principal);
+  color:black;
+} 
 
+.calculator-tenor-field label .calculator-tenor-circle{
+  margin-right: 5px;
+  order: -1;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background:var(--color-cement);
+} 
 
-/* Hide the browser's default radio button */
-.radio-container input {
+.calculator-tenor-field input[type="radio"]{ 
   position: absolute;
-  opacity: 0;
-  display: none;
-  cursor: pointer;
-  height: 0;
   width: 0;
+  height: 0;
+  opacity: 0;
 }
 
-/* Create a custom radio button */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-}
 
-/* On mouse-over, add a grey background color */
-.radio-container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the radio button is checked, add a blue background */
-.radio-container input:checked ~ .checkmark {
-  margin-right: 20px;
-  background-color: var(--color-mostaza);
-  opacity: 1;
-  
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.radio-container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.radio-container .checkmark:after {
-  top: 9px;
-  left: 9px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  
+.calculator-tenor-field input[type="radio"]:checked + label .calculator-tenor-circle{ 
+  background: var(--color-mostaza);
 }
 
 .button-calculator{
@@ -2228,6 +2236,9 @@ hr{
   .property-type-container .loan-property-field input[type="radio"]:checked + label h3{
     font-weight: bold;
   }
+
+
+  
 
 
   label.letra-chica{
