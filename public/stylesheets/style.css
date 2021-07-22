@@ -1450,15 +1450,22 @@ input.other-property-type:focus
 
 .brokers-subtitle-container{
   padding: 0 10vw;
+  display: flex;
+  justify-content: center;
   text-align: center;
   margin-bottom: 10px;
 }
 
-.brokers-subtitle-container p{
+.brokers-subtitle-text{
+  width: 50%;
   font-size: medium;
-  font-family: var(--fuente-secundaria);
+  font-family: var(--fuente-primaria);
   color: var(--color-fog);
   text-align: center;
+}
+
+.brokers-subtitle-text-resp{
+  display:none;
 }
 
 .brokers-programs-container{
@@ -2345,6 +2352,28 @@ hr{
     width: 420px;
     height: 320px;
   }
+
+  .brokers-subtitle-text{
+    display: none;
+  } 
+
+  .brokers-subtitle-container-resp{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .brokers-subtitle-text-resp{
+    position: relative;
+    bottom:40px;
+    justify-self: center;
+    display:block;
+    width: 50%;
+    font-size: medium;
+    font-family: var(--fuente-primaria);
+    color: var(--color-azul);
+    text-align: center;
+    font-weight: 500;
+  }
 }
 
 /* Tablet */
@@ -2641,6 +2670,8 @@ hr{
   .brokers-programs-container .broker-field{
     width: 50%;
   }
+
+
 }
 
 /* Pc chica */

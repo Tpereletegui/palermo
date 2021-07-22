@@ -15,12 +15,15 @@
                 </label>
             </div>
             <div class="brokers-subtitle-container">
-                <p><%=brokersDat.subtitle%></p>
+                <p class="brokers-subtitle-text"><%=brokersDat.subtitle%></p>
             </div>
         </div>
 
         <div class="brokers-container">
-            <form action="/brokers" method="post" >
+            <form action="/brokers" method="post">
+                <div class="brokers-subtitle-container-resp">
+                    <p class="brokers-subtitle-text-resp"><%=brokersDat.subtitle%></p>
+                </div>
                 <div class="brokers-programs-container">
                     <div class="broker-field">
                         <input type="radio" name="brokerOption" value="bridge-loan" id="bridge-loan">
