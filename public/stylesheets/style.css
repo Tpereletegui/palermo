@@ -1969,7 +1969,12 @@ hr{
 @media (max-width: 460px){
 
   /* NAV */
+  nav ul ._nav-links{
+    margin-top: 15px;
+  }
+
   nav ul ._nav-links li{
+    font-size: 18px;
     margin: 10px 0;
   } 
 
