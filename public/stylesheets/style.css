@@ -94,9 +94,6 @@ nav ul{
   align-items: center;
 }
 
-nav ul .logo-nav-responsive{
-  display: none;
-}
 
 nav ul li{
   display: inline-block;  
@@ -1778,6 +1775,7 @@ input.other-property-type:focus
 }
 
 
+
 /* WITHOUT ARROWS */
 /* Chrome, Safari, Edge, Opera */
 input#value1-hidden-input::-webkit-outer-spin-button,
@@ -1971,16 +1969,15 @@ hr{
 @media (max-width: 460px){
 
   /* NAV */
+  nav ul ._nav-links li{
+    margin: 10px 0;
+  } 
 
-  nav ul {
-    width: 70%!important;
-  }
-
-  nav ul li a{
+  nav ul ._nav-links li a.overeable{
     font-size: 20px!important;
-  }
+  } 
 
-
+  
   /*Testimonials*/
   .container-testimonials{
     border: 4px solid var(--color-mostaza)
@@ -2068,8 +2065,13 @@ hr{
 
   /* Nav */
 
-  nav ul li a.overeable{
-    font-size: medium!important;
+  nav ul ._nav-links li a.overeable{
+    font-size: 25px!important;
+  } 
+
+  nav ul .lang-link .lang-img{
+    width: 70px!important;
+    height: 46px!important;
   }
 
   .section-title{
@@ -2378,12 +2380,11 @@ hr{
     bottom:40px;
     justify-self: center;
     display:block;
-    width: 50%;
+    width: 80%;
     font-size: medium;
-    font-family: var(--fuente-primaria);
+    font-family: var(--fuente-principal);
     color: var(--color-azul);
     text-align: center;
-    font-weight: 500;
   }
 }
 
@@ -2401,19 +2402,6 @@ hr{
   
 
   /* Navbar */
-  
-  .fade-navbar{
-
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background: black;
-    opacity: 0.5;
-    display: none;
-  }
-
 
   nav  .checkbtn{
     display: flex;
@@ -2425,13 +2413,14 @@ hr{
   nav ul{
     position: fixed;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 50%;
-    min-height: 100vh;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     background: var(--color-mostaza);
-    top: 0;
-    left: -100%;
+    opacity: .3;
+    left: 0;
+    display:none;
     text-align: left;
     transition: all .5s;
   }
@@ -2439,59 +2428,50 @@ hr{
   nav ul li{
     display: block;
     width: max-content;
-    margin: 10px 0;
-    padding-left: 15px;
+    margin: 20px 0;
   }
 
-  nav ul li a {
+  nav ul ._nav-links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul ._nav-links li a {
+    color:white;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 50px!important;
     margin-left: 20px;
+    font-weight: 700;
   }
 
-  nav ul .logo-nav-contain{
-    
-    margin:0;
-    margin-bottom: 20px;
-    padding:0;
-    background: var(--color-fog);
-    width: 100%;
-    height: 20vh;
-    justify-self: flex-start!important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
-  nav ul .logo-nav-responsive{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: auto;
-  }
-
- 
   nav ul li a.overeable{
     font-size: 22px;
     font-weight: normal;
   }
   nav  a:hover,a.active{
     background: none;
-    color: #0082e6;
   }
 
   nav  #check:checked ~ ul{
-    left: 0;
+    display: flex;
+    opacity: .9;
   }
 
 
-  nav i.navbar-icon{
-    display: inline-block;
-    font-weight: bold;
-    color: white;
-    font-size: x-large;
-    width: 16px;
-    height: 16px;
-    margin: 0 15px;
+  nav  #check:checked ~ ul .lang-link .lang-img{
+    width:100px;
+    height: 70px;
+  }
+
+
+  nav  #check:checked ~ label{
+    position: relative;
+    top: 10px;
+    font-size: 50px;
+    color:white;
   }
 
 

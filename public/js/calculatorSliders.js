@@ -2,7 +2,12 @@ const cleave = new Cleave('#value1-hidden-input',{
     numeral: true,
     prefix: '$',
     onValueChanged: function(e){
-        document.getElementById("range1").value = e.target.rawValue.replace( /^\D+/g, '');;
+        rawMoney = e.target.rawValue.replace( /^\D+/g, '');
+        if (rawMoney == ''){
+            document.getElementById("range1").value = 0;
+        }else{
+            document.getElementById("range1").value = rawMoney;
+        }
     }
 })
 
