@@ -2041,8 +2041,8 @@ hr{
   }
 
   .video-youtube{
-    width: 100%!important;
-    height: 160px!important;
+    width: 100vw!important;
+    height: 250px!important;
   }
 
   /*CALCULATOR*/
@@ -2071,7 +2071,7 @@ hr{
   /* Nav */
 
   nav ul ._nav-links li a.overeable{
-    font-size: 25px!important;
+    font-size: 16px!important;
   } 
 
   nav ul .lang-link .lang-img{
@@ -2446,7 +2446,7 @@ hr{
     color:white;
     text-transform: uppercase;
     text-align: center;
-    font-size: 50px!important;
+    font-size: 16px!important;
     margin-left: 20px;
     font-weight: 700;
   }

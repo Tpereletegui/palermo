@@ -45,5 +45,6 @@ let btn = document.querySelector('.checkbtn');
     links.forEach(link=>{
       link.addEventListener('click',()=>{
         navbar.style.display = "none";
+        body.classList.remove('no-scroll');
       })
     })
