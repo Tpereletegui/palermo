@@ -2,10 +2,9 @@
   <input type="checkbox" id="check">
   <label for="check" class="checkbtn"><i id="icon" class="fas fa-bars"></i></label>
   <a href="/" class="logo">
-    <img id="logo-img" src="/images/logos/logo-navbar-big-alt.png" style="margin-left: 20px; margin-top:15px;" alt="" width="100px">
+    <img id="logo-img" src="/images/logos/logo-navbar-big.png" style="margin-left: 20px; margin-top:15px;" alt="" width="100px">
   </a>
-  <div class="fade-navbar"></div>
-  
+
   <ul>
     <div class="_nav-links">
       <li><a id="programs-link" class="overeable nav-link"><%- navbarDat.titles[1] %></a></li>
@@ -18,7 +17,8 @@
     </div>
     <li class="lang-link">
       <form action="/lang" method="post">
-        <button type="submit" href="/lang" style="background: none; border:none; cursor:pointer;">
+        <input type="text" name="hiddenInput" id="hidden-input-nav" style="display:none;">
+        <button class="lang-button" type="submit" style="background: none; border:none; cursor:pointer;">
           <img class="lang-img"  src="/images/icons/<%- langFlag %>.png" alt="">
         </button>
       </form>

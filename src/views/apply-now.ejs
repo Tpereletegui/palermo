@@ -15,7 +15,13 @@
   <%- include('./partials/float-button') -%>
 
 
-  <!-- tienes pensado ir a vivir ahí? -->
+  
+  
+
+
+  <section class="section-apply-now">
+
+    <!-- tienes pensado ir a vivir ahí? -->
   <div class="modal fade" id="modalQ" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class=" modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content ">
@@ -26,12 +32,12 @@
         </div>
         <div class="modal-body" style="border:none!important;">
           <h5 class="text-center">
-            Do you currently live or expect to live in the subject property?
+            <%=applyNowDat.modalFirst%>
           </h5>
         </div>
-        <div class="modal-footer d-flex justify-content-around" style="border:none!important;">
-          <button type="button" class="principal-button w-60" data-dismiss="modal">No</button>
-          <button type="button" class="principal-button w-60"  data-dismiss="modal" data-toggle="modal" data-target="#modalW">Yes</button>            
+        <div class="modal-footer modal-buttons-container  d-flex justify-content-around" style="border:none!important;">
+          <button type="button" class="principal-button principal-button-modal" data-dismiss="modal"><%=applyNowDat.brokerWork[1]%></button>
+          <button type="button" class="principal-button principal-button-modal"  data-dismiss="modal" data-toggle="modal" data-target="#modalW"><%=applyNowDat.brokerWork[0]%></button>            
         </div>
       </div>
     </div>
@@ -48,26 +54,24 @@
         </div>
         <div class="modal-body" style="border:none!important;">
           <h3 class="text-center">
-            “Disclaimer: Owner Occupied Properties”
+            <%=applyNowDat.modalSecond[0]%>
           </h3>
           <h6 class="text-center">
-            “We provide loans for investment properties, and cannot lend to owner occupied properties.”
+            <%=applyNowDat.modalSecond[1]%>
           </h6>
         </div>
-        <div class="modal-footer d-flex justify-content-center" style="border:none!important;">
-          <button type="button" class="principal-button w-60" data-dismiss="modal" onclick="unselect()">Ok</button>
+        <div class="modal-footer modal-buttons-container d-flex justify-content-center" style="border:none!important;">
+          <button type="button" class="principal-button principal-button-modal" data-dismiss="modal" onclick="unselect()">Ok</button>
         </div>
       </div>
     </div>
   </div>
-  
 
-
-  <section class="section-apply-now">
+    
     <div class="applynow-title-container section-title-container">
       <div class="section-title">
           <label class="section-title-label" style="color:white;">
-              Apply Now 
+              <%=applyNowDat.title%> 
           </label>
       </div>
     </div>
@@ -79,11 +83,11 @@
             <div class="row">
               <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
                 <div class="multisteps-form__progress">
-                  <button class="multisteps-form__progress-btn js-active" type="button">Loan Type</button>
-                  <button class="multisteps-form__progress-btn" type="button">Property Type</button>
-                  <button class="multisteps-form__progress-btn" type="button">Property / Deal Information</button>
-                  <button class="multisteps-form__progress-btn" type="button">Borrower Details</button>
-                  <button class="multisteps-form__progress-btn" type="button">How Did You Hear About Us?</button>
+                  <button class="multisteps-form__progress-btn js-active" type="button"><%=applyNowDat.titles[0]%></button>
+                  <button class="multisteps-form__progress-btn" type="button"><%=applyNowDat.titles[1]%></button>
+                  <button class="multisteps-form__progress-btn" type="button"><%=applyNowDat.titles[2]%></button>
+                  <button class="multisteps-form__progress-btn" type="button"><%=applyNowDat.titles[3]%></button>
+                  <button class="multisteps-form__progress-btn" type="button"><%=applyNowDat.titles[4]%></button>
                 </div>
               </div>
             </div>
@@ -96,23 +100,23 @@
                       <div class="step-container">
 
                         <div class="loan-type-container"> <!-- PRIMER PANTALLA -->
-                          <div class="multiple-step-title"><label>Loan type</label></div>
+                          <div class="multiple-step-title"><label><%=applyNowDat.titles[0]%></label></div>
                           
                           <div class="loan-type-field">
                             <input type="radio" name="loan-type" class="first-step-input" id="bridge-loan">
                             <label class="loan-select" for="bridge-loan">
                               <img src="/images/icons/programs/program-1.png" alt="">
-                              <h3>Bridge Loan</h3>
-                              <h6>Short-term financing to bridge to longer-term financing</h6>
+                              <h3><%=applyNowDat.loanTypeTitles[0]%></h3>
+                              <h6><%=applyNowDat.loanTypeDesc[0]%></h6>
                             </label>
                           </div>
 
                           <div class="loan-type-field">
                             <input type="radio" name="loan-type" class="first-step-input" id="rehab-loan">
-                            <label class="loan-select" for="rehab-loan">
+                            <label class="loan-select rehab-loan-label" for="rehab-loan">
                               <img src="/images/icons/programs/program-2.png" alt="">
-                              <h3>Rehab / Fix & Flip</h3>
-                              <h6>Financing for the purchase & rehab of property that is to be re-sold</h6>
+                              <h3><%=applyNowDat.loanTypeTitles[1]%></h3>
+                              <h6><%=applyNowDat.loanTypeDesc[1]%></h6>
                             </label>
                           </div>
 
@@ -120,8 +124,8 @@
                             <input type="radio" name="loan-type" class="first-step-input" id="cash-loan">
                             <label class="loan-select" for="cash-loan">
                               <img src="/images/icons/programs/program-3.png" alt="">
-                              <h3>Cash Out / Refinance</h3>
-                              <h6>Financing to cash out on an encumbered / unencumbered property</h6>
+                              <h3><%=applyNowDat.loanTypeTitles[2]%></h3>
+                              <h6><%=applyNowDat.loanTypeDesc[2]%></h6>
                             </label>
                           </div>
                           
@@ -129,8 +133,8 @@
                             <input type="radio" name="loan-type" class="first-step-input" id="rental-loan">
                             <label class="loan-select" for="rental-loan">
                               <img src="/images/icons/programs/program-4.png" alt="">
-                              <h3>Rental Loan</h3>
-                              <h6>Financing for the purchase of property that is to be rented out</h6>
+                              <h3><%=applyNowDat.loanTypeTitles[3]%></h3>
+                              <h6><%=applyNowDat.loanTypeDesc[3]%></h6>
                             </label>
                           </div>
                           
@@ -138,33 +142,33 @@
                             <input type="radio" name="loan-type" class="first-step-input" id="other-type-loan">
                             <label class="loan-select loan-type-field-other" for="other-type-loan">
                               <img src="/images/icons/other.png" alt="">
-                              <h3>Other</h3>
-                              <input type="text" class="multiple-step-input-design other-loan-type" placeholder="Other property type">
+                              <h3><%=applyNowDat.loanTypeOther[0]%></h3>
+                              <input type="text" class="multiple-step-input-design other-loan-type" placeholder="<%=applyNowDat.loanTypeOther[1]%>">
                             </label>
                           </div>            
                         </div>
                       </div>
                       
-                      <div class="button-row d-flex" style="margin-top:80px;">
-                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
+                      <div class="button-row d-flex">
+                        <button class="principal-button ml-auto js-btn-next first-next-button" type="button" title="Next"><%=applyNowDat.buttons[1]%></button>
                       </div>
                     </div>
                   </div>
     
-                  <div class="multisteps-form__panel p-4 rounded bg-white" data-animation="scaleIn">
+                  <div class="multisteps-form__panel p-4 rounded bg-white" data-animation="slideHorz">
                     <div class="multisteps-form__content">
                       <div class="step-container">
 
                         <div class="property-type-container"> <!-- SEGUNDA PANTALLA -->
-                          <div class="multiple-step-title"><label>Property type</label></div>
+                          <div class="multiple-step-title"><label><%=applyNowDat.titles[1]%></label></div>
 
                           <div class="loan-property-field">
                             
                             <input type="radio" name="property-type" class="second-step-input"  id="property-residential">
                             <label id="property-residential-label"  class="loan-select" for="property-residential" data-toggle="modal" data-target="#modalQ" onclick="notAbleOnly()" >    
                                 <img src="/images/icons/property-type/property-1.png" alt="">
-                                <h3>Residential</h3>
-                                <h6>Single Family, Condo, Co-Op, Townhouse, Duplex, Triplex, Fourplex</h6>
+                                <h3><%=applyNowDat.propertyTypeTitles[0]%></h3>
+                                <h6><%=applyNowDat.propertyTypeDesc[0]%></h6>
                             </label>
 
                           </div>
@@ -173,8 +177,8 @@
                             <input type="radio" name="property-type" class="second-step-input" id="property-multifamily">
                             <label class="loan-select" for="property-multifamily">
                               <img src="/images/icons/property-type/property-2.png" alt="">
-                              <h3>Multifamily</h3>
-                              <h6>≥ 5 Units</h6>
+                              <h3><%=applyNowDat.propertyTypeTitles[1]%></h3>
+                              <h6><%=applyNowDat.propertyTypeDesc[1]%></h6>
                             </label>
                           </div>
 
@@ -182,8 +186,8 @@
                             <input type="radio" name="property-type" class="second-step-input" id="property-commercial">
                             <label class="loan-select" for="property-commercial">
                               <img src="/images/icons/property-type/property-3.png" alt="">
-                              <h3>Commercial</h3>
-                              <h6>Office, Retail, Warehouse, Mixed Use, Land</h6>
+                              <h3><%=applyNowDat.propertyTypeTitles[2]%></h3>
+                              <h6><%=applyNowDat.propertyTypeDesc[2]%></h6>
                             </label>
                           </div>
                           
@@ -192,70 +196,70 @@
                             <input type="radio" name="property-type" class="second-step-input" id="property-other">
                             <label class="loan-select property-field-other" for="property-other">
                               <img src="/images/icons/other.png" alt="">
-                              <h3>Other</h3>
-                              <input type="text" class="multiple-step-input-design other-property-type" placeholder="Other property type">
+                              <h3><%=applyNowDat.propertyTypeOther[0]%></h3>
+                              <input type="text" class="multiple-step-input-design other-property-type" placeholder="<%=applyNowDat.propertyTypeOther[1]%>">
                             </label>
                           </div>
 
                         </div>
                       </div>
                       <div class="button-row d-flex" style="margin-top:80px;">
-                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
+                        <button class="principal-button js-btn-prev" type="button" title="Prev"><%=applyNowDat.buttons[0]%></button>
+                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next"><%=applyNowDat.buttons[1]%></button>
                       </div>
                     </div>
                   </div>
     
                  
     
-                  <div class="multisteps-form__panel p-4 rounded bg-white" data-animation="scaleIn">
+                  <div class="multisteps-form__panel p-4 rounded bg-white" data-animation="slideHorz">
                     <div class="multisteps-form__content">
                       <div class="step-container">
 
                         <div class="deal-info-container"> <!-- TERCER PANTALLA -->
-                          <div class="multiple-step-title"><label>Property / Deal Information</label></div>
+                          <div class="multiple-step-title"><label><%=applyNowDat.titles[2]%></label></div>
                           <div class="inputs-container">
-                            <label class="inputs-container-subtitle">Subject Property Address:</label>
+                            <label class="inputs-container-subtitle"><%=applyNowDat.dealInformationTitles[0]%></label>
                             <div class="inputs-fields-container">
                               <div class="field">
-                                <input type="text" class="multiple-step-input-design four-step-input" placeholder="Address">
+                                <input type="text" class="multiple-step-input-design four-step-input" placeholder="<%=applyNowDat.dealInformationPlaceHolders[0]%>">
                               </div>
                               <div class="field">
-                                <input type="text" class="multiple-step-input-design four-step-input" placeholder="City">
+                                <input type="text" class="multiple-step-input-design four-step-input" placeholder="<%=applyNowDat.dealInformationPlaceHolders[1]%>">
                               </div>
                               <div class="field">
-                                <input type="text" class="multiple-step-input-design four-step-input" placeholder="State">
+                                <input type="text" class="multiple-step-input-design four-step-input" placeholder="<%=applyNowDat.dealInformationPlaceHolders[2]%>">
                               </div>
                               <div class="field">
-                                <input type="text" class="multiple-step-input-design four-step-input" placeholder="ZIP Code">
+                                <input type="text" class="multiple-step-input-design four-step-input" placeholder="<%=applyNowDat.dealInformationPlaceHolders[3]%>">
                               </div>
                             </div>
                           </div>
 
                           <div class="range-container">
                             <div class="field">
-                              <label style="margin:0;" class="slider-title">Purchase Price / Estimated As-Is Value</label>
+                              <label style="margin:0;" class="slider-title"><%=applyNowDat.dealInformationTitles[1]%></label>
                               <p class="value"   style="margin: 0!important; font-size: 14px;">$<span id="value-di-1"></span></p>
                               <input name="anEstimatedValue" type="range" id="range-di-1" min="1" max="10000000" value="1000000>" class="slider">
                               <hr>
                             </div>
     
-                            <div class="field">
-                              <label style="margin:0;" class="slider-title">After Repair Value (if Rehab Loan)</label>
+                            <div class="field if-rehab-loan">
+                              <label style="margin:0;" class="slider-title"><%=applyNowDat.dealInformationTitles[2]%></label>
                               <p class="value"   style="margin: 0!important; font-size: 14px;"><span id="value-di-2"></span> Months</p>
                               <input name="anMortgageTenor" type="range" id="range-di-2" min="1" max="36" value="36" class="slider">
                               <hr>
                             </div>
 
                             <div class="field">
-                              <label style="margin:0;" class="slider-title">Loan Tenor</label>
+                              <label style="margin:0;" class="slider-title"><%=applyNowDat.dealInformationTitles[3]%></label>
                               <p class="value" style="font-size: 14px; margin:0!important;"><span  id="value-an-2"></span> Months</p>
                               <input name="anMortgageTenor" type="range" id="range-an-2" min="1" max="36" value="36" class="slider">
                               <hr>
                             </div>
     
                             <div class="field">
-                              <label style="margin:0;" for="" class="slider-title">Target Closing Timing:</label>
+                              <label style="margin:0;" for="" class="slider-title"><%=applyNowDat.dealInformationTitles[4]%></label>
                               <p class="value"   style="margin: 0!important; font-size: 14px;"><span id="value-di-3"></span>%</p>
                               <input name="anMortgageInterest" type="range" id="range-di-3" step="0.01" min="7.99" max="13.99" value="8.50" class="slider">
                             </div>
@@ -263,93 +267,93 @@
                         </div>
                       </div>
                       <div class="button-row d-flex" style="margin-top:80px;">
-                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
+                        <button class="principal-button js-btn-prev" type="button" title="Prev"><%=applyNowDat.buttons[0]%></button>
+                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next"><%=applyNowDat.buttons[1]%></button>
                       </div>
                     </div>
                   </div>
 
-                  <div class="multisteps-form__panel p-4 rounded bg-white" data-animation="scaleIn">
+                  <div class="multisteps-form__panel p-4 rounded bg-white" data-animation="slideHorz">
                     <div class="multisteps-form__content">
                       <div class="step-container">
 
                         
                         <div class="borrower-details-container"><!-- CUARTA PANTALLA -->
-                          <div style="margin-bottom: 10px;" class="multiple-step-title"><label>Borrower Details</label></div>
+                          <div style="margin-bottom: 10px;" class="multiple-step-title"><label><%=applyNowDat.titles[3]%></label></div>
                           <div class="field" style="display: flex;"> 
-                            <label class="step5-subtitle" >Are you a Broker Working on Behalf of a Client?</label>
+                            <label class="step5-subtitle" ><%=applyNowDat.borrowerDetailsTitles[0]%></label>
                             <div style="width: fit-content; margin-left: 20px;" class="broker-work-cont">
                               <input type="radio" name="brokerwork" id="yesbrokerwork" checked>
-                              <label for="yesbrokerwork">Yes</label>
+                              <label for="yesbrokerwork"><%=applyNowDat.brokerWork[0]%></label>
                               <input type="radio" name="brokerwork" id="nobrokerwork">
-                              <label for="nobrokerwork">No</label>
+                              <label for="nobrokerwork"><%=applyNowDat.brokerWork[1]%></label>
                             </div>
                           </div>
 
 
                           <div class="broker-contact-info">
                             <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="First Name">
+                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="<%=applyNowDat.brokerWorkPlaceholders[0]%>">
                             </div>
                             <div class="field">
-                              <input type="text"  class="multiple-step-input-design five-step-input" placeholder="First Name">
+                              <input type="text"  class="multiple-step-input-design five-step-input" placeholder="<%=applyNowDat.brokerWorkPlaceholders[1]%>">
                             </div>
                             <div class="field">
-                              <input type="email" class="multiple-step-input-design five-step-input"  placeholder="Email">
+                              <input type="email" class="multiple-step-input-design five-step-input"  placeholder="<%=applyNowDat.brokerWorkPlaceholders[2]%>">
                             </div>
                             <div class="field">
-                              <input type="number" class="multiple-step-input-design five-step-input" placeholder="Phone">
+                              <input type="number" class="multiple-step-input-design five-step-input" placeholder="<%=applyNowDat.brokerWorkPlaceholders[3]%>">
                             </div>
                           </div>
 
-                          <label class="step5-subtitle" >Principal Borrower Contact Info</label>
+                          <label class="step5-subtitle"><%=applyNowDat.borrowerDetailsTitles[1]%></label>
                           
                           <div class="borrower-contact-info">
                             <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="First Name">
+                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="<%=applyNowDat.borrowerContactPlaceholders[0]%>">
                               
                             </div>
                             <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="Last Name">
+                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="<%=applyNowDat.borrowerContactPlaceholders[1]%>">
                             </div>
                             <div class="field">
-                              <input type="email" class="multiple-step-input-design five-step-input" placeholder="Borrower Email">
+                              <input type="email" class="multiple-step-input-design five-step-input" placeholder="<%=applyNowDat.borrowerContactPlaceholders[2]%>">
                             </div>
                             <div class="field">
-                              <input type="number"class="multiple-step-input-design five-step-input"  placeholder="Cell Phone">
+                              <input type="number"class="multiple-step-input-design five-step-input"  placeholder="<%=applyNowDat.borrowerContactPlaceholders[3]%>">
                             </div>
                             <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="Adress">
+                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="<%=applyNowDat.borrowerContactPlaceholders[4]%>">
                             </div>
                             <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="City">
+                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="<%=applyNowDat.borrowerContactPlaceholders[5]%>">
                             </div>
                             <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="State">
+                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="<%=applyNowDat.borrowerContactPlaceholders[6]%>">
                             </div>
                             <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="Zip Code">
+                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="<%=applyNowDat.borrowerContactPlaceholders[7]%>">
                             </div>
                             
                           </div>
 
-                          <label class="step5-subtitle" >Principal Borrower Estimated FICO Score</label>
+                          <label class="step5-subtitle" ><%=applyNowDat.borrowerDetailsTitles[2]%></label>
                           <div class="estimated-fico">
                             <div class="field">
                               <input type="radio" name="estimated-fico" id="fico-below600" checked>
-                              <label for="fico-below600">Below 600</label>
+                              <label for="fico-below600"><%=applyNowDat.ficoScore[0]%></label>
                             </div>
                             <div class="field">
                               <input type="radio" name="estimated-fico" id="fico-600700">
-                              <label for="fico-600700">600-700</label>
+                              <label for="fico-600700"><%=applyNowDat.ficoScore[1]%></label>
                             </div>
                             <div class="field">
                               <input type="radio" name="estimated-fico" id="fico-over700">
-                              <label for="fico-over700">Over 700</label>
+                              <label for="fico-over700"><%=applyNowDat.ficoScore[2]%></label>
                             </div>
                             <div class="field">
                               <input type="radio" name="estimated-fico" id="fico-na">
-                              <label for="fico-na">N/A</label>
+                              <label for="fico-na"><%=applyNowDat.ficoScore[3]%></label>
                             </div>
                           </div>
                           
@@ -358,19 +362,19 @@
                         </div>
                       </div>
                       <div class="button-row d-flex" style="margin-top:80px;">
-                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
+                        <button class="principal-button js-btn-prev" type="button" title="Prev"><%=applyNowDat.buttons[0]%></button>
+                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next"><%=applyNowDat.buttons[1]%></button>
                       </div>
                     </div>
                   </div>
 
-                  <div class="multisteps-form__panel p-4 rounded bg-white" data-animation="scaleIn">
+                  <div class="multisteps-form__panel p-4 rounded bg-white" data-animation="slideHorz">
                     <div class="multisteps-form__content">
                       <div class="step-container">
 
-                        <div style="margin-bottom: 10px;" class="multiple-step-title"><label class="letra-chica">How Did You Hear About Us?</label></div>
+                        <div style="margin-bottom: 10px;" class="multiple-step-title"><label class="letra-chica"><%=applyNowDat.titles[4]%></label></div>
 
-                        <div class="howyouhear-container"> <!-- SEXTA PANTALLA -->
+                        <div class="howyouhear-container"> <!-- QUINTA PANTALLA -->
                           <div class="howyouhear-container-firstl">
                             <div class="field">
                               <input type="radio" name="howyouhear" id="facebook-ad">
@@ -448,8 +452,8 @@
 
                       </div>
                       <div class="button-row d-flex" style="margin-top:80px;">
-                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="principal-button ml-auto" type="button" title="Send">Send</button>
+                        <button class="principal-button js-btn-prev" type="button" title="Prev"><%=applyNowDat.buttons[0]%></button>
+                        <button class="principal-button ml-auto" type="button" title="Send"><%=applyNowDat.buttons[2]%></button>
                       </div>
                     </div>
                   </div>
@@ -555,7 +559,17 @@
       }
     })
 
-    
+    let rehabLoanInput = document.querySelector('#rehab-loan');
+    let firstNextButton = document.querySelector('.first-next-button');
+    let afterRepairSlider = document.querySelector('.if-rehab-loan');
+
+    firstNextButton.addEventListener('click',()=>{
+      if (rehabLoanInput.checked == false){
+        afterRepairSlider.style.display = "none";
+      }else{
+        afterRepairSlider.style.display = "block";
+      }
+    })
 
 
   </script>

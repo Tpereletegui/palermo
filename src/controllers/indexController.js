@@ -143,7 +143,7 @@ module.exports = {
       let _loanCostPercent = req.body.estLoanCosts;
       let _estOriginPercent = req.body.estOrigFree;
       let _estimatedValue = Math.floor(req.body.estimatedValue);
-      let _mortgageAmount = req.body.mortgageAmount; 
+      let _mortgageAmount = 100-req.body.mortgageAmount; 
       let _mortgageInterest = req.body.mortgageInterest;
       let _mortgageTenor =  req.body.mortgageTenor;
 
@@ -180,6 +180,9 @@ module.exports = {
     },
     langChange: function(req,res){
 
+      let dire = req.body.hiddenInput;
+      console.log('xd: ' + dire);
+      
       try {
         if (req.cookies.lang == "eng" ){
           res.cookie("lang","esp");
@@ -190,6 +193,6 @@ module.exports = {
       } catch (error) {
         console.log(error);
       }
-      res.redirect('/')
-    }
+      res.redirect(dire);
+  }
 }
