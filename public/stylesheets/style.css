@@ -564,80 +564,67 @@ nav #check{
   justify-content: center;
   align-items: center;
   margin: 100px 0;
+  width: 100vw;
 }
 
 .accordion{
-  max-width: 1000px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start ;
+  width:90%;
+  padding: 2em;
 }
 
-.faq-title{
-  text-align: center;
-  padding-bottom: 5px;
-  border-bottom: 5px solid #DBB90F;
-}
-
-.accordion .content-box{
-  position: relative;
-  background:var(--color-azul);
-  border-radius: 10px;
-  transition: .3s;
-  height: fit-content;
-  margin: 10px 0;
-  width: 100%; 
-}
-
-.accordion .content-box .label{
-  position: relative;
-  width: 100%;
+.accordion .accordion-item{
   padding: 20px;
-  border-radius: 10px;
-  background: var(--color-azul);
-  color: var(--color-fog);
-  cursor: pointer;
+  border-radius: 15px;
   font-size: x-large;
   font-family: var(--fuente-principal);
-  
 }
 
-
-
-.accordion .content-box .label::before{
-  content: '+'; 
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  font-size: 1.5em;
+.accordion .accordion-item .accordion-item-title{
+  cursor:pointer;
+  padding:1em;
+  border-bottom: 3px solid var(--color-cement);  
+  color:var(--color-cement);
+  transition: all .5s ease;
+  display: flex;
+  justify-content: space-between;
 }
 
-.accordion .content-box.active .label::before{
-  content:'-';
-  font-size: 1.5em;
+.accordion .accordion-item .accordion-item-title .accordion-item-toggle-icon{
+  font-size: xx-large;
 }
 
-
-.accordion .content-box .content{
-  position: relative;
-  background: none;
-  border-radius: 25px;
-  width:100%;
-  height: 0;
-  overflow: hidden;
-  transition: 0.5s;
+.accordion .accordion-item .accordion-item-content{
   font-size: large;
-  overflow-y: hidden;
-  color: var(--color-fog);
-  font-family: var(--fuente-principal);
+  height: 0;
+  padding:0 50px;
+  overflow: hidden;
+  transition: all .5s ease;
+  color:var(--color-smoke);
+  line-height: 1.5;
 }
 
-.accordion .content-box.active .content{
-  height: max-content;
-  padding:20px;
-  opacity: 1;
+.accordion .accordion-item .accordion-item-content .accordion-item-content-bullet{
+  margin-left: 20px;
+  margin-top: 10px;
 }
+
+.accordion .accordion-item .accordion-item-title:hover{
+  color:var(--color-azul);
+}
+
+.accordion .accordion-item.active .accordion-item-title{
+  color:var(--color-azul);
+  border-bottom: 3px solid var(--color-mostaza);  
+  margin-bottom: 30px;
+}
+
+.accordion .accordion-item.active .accordion-item-content{
+  height: max-content;
+}
+
+
+
+
 
 .faq-more-button {
   text-align: center;
@@ -1997,16 +1984,7 @@ hr{
 
   /* FAQ */
   .accordion{
-    width: 100%!important;
-  }
-  .content-box{
-    width: 90%;
-    font-size:12px!important;
-    margin: 10px auto!important;
-    
-  }
-  .content-box label{
-    width: 90%;
+    width: 100vw!important;
   }
 
   /* Aboutus */
@@ -2069,13 +2047,14 @@ hr{
   /* Nav */
 
   nav ul ._nav-links li a.overeable{
-    font-size: 16px!important;
+    font-size: 46px;
   } 
 
-  nav ul .lang-link .lang-img{
-    width: 70px!important;
-    height: 46px!important;
+  nav ul li .lang-button img{
+    border: 2px solid white;
+    width: 130%!important;
   }
+
 
   .section-title{
     font-size: 25px!important;
@@ -2161,11 +2140,17 @@ hr{
   /* FAQ */
 
   .accordion{
-    width: 460px;
+    padding:0;
+    width: 95%;
   }
 
-  .content-box .label{
-    font-size: 18px!important;
+  .accordion-item-title{
+    font-size: large;
+  }
+
+  .accordion-item-content{
+    padding:0!important;
+    font-size: medium!important;
   }
 
   /* Calculator */
@@ -2436,7 +2421,7 @@ hr{
     order: 2;
   }
   nav ul{
-    overflow-y: hidden;
+    overflow: hidden;
     position: fixed;
     flex-direction: column;
     justify-content: space-around;
@@ -2444,11 +2429,11 @@ hr{
     width: 100%;
     height: 100%;
     background: var(--color-mostaza);
-    opacity: .3;
+    opacity: .1;
     left: 0;
-    display:none;
+    display: none;
     text-align: left;
-    transition: all .5s;
+    
   }
 
   nav ul li{
@@ -2467,15 +2452,13 @@ hr{
     color:white;
     text-transform: uppercase;
     text-align: center;
-    font-size: 16px!important;
-    margin-left: 20px;
-    font-weight: 700;
+    font-size: 36px!important;
   }
 
 
   nav ul li a.overeable{
     font-size: 22px;
-    font-weight: normal;
+    font-weight: 700;
   }
   nav  a:hover,a.active{
     background: none;
@@ -2483,21 +2466,16 @@ hr{
 
   nav  #check:checked ~ ul{
     display: flex;
-    opacity: .9;
+    opacity: .99;
   }
-
-
-  nav  #check:checked ~ ul .lang-link .lang-img{
-    width:100px;
-    height: 70px;
-  }
-
 
   nav  #check:checked ~ label{
-    position: relative;
-    top: 10px;
-    font-size: 50px;
     color:white;
+  }
+
+  nav ul li .lang-button img{
+    border: 2px solid white;
+    width: 200%;
   }
 
 
@@ -2586,7 +2564,7 @@ hr{
   /* FAQ */
 
   .accordion{
-    max-width: 900px;
+    max-width: 90vw;
   }
 
   /* Contact */
@@ -2716,10 +2694,6 @@ hr{
 
   .container-testimonials{
     width: 80%;
-  }
-
-  .accordion{
-    width: 70%;
   }
 
   

@@ -1,46 +1,53 @@
 <section class="section section-faq"  id="faq-section">
   
   <div class="section-title" data-aos="fade-down">
-    <label class="section-title-label">
+    <label class="section-title-label faq-title-label">
       <%-faqSectionDat.title%>
     </label>
   </div>
 
   
   <div class="accordion">
-    <div class="content-box" data-aos="fade-up">
-      <div class="label"><%-faqsDat[0].title%></div>
-      <div class="content">
-        <p><%-faqsDat[0].text%></p>
-      </div>
-    </div>
-    
 
-    <div class="content-box" data-aos="fade-up" data-aos-delay="100">
-      <div class="label"><%-faqsDat[1].title%></div>
-      <div class="content">
-        <p><%-faqsDat[1].text%></p>
-      </div>
-    </div>
+    <% for (let i = 0; i < 3; i++ ) {%>
 
-    <div class="content-box" data-aos="fade-up" data-aos-delay="200">
-      <div class="label"><%-faqsDat[2].title%></div>
-      <div class="content">
-        <p><%-faqsDat[2].text%></p>
+      <div class="accordion-item" data-aos="fade-up">
+        <div class="accordion-item-title"><p><%-faqsDat[i].title%></p><p class="accordion-item-toggle-icon">+</p></div>
+        <div class="accordion-item-content">
+          <p><%-faqsDat[i].text%></p>
+          <% if (faqsDat[i].bullets) { %>
+            <% for (let j = 0; j < (faqsDat[i].bullets).length ; j++ ) { %>
+              <p class="accordion-item-content-bullet"><%-faqsDat[i].bullets[j]%></p>
+            <% } %>
+          <% } %>
+
+        </div>
       </div>
-    </div>
+
+    <% } %>
+
   </div>
 
   <a href="/faq" class="faq-more-button"><label><%-faqSectionDat.button%></label></a>
 
 
   <script>
-    const accordion = document.getElementsByClassName('content-box');
+    let accordionItem = document.querySelectorAll('.accordion-item');
+    let accordionTitle = document.querySelectorAll('.accordion-item-title');
+    let accordionToggleIcon = document.querySelectorAll('.accordion-item-toggle-icon');
 
-    for (i = 0; i < accordion.length; i++) {
-      accordion[i].addEventListener('click',function(){
-        this.classList.toggle('active');
+    accordionTitle.forEach((title,i) =>{
+      accordionTitle[i].addEventListener('click',()=>{
+        
+        if (accordionItem[i].classList.contains('active')){
+          accordionItem[i].classList.remove('active');
+          accordionToggleIcon[i].innerHTML="+";
+        }else{
+          accordionItem[i].classList.add('active');
+          accordionToggleIcon[i].innerHTML="-";
+        }
+
       })
-    }
+    })
   </script>
 </section>
