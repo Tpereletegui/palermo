@@ -25,11 +25,12 @@
                         <div class="item-container">
                             <label for="" class="slider-title"><%=calculatorDat.itemTitles[0]%></label>
                             <p class="value"><input type="text" id="value1-hidden-input"><span class="moneyValueToChange" id="value1"></span></p>
+                            
                             <hr>
                             <% if(typeof output != 'undefined'){ %>
                                 <input name="estimatedValue" type="range" id="range1" min="1" max="10000000" value="<%=output.estimatedValue%>" class="slider">        
                             <% } else { %>
-                                <input name="estimatedValue" type="range" id="range1" min="1" max="10000000" value="100000>" class="slider">
+                                <input name="estimatedValue" type="range" id="range1" min="1" max="10000000" value="100000" class="slider">
                             <% }  %>
                         </div>
 
@@ -47,25 +48,7 @@
 
                         <!-- Tenor -->
                         <div class="item-container">
-
-                            <div class="calculator-tenor-radio-buttons">
-                                <div class="calculator-tenor-field">
-                                    <input type="radio" name="calcMonthWeeks" id="calcMonths">
-                                    <label class="calculator-tenor-label" for="calcMonths">
-                                        <p class="calculator-tenor-unit">Months</p>
-                                        <div class="calculator-tenor-circle">&nbsp;</div>
-                                    </label>
-                                </div>
-    
-                                <div class="calculator-tenor-field">
-                                    <input type="radio" name="calcMonthWeeks" id="calcWeeks">
-                                    <label class="calculator-tenor-label" for="calcWeeks">
-                                        <p class="calculator-tenor-unit">Weeks</p>
-                                        <div class="calculator-tenor-circle">&nbsp;</div>
-                                    </label>
-                                </div>
-                            </div>
-                
+                            <label for="" class="slider-title"><%=calculatorDat.itemTitles[2]%></label>                
                             <p class="value"><span id="value3"></span> Months</p>
                             <hr>
 
@@ -81,7 +64,7 @@
 
                         <!-- Interest Rate (%)  -->
                         <div class="item-container">
-                            <label for="" class="slider-title"><%= calculatorDat.itemTitles[2]%> (%)</label>
+                            <label for="" class="slider-title"><%= calculatorDat.itemTitles[3]%> (%)</label>
                             <p class="value"><span class="moneyValueToChange" id="value4"></span>%</p>
                             <hr>
                             <% if(typeof output != 'undefined'){ %>
@@ -93,7 +76,7 @@
 
                         <!-- Est. Origination Fee   -->
                         <div class="item-container">
-                            <label for="" class="slider-title"><%= calculatorDat.itemTitles[3]%></label>
+                            <label for="" class="slider-title"><%= calculatorDat.itemTitles[4]%></label>
                             <p class="value"><span class="moneyValueToChange" id="value5"></span>%</p>
                             <hr>
                             <% if(typeof output != 'undefined'){ %>
@@ -105,7 +88,7 @@
 
                         <!-- Est. Loan Costs -->
                         <div class="item-container">
-                            <label for="" class="slider-title"><%= calculatorDat.itemTitles[4]%></label>
+                            <label for="" class="slider-title"><%= calculatorDat.itemTitles[5]%></label>
                             <p class="value"><span class="moneyValueToChange" id="value6"></span>%</p>
                             <hr>
                             <% if(typeof output != 'undefined'){ %>
@@ -120,6 +103,18 @@
                 <button type="submit" class="button-calculator principal-button">
                     <%= calculatorDat.submitButton%>
                 </button>
+                <div class="sendpdf-container">
+                    <input type="checkbox" name="pdf-calculator-hidden" id="pdf-calculator">
+                    <label class="send-pdf-label" for="pdf-calculator">
+                        <div class="pdf-checkbox-container">
+                            <div class="pdf-calculator-checkbox">&nbsp;</div>
+                            <h3>Send pdf to mail?</h3>
+                        </div>
+                        <div class="pdf-email-container">
+                            <input type="text" placeholder="Email" class="send-pdf-email">
+                        </div>
+                    </label>
+                </div>
             </form>
         
             <% if(typeof output != 'undefined'){ %>

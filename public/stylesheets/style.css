@@ -1487,6 +1487,7 @@ input.other-property-type:focus
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 20px 0;
 }
 
 .broker-field label{
@@ -1539,7 +1540,6 @@ input.other-property-type:focus
   width: 100%;
   display: flex;
   justify-content: space-around;
-
 }
 
 .program-button-contain,.broker-button-contain{
@@ -1548,8 +1548,6 @@ input.other-property-type:focus
 
 .programs-container-item{
   text-align: center;
-  width: 160px;
-  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1596,7 +1594,8 @@ input.other-property-type:focus
 .programs-container h3{
   font-family: var(--fuente-principal);
   font-weight:normal;
-  margin: 15px 0;
+  height: 30px;
+  margin-top: 15px;
 }
 
 /* LOAN CRITERIA */
@@ -1747,19 +1746,61 @@ input.other-property-type:focus
   margin: 10px 0;
 }
 
-#value1-hidden-input:active,
-#value1-hidden-input:focus{
-  outline-style: none;
-  border-style: none;
+.sendpdf-container{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.sendpdf-container input[type="checkbox"]{
+  position: absolute;
+  height: 0;
+  opacity: 0;
+}
+
+.sendpdf-container .send-pdf-label .pdf-checkbox-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--fuente-principal);
+}
+
+.sendpdf-container .send-pdf-label .pdf-email-container{
+  display: none;
+  margin-top: 20px;
+}
+
+.sendpdf-container .send-pdf-label .pdf-email-container .send-pdf-email{
+  border:none;
+  border-bottom: 2px solid var(--color-mostaza);
+}
+
+.sendpdf-container .send-pdf-label .pdf-email-container .send-pdf-email:focus,
+.sendpdf-container .send-pdf-label .pdf-email-container .send-pdf-email:active{
   outline: none;
 }
 
-#value1-hidden-input{
-  content:"$";
-  display: flex;
+.sendpdf-container .send-pdf-label .pdf-checkbox-container .pdf-calculator-checkbox{
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 1px solid gray;
 }
 
+.sendpdf-container .send-pdf-label .pdf-checkbox-container h3{
+  font-weight: normal;
+  font-size:medium;
+}
 
+.sendpdf-container  input[type="checkbox"]:checked + label .pdf-calculator-checkbox{
+  background: var(--color-mostaza);
+}
+
+.sendpdf-container input[type="checkbox"]:checked + label .pdf-email-container{
+  display: block;
+}
 
 /* WITHOUT ARROWS */
 /* Chrome, Safari, Edge, Opera */
@@ -2066,7 +2107,7 @@ hr{
     
   }
 
-  .section-principal p.title{
+  .section-principal .section-principal-title{
     left: 0!important;
     width: 100vw!important;
     text-align: center!important;
@@ -2332,7 +2373,6 @@ hr{
   }
 
   .programs-container-item{
-    width: fit-content;
     margin: 20px 0;
   }
 
@@ -2632,16 +2672,20 @@ hr{
   .programs-container{
     flex-wrap: wrap;
   }
-
+ 
   .programs-container-item{
     width: 50%;
+    margin-bottom: 30px;
   }
 
-  .programs-container-item .program-container-item-icon img{
-    width: 100px;
-    height: 100px;
-  } 
-
+  .programs-container-item img{
+    width: 120px;
+    height: auto;
+  }
+  .programs-container-item img:hover{
+    width: 125px;
+    height: auto;
+  }
 
   /* Loan Criteria */
   #canvas_container {

@@ -4,8 +4,10 @@ const cleave = new Cleave('#value1-hidden-input',{
     onValueChanged: function(e){
         rawMoney = e.target.rawValue.replace( /^\D+/g, '');
         if (rawMoney == ''){
+            document.getElementById("value1").value = 0;
             document.getElementById("range1").value = 0;
         }else{
+            document.getElementById("value1").value = rawMoney;
             document.getElementById("range1").value = rawMoney;
         }
     }

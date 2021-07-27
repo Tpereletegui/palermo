@@ -1,6 +1,6 @@
 {
     "title": "Mortgage Calculator",
-    "itemTitles": ["Estimated Property Value","Mortgage Amount", "Interest Rate", "Est. Origination Fee","Est. Loan Costs"],
+    "itemTitles": ["Estimated Property Value","Mortgage Amount", "Mortgage Tenor" ,"Interest Rate", "Est. Origination Fee","Est. Loan Costs"],
     "tenorSubs" : ["Months","Years"],
     "submitButton" : "Submit",
     "outputTitle" : "Loan Details",

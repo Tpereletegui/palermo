@@ -2,6 +2,8 @@ const { validationResult } = require('express-validator');
 const nodemailer = require('nodemailer'); 
 const fs = require('fs');
 const path = require('path');
+const pdfDocument = require('pdfkit-construct');
+
 
 module.exports = {
     index: function(req,res,next){
@@ -159,6 +161,72 @@ module.exports = {
         })
       } 
 
+      const doc = new pdfDocument();
+      doc.pipe(fs.createWriteStream('test.pdf'));
+
+
+      doc.setDocumentHeader({},()=>{
+        doc
+        .fontSize(16)
+        .text('Loan Details',{
+          width: 420,
+          align: 'center'
+        })
+      })
+
+
+      // Primera fila del header
+      doc.addTable([
+        {key:'estPValue', label:'Estimated Property Value', align:'center'},
+        {key:'dPayment', label:'      Down Payment      ', align:'center'},
+        {key:'lAmount', label:'       Loan Amount      ', align:'center'},
+        {key:'interest', label:'        Interest        ', align:'center'},
+        {key:'term', label:'          Term          ', align:'center'}
+      ],[
+        {estPValue: "$1500", dPayment: "$8000", lAmount: "$50000", interest:"$1000", term:"150"}
+      ],{
+        border: null,
+        width: 'fill_body',
+        headAlign: 'center',
+        headBackground: '#ffffff',
+       }
+      )
+
+      // Segunda fila del header
+      doc.addTable([
+        {key:'estPValue', label:'Month Interest Payment', align:'center'},
+        {key:'dPayment', label:'Annual Interest Payment', align:'center'},
+        {key:'lAmount', label:'Est. Loan Costs', align:'center'},
+        {key:'interest', label:'Est. Orig. Free', align:'center'},
+        {key:'term', label:'Total Closing Costs', align:'center'}
+      ],[
+        {estPValue: "$1500", dPayment: "$8000", lAmount: "$50000", interest:"$1000", term:"150"}
+      ],{
+        border: null,
+        width: 'fill_body',
+        headAlign: 'center',
+        headBackground: '#ffffff',
+       }
+      )
+
+      // Donde se muestran los pagos mensuales
+      doc.addTable([
+        {key:'id',label:'N°',align:'center'},
+        {key:'cumulativePayment',label:'Cumulative Payment',align:'center'}
+      ],_payments,
+      {
+        border: null,
+        width: "fill_body",
+        striped: true,
+        stripedColors: ["#f6f6f6","#d6c4dd"],
+        cellsPadding: 10,
+        marginLeft: 45,
+        marginRight: 45,
+        headAlign: 'center'
+      })
+
+      doc.render();
+      doc.end();
 
       let output = {
         estimatedValue:  _estimatedValue, //VALOR DE LA CASA COMO VIENE EN INPUT
