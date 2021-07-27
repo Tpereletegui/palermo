@@ -1,6 +1,6 @@
 :root{
   --color-mostaza: #DBB90F;
-  --color-azul: #093147;
+  --color-azul: #0d3042;
   --color-smoke: #303030;
   --color-cement: #999999;
   --color-fog: #E5E5E5;
@@ -748,6 +748,22 @@ nav #check{
 .multisteps-form__progress {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+}
+
+
+#value2-hidden-input{
+  border: none;
+  font-size: large;
+  font-family: var(--fuente-principal);
+  margin: 10px 0;
+}
+
+
+#value3-hidden-input{
+  border: none;
+  font-size: large;
+  font-family: var(--fuente-principal);
+  margin: 10px 0;
 }
 
 .multisteps-form__progress-btn {

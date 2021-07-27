@@ -21,9 +21,9 @@ const moneyFormat = new Intl.NumberFormat('en-US',{
 
 
 /* Estimated Property Value */
-var slider1 = document.getElementById("range1"); // input range
-var output1 = document.getElementById("value1"); // span
-var hiddenInput = document.getElementById("value1-hidden-input"); // input text
+const slider1 = document.getElementById("range1"); // input range
+const output1 = document.getElementById("value1"); // span
+const hiddenInput = document.getElementById("value1-hidden-input"); // input text
 
 output1.innerHTML = moneyFormat.format(slider1.value);
 hiddenInput.style.display = "none"; 
@@ -54,8 +54,8 @@ slider1.oninput = function(){
 
 
 /* Mortgage Amount */
-var slider2 = document.getElementById("range2");
-var output2 = document.getElementById("value2");
+const slider2 = document.getElementById("range2");
+const output2 = document.getElementById("value2");
 
 output2.innerHTML = slider2.value;
 
@@ -64,8 +64,8 @@ slider2.oninput = function(){
 }
 
 /* Tenor */
-var slider3 = document.getElementById("range3");
-var output3 = document.getElementById("value3");
+const slider3 = document.getElementById("range3");
+const output3 = document.getElementById("value3");
 
 output3.innerHTML = slider3.value;
 
@@ -74,8 +74,8 @@ slider3.oninput = function(){
 }
 
 /* Interest Rate (%)  */
-var slider4 = document.getElementById("range4");
-var output4 = document.getElementById("value4");
+const slider4 = document.getElementById("range4");
+const output4 = document.getElementById("value4");
 
 output4.innerHTML = slider4.value;
 
@@ -84,8 +84,8 @@ slider4.oninput = function(){
 }
 
 /* Est. Origination Fee  */
-var slider5 = document.getElementById("range5");
-var output5 = document.getElementById("value5");
+const slider5 = document.getElementById("range5");
+const output5 = document.getElementById("value5");
 
 output5.innerHTML = slider5.value;
 
@@ -94,8 +94,8 @@ slider5.oninput = function(){
 }
 
 /* Est. Loan Costs */
-var slider6 = document.getElementById("range6");
-var output6 = document.getElementById("value6");
+const slider6 = document.getElementById("range6");
+const output6 = document.getElementById("value6");
 
 output6.innerHTML = slider6.value;
 

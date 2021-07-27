@@ -237,31 +237,33 @@
                           </div>
 
                           <div class="range-container">
+
+                            
                             <div class="field">
-                              <label style="margin:0;" class="slider-title"><%=applyNowDat.dealInformationTitles[1]%></label>
-                              <p class="value"   style="margin: 0!important; font-size: 14px;">$<span id="value-di-1"></span></p>
-                              <input name="anEstimatedValue" type="range" id="range-di-1" min="1" max="10000000" value="1000000>" class="slider">
+                              <label class="slider-title"><%=applyNowDat.dealInformationTitles[1]%></label>
+                              <p class="value"><input type="text" id="an-hidden-input1"><span class="moneyValueToChange" id="an-value1"></span></p>
+                              <input name="anEstimatedValue" type="range" id="an-range1" min="1" max="10000000" value="1000000" class="slider">
                               <hr>
                             </div>
     
                             <div class="field if-rehab-loan">
-                              <label style="margin:0;" class="slider-title"><%=applyNowDat.dealInformationTitles[2]%></label>
-                              <p class="value"   style="margin: 0!important; font-size: 14px;"><span id="value-di-2"></span> Months</p>
-                              <input name="anMortgageTenor" type="range" id="range-di-2" min="1" max="36" value="36" class="slider">
+                              <label class="slider-title"><%=applyNowDat.dealInformationTitles[2]%></label>
+                              <p class="value"><input type="text" id="an-hidden-input2"><span class="moneyValueToChange" id="an-value2"></span></p>
+                              <input name="anAfterRepairValue" type="range" id="an-range2" min="1" max="10000000" value="1000000" class="slider">
                               <hr>
                             </div>
 
                             <div class="field">
-                              <label style="margin:0;" class="slider-title"><%=applyNowDat.dealInformationTitles[3]%></label>
-                              <p class="value" style="font-size: 14px; margin:0!important;"><span  id="value-an-2"></span> Months</p>
-                              <input name="anMortgageTenor" type="range" id="range-an-2" min="1" max="36" value="36" class="slider">
+                              <label class="slider-title"><%=applyNowDat.dealInformationTitles[3]%></label>
+                              <p class="value"><span class="moneyValueToChange" id="an-value3"></span> Months</p>
+                              <input name="anMortgageTenor" type="range" id="an-range3" min="1" max="36" value="36" class="slider">
                               <hr>
                             </div>
     
                             <div class="field">
-                              <label style="margin:0;" for="" class="slider-title"><%=applyNowDat.dealInformationTitles[4]%></label>
-                              <p class="value"   style="margin: 0!important; font-size: 14px;"><span id="value-di-3"></span>%</p>
-                              <input name="anMortgageInterest" type="range" id="range-di-3" step="0.01" min="7.99" max="13.99" value="8.50" class="slider">
+                              <label class="slider-title"><%=applyNowDat.dealInformationTitles[4]%></label>
+                              <p class="value"><span class="moneyValueToChange" id="an-value4"></span> Months</p>
+                              <input name="anMortgageInterest" type="range" id="an-range4"  min="1" max="36" value="18" class="slider">
                             </div>
                           </div>
                         </div>
@@ -469,110 +471,9 @@
   <%- include('./partials/footer') -%>
 
 
+  <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
   <script  src="/js/function.js"></script>
-  <script>
-
-    /************** RANGE STYLES  **************/
-
-
-
-    /* PROPERTY / DEAL INFORMATION - STEP 4 */
-
-    /* Purchase Price / Estimated As-Is Value */
-    var sliderDealInformation1 = document.getElementById("range-di-1");
-    var outputDealInformation1 = document.getElementById("value-di-1");
-
-    outputDealInformation1.innerHTML = sliderDealInformation1.value;
-
-    sliderDealInformation1.oninput = function(){
-        outputDealInformation1.innerHTML = this.value;
-    }
-
-    /* After Repair Value (if Rehab Loan) */
-    var sliderDealInformation2 = document.getElementById("range-di-2");
-    var outputDealInformation2 = document.getElementById("value-di-2");
-
-    outputDealInformation2.innerHTML = sliderDealInformation2.value;
-
-    sliderDealInformation2.oninput = function(){
-        outputDealInformation2.innerHTML = this.value;
-    }
-
-    /* Target Closing Timing: */
-    var sliderDealInformation3 = document.getElementById("range-di-3");
-    var outputDealInformation3 = document.getElementById("value-di-3");
-
-    outputDealInformation3.innerHTML = sliderDealInformation3.value;
-
-    sliderDealInformation3.oninput = function(){
-        outputDealInformation3.innerHTML = this.value;
-    }
-
-    /* Loan tenor */
-    var slider2 = document.getElementById("range-an-2");
-    var output2 = document.getElementById("value-an-2");
-
-    output2.innerHTML = slider2.value;
-
-    slider2.oninput = function(){
-        output2.innerHTML = this.value;
-    }
-
-
-  </script>
-
-  <script>
-    let propResidential = document.getElementById('property-residential');
-    let propResLabel = document.getElementById('property-residential-label')
-
-
-    let notAbleOnly = () => {
-      propResLabel.addEventListener('click', () =>{
-        if (propResidential.checked==false){
-          propResLabel.setAttribute("data-toggle", "modal");
-          propResLabel.setAttribute("data-target", "#modalQ")
-        }else{
-          propResLabel.removeAttribute("data-toggle", "modal");
-          propResLabel.removeAttribute("data-target", "#modalQ")
-        }
-      })
-    }
-
-    let unselect = ()=>{
-      propResidential.checked =false;
-    }
-
-    /* DISABLE BROKER WORKING */
-    let inputNoBroker = document.getElementById('nobrokerwork');
-    let inputYesBroker = document.getElementById('yesbrokerwork');
-    let inputsBrokerContain = document.querySelector('.broker-contact-info');
-
-    inputNoBroker.addEventListener('change',()=>{
-      if (inputNoBroker.checked == true){
-        inputsBrokerContain.style.display="none";
-      }
-    })
-
-    inputYesBroker.addEventListener('change', ()=>{
-      if (inputYesBroker.checked== true){
-        inputsBrokerContain.style.display="flex";
-      }
-    })
-
-    let rehabLoanInput = document.querySelector('#rehab-loan');
-    let firstNextButton = document.querySelector('.first-next-button');
-    let afterRepairSlider = document.querySelector('.if-rehab-loan');
-
-    firstNextButton.addEventListener('click',()=>{
-      if (rehabLoanInput.checked == false){
-        afterRepairSlider.style.display = "none";
-      }else{
-        afterRepairSlider.style.display = "block";
-      }
-    })
-
-
-  </script>
+  <script  src="/js/applyNow.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

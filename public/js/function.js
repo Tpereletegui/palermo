@@ -201,18 +201,3 @@
   window.addEventListener('load', setFormHeight, false);
   
   window.addEventListener('resize', setFormHeight, false);
-  
-  
-  
-  const setAnimationType = newType => {
-    DOMstrings.stepFormPanels.forEach(elem => {
-      elem.dataset.animation = newType;
-    });
-  };
-  
-
-  // no lyfe in hsdsdsdouse
-
-    
-
-  
