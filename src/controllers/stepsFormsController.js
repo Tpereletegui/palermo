@@ -35,8 +35,9 @@ module.exports = {
       
       let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
       let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json')));
+      let _applynowDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/apply-now.json')));
 
-      res.render('prequalify',{navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat});
+      res.render('prequalify',{navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat, applyNowDat: _applynowDat});
     },
     processPrequalify: function(req,res){
 

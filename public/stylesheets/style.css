@@ -707,7 +707,9 @@ nav #check{
 }
 
 
-/* APPPLY NOW VIEW*/
+/*******************/
+/* APPPLY NOW VIEW */
+/*******************/
 
 .section-apply-now{
   width: 100%;
@@ -718,6 +720,8 @@ nav #check{
 .applynow-title-container{
   background-image: url("/images/sections/apply-now.png");
 }
+
+/* Form styles */
 
 .header {
   max-width: 600px;
@@ -901,15 +905,14 @@ nav #check{
           transform: scale(1);
 }
 
-
-
 /* CONTENEDOR PRINCIPAL DE CADA STEP */
 .step-container{
   width: 100%;
   height: fit-content;
   font-family: var(--fuente-principal);
-  
 }
+
+
 
 
 /* STEP 1 & STEP 2 */
@@ -948,11 +951,6 @@ nav #check{
   height: fit-content;
   
 }
-
-
-/* VALIDACIÓN PROPERTY TYPE */
-
-
 
 /* CUSTOM RADIO BUTTOM / FIELDS STYLES */
 .loan-type-field input[type="radio"], 
@@ -1065,13 +1063,6 @@ input.other-property-type:focus
     bottom:0;   
 }
 
-
-#rehab-loan{
-  display:none;
-}
-
-
-
 /* Field description display when active radio button */
 
 .loan-type-field input[type="radio"]:checked + label  h6 , .loan-property-field input[type="radio"]:checked + label h6{
@@ -1084,13 +1075,116 @@ input.other-property-type:focus
 }
 
 
-/* STEP 3 */
-.loan-details-container,
-.deal-info-container,
-.borrowers-container,
-.borrower-details-container{
-  padding: 0 30px;
+#rehab-loan{
+  display:none;
 }
+
+/* END STEP 1 & STEP 2 */
+
+
+
+
+
+
+
+/* STEP 3 */
+
+/* MULTIPLE STEPS INPUT */
+
+.step-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-container .broker-work-container{
+  flex-direction: column;
+  align-items: center;
+}
+
+.steps-subtitle{
+  text-align: left!important;
+  color: black;
+  align-self: left;
+}
+
+.step-container .range-container{
+  margin-top: 20px;
+  width: 100%;
+}
+
+.step-container .inputs-container{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
+.step-container .inputs-fields-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.step-container .inputs-fields-container .field{
+  display: flex;
+  flex-direction: column;
+  height: 45px;
+  width: 45%;
+  margin: 10px auto 10px auto;
+}
+
+
+.step-container .inputs-fields-container .field input[type="text"],
+.step-container .inputs-fields-container .field input[type="email"],
+.step-container .inputs-fields-container .field input[type="number"]{
+  border: 2px solid silver;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 14px;
+  color:var(--color-smoke);
+}
+
+.step-container .inputs-fields-container .field label{
+  position: relative;
+  bottom:34px;
+  left: 10px;
+  pointer-events: none;
+  transition: all .3s ease;
+  color:silver;
+  font-size: 14px;
+}
+
+.step-container .inputs-fields-container .field input[type="text"]:focus,
+.step-container .inputs-fields-container .field input[type="email"]:focus,
+.step-container .inputs-fields-container .field input[type="number"]:focus{
+
+  border: 2px solid var(--color-mostaza);
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.step-container .inputs-fields-container .field input[type="text"]:focus+label,
+.step-container .inputs-fields-container .field input[type="text"]:valid+label,
+.step-container .inputs-fields-container .field input[type="email"]:focus+label,
+.step-container .inputs-fields-container .field input[type="email"]:valid+label,
+.step-container .inputs-fields-container .field input[type="number"]:focus+label,
+.step-container .inputs-fields-container .field input[type="number"]:valid+label{
+  bottom: 58px;
+  background: white;
+  font-size: 12px;
+  color:var(--color-smoke);
+  font-weight: bold;
+  left:10px;
+  width:fit-content;
+  padding:0 5px;
+}
+
+
 
 
 /* STEP 4 */
@@ -1101,63 +1195,17 @@ input.other-property-type:focus
   align-items: space-between;
 }
 
-.deal-info-container .inputs-container{
-  margin: 5px 0;
-  display: flex;
-}
-
-.deal-info-container .inputs-container .inputs-fields-container{
-  height: 100%;
-  width: 75%;
-  display: flex;
-  flex-wrap: wrap;
-  height: 50%;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.deal-info-container .inputs-container .inputs-container-subtitle{
-  margin: auto 0; 
-  width: 50%;
-  height: 100%;
-  font-size: 14px;
-  text-align: center;
-}
-
-
-.deal-info-container .inputs-container .field{
-  width: 50%;
-  margin: 5px 0;
-}
-
-
-
-.deal-info-container .range-container{
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 30px;
-}
-
-.deal-info-container .range-container .field{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.deal-info-container .range-container .field input{
-  width: 100%;
-}
 
 /* STEP 5 */
-.step5-subtitle{
-  margin: 10px 0;
+.broker-work-cont{
+  display: flex;
+  justify-content: center;
 }
 
 .broker-work-cont label{
   opacity: .5;
   transition: .3s;
-  margin: 10px 0;
+  margin: 0 20px;
 }
 
 .broker-work-cont input[type="radio"]{
@@ -1174,21 +1222,6 @@ input.other-property-type:focus
   font-weight: bold;
   opacity: 1;
   font-size: 17px;
-}
-
-.broker-contact-info, .borrower-contact-info{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: space-around;
-}
-
-.broker-contact-info .field, .borrower-contact-info .field{
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 
@@ -1208,6 +1241,7 @@ input.other-property-type:focus
 .estimated-fico .field label{
   color:var(--color-cement);
   transition: .3s;
+  margin: 0 20px;
 }
 
 
@@ -1221,102 +1255,79 @@ input.other-property-type:focus
 /* STEP 6*/
 .howyouhear-container{
   margin-top: 30px;
-  height: 80%;
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  
-}
-
-.howyouhear-container-firstl, .howyouhear-container-secondl, .howyouhear-container-thirdl{
-  display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-
-
-.howyouhear-container label{
-  padding: 10px;
-  font-size: xx-large;
-  text-align: center;
-  width: 140px;
-  height: 90px;
-  border-radius: 20px;
-  color:var(--color-cement);
-
-}
-.howyouhear-container label h3{
-  font-size: small;
+.howyouhear-container .field {
+  width: 35%;
 }
 
-.howyouhear-container input[type="radio"]{
-  position: absolute;
-  opacity: 0;
-  width: 0;
+.howyouhear-container .field input[type="radio"]{
+  position:absolute;
   height: 0;
+  width: 0;
+  opacity: 0;
 }
 
 .howyouhear-container .field label{
+  width: 100%;
+  height: 25px;
+  color:var(--color-cement);
+  opacity: 0.4;
   transition: .3s;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
 }
 
-.howyouhear-container .field .multiple-step-input-design{
-  opacity: 0;
-  cursor: default;
+.howyouhear-container .field label h3,
+.howyouhear-container .field label  .other-how-input{
+  font-size: 18px;
+  width: auto;
+  height: auto;
+  margin:0 5px;
+  
 }
 
-.howyouhear-container input[type="radio"]:checked + label{
+.howyouhear-container .field label i{
+  font-size: 16px;
+  width: auto;
+  height: auto;
+}
+
+.howyouhear-container .field input[type="radio"]:checked + label{
   color:var(--color-azul);
-  font-size: 40px;  
-}
-
-
-.howyouhear-container input[type="radio"]:checked + label h3{
-  color:var(--color-azul);
-  font-size: small;  
-}
-
-
-.howyouhear-container input[type="radio"]:checked + label  .multiple-step-input-design{
   opacity: 1;
-  cursor:text;
-  color:var(--color-azul);
 }
 
 
-.howyouhear-container input[type="radio"]:checked + label  .icon-facebook{
+.howyouhear-container .field input[type="radio"]:checked + label h3{
+  color:var(--color-azul);
+  
+}
+
+
+
+.howyouhear-container .field input[type="radio"]:checked + label  .icon-facebook{
   color: #3B5998;
 }
 
-.howyouhear-container input[type="radio"]:checked + label  .icon-google{
+.howyouhear-container .field input[type="radio"]:checked + label  .icon-google{
   color: #D50F25;
 }
 
-.howyouhear-container input[type="radio"]:checked + label  .icon-linkedin{
+.howyouhear-container .field input[type="radio"]:checked + label  .icon-linkedin{
   color: #0077b5;
 }
 
 
-/* MULTIPLE STEPS INPUT */
-.multiple-step-input-design{
-  margin: 5px 0;
-  border: none;
-  border-bottom: 2px solid var(--color-azul);
-  width: 70%;
-  background: none;
-  font-size: small;
-}
 
-.multiple-step-input-design:focus{
-  outline-style: none;
-}
-
-.multiple-step-input-design::placeholder{
-  font-size: small;
-  opacity: 1;
-}
 
 /* CONTACT */
 
@@ -2159,6 +2170,43 @@ hr{
   }
 
 
+  /* Apply now */
+
+  .js-btn-prev,
+  .js-btn-next,
+  .js-btn-submit{
+    width: 40%;
+  }
+
+  .inputs-container{
+    width: 100%;
+  }
+
+  .inputs-fields-container{
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .inputs-fields-container .field{
+    width: 100%!important;
+  }
+
+  .inputs-fields-container .field input{
+    width: 90%;
+  }
+
+  .broker-work-cont{
+    margin: 20px 0!important;
+  }
+
+  .estimated-fico{
+    flex-wrap: wrap;
+  }
+
+  .estimated-fico .field{
+    margin: 10px 0;
+  }
+
   /* About Us */
   .aboutus-text-container{
     padding: 40px 60px!important;
@@ -2250,11 +2298,6 @@ hr{
 
   /* Apply Now */
 
-  .step-container{
-    height: 520px;
-    align-items: center;
-    justify-content: center;
-  }
 
   .loan-type-field-other{
     position: relative;
@@ -2339,25 +2382,13 @@ hr{
     margin-top: 20px;
   }
 
-  .borrower-details-container .broker-contact-info .field input,
-  .borrower-details-container .borrower-contact-info .field input{
-    width: 90%;
-  }
 
   .step5-subtitle{
     margin: 5px 0;
     width: 100%;
   }
 
-  .broker-work-cont{
-    display: flex;
-    flex-direction: row;
-    margin: 0!important;
-  }
-
-  .broker-work-cont label{
-    margin: 0 3px;
-  }
+ 
 
   .howyouhear-container{
     margin:0;

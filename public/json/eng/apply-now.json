@@ -1,5 +1,6 @@
 {
     "title": "Apply Now",
+    "titlePreq":"Prequalify",
     "titles": ["Loan Type", "Property Type", "Property / Deal Information", "Borrower Details", "How Did You Hear About Us?"],
     "loanTypeTitles":["Bridge Loan","Rehab / Fix & Flip","Cash Out / Refinance", "Rental Loan"],
     "loanTypeOther":["Other","Other Loan type"],

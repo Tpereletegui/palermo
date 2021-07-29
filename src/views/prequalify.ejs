@@ -9,11 +9,13 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
     <%- include('./partials/head') -%>
 </head>
-<body>  
+<body style="max-width: 100w; overflow-x: hidden;">  
 
   <%- include('./partials/navbar') -%>
   <%- include('./partials/float-button') -%>
 
+
+  <section class="section-apply-now">
 
   <!-- tienes pensado ir a vivir ahí? -->
   <div class="modal fade" id="modalQ" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -26,12 +28,12 @@
         </div>
         <div class="modal-body" style="border:none!important;">
           <h5 class="text-center">
-            Do you currently live or expect to live in the subject property?
+            <%=applyNowDat.modalFirst%>
           </h5>
         </div>
-        <div class="modal-footer d-flex justify-content-around" style="border:none!important;">
-          <button type="button" class="principal-button w-60" data-dismiss="modal">No</button>
-          <button type="button" class="principal-button w-60"  data-dismiss="modal" data-toggle="modal" data-target="#modalW">Yes</button>            
+        <div class="modal-footer modal-buttons-container  d-flex justify-content-around" style="border:none!important;">
+          <button type="button" class="principal-button principal-button applynow-button-modal" data-dismiss="modal"><%=applyNowDat.brokerWork[1]%></button>
+          <button type="button" class="principal-button principal-button applynow-button-modal"  data-dismiss="modal" data-toggle="modal" data-target="#modalW"><%=applyNowDat.brokerWork[0]%></button>            
         </div>
       </div>
     </div>
@@ -48,26 +50,24 @@
         </div>
         <div class="modal-body" style="border:none!important;">
           <h3 class="text-center">
-            “Disclaimer: Owner Occupied Properties”
+            <%=applyNowDat.modalSecond[0]%>
           </h3>
           <h6 class="text-center">
-            “We provide loans for investment properties, and cannot lend to owner occupied properties.”
+            <%=applyNowDat.modalSecond[1]%>
           </h6>
         </div>
-        <div class="modal-footer d-flex justify-content-center" style="border:none!important;">
-          <button type="button" class="principal-button w-60" data-dismiss="modal" onclick="unselect()">Ok</button>
+        <div class="modal-footer modal-buttons-container d-flex justify-content-center" style="border:none!important;">
+          <button type="button" class="principal-button principal-button applynow-button-modal" data-dismiss="modal" onclick="unselect()">Ok</button>
         </div>
       </div>
     </div>
   </div>
-  
 
-
-  <section class="section-apply-now">
+    
     <div class="applynow-title-container section-title-container">
       <div class="section-title">
           <label class="section-title-label" style="color:white;">
-              Prequalify 
+              <%=applyNowDat.titlePreq%> 
           </label>
       </div>
     </div>
@@ -77,369 +77,50 @@
         <div class="container overflow-hidden">
           <div class="multisteps-form">
             <div class="row">
-              <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+              <div class="col-12 col-lg-8 ml-auto mr-auto mt-4 mb-4">
                 <div class="multisteps-form__progress">
-                  <button class="multisteps-form__progress-btn js-active" type="button">Loan Type</button>
-                  <button class="multisteps-form__progress-btn" type="button">Property Type</button>
-                  <button class="multisteps-form__progress-btn" type="button">Property / Deal Information</button>
-                  <button class="multisteps-form__progress-btn" type="button">Borrower Details</button>
-                  <button class="multisteps-form__progress-btn" type="button">How Did You Hear About Us?</button>
+                  <button class="multisteps-form__progress-btn js-active" type="button"><%=applyNowDat.titles[0]%></button>
+                  <button class="multisteps-form__progress-btn" type="button"><%=applyNowDat.titles[1]%></button>
+                  <button class="multisteps-form__progress-btn" type="button"><%=applyNowDat.titles[2]%></button>
+                  <button class="multisteps-form__progress-btn" type="button"><%=applyNowDat.titles[3]%></button>
+                  <button class="multisteps-form__progress-btn" type="button"><%=applyNowDat.titles[4]%></button>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-12 col-lg-8 m-auto">
                 <form class="multisteps-form__form">
-                  <div class="multisteps-form__panel p-4 rounded bg-white js-active" data-animation="slideHorz">
+                  
+                  <div class="multisteps-form__panel shadow  p-4 rounded bg-white js-active" data-animation="slideHorz">
                     <div class="multisteps-form__content">
-                      
-                      <div class="step-container">
-
-                        <div class="loan-type-container"> <!-- PRIMER PANTALLA -->
-                          <div class="multiple-step-title"><label>Loan type</label></div>
-                          
-                          <div class="loan-type-field">
-                            <input type="radio" name="loan-type" class="first-step-input" id="bridge-loan">
-                            <label class="loan-select" for="bridge-loan">
-                              <img src="/images/icons/programs/program-1.png" alt="">
-                              <h3>Bridge Loan</h3>
-                              <h6>Short-term financing to bridge to longer-term financing</h6>
-                            </label>
-                          </div>
-
-                          <div class="loan-type-field">
-                            <input type="radio" name="loan-type" class="first-step-input" id="rehab-loan">
-                            <label class="loan-select" for="rehab-loan">
-                              <img src="/images/icons/programs/program-2.png" alt="">
-                              <h3>Rehab / Fix & Flip</h3>
-                              <h6>Financing for the purchase & rehab of property that is to be re-sold</h6>
-                            </label>
-                          </div>
-
-                          <div class="loan-type-field">
-                            <input type="radio" name="loan-type" class="first-step-input" id="cash-loan">
-                            <label class="loan-select" for="cash-loan">
-                              <img src="/images/icons/programs/program-3.png" alt="">
-                              <h3>Cash Out / Refinance</h3>
-                              <h6>Financing to cash out on an encumbered / unencumbered property</h6>
-                            </label>
-                          </div>
-                          
-                          <div class="loan-type-field">
-                            <input type="radio" name="loan-type" class="first-step-input" id="rental-loan">
-                            <label class="loan-select" for="rental-loan">
-                              <img src="/images/icons/programs/program-4.png" alt="">
-                              <h3>Rental Loan</h3>
-                              <h6>Financing for the purchase of property that is to be rented out</h6>
-                            </label>
-                          </div>
-                          
-                          <div class="loan-type-field">
-                            <input type="radio" name="loan-type" class="first-step-input" id="other-type-loan">
-                            <label class="loan-select loan-type-field-other" for="other-type-loan">
-                              <img src="/images/icons/other.png" alt="">
-                              <h3>Other</h3>
-                              <input type="text" class="multiple-step-input-design other-loan-type" placeholder="Other property type">
-                            </label>
-                          </div>            
-                        </div>
-                      </div>
-                      
-                      <div class="button-row d-flex" style="margin-top:80px;">
-                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
-                      </div>
+                      <%- include('./prequalify/step1') -%>
                     </div>
                   </div>
     
-                  <div class="multisteps-form__panel p-4 rounded bg-white" data-animation="scaleIn">
-                    <div class="multisteps-form__content">
-                      <div class="step-container">
-
-                        <div class="property-type-container"> <!-- SEGUNDA PANTALLA -->
-                          <div class="multiple-step-title"><label>Property type</label></div>
-
-                          <div class="loan-property-field">
-                            
-                            <input type="radio" name="property-type" class="second-step-input"  id="property-residential">
-                            <label id="property-residential-label"  class="loan-select" for="property-residential" data-toggle="modal" data-target="#modalQ" onclick="notAbleOnly()" >    
-                                <img src="/images/icons/property-type/property-1.png" alt="">
-                                <h3>Residential</h3>
-                                <h6>Single Family, Condo, Co-Op, Townhouse, Duplex, Triplex, Fourplex</h6>
-                            </label>
-
-                          </div>
-
-                          <div class="loan-property-field">
-                            <input type="radio" name="property-type" class="second-step-input" id="property-multifamily">
-                            <label class="loan-select" for="property-multifamily">
-                              <img src="/images/icons/property-type/property-2.png" alt="">
-                              <h3>Multifamily</h3>
-                              <h6>≥ 5 Units</h6>
-                            </label>
-                          </div>
-
-                          <div class="loan-property-field">
-                            <input type="radio" name="property-type" class="second-step-input" id="property-commercial">
-                            <label class="loan-select" for="property-commercial">
-                              <img src="/images/icons/property-type/property-3.png" alt="">
-                              <h3>Commercial</h3>
-                              <h6>Office, Retail, Warehouse, Mixed Use, Land</h6>
-                            </label>
-                          </div>
-                          
-                          
-                          <div class="loan-property-field">
-                            <input type="radio" name="property-type" class="second-step-input" id="property-other">
-                            <label class="loan-select property-field-other" for="property-other">
-                              <img src="/images/icons/other.png" alt="">
-                              <h3>Other</h3>
-                              <input type="text" class="multiple-step-input-design other-property-type" placeholder="Other property type">
-                            </label>
-                          </div>
-
-                        </div>
-                      </div>
-                      <div class="button-row d-flex" style="margin-top:80px;">
-                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
-                      </div>
+                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="slideHorz">
+                    <div class="multisteps-form__content">                    
+                      <%- include('./prequalify/step2') -%>
                     </div>
                   </div>
-    
-                 
-    
-                  <div class="multisteps-form__panel p-4 rounded bg-white" data-animation="scaleIn">
+                  
+                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="slideHorz">
                     <div class="multisteps-form__content">
-                      <div class="step-container">
-
-                        <div class="deal-info-container"> <!-- TERCER PANTALLA -->
-                          <div class="multiple-step-title"><label>Property / Deal Information</label></div>
-                          <div class="inputs-container">
-                            <label class="inputs-container-subtitle">Subject Property Address:</label>
-                            <div class="inputs-fields-container">
-                              <div class="field">
-                                <input type="text" class="multiple-step-input-design four-step-input" placeholder="Address">
-                              </div>
-                              <div class="field">
-                                <input type="text" class="multiple-step-input-design four-step-input" placeholder="City">
-                              </div>
-                              <div class="field">
-                                <input type="text" class="multiple-step-input-design four-step-input" placeholder="State">
-                              </div>
-                              <div class="field">
-                                <input type="text" class="multiple-step-input-design four-step-input" placeholder="ZIP Code">
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="range-container">
-                            <div class="field">
-                              <label style="margin:0;" class="slider-title">Purchase Price / Estimated As-Is Value</label>
-                              <p class="value"   style="margin: 0!important; font-size: 14px;">$<span id="value-di-1"></span></p>
-                              <input name="anEstimatedValue" type="range" id="range-di-1" min="1" max="10000000" value="1000000>" class="slider">
-                              <hr>
-                            </div>
-    
-                            <div class="field">
-                              <label style="margin:0;" class="slider-title">After Repair Value (if Rehab Loan)</label>
-                              <p class="value"   style="margin: 0!important; font-size: 14px;"><span id="value-di-2"></span> Months</p>
-                              <input name="anMortgageTenor" type="range" id="range-di-2" min="1" max="36" value="36" class="slider">
-                              <hr>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="button-row d-flex" style="margin-top:80px;">
-                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
-                      </div>
+                      <%- include('./prequalify/step3') -%>
                     </div>
                   </div>
 
-                  <div class="multisteps-form__panel p-4 rounded bg-white" data-animation="scaleIn">
+                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="slideHorz">
                     <div class="multisteps-form__content">
-                      <div class="step-container">
-
-                        
-                        <div class="borrower-details-container"><!-- CUARTA PANTALLA -->
-                          <div style="margin-bottom: 10px;" class="multiple-step-title"><label>Borrower Details</label></div>
-                          <div class="field" style="display: flex;"> 
-                            <label class="step5-subtitle" >Are you a Broker Working on Behalf of a Client?</label>
-                            <div style="width: fit-content; margin-left: 20px;" class="broker-work-cont">
-                              <input type="radio" name="brokerwork" id="yesbrokerwork" checked>
-                              <label for="yesbrokerwork">Yes</label>
-                              <input type="radio" name="brokerwork" id="nobrokerwork">
-                              <label for="nobrokerwork">No</label>
-                            </div>
-                          </div>
-
-
-                          <div class="broker-contact-info">
-                            <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="First Name">
-                            </div>
-                            <div class="field">
-                              <input type="text"  class="multiple-step-input-design five-step-input" placeholder="First Name">
-                            </div>
-                            <div class="field">
-                              <input type="email" class="multiple-step-input-design five-step-input"  placeholder="Email">
-                            </div>
-                            <div class="field">
-                              <input type="number" class="multiple-step-input-design five-step-input" placeholder="Phone">
-                            </div>
-                          </div>
-
-                          <label class="step5-subtitle" >Principal Borrower Contact Info</label>
-                          
-                          <div class="borrower-contact-info">
-                            <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="First Name">
-                              
-                            </div>
-                            <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="Last Name">
-                            </div>
-                            <div class="field">
-                              <input type="email" class="multiple-step-input-design five-step-input" placeholder="Borrower Email">
-                            </div>
-                            <div class="field">
-                              <input type="number"class="multiple-step-input-design five-step-input"  placeholder="Cell Phone">
-                            </div>
-                            <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="Adress">
-                            </div>
-                            <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="City">
-                            </div>
-                            <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="State">
-                            </div>
-                            <div class="field">
-                              <input type="text" class="multiple-step-input-design five-step-input" placeholder="Zip Code">
-                            </div>
-                            
-                          </div>
-
-                          <label class="step5-subtitle" >Principal Borrower Estimated FICO Score</label>
-                          <div class="estimated-fico">
-                            <div class="field">
-                              <input type="radio" name="estimated-fico" id="fico-below600" checked>
-                              <label for="fico-below600">Below 600</label>
-                            </div>
-                            <div class="field">
-                              <input type="radio" name="estimated-fico" id="fico-600700">
-                              <label for="fico-600700">600-700</label>
-                            </div>
-                            <div class="field">
-                              <input type="radio" name="estimated-fico" id="fico-over700">
-                              <label for="fico-over700">Over 700</label>
-                            </div>
-                            <div class="field">
-                              <input type="radio" name="estimated-fico" id="fico-na">
-                              <label for="fico-na">N/A</label>
-                            </div>
-                          </div>
-                          
-                        
-                          
-                        </div>
-                      </div>
-                      <div class="button-row d-flex" style="margin-top:80px;">
-                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="principal-button ml-auto js-btn-next" type="button" title="Next">Next</button>
-                      </div>
+                      <%- include('./prequalify/step4') -%>
                     </div>
                   </div>
 
-                  <div class="multisteps-form__panel p-4 rounded bg-white" data-animation="scaleIn">
+                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="slideHorz">
                     <div class="multisteps-form__content">
-                      <div class="step-container">
-
-                        <div style="margin-bottom: 10px;" class="multiple-step-title"><label class="letra-chica">How Did You Hear About Us?</label></div>
-
-                        <div class="howyouhear-container"> <!-- QUINTA PANTALLA -->
-                          <div class="howyouhear-container-firstl">
-                            <div class="field">
-                              <input type="radio" name="howyouhear" id="facebook-ad">
-                              <label for="facebook-ad">
-                                <i class="fab fa-facebook-square icon-facebook"></i>
-                                <h3>Facebook Ad</h3>
-                              </label>
-                            </div>
-                            <div class="field">
-                              <input type="radio" name="howyouhear" id="google-ad">
-                              <label for="google-ad">
-                                <i class="fab fa-google icon-google"></i>
-                                <h3>Google</h3>
-                              </label>
-                            </div>
-                            <div class="field">
-                              <input type="radio" name="howyouhear" id="linkedin-ad">
-                              <label for="linkedin-ad">
-                                <i class="fab fa-linkedin icon-linkedin"></i>
-                                <h3>Linkedin</h3>
-                              </label>
-                            </div>
-                            
-                          </div>
-                          <div class="howyouhear-container-secondl">
-                            
-
-                            <div class="field">
-                              <input type="radio" name="howyouhear" id="email-ad">
-                              <label for="email-ad">
-                                <i class="far fa-envelope icon-email"></i>
-                                <h3>Email Campaign</h3>
-                              </label>
-                            </div> 
-
-                            <div class="field" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                              <img src="/images/logos/logo-navbar.png" height="100px" width="auto" alt="" style="justify-self: center;">
-                            </div>
-
-                            <div class="field">
-                              <input type="radio" name="howyouhear" id="social-ad">
-                              <label for="social-ad">
-                                <i class="fas fa-user-friends icon-other-social"></i>
-                                <h3>Other Social Media</h3>
-                                
-                              </label>
-                            </div>
-                          </div>
-                          <div class="howyouhear-container-thirdl">
-                            <div class="field">
-                              <input type="radio" name="howyouhear" id="personal-ad">
-                              <label for="personal-ad">
-                                <i class="far fa-comments icon-comments"></i>
-                                <h3>Personal Referral</h3>
-                              </label>
-                            </div>
-                            <div class="field">
-                              <input type="radio" name="howyouhear" id="broker-ad">
-                              <label for="broker-ad">
-                                <i class="fas fa-user-tie icon-broker"></i>
-                                <h3>Broker / Agent</h3>
-                              </label>
-                            </div>
-                            <div class="field">
-                              <input type="radio" name="howyouhear" id="other-ad">
-                              <label for="other-ad" style="display: flex; flex-direction: column; align-items: center;">
-                                <i class="fas fa-bullseye icon-other-o"></i>
-                                <input type="text"  class="multiple-step-input-design" placeholder="Other..">
-                              </label>
-                            </div>
-
-
-                          </div>
-                        </div>
-
-                      </div>
-                      <div class="button-row d-flex" style="margin-top:80px;">
-                        <button class="principal-button js-btn-prev" type="button" title="Prev">Prev</button>
-                        <button class="principal-button ml-auto" type="button" title="Send">Send</button>
-                      </div>
+                      <%- include('./prequalify/step5') -%>
                     </div>
                   </div>
+
                 </form>
               </div>
             </div>
@@ -452,104 +133,25 @@
   <%- include('./partials/footer') -%>
 
 
+  <!-- Inputs formateados -->
+  <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+  <!-- Funciones de control -->
   <script  src="/js/function.js"></script>
-  <script>
-
-    /************** RANGE STYLES  **************/
-
-
-
-    /* PROPERTY / DEAL INFORMATION - STEP 4 */
-
-    /* Purchase Price / Estimated As-Is Value */
-    var sliderDealInformation1 = document.getElementById("range-di-1");
-    var outputDealInformation1 = document.getElementById("value-di-1");
-
-    outputDealInformation1.innerHTML = sliderDealInformation1.value;
-
-    sliderDealInformation1.oninput = function(){
-        outputDealInformation1.innerHTML = this.value;
-    }
-
-    /* After Repair Value (if Rehab Loan) */
-    var sliderDealInformation2 = document.getElementById("range-di-2");
-    var outputDealInformation2 = document.getElementById("value-di-2");
-
-    outputDealInformation2.innerHTML = sliderDealInformation2.value;
-
-    sliderDealInformation2.oninput = function(){
-        outputDealInformation2.innerHTML = this.value;
-    }
-
-    /* Target Closing Timing: */
-    var sliderDealInformation3 = document.getElementById("range-di-3");
-    var outputDealInformation3 = document.getElementById("value-di-3");
-
-    outputDealInformation3.innerHTML = sliderDealInformation3.value;
-
-    sliderDealInformation3.oninput = function(){
-        outputDealInformation3.innerHTML = this.value;
-    }
-
-    /* Loan tenor */
-    var slider2 = document.getElementById("range-an-2");
-    var output2 = document.getElementById("value-an-2");
-
-    output2.innerHTML = slider2.value;
-
-    slider2.oninput = function(){
-        output2.innerHTML = this.value;
-    }
-
-
-  </script>
-
-  <script>
-    let propResidential = document.getElementById('property-residential');
-    let propResLabel = document.getElementById('property-residential-label')
-
-
-    let notAbleOnly = () => {
-      propResLabel.addEventListener('click', () =>{
-        if (propResidential.checked==false){
-          propResLabel.setAttribute("data-toggle", "modal");
-          propResLabel.setAttribute("data-target", "#modalQ")
-        }else{
-          propResLabel.removeAttribute("data-toggle", "modal");
-          propResLabel.removeAttribute("data-target", "#modalQ")
-        }
-      })
-    }
-
-    let unselect = ()=>{
-      propResidential.checked =false;
-    }
-
-    /* DISABLE BROKER WORKING */
-    let inputNoBroker = document.getElementById('nobrokerwork');
-    let inputYesBroker = document.getElementById('yesbrokerwork');
-    let inputsBrokerContain = document.querySelector('.broker-contact-info');
-
-    inputNoBroker.addEventListener('change',()=>{
-      if (inputNoBroker.checked == true){
-        inputsBrokerContain.style.display="none";
-      }
-    })
-
-    inputYesBroker.addEventListener('change', ()=>{
-      if (inputYesBroker.checked== true){
-        inputsBrokerContain.style.display="flex";
-      }
-    })
-
-    
-
-
-  </script>
+  <script  src="/js/applyNow.js"></script>
+  <!-- Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <!-- Funciones del navbar -->
   <script src="/js/navbarLinks.js"></script>
   <script src="/js/navbarResponsive.js"></script>
+  <!-- Para los carrusels -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
+  <script>
+    var elms = document.getElementsByClassName( 'splide' );
+    for ( var i = 0, len = elms.length; i < len; i++ ) {
+      new Splide( elms[ i ] ).mount();
+    }
+  </script>
 </body>
 </html>

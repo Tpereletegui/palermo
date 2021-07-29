@@ -1,0 +1,59 @@
+<div class="step-container">
+
+    <!-- TERCER PANTALLA -->
+     <div class="multiple-step-title"><label><%=applyNowDat.titles[2]%></label></div>
+     
+     <label class="text-center"><%=applyNowDat.dealInformationTitles[0]%></label>
+     <div class="container">
+       <div class="form-group mb-0 mt-2">
+        <label ><%=applyNowDat.dealInformationPlaceHolders[0]%></label>
+        <input type="email" class="form-control " >
+       </div>
+       <div class="form-row">
+        <div class="col-12 col-md-7 mt-2">
+          <label ><%=applyNowDat.dealInformationPlaceHolders[1]%></label>
+          <input type="text" class="form-control" >
+        </div>
+        <div class="col-12 col-md mt-2">
+          <label ><%=applyNowDat.dealInformationPlaceHolders[2]%></label>
+          <input type="text" class="form-control" >
+        </div>
+        <div class="col-12 col-md mt-2 mb-5">
+          <label ><%=applyNowDat.dealInformationPlaceHolders[3]%></label>
+          <input type="text" class="form-control" >
+        </div>
+      </div>
+
+     </div>
+
+     <div class="container ">
+       <div class="field">
+         <label><%=applyNowDat.dealInformationTitles[1]%></label>
+         <p class="value"><input type="text" id="an-hidden-input1"><span class="moneyValueToChange" id="an-value1"></span></p>
+         <input name="anEstimatedValue" type="range" style="margin:0;" id="an-range1" min="1" max="10000000" value="1000000" class="slider">
+         <hr>
+       </div>
+       <div class="field if-rehab-loan">
+         <label><%=applyNowDat.dealInformationTitles[2]%></label>
+         <p class="value"><input type="text" id="an-hidden-input2"><span class="moneyValueToChange" id="an-value2"></span></p>
+         <input name="anAfterRepairValue" type="range" style="margin:0;" id="an-range2" min="1" max="10000000" value="1000000" class="slider">
+         <hr>
+       </div>
+       <div class="field">
+         <label><%=applyNowDat.dealInformationTitles[3]%></label>
+         <p class="value"><span class="moneyValueToChange" id="an-value3"></span> Months</p>
+         <input name="anMortgageTenor" type="range" style="margin:0;" id="an-range3" min="1" max="36" value="36" class="slider">
+         <hr>
+       </div>
+       <div class="field">
+         <label><%=applyNowDat.dealInformationTitles[4]%></label>
+         <p class="value"><span class="moneyValueToChange" id="an-value4"></span> Months</p>
+         <input name="anMortgageInterest" type="range" style="margin:0;" id="an-range4"  min="1" max="36" value="18" class="slider">
+       </div>
+     </div>
+ </div>
+
+ <div class="button-row d-flex" style="margin-top:80px;">
+   <button class="principal-button js-btn-prev" type="button" title="Prev"><%=applyNowDat.buttons[0]%></button>
+   <button class="principal-button ml-auto js-btn-next" type="button" title="Next"><%=applyNowDat.buttons[1]%></button>
+ </div>

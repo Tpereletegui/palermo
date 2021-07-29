@@ -1,0 +1,118 @@
+<div class="step-container"> 
+      <div class="multiple-step-title"><label><%=applyNowDat.titles[3]%></label></div>
+
+      <!-- Are you a Broker Working on Behalf of a Client? -->
+      <div class="broker-work-container"> 
+        <label class="steps-subtitle" ><%=applyNowDat.borrowerDetailsTitles[0]%></label>
+        <div class="broker-work-cont">
+          <input type="radio" name="brokerwork" id="yesbrokerwork" checked>
+          <label for="yesbrokerwork"><%=applyNowDat.brokerWork[0]%></label>
+          <input type="radio" name="brokerwork" id="nobrokerwork">
+          <label for="nobrokerwork"><%=applyNowDat.brokerWork[1]%></label>
+        </div>
+      </div>
+
+      <!-- Brokers inputs -->
+
+
+      <div class="container broker-contact-info mt-4">
+        <div class="form-group">
+          <div class="row mt-3">
+            <div class="col-12 col-md mt-2">
+              <label ><%=applyNowDat.brokerWorkPlaceholders[0]%></label>
+              <input type="text" class="form-control" >
+            </div>
+            <div class="col-12 col-md mt-2">
+              <label ><%=applyNowDat.brokerWorkPlaceholders[1]%></label>
+              <input type="text" class="form-control" >
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-12 col-md mt-2">
+              <label ><%=applyNowDat.brokerWorkPlaceholders[2]%></label>
+              <input type="text" class="form-control" >
+            </div>
+            <div class="col-12 col-md mt-2">
+              <label ><%=applyNowDat.brokerWorkPlaceholders[3]%></label>
+              <input type="text" class="form-control" >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <label class="steps-subtitle mt-4"><%=applyNowDat.borrowerDetailsTitles[1]%></label>
+      
+      <!-- Borrower inputs -->
+
+      <div class="container">
+        <div class="form-group">
+          <div class="row mt-3">
+            <div class="col-12 col-md mt-2">
+              <label ><%=applyNowDat.borrowerContactPlaceholders[0]%></label>
+              <input type="text" class="form-control" >
+            </div>
+            <div class="col-12 col-md mt-2">
+              <label ><%=applyNowDat.borrowerContactPlaceholders[1]%></label>
+              <input type="text" class="form-control" >
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-12 col-md mt-2">
+              <label ><%=applyNowDat.borrowerContactPlaceholders[2]%></label>
+              <input type="text" class="form-control" >
+            </div>
+            <div class="col-12 col-md mt-2">
+              <label ><%=applyNowDat.borrowerContactPlaceholders[3]%></label>
+              <input type="text" class="form-control" >
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-12 col-md mt-2">
+              <label ><%=applyNowDat.borrowerContactPlaceholders[4]%></label>
+              <input type="email" class="form-control" >
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-12 col-md-7 mt-2">
+              <label ><%=applyNowDat.borrowerContactPlaceholders[5]%></label>
+              <input type="text" class="form-control" >
+            </div>
+            <div class="col-12 col-md mt-2">
+              <label ><%=applyNowDat.borrowerContactPlaceholders[6]%></label>
+              <input type="text" class="form-control" >
+            </div>
+            <div class="col-12 col-md mt-2">
+              <label ><%=applyNowDat.borrowerContactPlaceholders[7]%></label>
+              <input type="text" class="form-control" >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <label class="steps-subtitle  mt-4" ><%=applyNowDat.borrowerDetailsTitles[2]%></label>
+      <div class="estimated-fico  mt-3">
+        <div class="field">
+          <input type="radio" name="estimated-fico" id="fico-below600" checked>
+          <label for="fico-below600"><%=applyNowDat.ficoScore[0]%></label>
+        </div>
+        <div class="field">
+          <input type="radio" name="estimated-fico" id="fico-600700">
+          <label for="fico-600700"><%=applyNowDat.ficoScore[1]%></label>
+        </div>
+        <div class="field">
+          <input type="radio" name="estimated-fico" id="fico-over700">
+          <label for="fico-over700"><%=applyNowDat.ficoScore[2]%></label>
+        </div>
+        <div class="field">
+          <input type="radio" name="estimated-fico" id="fico-na">
+          <label for="fico-na"><%=applyNowDat.ficoScore[3]%></label>
+        </div>
+      </div>
+      
+    
+      
+  </div>
+  <div class="button-row d-flex" style="margin-top:80px;">
+    <button class="principal-button js-btn-prev" type="button" title="Prev"><%=applyNowDat.buttons[0]%></button>
+    <button class="principal-button ml-auto js-btn-next" type="button" title="Next"><%=applyNowDat.buttons[1]%></button>
+  </div>

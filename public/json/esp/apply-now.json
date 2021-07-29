@@ -1,5 +1,6 @@
 {
     "title" : "Aplicar Ahora",
+    "titlePreq":"Pre-Aprobación",
     "titles": ["Tipo de Préstamo", "Tipo de Propiedad", "Detalles del Préstamo","Información de Propiedad / Oferta", "Detalles del Préstamo", "¿Cómo te enteraste de nosotros?"],
     "loanTypeTitles":["Crédito a corto plazo","Rehabilitación / Reparación y volteo","Retiro / Refinanciamiento", "Préstamo de Alquiler"],
     "loanTypeOther":["Otro","Otro tipo de Préstamo"],

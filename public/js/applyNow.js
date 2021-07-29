@@ -160,18 +160,53 @@ inputNoBroker.addEventListener('change',()=>{
 
 inputYesBroker.addEventListener('change', ()=>{
     if (inputYesBroker.checked== true){
-    inputsBrokerContain.style.display="flex";
+    inputsBrokerContain.style.display="block";
     }
 })
 
 let rehabLoanInput = document.querySelector('#rehab-loan');
 let firstNextButton = document.querySelector('.first-next-button');
-let afterRepairSlider = document.querySelector('.if-rehab-loan');
+let afterRepairSlider = document.querySelectorAll('.if-rehab-loan');
 
 firstNextButton.addEventListener('click',()=>{
     if (rehabLoanInput.checked == false){
-    afterRepairSlider.style.display = "none";
+        afterRepairSlider.forEach(slider=>{
+            slider.style.display = "none";
+        })
     }else{
-    afterRepairSlider.style.display = "block";
+        afterRepairSlider.forEach(slider=>{
+            slider.style.display = "block";
+        })
     }
 })
+
+
+/* STEP 5 ~ OTHER*/
+let otherHiddenInput = document.querySelector('#other-ad');
+let otherLabel = document.querySelector('.other-how-label');
+let otherTitle = document.querySelector('.other-how-title');
+let otherInput = document.querySelector('.other-how-input');
+
+otherInput.style.display="none";
+
+otherLabel.addEventListener('click',()=>{
+
+    otherTitle.style.display="none";
+    otherInput.style.display="block";
+    
+})
+
+otherHiddenInput.addEventListener('change',()=>{
+    if (otherHiddenInput.checked==true){
+        otherTitle.style.display="block";
+        otherInput.style.display="none";
+    }
+})
+
+
+
+/* if (otherInput.style.display != "none"){
+    otherInput.addEventListener('blur',()=>{
+
+    })
+} */

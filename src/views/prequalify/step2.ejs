@@ -1,0 +1,49 @@
+<div class="step-container">
+  <div class="property-type-container"> <!-- SEGUNDA PANTALLA -->
+      <div class="multiple-step-title"><label><%=applyNowDat.titles[1]%></label></div>
+  
+      <div class="loan-property-field">
+        
+        <input type="radio" name="property-type" class="second-step-input"  id="property-residential">
+        <label id="property-residential-label"  class="loan-select" for="property-residential" data-toggle="modal" data-target="#modalQ" onclick="notAbleOnly()" >    
+            <img src="/images/icons/property-type/property-1.png" alt="">
+            <h3><%=applyNowDat.propertyTypeTitles[0]%></h3>
+            <h6><%=applyNowDat.propertyTypeDesc[0]%></h6>
+        </label>
+  
+      </div>
+  
+      <div class="loan-property-field">
+        <input type="radio" name="property-type" class="second-step-input" id="property-multifamily">
+        <label class="loan-select" for="property-multifamily">
+          <img src="/images/icons/property-type/property-2.png" alt="">
+          <h3><%=applyNowDat.propertyTypeTitles[1]%></h3>
+          <h6><%=applyNowDat.propertyTypeDesc[1]%></h6>
+        </label>
+      </div>
+  
+      <div class="loan-property-field">
+        <input type="radio" name="property-type" class="second-step-input" id="property-commercial">
+        <label class="loan-select" for="property-commercial">
+          <img src="/images/icons/property-type/property-3.png" alt="">
+          <h3><%=applyNowDat.propertyTypeTitles[2]%></h3>
+          <h6><%=applyNowDat.propertyTypeDesc[2]%></h6>
+        </label>
+      </div>
+      
+      
+      <div class="loan-property-field">
+        <input type="radio" name="property-type" class="second-step-input" id="property-other">
+        <label class="loan-select property-field-other" for="property-other">
+          <img src="/images/icons/other.png" alt="">
+          <h3><%=applyNowDat.propertyTypeOther[0]%></h3>
+          <input type="text" class="other-property-type" placeholder="<%=applyNowDat.propertyTypeOther[1]%>">
+        </label>
+      </div>
+  
+    </div>
+</div>
+<div class="button-row d-flex" style="margin-top:80px;">
+  <button class="principal-button js-btn-prev" type="button" title="Prev"><%=applyNowDat.buttons[0]%></button>
+  <button class="principal-button ml-auto js-btn-next" type="button" title="Next"><%=applyNowDat.buttons[1]%></button>
+</div>

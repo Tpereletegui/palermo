@@ -1,0 +1,53 @@
+<div class="step-container">
+  <div class="loan-type-container"> <!-- PRIMER PANTALLA -->
+    <div class="multiple-step-title"><label><%=applyNowDat.titles[0]%></label></div>
+    
+    <div class="loan-type-field">
+      <input type="radio" name="loan-type" class="first-step-input" id="bridge-loan">
+      <label class="loan-select" for="bridge-loan">
+        <img src="/images/icons/programs/program-1.png" alt="">
+        <h3><%=applyNowDat.loanTypeTitles[0]%></h3>
+        <h6><%=applyNowDat.loanTypeDesc[0]%></h6>
+      </label>
+    </div>
+
+    <div class="loan-type-field">
+      <input type="radio" name="loan-type" class="first-step-input" id="rehab-loan">
+      <label class="loan-select rehab-loan-label" for="rehab-loan">
+        <img src="/images/icons/programs/program-2.png" alt="">
+        <h3><%=applyNowDat.loanTypeTitles[1]%></h3>
+        <h6><%=applyNowDat.loanTypeDesc[1]%></h6>
+      </label>
+    </div>
+
+    <div class="loan-type-field">
+      <input type="radio" name="loan-type" class="first-step-input" id="cash-loan">
+      <label class="loan-select" for="cash-loan">
+        <img src="/images/icons/programs/program-3.png" alt="">
+        <h3><%=applyNowDat.loanTypeTitles[2]%></h3>
+        <h6><%=applyNowDat.loanTypeDesc[2]%></h6>
+      </label>
+    </div>
+    
+    <div class="loan-type-field">
+      <input type="radio" name="loan-type" class="first-step-input" id="rental-loan">
+      <label class="loan-select" for="rental-loan">
+        <img src="/images/icons/programs/program-4.png" alt="">
+        <h3><%=applyNowDat.loanTypeTitles[3]%></h3>
+        <h6><%=applyNowDat.loanTypeDesc[3]%></h6>
+      </label>
+    </div>
+    
+    <div class="loan-type-field">
+      <input type="radio" name="loan-type" class="first-step-input" id="other-type-loan">
+      <label class="loan-select loan-type-field-other" for="other-type-loan">
+        <img src="/images/icons/other.png" alt="">
+        <h3><%=applyNowDat.loanTypeOther[0]%></h3>
+        <input type="text" class="other-loan-type" placeholder="<%=applyNowDat.loanTypeOther[1]%>">
+      </label>
+    </div>            
+  </div>
+</div>
+<div class="button-row d-flex">
+  <button class="principal-button  ml-auto js-btn-next first-next-button" type="button" title="Next"><%=applyNowDat.buttons[1]%></button>
+</div>
