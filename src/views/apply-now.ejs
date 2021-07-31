@@ -17,51 +17,54 @@
 
   <section class="section-apply-now">
 
-  <!-- tienes pensado ir a vivir ahí? -->
-  <div class="modal fade" id="modalQ" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class=" modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content ">
-        <div class="modal-header" style="border:none!important;">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <div class="container">
+      
+      <!-- tienes pensado ir a vivir ahí? -->
+      <div class="modal fade" id="modalQ" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class=" modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content ">
+            <div class="modal-header" style="border:none!important;">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="border:none!important;">
+              <h5 class="text-center">
+                <%=applyNowDat.modalFirst%>
+              </h5>
+            </div>
+            <div class="modal-footer modal-buttons-container  d-flex justify-content-around" style="border:none!important;">
+              <button type="button" class="principal-button principal-button applynow-button-modal" data-dismiss="modal"><%=applyNowDat.brokerWork[1]%></button>
+              <button type="button" class="principal-button principal-button applynow-button-modal"  data-dismiss="modal" data-toggle="modal" data-target="#modalW"><%=applyNowDat.brokerWork[0]%></button>            
+            </div>
+          </div>
         </div>
-        <div class="modal-body" style="border:none!important;">
-          <h5 class="text-center">
-            <%=applyNowDat.modalFirst%>
-          </h5>
-        </div>
-        <div class="modal-footer modal-buttons-container  d-flex justify-content-around" style="border:none!important;">
-          <button type="button" class="principal-button principal-button applynow-button-modal" data-dismiss="modal"><%=applyNowDat.brokerWork[1]%></button>
-          <button type="button" class="principal-button principal-button applynow-button-modal"  data-dismiss="modal" data-toggle="modal" data-target="#modalW"><%=applyNowDat.brokerWork[0]%></button>            
+      </div>
+    
+      <!-- No es posible -->
+      <div class="modal fade" id="modalW" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class=" modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content ">
+            <div class="modal-header" style="border:none!important;">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" style="border:none!important;">
+              <h3 class="text-center">
+                <%=applyNowDat.modalSecond[0]%>
+              </h3>
+              <h6 class="text-center">
+                <%=applyNowDat.modalSecond[1]%>
+              </h6>
+            </div>
+            <div class="modal-footer modal-buttons-container d-flex justify-content-center" style="border:none!important;">
+              <button type="button" class="principal-button principal-button applynow-button-modal" data-dismiss="modal" onclick="unselect()">Ok</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- No es posible -->
-  <div class="modal fade" id="modalW" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class=" modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content ">
-        <div class="modal-header" style="border:none!important;">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" style="border:none!important;">
-          <h3 class="text-center">
-            <%=applyNowDat.modalSecond[0]%>
-          </h3>
-          <h6 class="text-center">
-            <%=applyNowDat.modalSecond[1]%>
-          </h6>
-        </div>
-        <div class="modal-footer modal-buttons-container d-flex justify-content-center" style="border:none!important;">
-          <button type="button" class="principal-button principal-button applynow-button-modal" data-dismiss="modal" onclick="unselect()">Ok</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
     
     <div class="applynow-title-container section-title-container">
