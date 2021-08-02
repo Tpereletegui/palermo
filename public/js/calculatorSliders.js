@@ -109,34 +109,98 @@ slider6.oninput = function(){
 
 /* Estimated value property */
 let calculatorOut1 = document.getElementById('calculator-output-value-1');
-calculatorOut1.innerHTML = moneyFormat.format(calculatorOut1.innerHTML);
+if (calculatorOut1){
+    calculatorOut1.innerHTML = moneyFormat.format(calculatorOut1.innerHTML);
+}
 /* Loan amount */
 let calculatorOut3 = document.getElementById('calculator-output-value-3');
-calculatorOut3.innerHTML = moneyFormat.format(calculatorOut3.innerHTML);
+if (calculatorOut3){
+    calculatorOut3.innerHTML = moneyFormat.format(calculatorOut3.innerHTML);
+}
 /* Month interest */
 let calculatorOut6 = document.getElementById('calculator-output-value-6');
-calculatorOut6.innerHTML = moneyFormat.format(calculatorOut6.innerHTML);
+if (calculatorOut6){
+    calculatorOut6.innerHTML = moneyFormat.format(calculatorOut6.innerHTML);
+}
 /* Annual interest */
 let calculatorOut7 = document.getElementById('calculator-output-value-7');
-calculatorOut7.innerHTML = moneyFormat.format(calculatorOut7.innerHTML);
+if (calculatorOut7){
+    calculatorOut7.innerHTML = moneyFormat.format(calculatorOut7.innerHTML);
+}
 /* Est. Loan costs */
 let calculatorOut8 = document.getElementById('calculator-output-value-8');
-calculatorOut8.innerHTML = moneyFormat.format(calculatorOut8.innerHTML);
+if (calculatorOut8){
+    calculatorOut8.innerHTML = moneyFormat.format(calculatorOut8.innerHTML);
+}
 /* Est. orig free */
 let calculatorOut9 = document.getElementById('calculator-output-value-9');
-calculatorOut9.innerHTML = moneyFormat.format(calculatorOut9.innerHTML);
+if (calculatorOut9){
+    calculatorOut9.innerHTML = moneyFormat.format(calculatorOut9.innerHTML);
+}
 /* Total Closing cost */
 let calculatorOut10 = document.getElementById('calculator-output-value-10');
-calculatorOut10.innerHTML = moneyFormat.format(calculatorOut10.innerHTML);
+if (calculatorOut10){
+    calculatorOut10.innerHTML = moneyFormat.format(calculatorOut10.innerHTML);
+}
+
 
 /* Interest payment */
 let calculatorOut11 = document.querySelectorAll('.calculator-output-value-11');
-calculatorOut11.forEach(IPayment=>{
-    IPayment.innerHTML = moneyFormat.format(IPayment.innerHTML);
-})
+if (calculatorOut11){
+    calculatorOut11.forEach(IPayment=>{
+        IPayment.innerHTML = moneyFormat.format(IPayment.innerHTML);
+        
+    })
+}
 
 /* Cumulative payment */
 let calculatorOut12 = document.querySelectorAll('.calculator-output-value-12');
-calculatorOut12.forEach(CPayment=>{
-    CPayment.innerHTML = moneyFormat.format(CPayment.innerHTML);
+if (calculatorOut12){
+    calculatorOut12.forEach(CPayment=>{
+        CPayment.innerHTML = moneyFormat.format(CPayment.innerHTML);
+    })
+}
+
+
+
+
+/* MONTHS OR WEEKS */
+
+let itemTenorMonth = document.querySelector('#item-tenor-months');
+let itemTenorMonthLabel = document.querySelector('.item-tenor-months-label');  
+let itemTenorWeeks = document.querySelector('#item-tenor-weeks');
+let itemTenorWeeksLabel = document.querySelector('.item-tenor-weeks-label');
+let langHiddenValue = document.querySelector('.lang-hidden-value'); 
+let itemTenorTitle = document.querySelector('.item-tenor-field-title'); 
+
+itemTenorWeeksLabel.addEventListener('click',()=>{
+    if (!itemTenorWeeks.checked){
+        console.log('cambio a semanas');
+        slider3.setAttribute('max',slider3.max*4);
+        slider3.value = slider3.value*4;
+        value3.innerHTML = slider3.value;
+        
+        if (langHiddenValue.innerHTML == 'esp'){
+            itemTenorTitle.innerHTML = ' Semanas';
+        }else{
+            itemTenorTitle.innerHTML = ' Weeks';
+        }
+
+        
+    }
+})
+
+itemTenorMonthLabel.addEventListener('click',()=>{
+    if (!itemTenorMonth.checked){
+        console.log('cambio a meses');
+        slider3.setAttribute('max',slider3.max/4);
+        slider3.value = slider3.value/4;
+        value3.innerHTML = Math.round(slider3.value);
+    }
+
+    if (langHiddenValue.innerHTML == 'esp'){
+        itemTenorTitle.innerHTML = ' Meses';
+    }else{
+        itemTenorTitle.innerHTML = ' Months';
+    }
 })

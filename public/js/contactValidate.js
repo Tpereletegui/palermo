@@ -1,5 +1,5 @@
 const contactForm = document.querySelector('.form-message');
-const contactFormInputs = document.querySelectorAll('.form-message input');
+const contactFormInputs = document.querySelectorAll('.form-message .input');
 
 
 const rules = {
@@ -10,6 +10,12 @@ const rules = {
     phone: /^\d{7,14}$/ // 7 a 14 numeros.
 }
 
+const fields = {
+	name: false,
+	email: false,
+	message: false
+}
+
 
 const contactFormValidate = (e) =>{
     const event = e.target;
@@ -18,8 +24,10 @@ const contactFormValidate = (e) =>{
         case 'name':
             if (!rules.name.test(event.value) || event.value.length == 0){
                 document.querySelector('.form-group-name').classList.add('form-group-error');
+                fields.name = false;
             }else{
                 document.querySelector('.form-group-name').classList.remove('form-group-error');
+                fields.name = true;
             }
         
             break;
@@ -27,16 +35,20 @@ const contactFormValidate = (e) =>{
         case 'email':
             if (!rules.email.test(event.value) || event.value.length == 0){
                 document.querySelector('.form-group-email').classList.add('form-group-error');
+                fields.email = false;
             }else{
                 document.querySelector('.form-group-email').classList.remove('form-group-error');
+                fields.email = true;
             }
             break;
 
         case 'message':
             if (event.value.length == 0){
                 document.querySelector('.form-group-message').classList.add('form-group-error');
+                fields.message = false;
             }else{
                 document.querySelector('.form-group-message').classList.remove('form-group-error');
+                fields.message = true;
             }
             
             break;
@@ -51,5 +63,12 @@ contactFormInputs.forEach(input => {
 })
 
 contactForm.addEventListener('submit', (e)=>{
-    e.preventDefault();
+    const messageSubmit = document.querySelector('.form-submit-message');
+    
+    if (!fields.name && !fields.email && !fields.message){
+        e.preventDefault();
+        messageSubmit.innerHTML = "El mensaje NO fue enviado"
+    }
 })
+
+

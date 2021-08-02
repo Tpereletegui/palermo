@@ -138,10 +138,35 @@
       
       switch (activePanelNum) {
         case 0:
-            (DOMstrings.firstStepInputs).forEach(input => {
-              if (input.checked == true){
-                activePanelNum++;
+            (DOMstrings.firstStepInputs).forEach((input) => {
+
+              if (input.classList.contains('first-step-other')){
+
+                if (document.querySelector('.other-loan-type').value.length!=0){
+                  activePanelNum++;
+                }
+                
+              }else{
+                if (input.checked == true){
+                  activePanelNum++;
+                }
               }
+
+              /* switch (i) {
+                case 4:
+                  if (input[i].checked == true && input[i].value.length!=0){
+                    activePanelNum++;
+                  }
+                  break;
+              
+                default:
+                  
+                  break;
+              } */
+              
+
+
+              
             });
             
         break;
@@ -199,5 +224,4 @@
   });
   
   window.addEventListener('load', setFormHeight, false);
-  
   window.addEventListener('resize', setFormHeight, false);

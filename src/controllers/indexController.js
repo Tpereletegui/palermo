@@ -3,11 +3,10 @@ const nodemailer = require('nodemailer');
 const fs = require('fs');
 const path = require('path');
 const pdfDocument = require('pdfkit-construct');
-
+const axios = require('axios');
 
 module.exports = {
     index: function(req,res,next){
-
       let lang = null;
 
 
@@ -30,6 +29,8 @@ module.exports = {
       let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
       let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json'))); 
       
+      
+
       res.render('index',{
         principalDat: _principalDat, 
         whyusDat: _whyusDat, 
@@ -44,22 +45,26 @@ module.exports = {
         langFlag: lang,
         footerDat: _footerDat
       });
-    },
-    message: function(req, res, next) {
+    }
+    ,
+    message: async function(req, res) {
+      let errors = validationResult(req);
+      
+      if (errors.isEmpty()){
         
         // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: "smtp.mailtrap.io",
-            port: 587,
-            secure: false, // true for 465, false for other ports
-            auth: {
-            user: "b87d625d652af5", // generated ethereal user
-            pass: "4c8642e68cd325", // generated ethereal password
-            },
+        let transporter = await nodemailer.createTransport({
+          host: "smtp.mailtrap.io",
+          port: 587,
+          secure: false, // true for 465, false for other ports
+          auth: {
+          user: "b87d625d652af5", // generated ethereal user
+          pass: "4c8642e68cd325", // generated ethereal password
+          },
         });
 
         // send mail with defined transport object
-        return transporter.sendMail({
+        await transporter.sendMail({
             from: req.body.name+'<'+req.body.email+'>', // sender address
             to: "maxincolla@gmail.com", // list of receivers
             subject: "Palermo Lender - Contact Message", // Subject line
@@ -68,24 +73,14 @@ module.exports = {
         }, (err, info) =>{
             if (err){
                 res.render("index", {errors:err})
-            }else{
-               alert('mensaje enviado');
-               res.redirect('/');
-            } 
-
-            
-        });
-
-        /* let errors = validationResult(req);
-        if (errors.isEmpty()){
-
-            
-
-
-        }else{
-            res.render("index", {errors:errors.errors})
-        }
-         */
+            }     
+            res.redirect('/');
+        });    
+          
+      }else{
+        res.render("index",{errors:errors.message});
+      }
+      
     },
     loadAllFaqs: function(req,res){ 
 
@@ -146,7 +141,16 @@ module.exports = {
       let _estimatedValue = Math.floor(req.body.estimatedValue);
       let _mortgageAmount = 100-req.body.mortgageAmount; 
       let _mortgageInterest = req.body.mortgageInterest;
-      let _mortgageTenor =  req.body.mortgageTenor;
+      let _mortgageTenor;
+      let _tenorMonthOrWeeks = req.body.mortgageTenor;
+
+      if (_tenorMonthOrWeeks > 36 ){
+        _mortgageTenor =  req.body.mortgageTenor/4;
+      }else{
+        _mortgageTenor =  req.body.mortgageTenor;
+      }
+
+
 
       let _payments = []
       let _cumulativePayment = 0;
@@ -158,10 +162,29 @@ module.exports = {
           id: _id,
           cumulativePayment: _cumulativePayment
         })
-      } 
+      }
+      
+      let output = {
+        estimatedValue:  _estimatedValue, //VALOR DE LA CASA COMO VIENE EN INPUT
+        mortgageAmount: _mortgageAmount, //PORCENTAJE DE PRESTAMO COMO VIENE
+        loanAmount: _loanAmount,
+        mortgageInterest: _mortgageInterest, // TAL COMO VIENE 
+        mortgageTenor: _mortgageTenor, // TAL COMO VIENE
+        annualInterest: _annualPayment,
+        monthInterest: _monthPayment,
+        loanCostPercent: _loanCostPercent, // TAL COMO VIENE
+        estOrigPercent: _estOriginPercent, // TAL COMO VIENE
+        estLoanCosts: _loanAmount*(_loanCostPercent/100), // % DEL LOAN AMOUNT
+        estOrigFree: _loanAmount*(_estOriginPercent/100), // % DEL LOAN AMOUNT 
+        totalClosing: (_loanAmount*(_loanCostPercent/100)) + (_loanAmount*(_estOriginPercent/100)), // estLoanCost+ estOrignFree
+        payments: _payments
+      }
+      
+
+      const filename = `Calculator${Date.now()}.pdf`;
 
       const doc = new pdfDocument();
-      doc.pipe(fs.createWriteStream('test.pdf'));
+      doc.pipe(fs.createWriteStream(filename));
 
 
       doc.setDocumentHeader({},()=>{
@@ -176,13 +199,13 @@ module.exports = {
 
       // Primera fila del header
       doc.addTable([
-        {key:'estPValue', label:'Estimated Property Value', align:'center'},
-        {key:'dPayment', label:'      Down Payment      ', align:'center'},
-        {key:'lAmount', label:'       Loan Amount      ', align:'center'},
-        {key:'interest', label:'        Interest        ', align:'center'},
-        {key:'term', label:'          Term          ', align:'center'}
+        {key:'estPValue', label:_calculatorDat.outputsTitles[0], align:'center'},
+        {key:'dPayment', label:_calculatorDat.outputsTitles[1], align:'center'},
+        {key:'lAmount', label:_calculatorDat.outputsTitles[2], align:'center'},
+        {key:'interest', label:_calculatorDat.outputsTitles[3], align:'center'},
+        {key:'term', label:_calculatorDat.outputsTitles[4], align:'center'}
       ],[
-        {estPValue: "$1500", dPayment: "$8000", lAmount: "$50000", interest:"$1000", term:"150"}
+        {estPValue: output.estimatedValue, dPayment: output.mortgageAmount, lAmount: output.loanAmount, interest:output.mortgageInterest, term:output.mortgageTenor}
       ],{
         border: null,
         width: 'fill_body',
@@ -208,6 +231,7 @@ module.exports = {
        }
       )
 
+  
       // Donde se muestran los pagos mensuales
       doc.addTable([
         {key:'id',label:'N°',align:'center'},
@@ -227,21 +251,7 @@ module.exports = {
       doc.render();
       doc.end();
 
-      let output = {
-        estimatedValue:  _estimatedValue, //VALOR DE LA CASA COMO VIENE EN INPUT
-        mortgageAmount: _mortgageAmount, //PORCENTAJE DE PRESTAMO COMO VIENE
-        loanAmount: _loanAmount,
-        mortgageInterest: _mortgageInterest, // TAL COMO VIENE 
-        mortgageTenor: _mortgageTenor, // TAL COMO VIENE
-        annualInterest: _annualPayment,
-        monthInterest: _monthPayment, 
-        loanCostPercent: _loanCostPercent, // TAL COMO VIENE
-        estOrigPercent: _estOriginPercent, // TAL COMO VIENE
-        estLoanCosts: _loanAmount/_loanCostPercent, // % DEL LOAN AMOUNT
-        estOrigFree: _loanAmount/_estOriginPercent, // % DEL LOAN AMOUNT 
-        totalClosing: (_loanAmount/req.body.estLoanCosts) + (_loanAmount/req.body.estOrigFree), // estLoanCost+ estOrignFree
-        payments: _payments
-      }
+      
       
       res.render('calculator', {output: output, payments: _payments,navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat, calculatorDat: _calculatorDat})
     },

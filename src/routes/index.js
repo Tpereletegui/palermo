@@ -13,7 +13,7 @@ router.post('/apply-now', stepsFormsController.processApplyNow);
 router.get('/prequalify', stepsFormsController.prequalify);
 router.post('/prequalify', stepsFormsController.processPrequalify);
 router.get('/faq', indexController.loadAllFaqs);
-router.post('/message', messageValidator.message , indexController.message);
+router.post('/message', indexController.message);
 router.get('/calculator', indexController.getCalculator)
 router.post('/calculator', indexController.processCalculator)
 router.get('/brokers', brokersController.brokersAndRealtors);

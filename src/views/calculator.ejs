@@ -16,6 +16,8 @@
             </div>
         </div>
 
+        <div class="lang-hidden-value" style="position: absolute; width: 0; height: 0; opacity: 0;"><%=langFlag%></div>
+
         <div class="calculator-container">     
             <form action="/calculator/" method="post" class="calculator-form-container">        
                 <div class="content-container">
@@ -49,7 +51,38 @@
                         <!-- Tenor -->
                         <div class="item-container">
                             <label for="" class="slider-title"><%=calculatorDat.itemTitles[2]%></label>                
-                            <p class="value"><span id="value3"></span> Months</p>
+                            
+                            <div class="item-tenor-radio-container">
+                                <div class="item-tenor-field">
+                                    <input type="radio" name="itemTenorInput"  id="item-tenor-months" checked>    
+                                    <label class="item-tenor-months-label" for="item-tenor-months">
+                                        <div class="item-tenor-circle">&nbsp;</div>
+                                        <% if(langFlag=='eng'){ %>
+                                            <span>Months</span>
+                                        <% } else { %>
+                                            <span>Meses</span>
+                                        <% } %>
+                                    </label>
+                                </div>
+    
+                                <div class="item-tenor-field">
+                                    <input type="radio" name="itemTenorInput" id="item-tenor-weeks">    
+                                    <label class="item-tenor-weeks-label" for="item-tenor-weeks">
+                                        <div class="item-tenor-circle">&nbsp;</div>
+                                        <% if(langFlag=='eng'){ %>
+                                            <span>Weeks</span>
+                                        <% } else { %>
+                                            <span>Semanas</span>
+                                        <% } %>
+                                        
+                                    </label>
+                                </div>
+                            </div>
+                            <% if(langFlag=='eng'){ %>
+                                <p class="value"><span id="value3"></span><span class="item-tenor-field-title"> Months</span></p>
+                            <% } else { %>
+                                <p class="value"><span id="value3"></span><span class="item-tenor-field-title"> Meses</span></p>
+                            <% } %>
                             <hr>
 
                             <% if(typeof output != 'undefined'){ %>
@@ -80,7 +113,7 @@
                             <p class="value"><span class="moneyValueToChange" id="value5"></span>%</p>
                             <hr>
                             <% if(typeof output != 'undefined'){ %>
-                                <input name="estOrigFree" type="range" id="range5" step="0.1" min="0" max="5" value="<%=output.estOrigFree%>" class="slider">
+                                <input name="estOrigFree" type="range" id="range5" step="0.1" min="0" max="5" value="<%=output.estOrigPercent%>" class="slider">
                             <% } else { %>
                                 <input name="estOrigFree" type="range" id="range5" step="0.1" min="0" max="5" value="2.5" class="slider">
                             <% }  %>
@@ -92,7 +125,7 @@
                             <p class="value"><span class="moneyValueToChange" id="value6"></span>%</p>
                             <hr>
                             <% if(typeof output != 'undefined'){ %>
-                                <input name="estLoanCosts" type="range" id="range6" step="0.1" min="0" max="5" value="<%=output.estLoanCosts%>" class="slider">
+                                <input name="estLoanCosts" type="range" id="range6" step="0.1" min="0" max="5" value="<%=output.loanCostPercent%>" class="slider">
                             <% } else { %>
                                 <input name="estLoanCosts" type="range" id="range6" step="0.1" min="0" max="5" value="2.0" class="slider">
                             <% }  %>

@@ -8,7 +8,7 @@ let body = document.querySelector('body');
 let hiddenNavInput = document.querySelector('#hidden-input-nav');
 let locPath = window.location.pathname;
 let langIcon = document.querySelector('.lang-button');
-
+let principalSection = document.querySelector('.section-principal');
 
 /* BOTÓN QUE ABRE EL NAV RESPONSIVE */
 btn.addEventListener("click", () =>{
@@ -33,9 +33,15 @@ langIcon.addEventListener('click',()=>{
 if (window.innerWidth > 768){
   window.addEventListener('scroll', function () {
     if (window.pageYOffset > 0) {
+      if (principalSection){
+        principalSection.style.marginTop = "60px";
+      }
       navbar.style.height = "60px";
       logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-landscape.png" alt="" width="160px">'
     }else{
+      if (principalSection){
+        principalSection.style.marginTop = "100px";
+      }
       navbar.style.height = "100px";
       logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-big.png" style="margin-left: 20px; margin-top:15px;"  alt="" width="100px" >'
     }
