@@ -8,7 +8,7 @@ let body = document.querySelector('body');
 let hiddenNavInput = document.querySelector('#hidden-input-nav');
 let locPath = window.location.pathname;
 let langIcon = document.querySelector('.lang-button');
-let principalSection = document.querySelector('.section-principal');
+let principalSection = document.querySelector('.margin-nav-section');
 
 /* BOTÓN QUE ABRE EL NAV RESPONSIVE */
 btn.addEventListener("click", () =>{

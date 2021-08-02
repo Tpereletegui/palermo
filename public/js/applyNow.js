@@ -185,28 +185,6 @@ firstNextButton.addEventListener('click',()=>{
 })
 
 
-/* STEP 5 ~ OTHER*/
-let otherHiddenInput = document.querySelector('#other-ad');
-let otherLabel = document.querySelector('.other-how-label');
-let otherTitle = document.querySelector('.other-how-title');
-let otherInput = document.querySelector('.other-how-input');
-
-otherInput.style.display="none";
-
-otherLabel.addEventListener('click',()=>{
-
-    otherTitle.style.display="none";
-    otherInput.style.display="block";
-    
-})
-
-otherHiddenInput.addEventListener('change',()=>{
-    if (otherHiddenInput.checked==true){
-        otherTitle.style.display="block";
-        otherInput.style.display="none";
-    }
-})
-
 //broker-phone-input
 new Cleave('#broker-phone-input', {
     phone: true,
