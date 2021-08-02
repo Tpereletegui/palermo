@@ -17,7 +17,7 @@ module.exports = {
       let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json')));
       let _applynowDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/apply-now.json')));
 
-      res.render('apply-now',{navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat, applyNowDat: _applynowDat});
+      res.render('multiple-step-form',{navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat, mode: 'apply' , title:_applynowDat.title,  applyNowDat: _applynowDat});
     },
     processApplyNow: function(req,res){
       
@@ -37,7 +37,7 @@ module.exports = {
       let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json')));
       let _applynowDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/apply-now.json')));
 
-      res.render('prequalify',{navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat, applyNowDat: _applynowDat});
+      res.render('multiple-step-form',{navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat, mode: 'pre',title:_applynowDat.titlePreq,applyNowDat: _applynowDat});
     },
     processPrequalify: function(req,res){
 

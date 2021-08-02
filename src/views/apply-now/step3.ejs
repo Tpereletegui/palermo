@@ -5,22 +5,32 @@
      
      <label class="text-center"><%=applyNowDat.dealInformationTitles[0]%></label>
      <div class="container">
-       <div class="form-group mb-0 mt-2">
-        <label ><%=applyNowDat.dealInformationPlaceHolders[0]%></label>
-        <input type="email" class="form-control " >
-       </div>
+
+        
+        <div class="form-group mb-0 mt-2">
+         <label ><%=applyNowDat.dealInformationPlaceHolders[0]%></label>
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marker-alt"></i></span>
+            <input type="email" class="form-control" placeholder="123 Main Street" >
+          </div>
+        </div>
+
+
        <div class="form-row">
         <div class="col-12 col-md-7 mt-2">
           <label ><%=applyNowDat.dealInformationPlaceHolders[1]%></label>
-          <input type="text" class="form-control" >
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="far fa-building"></i></span>
+            <input type="text" class="form-control" placeholder="Miami">
+          </div>          
         </div>
         <div class="col-12 col-md mt-2">
           <label ><%=applyNowDat.dealInformationPlaceHolders[2]%></label>
-          <input type="text" class="form-control" >
+          <input type="text" class="form-control" placeholder="Florida">
         </div>
         <div class="col-12 col-md mt-2 mb-5">
           <label ><%=applyNowDat.dealInformationPlaceHolders[3]%></label>
-          <input type="text" class="form-control" >
+          <input type="text" class="form-control" placeholder="PL-5431">
         </div>
       </div>
 
@@ -39,17 +49,20 @@
          <input name="anAfterRepairValue" type="range" style="margin:0;" id="an-range2" min="1" max="10000000" value="1000000" class="slider">
          <hr>
        </div>
-       <div class="field">
-         <label><%=applyNowDat.dealInformationTitles[3]%></label>
-         <p class="value"><span class="moneyValueToChange" id="an-value3"></span> Months</p>
-         <input name="anMortgageTenor" type="range" style="margin:0;" id="an-range3" min="1" max="36" value="36" class="slider">
-         <hr>
-       </div>
-       <div class="field">
-         <label><%=applyNowDat.dealInformationTitles[4]%></label>
-         <p class="value"><span class="moneyValueToChange" id="an-value4"></span> Months</p>
-         <input name="anMortgageInterest" type="range" style="margin:0;" id="an-range4"  min="1" max="36" value="18" class="slider">
-       </div>
+
+       <% if (mode == 'apply') {%> 
+        <div class="field">
+          <label><%=applyNowDat.dealInformationTitles[3]%></label>
+          <p class="value"><span class="moneyValueToChange" id="an-value3"></span> Months</p>
+          <input name="anMortgageTenor" type="range" style="margin:0;" id="an-range3" min="1" max="36" value="36" class="slider">
+          <hr>
+        </div>
+        <div class="field">
+          <label><%=applyNowDat.dealInformationTitles[4]%></label>
+          <p class="value"><span class="moneyValueToChange" id="an-value4"></span> Months</p>
+          <input name="anMortgageInterest" type="range" style="margin:0;" id="an-range4"  min="1" max="36" value="18" class="slider">
+        </div>
+       <% }%>
      </div>
  </div>
 

@@ -111,20 +111,28 @@ sliderDI2.oninput = function(){
 var sliderDI3 = document.getElementById("an-range3");
 var outputDI3 = document.getElementById("an-value3");
 
-outputDI3.innerHTML = sliderDI3.value;
+if (outputDI3){
+    outputDI3.innerHTML = sliderDI3.value;
+}
 
-sliderDI3.oninput = function(){
-    outputDI3.innerHTML = this.value;
+if (sliderDI3){
+    sliderDI3.oninput = function(){
+        outputDI3.innerHTML = this.value;
+    }
 }
 
 /* Loan tenor */
 var sliderDI4 = document.getElementById("an-range4");
 var outputDI4 = document.getElementById("an-value4");
 
-outputDI4.innerHTML = sliderDI4.value;
+if (outputDI4){
+    outputDI4.innerHTML = sliderDI4.value;
+}
 
-sliderDI4.oninput = function(){
-    outputDI4.innerHTML = this.value;
+if (sliderDI4){
+    sliderDI4.oninput = function(){
+        outputDI4.innerHTML = this.value;
+    }
 }
 
 let propResidential = document.getElementById('property-residential');
@@ -166,17 +174,13 @@ inputYesBroker.addEventListener('change', ()=>{
 
 let rehabLoanInput = document.querySelector('#rehab-loan');
 let firstNextButton = document.querySelector('.first-next-button');
-let afterRepairSlider = document.querySelectorAll('.if-rehab-loan');
+let afterRepairSlider = document.querySelector('.if-rehab-loan');
 
 firstNextButton.addEventListener('click',()=>{
     if (rehabLoanInput.checked == false){
-        afterRepairSlider.forEach(slider=>{
-            slider.style.display = "none";
-        })
+        afterRepairSlider.style.display = "none";
     }else{
-        afterRepairSlider.forEach(slider=>{
-            slider.style.display = "block";
-        })
+        afterRepairSlider.style.display = "block";
     }
 })
 
@@ -203,10 +207,13 @@ otherHiddenInput.addEventListener('change',()=>{
     }
 })
 
+//broker-phone-input
+new Cleave('#broker-phone-input', {
+    phone: true,
+    phoneRegionCode: 'US'
+});
 
-
-/* if (otherInput.style.display != "none"){
-    otherInput.addEventListener('blur',()=>{
-
-    })
-} */
+new Cleave('#borrower-phone-input', {
+    phone: true,
+    phoneRegionCode: 'US'
+});
