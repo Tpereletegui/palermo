@@ -10,6 +10,8 @@
     stepNextBtnClass: 'js-btn-next',
     firstStepInputs: document.querySelectorAll(".first-step-input"),
     secondStepInputs: document.querySelectorAll(".second-step-input"),
+    thirdStepInputs: document.querySelectorAll(".third-step-input"),
+    fourStepBrokerInputs: document.querySelectorAll(".four-step-broker-input"),
     fourStepInputs: document.querySelectorAll(".four-step-input"),
     fiveStepInputs: document.querySelectorAll(".five-step-input"),
   };
@@ -139,64 +141,82 @@
       switch (activePanelNum) {
         case 0:
             (DOMstrings.firstStepInputs).forEach((input) => {
-
               if (input.classList.contains('first-step-other')){
-
                 if (document.querySelector('.other-loan-type').value.length!=0){
                   activePanelNum++;
                 }
-                
               }else{
                 if (input.checked == true){
                   activePanelNum++;
                 }
               }
-
-              /* switch (i) {
-                case 4:
-                  if (input[i].checked == true && input[i].value.length!=0){
-                    activePanelNum++;
-                  }
-                  break;
-              
-                default:
-                  
-                  break;
-              } */
-              
-
-
-              
             });
             
         break;
         case 1:
 
-          (DOMstrings.secondStepInputs).forEach(input => {
-            if (input.checked == true){
-              activePanelNum++;
+          (DOMstrings.secondStepInputs).forEach((input) => {
+            if (input.classList.contains('second-step-other')){
+              if (document.querySelector('.other-property-type').value.length!=0){
+                activePanelNum++;
+              }
+            }else{
+              if (input.checked == true){
+                activePanelNum++;
+              }
             }
           });
+          
 
         break;
 
         case 2:
-          activePanelNum++;
+          let inputs = (DOMstrings.thirdStepInputs);
+          let able = true;
+
+          for (let i = 0; i<inputs.length; i++ ){
+            if (inputs[i].value.length == 0){
+              able=false;
+            }
+          }
+          
+          if (able){
+            activePanelNum++;
+          } 
         break;
 
         case 3:
 
-          let count3 = 0;
+          let yesBrokerWork = document.getElementById('yesbrokerwork');
+          let inputsBroker = (DOMstrings.fourStepBrokerInputs);
+          let fStepsInputs = (DOMstrings.fourStepInputs);
 
-          (DOMstrings.fourStepInputs).forEach(input => {
-            if (input.value.length > 0 ){
-              count3++;
+          let ableBroker = true;
+          let fAble = true;
+          
+          if (yesBrokerWork.checked){
+            for (let i = 0; i<fStepsInputs.length; i++ ){
+              if (fStepsInputs[i].value.length == 0){
+                fAble=false;
+              }
             }
-          });
+            for (let i = 0; i<inputsBroker.length; i++ ){
+              if (inputsBroker[i].value.length == 0){
+                fAble=false;
+              }
+            }
+            
+          }else{
+            for (let i = 0; i<fStepsInputs.length; i++ ){
+              if (fStepsInputs[i].value.length == 0){
+                fAble=false;
+              }
+            }
+          }
 
-          if (count3 == DOMstrings.fourStepInputs.length){
+          if (fAble){
             activePanelNum++;
-          } 
+          }
 
         break;
 

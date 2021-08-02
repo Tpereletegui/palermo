@@ -6,9 +6,9 @@
         <label class="steps-subtitle" ><%=applyNowDat.borrowerDetailsTitles[0]%></label>
         <div class="broker-work-cont">
           <input type="radio" name="brokerwork" id="yesbrokerwork" checked>
-          <label for="yesbrokerwork"><%=applyNowDat.brokerWork[0]%></label>
+          <label id="yesbrokerwork-label" for="yesbrokerwork"><%=applyNowDat.brokerWork[0]%></label>
           <input type="radio" name="brokerwork" id="nobrokerwork">
-          <label for="nobrokerwork"><%=applyNowDat.brokerWork[1]%></label>
+          <label id="nobrokerwork-label" for="nobrokerwork"><%=applyNowDat.brokerWork[1]%></label>
         </div>
       </div>
 
@@ -20,19 +20,19 @@
           <div class="row mt-3">
             <div class="col-12 col-md mt-2">
               <label ><%=applyNowDat.brokerWorkPlaceholders[0]%></label>
-              <input type="text" class="form-control" placeholder="Jhon">
+              <input type="text" class="form-control four-step-broker-input" placeholder="Jhon">
             </div>
             <div class="col-12 col-md mt-2">
               <label ><%=applyNowDat.brokerWorkPlaceholders[1]%></label>
-              <input type="text" class="form-control" placeholder="Doe">
+              <input type="text" class="form-control four-step-broker-input" placeholder="Doe">
             </div>
           </div>
           <div class="row mt-3">
             <div class="col-12 col-md mt-2">
               <label ><%=applyNowDat.brokerWorkPlaceholders[2]%></label>
-              <div class="input-group-prepend">
+              <div class="input-group-prepend"> 
                 <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"></i></span>
-                <input type="text" class="form-control" placeholder="email@example.com">
+                <input type="text" class="form-control four-step-broker-input" placeholder="email@example.com">
               </div>
             </div>
 
@@ -40,7 +40,7 @@
               <label ><%=applyNowDat.brokerWorkPlaceholders[3]%></label>
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-mobile-alt"></i></span>
-                <input type="text" class="form-control" id="broker-phone-input">
+                <input type="text" class="form-control four-step-broker-input" id="broker-phone-input">
               </div>
             </div>
 
@@ -57,11 +57,11 @@
           <div class="row mt-3">
             <div class="col-12 col-md mt-2">
               <label ><%=applyNowDat.borrowerContactPlaceholders[0]%></label>
-              <input type="text" class="form-control" placeholder="Jhon">
+              <input type="text" class="form-control four-step-input" placeholder="Jhon">
             </div>
             <div class="col-12 col-md mt-2">
               <label ><%=applyNowDat.borrowerContactPlaceholders[1]%></label>
-              <input type="text" class="form-control" placeholder="Doe">
+              <input type="text" class="form-control four-step-input" placeholder="Doe">
             </div>
           </div>
           <div class="row mt-3">
@@ -71,7 +71,7 @@
               <label ><%=applyNowDat.borrowerContactPlaceholders[2]%></label>
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"></i></span>
-                <input type="text" class="form-control" placeholder="email@example.com">
+                <input type="text" class="form-control four-step-input" placeholder="email@example.com">
               </div>
             </div>
 
@@ -79,7 +79,7 @@
               <label ><%=applyNowDat.borrowerContactPlaceholders[3]%></label>
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-mobile-alt"></i></span>
-                <input type="text" class="form-control" id="borrower-phone-input" >
+                <input type="text" class="form-control four-step-input" id="borrower-phone-input" >
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@
               <label ><%=applyNowDat.borrowerContactPlaceholders[4]%></label>
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marker-alt"></i></span>
-                <input type="text" class="form-control" placeholder="123 Main Street">
+                <input type="text" class="form-control four-step-input" placeholder="123 Main Street">
               </div>   
             </div>
           </div>
@@ -98,17 +98,17 @@
               <label ><%=applyNowDat.borrowerContactPlaceholders[5]%></label>
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><i class="far fa-building"></i></span>
-                <input type="text" class="form-control" placeholder="Miami">
+                <input type="text" class="form-control four-step-input" placeholder="Miami">
               </div>   
               
             </div>
             <div class="col-12 col-md mt-2">
               <label ><%=applyNowDat.borrowerContactPlaceholders[6]%></label>
-              <input type="text" class="form-control" placeholder="Florida">
+              <input type="text" class="form-control four-step-input" placeholder="Florida">
             </div>
             <div class="col-12 col-md mt-2">
               <label ><%=applyNowDat.borrowerContactPlaceholders[7]%></label>
-              <input type="text" class="form-control" placeholder="PL-5431">
+              <input type="text" class="form-control four-step-input" placeholder="PL-5431">
             </div>
           </div>
         </div>
