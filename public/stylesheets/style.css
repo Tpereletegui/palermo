@@ -40,6 +40,15 @@ body{
 
 
 /* ESTILOS GENERALES */
+.margin-nav-section{
+  margin-top: 100px;
+}
+
+@media (max-width: 768px){
+  .margin-nav-section{
+    margin-top: 60px!important;
+  }
+}
 
 .section{
   margin: 40px 0;
@@ -73,7 +82,7 @@ body{
 
 nav{
   background: white;
-  height: 110px;
+  height: 100px;
   width: 100%;
   max-width: 100vw!important;
   z-index: 99999999;
@@ -2580,6 +2589,9 @@ hr{
 
   /* Navbar */
 
+  nav{
+    height: 60px;
+  }
   
 
   nav  .checkbtn{

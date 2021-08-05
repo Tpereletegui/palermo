@@ -30,40 +30,43 @@ langIcon.addEventListener('click',()=>{
 
 
 /* AJUSTE NAVBAR CUANDO HACEMOS SCROLL */
-if (window.innerWidth > 768){
-  window.addEventListener('scroll', function () {
-    if (window.pageYOffset > 0) {
-      if (principalSection){
-        principalSection.style.marginTop = "60px";
+window.addEventListener('load', ()=>{
+  if (window.innerWidth > 768){
+    window.addEventListener('scroll', function () {
+      if (window.pageYOffset > 0) {
+        if (principalSection){
+          principalSection.style.marginTop = "60px";
+        }
+        navbar.style.height = "60px";
+        logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-landscape.png" alt="" width="160px">'
+      }else{
+        if (principalSection){
+          principalSection.style.marginTop = "100px";
+        }
+        navbar.style.height = "100px";
+        logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-big.png" style="margin-left: 20px; margin-top:15px;"  alt="" width="100px" >'
       }
-      navbar.style.height = "60px";
-      logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-landscape.png" alt="" width="160px">'
-    }else{
-      if (principalSection){
-        principalSection.style.marginTop = "100px";
-      }
-      navbar.style.height = "100px";
-      logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-big.png" style="margin-left: 20px; margin-top:15px;"  alt="" width="100px" >'
-    }
-  });
-
-}else{
-  navbar.style.height = "60px";
-  logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-landscape.png" alt="" width="160px">'
-}
-
-
-/* CUANDO HACEMOS CLICK EN ALGÚN LINK, QUE SE CIERRE EL NAV */
-if (window.innerWidth <= 768){
-  links.forEach(link=>{
-    link.addEventListener('click',()=>{
-      body.classList.remove('no-scroll');
-      icon.classList.remove('fa-times');
-      icon.classList.add('fa-bars');
-      navState.checked = false;
+    });
+  
+  }else{
+    navbar.style.height = "60px";
+    logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-landscape.png" alt="" width="160px">'
+  }
+  
+  
+  /* CUANDO HACEMOS CLICK EN ALGÚN LINK, QUE SE CIERRE EL NAV */
+  if (window.innerWidth <= 768){
+    links.forEach(link=>{
+      link.addEventListener('click',()=>{
+        body.classList.remove('no-scroll');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+        navState.checked = false;
+      })
     })
-  })
-}
+  }
+})
+
 
 
 
