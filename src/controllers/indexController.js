@@ -2,7 +2,105 @@ const { validationResult } = require('express-validator');
 const nodemailer = require('nodemailer'); 
 const fs = require('fs');
 const path = require('path');
-const pdfDocument = require('pdfkit-construct');
+
+/* PDF MAKE */
+
+
+const fonts = {
+	Roboto: {
+		normal: Buffer.from(
+      require("pdfmake/build/vfs_fonts.js").pdfMake.vfs["Roboto-Regular.ttf"],"base64"
+    ),
+		bold: Buffer.from(
+      require("pdfmake/build/vfs_fonts.js").pdfMake.vfs["Roboto-Regular.ttf"],"base64"
+    ),
+		italics: Buffer.from(
+      require("pdfmake/build/vfs_fonts.js").pdfMake.vfs["Roboto-Regular.ttf"],"base64"
+    ),
+		bolditalics: Buffer.from(
+      require("pdfmake/build/vfs_fonts.js").pdfMake.vfs["Roboto-Regular.ttf"],"base64"
+    )
+	}
+};
+
+const styles = {
+  header: {
+    fontSize: 18,
+    bold: true,
+    margin: [0, 0, 0, 10],
+    alignment: 'center'
+  },
+  subHeader: {
+    fontSize: 12,
+    bold: true,
+    margin: [0, 10, 0, 5],
+    alignment: 'center',
+    color: '#DBB90F'
+  },
+  preLoanDetails:{
+    fontSize: 12,
+    bold: true,
+    margin: [0, 10, 0, 5],
+  },
+  preLoanPayments:{
+    fontSize: 12,
+    bold: true,
+    margin: [0, 10, 0, 5],
+  },
+  tableLoanDetails: {
+    margin: [0, 5, 0, 15],
+    alignment: 'center',
+  },
+  tablePayments: {
+    alignment: 'center',
+    margin: [0, 5, 0, 15],
+  },
+  tableOpacityExample: {
+    fontSize: 12,
+    margin: [0, 5, 0, 15],
+    fillColor: 'blue',
+    fillOpacity: 0.3,
+    alignment: 'center'
+  },
+  tableHeader: {
+    bold: true,
+    fontSize: 8,
+    color: 'black',
+    fillColor: '#DBB90F',
+    fillOpacity: 0.8,
+    alignment: 'center'
+  },
+  paymentTableHeader:{
+    alignment: 'center',
+    bold: true,
+    fillColor: '#093147',
+    fillOpacity: 0.8,
+    fontSize: 8,
+    color: 'white'
+  },
+  paymentDate: {
+    bold: false,
+    fontSize: 10,
+    color: 'black',
+    alignment: 'center'
+  },
+  tableFooter: {
+    bold: false,
+    fontSize: 6,
+    color: 'black',
+    alignment: 'center'
+  }
+}
+
+/* Format number */
+const moneyFormat = new Intl.NumberFormat('en-US',{
+  style:'currency',
+  currency:'USD',
+})
+
+const PDFprinter = require('pdfmake');
+
+
 const axios = require('axios');
 
 module.exports = {
@@ -45,8 +143,7 @@ module.exports = {
         langFlag: lang,
         footerDat: _footerDat
       });
-    }
-    ,
+    },
     message: async function(req, res) {
       let errors = validationResult(req);
       
@@ -152,8 +249,10 @@ module.exports = {
 
 
 
-      let _payments = []
+      let _payments = [];
+      let _paymentsPDF = [];
       let _cumulativePayment = 0;
+
       for (let i = 0; i < _mortgageTenor; i++) {
 
         _cumulativePayment+= _monthPayment;
@@ -162,7 +261,26 @@ module.exports = {
           id: _id,
           cumulativePayment: _cumulativePayment
         })
+
+        
+
+        if (i==31){
+          _paymentsPDF.push([
+            { text: 'Payment', style: 'paymentTableHeader', border: [false,false,false,false]},  
+            { text: 'Interest Payment', style: 'paymentTableHeader', border: [false,false,false,false] }, 
+            { text: 'Cumulative Payment', style: 'paymentTableHeader', border: [false,false,false,false] }
+          ])
+        }
+
+        _paymentsPDF.push([
+              {text: _id, style: 'paymentDate', border: [false,false,false,false]},
+              {text: moneyFormat.format(_monthPayment), style: 'paymentDate', border: [false,false,false,false]},
+              {text: moneyFormat.format(_cumulativePayment), style: 'paymentDate', border: [false,false,false,false]}
+            ])
       }
+
+      
+
       
       let output = {
         estimatedValue:  _estimatedValue, //VALOR DE LA CASA COMO VIENE EN INPUT
@@ -174,84 +292,116 @@ module.exports = {
         monthInterest: _monthPayment,
         loanCostPercent: _loanCostPercent, // TAL COMO VIENE
         estOrigPercent: _estOriginPercent, // TAL COMO VIENE
-        estLoanCosts: _loanAmount*(_loanCostPercent/100), // % DEL LOAN AMOUNT
-        estOrigFree: _loanAmount*(_estOriginPercent/100), // % DEL LOAN AMOUNT 
-        totalClosing: (_loanAmount*(_loanCostPercent/100)) + (_loanAmount*(_estOriginPercent/100)), // estLoanCost+ estOrignFree
+        estLoanCosts: Math.floor(_loanAmount*(_loanCostPercent/100)), // % DEL LOAN AMOUNT
+        estOrigFree: Math.floor(_loanAmount*(_estOriginPercent/100)), // % DEL LOAN AMOUNT 
+        totalClosing: Math.floor((_loanAmount*(_loanCostPercent/100)) + (_loanAmount*(_estOriginPercent/100))), // estLoanCost+ estOrignFree
         payments: _payments
       }
+
+
       
 
-      const filename = `Calculator${Date.now()}.pdf`;
+      
 
-      const doc = new pdfDocument();
-      doc.pipe(fs.createWriteStream(filename));
-
-
-      doc.setDocumentHeader({},()=>{
-        doc
-        .fontSize(16)
-        .text('Loan Details',{
-          width: 420,
-          align: 'center'
-        })
-      })
-
-
-      // Primera fila del header
-      doc.addTable([
-        {key:'estPValue', label:_calculatorDat.outputsTitles[0], align:'center'},
-        {key:'dPayment', label:_calculatorDat.outputsTitles[1], align:'center'},
-        {key:'lAmount', label:_calculatorDat.outputsTitles[2], align:'center'},
-        {key:'interest', label:_calculatorDat.outputsTitles[3], align:'center'},
-        {key:'term', label:_calculatorDat.outputsTitles[4], align:'center'}
-      ],[
-        {estPValue: output.estimatedValue, dPayment: output.mortgageAmount, lAmount: output.loanAmount, interest:output.mortgageInterest, term:output.mortgageTenor}
-      ],{
-        border: null,
-        width: 'fill_body',
-        headAlign: 'center',
-        headBackground: '#ffffff',
-       }
-      )
-
-      // Segunda fila del header
-      doc.addTable([
-        {key:'estPValue', label:'Month Interest Payment', align:'center'},
-        {key:'dPayment', label:'Annual Interest Payment', align:'center'},
-        {key:'lAmount', label:'Est. Loan Costs', align:'center'},
-        {key:'interest', label:'Est. Orig. Free', align:'center'},
-        {key:'term', label:'Total Closing Costs', align:'center'}
-      ],[
-        {estPValue: "$1500", dPayment: "$8000", lAmount: "$50000", interest:"$1000", term:"150"}
-      ],{
-        border: null,
-        width: 'fill_body',
-        headAlign: 'center',
-        headBackground: '#ffffff',
-       }
-      )
-
-  
-      // Donde se muestran los pagos mensuales
-      doc.addTable([
-        {key:'id',label:'N°',align:'center'},
-        {key:'cumulativePayment',label:'Cumulative Payment',align:'center'}
-      ],_payments,
-      {
-        border: null,
-        width: "fill_body",
-        striped: true,
-        stripedColors: ["#f6f6f6","#d6c4dd"],
-        cellsPadding: 10,
-        marginLeft: 45,
-        marginRight: 45,
-        headAlign: 'center'
-      })
-
-      doc.render();
-      doc.end();
+      const content = [
+        { text: 'Mortgage Loan Calculator Results', style: 'header' },
+        { text: 'Brought to you by Palermo Lender', style: 'subHeader' },
+        { text: 'Loan Details', style: 'preLoanDetails' },
+        {
+          style: 'tableLoanDetails',
+          table: 
+          {
+            headerRows: 1,
+            widths: ['*', '*', '*', '*', '*'],
+            body: 
+            [
+              [
+                { text: 'Estimated Property Value', style: 'tableHeader' }, 
+                { text: 'Down Payment', style: 'tableHeader' }, 
+                { text: 'Loan Amount', style: 'tableHeader' }, 
+                { text: 'Interest', style: 'tableHeader' }, 
+                { text: 'Term', style: 'tableHeader' }
+              ],
+              [
+                { text: moneyFormat.format(output.estimatedValue), style: 'paymentDate' }, 
+                { text: output.mortgageAmount+'%', style: 'paymentDate' }, 
+                { text: moneyFormat.format(output.loanAmount), style: 'paymentDate' }, 
+                { text: output.mortgageInterest+'%', style: 'paymentDate' } , 
+                { text: output.mortgageTenor+' Months', style: 'paymentDate' }
+              ],
+            ]
+          },  
+          layout: 'noBorders'
+        },
+        {
+          style: 'tableLoanDetails',
+          table: 
+          {
+            widths: ['*', '*', '*', '*', '*'],
+            body: 
+            [
+              [
+                { text: 'Month Interest Payment', style: 'tableHeader' }, 
+                { text: 'Annual Interest Payment', style: 'tableHeader' }, 
+                { text: 'Est. Loan Costs', style: 'tableHeader' }, 
+                { text: 'Est. Origination Free', style: 'tableHeader' }, 
+                { text: 'Total Closing Costs', style: 'tableHeader' }
+              ],
+              [
+                { text: moneyFormat.format(output.monthInterest), style: 'paymentDate' },
+                { text: moneyFormat.format(output.annualInterest), style: 'paymentDate' } ,
+                { text: moneyFormat.format(output.estLoanCosts), style: 'paymentDate' } , 
+                { text: moneyFormat.format(output.estOrigFree), style: 'paymentDate' }, 
+                { text: moneyFormat.format(output.totalClosing), style: 'paymentDate' } 
+              ]
+            ]
+          },  
+          layout: 'noBorders'
+        },
+        { text: 'Amortization Schedule (P & I)', style: 'preLoanDetails' },
+        {
+          style: 'tableLoanDetails',
+          table: 
+          {
+            widths: ['*', '*', '*'],
+            body: 
+            [
+              [
+                { text: 'Payment', style: 'paymentTableHeader', border: [false,false,false,false]},  
+                { text: 'Interest Payment', style: 'paymentTableHeader', border: [false,false,false,false] }, 
+                { text: 'Cumulative Payment', style: 'paymentTableHeader', border: [false,false,false,false] }
+              ],
+              ..._paymentsPDF
+            ]
+          },  
+          layout: {
+            fillColor: function (rowIndex, node, columnIndex) {
+              return (rowIndex % 2 === 0) ? '#e0e0e0' : null;
+            }
+          }
+        },
+        { text: 'Calculations by this calculator are estimates only. There is no warranty for the accuracy of the results or the relationship to your financial situation.', style: 'tableFooter' },
+      ]
 
       
+      try {
+        let docDefinition = {
+          content: content,
+          styles: styles
+        }
+        
+        const printer = new PDFprinter(fonts);
+
+        let pdfDoc = printer.createPdfKitDocument(docDefinition);
+        
+        const filename = `Calculator${Date.now()}.pdf`;
+        pdfDoc.pipe(fs.createWriteStream(filename));
+        pdfDoc.end();
+        
+        
+      } catch (error) {
+        console.log(error);
+      }
       
       res.render('calculator', {output: output, payments: _payments,navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat, calculatorDat: _calculatorDat})
     },
