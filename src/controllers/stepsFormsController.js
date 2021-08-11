@@ -1,5 +1,4 @@
-const fs = require('fs');
-const path = require('path');
+const loadLang = require('./loadLangController');
 
 module.exports = {    
     applyNow: function(req,res){
@@ -12,12 +11,17 @@ module.exports = {
       }else{
         lang=req.cookies.lang;
       }
+      let language = loadLang(lang);
       
-      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
-      let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json')));
-      let _applynowDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/apply-now.json')));
 
-      res.render('multiple-step-form',{navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat, mode: 'apply' , title:_applynowDat.title,  applyNowDat: _applynowDat});
+      res.render('multiple-step-form',{
+        navbarDat:language._navbarDat, 
+        langFlag: lang, 
+        footerDat: language._footerDat, 
+        mode: 'apply' , 
+        title:language._applynowDat.title,  
+        applyNowDat: language._applynowDat
+      });
     },
     processApplyNow: function(req,res){
       
@@ -32,12 +36,17 @@ module.exports = {
       }else{
         lang=req.cookies.lang;
       }
-      
-      let _navbarDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/navbar.json'))); 
-      let _footerDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/footer.json')));
-      let _applynowDat = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/apply-now.json')));
+      let language = loadLang(lang);
 
-      res.render('multiple-step-form',{navbarDat:_navbarDat, langFlag: lang, footerDat: _footerDat, mode: 'pre',title:_applynowDat.titlePreq,applyNowDat: _applynowDat});
+
+      res.render('multiple-step-form',{
+        navbarDat:language._navbarDat, 
+        langFlag: lang, 
+        footerDat: language._footerDat, 
+        mode: 'pre',
+        title:language._applynowDat.titlePreq,
+        applyNowDat: language._applynowDat
+      });
     },
     processPrequalify: function(req,res){
 

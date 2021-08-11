@@ -1395,6 +1395,9 @@ input.other-property-type:focus
 
 .contain-contact .form-message .form-group{
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .contain-contact .form-message .form-group .input{
@@ -1823,7 +1826,7 @@ input.other-property-type:focus
 }
 
 .sendpdf-container{
-  width: 100vw;
+  max-width: 100vw;
   display: flex;
   justify-content: center;
   margin: 10px 0;
