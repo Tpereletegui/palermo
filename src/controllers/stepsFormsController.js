@@ -19,8 +19,8 @@ module.exports = {
         langFlag: lang, 
         footerDat: language._footerDat, 
         mode: 'apply' , 
-        title:language._applynowDat.title,  
-        applyNowDat: language._applynowDat
+        title: (language._applyNowDat).title,  
+        applyNowDat: language._applyNowDat
       });
     },
     processApplyNow: function(req,res){
@@ -44,8 +44,8 @@ module.exports = {
         langFlag: lang, 
         footerDat: language._footerDat, 
         mode: 'pre',
-        title:language._applynowDat.titlePreq,
-        applyNowDat: language._applynowDat
+        title: (language._applyNowDat).titlePreq,
+        applyNowDat: language._applyNowDat
       });
     },
     processPrequalify: function(req,res){

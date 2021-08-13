@@ -20,6 +20,7 @@ const loadLang = (lang) =>{
         _programsDat: JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/loan-program.json'))),
         _calculatorDat: JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/calculator.json'))),
         _brokersDat: JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/brokers.json'))),
+        _applyNowDat: JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/json/'+lang+'/apply-now.json'))),
     }
 }
 
