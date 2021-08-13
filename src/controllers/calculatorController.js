@@ -1,3 +1,5 @@
+const loadLang = require('./loadLangController');
+
 module.exports = {
     getCalculator: function(req,res){
 

@@ -590,7 +590,8 @@ nav #check{
 
 .accordion .accordion-item .accordion-item-title{
   cursor:pointer;
-  padding:1em;
+  padding:1em 1em 0 1em;
+  
   border-bottom: 3px solid var(--color-cement);  
   color:var(--color-cement);
   transition: all .5s ease;

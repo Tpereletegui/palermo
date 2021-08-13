@@ -1,3 +1,6 @@
+const loadLang = require('./loadLangController');
+
+
 module.exports = {
 
   brokersAndRealtors: function(req,res){

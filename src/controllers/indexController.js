@@ -3,6 +3,7 @@ const loadLang = require('./loadLangController');
 const nodemailer = require('nodemailer'); 
 const fs = require('fs');
 const PDFprinter = require('pdfmake');
+const axios = require('axios');
 
 
 /* PDF MAKE */
@@ -111,6 +112,17 @@ module.exports = {
       lang=req.cookies.lang;
     }
     let language = loadLang(lang);
+
+    /* let apiKey = 'AIzaSyDAFtKXjhSeh9Q9syCuSs3l0lEjmQsEVK0';
+    let placeID = 'ChIJi61FPc7KvJURJFFh7wBnctQ'
+
+    axios.get('https://maps.googleapis.com/maps/api/place/details/json?place_id='+placeID+'&key='+apiKey)
+    .then(res =>{
+      console.log(res.data.result.reviews);
+    })
+    .catch(error =>{
+      console.log(error);
+    }) */
 
     res.render('index',{
       principalDat: language._principalDat, 
