@@ -5,64 +5,49 @@
   </div>
 
   <div class="container-testimonials" data-aos="fade-up" data-aos-delay="200">
-    <div class="quote-container"><i class="fas fa-quote-left"></i></div>
-    <div class="container-testimonials-data">
+    <div class="splide" data-splide='{"type"   : "loop", "perPage": 1,"perMove": 1,"focus"  : "center","pagination": false}'>
 
-
-      <div class="splide" data-splide='{"type"   : "loop", "perPage": 1,"perMove": 1,"focus"  : "center","pagination": false}'>
-
-
-        <div class="splide__arrows">
-          <button class="splide__arrow splide__arrow--prev arrows-testimonials">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="splide__arrow splide__arrow--next arrows-testimonials">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-
-
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide">
-              <div class="splide-testimonial-item">
-                <p class="testimonial-text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus obcaecati at vero reiciendis illo recusandae provident optio molestiae ipsa, aperiam fugit pariatur odio libero amet rerum. Id, culpa? Omnis sint praesentium architecto aperiam voluptatem quo, quod tenetur atque aliquid neque. Ipsa, mollitia. Nam dolorum natus tempora praesentium velit ex ipsum mollitia cum ullam fuga ad at eos, harum inventore provident? A dicta beatae illum iste consectetur aperiam voluptates, magnam tenetur totam, illo esse, harum neque! Voluptatum dolorem cumque architecto, suscipit adipisci animi voluptas eum iusto magni exercitationem modi magnam placeat perferendis reiciendis voluptatem laboriosam soluta? Optio, ipsa? Ipsa, veniam mollitia!
-                </p>
-                <hr>
-                <p class="testimonial-author">
-                  Lorem ipsum
-                </p>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="splide-testimonial-item ">
-                <p class="testimonial-text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus obcaecati at vero reiciendis illo recusandae provident optio molestiae ipsa, aperiam fugit pariatur odio libero amet rerum. Id, culpa? Omnis sint praesentium architecto aperiam voluptatem quo, quod tenetur atque aliquid neque. Ipsa, mollitia. Nam dolorum natus tempora praesentium velit ex ipsum mollitia cum ullam fuga ad at eos, harum inventore provident? A dicta beatae illum iste consectetur aperiam voluptates, magnam tenetur totam, illo esse, harum neque! Voluptatum dolorem cumque architecto, suscipit adipisci animi voluptas eum iusto magni exercitationem modi magnam placeat perferendis reiciendis voluptatem laboriosam soluta? Optio, ipsa? Ipsa, veniam mollitia!
-                </p>
-                <hr>
-                <p class="testimonial-author">
-                  Lorem ipsum
-                </p>
-              </div>
-            </li>
-            <li class="splide__slide">
-              <div class="splide-testimonial-item ">
-                <p class="testimonial-text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus obcaecati at vero reiciendis illo recusandae provident optio molestiae ipsa, aperiam fugit pariatur odio libero amet rerum. Id, culpa? Omnis sint praesentium architecto aperiam voluptatem quo, quod tenetur atque aliquid neque. Ipsa, mollitia. Nam dolorum natus tempora praesentium velit ex ipsum mollitia cum ullam fuga ad at eos, harum inventore provident? A dicta beatae illum iste consectetur aperiam voluptates, magnam tenetur totam, illo esse, harum neque! Voluptatum dolorem cumque architecto, suscipit adipisci animi voluptas eum iusto magni exercitationem modi magnam placeat perferendis reiciendis voluptatem laboriosam soluta? Optio, ipsa? Ipsa, veniam mollitia!
-                </p>
-                <hr>
-                <p class="testimonial-author">
-                  Lorem ipsum
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev arrows-testimonials">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="splide__arrow splide__arrow--next arrows-testimonials">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
 
+      <div class="splide__track">
+        <ul class="splide__list">
+          <% for (let i = 0; i < reviews.length; i++) { %>
+            <% if (reviews[i].text != '') { %>
+              <li class="splide__slide">
+                <div class="splide-testimonial-item">
+                  <img src="<%= reviews[i].profile_photo_url %>" class="testimonial-img" alt="">
+                  <p class="testimonial-author">
+                    <%= reviews[i].author_name %>
+                  </p>
+                  <div class="testimonial-time">
+                    <i class="fab fa-google"></i>
+                    <p>
+                      <%= reviews[i].relative_time_description %>
+                    </p>
+                  </div>
+                  <p class="testimonial-text">
+                    <%= reviews[i].text %>
+                  </p>
+                  
+                  <div class="rating">
+                    <% for (let j = 0; j < reviews[i].rating; j++ ){ %>
+                      <i class="fas fa-star"></i>
+                    <% } %> 
+                  </div>
+                </div>
+              </li>
+            <% } %>
+          <% } %>
+        </ul>
+      </div>
 
-      
     </div>
   </div>
 </section>

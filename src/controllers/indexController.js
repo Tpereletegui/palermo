@@ -102,7 +102,7 @@ const moneyFormat = new Intl.NumberFormat('en-US',{
 
 
 module.exports = {
-  index: function(req,res){
+  index: async function(req,res){
 
     let lang = null;
     if (req.cookies.lang == undefined){
@@ -113,16 +113,13 @@ module.exports = {
     }
     let language = loadLang(lang);
 
-    /* let apiKey = 'AIzaSyDAFtKXjhSeh9Q9syCuSs3l0lEjmQsEVK0';
-    let placeID = 'ChIJi61FPc7KvJURJFFh7wBnctQ'
+    let apiKey = 'AIzaSyDAFtKXjhSeh9Q9syCuSs3l0lEjmQsEVK0';
+    let placeID = 'ChIJJZfUlGDMyWQRJs3wVWApGrU'
 
-    axios.get('https://maps.googleapis.com/maps/api/place/details/json?place_id='+placeID+'&key='+apiKey)
-    .then(res =>{
-      console.log(res.data.result.reviews);
-    })
-    .catch(error =>{
-      console.log(error);
-    }) */
+     
+
+    let { data } = await axios.get('https://maps.googleapis.com/maps/api/place/details/json?place_id='+placeID+'&key='+apiKey)
+    
 
     res.render('index',{
       principalDat: language._principalDat, 
@@ -136,44 +133,45 @@ module.exports = {
       contactDat: language._contactDat,
       navbarDat:language._navbarDat,
       langFlag: lang,
-      footerDat: language._footerDat
+      footerDat: language._footerDat,
+      reviews: data.result.reviews
     });
   },
 
   message: async function(req, res) {
-    let errors = validationResult(req);
+    /* let errors = validationResult(req);
     
     if (errors.isEmpty()){
       
-      // create reusable transporter object using the default SMTP transport
-      let transporter = await nodemailer.createTransport({
-        host: "smtp.mailtrap.io",
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-        user: "b87d625d652af5", // generated ethereal user
-        pass: "4c8642e68cd325", // generated ethereal password
-        },
-      });
-
-      // send mail with defined transport object
-      await transporter.sendMail({
-          from: req.body.name+'<'+req.body.email+'>', // sender address
-          to: "maxincolla@gmail.com", // list of receivers
-          subject: "Palermo Lender - Contact Message", // Subject line
-          text: req.body.message, // plain text body
-          html: "<b>"+req.body.message+"</b>", // html body
-      }, (err, info) =>{
-          if (err){
-              res.render("index", {errors:err})
-          }     
-          res.redirect('/');
-      });    
-        
+      
     }else{
       res.render("index",{errors:errors.message});
-    }
-    
+    } */
+    // create reusable transporter object using the default SMTP transport
+    const transporter = nodemailer.createTransport({
+      host: "mail.palermolender.com",
+      port: 26,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: "mail@palermolender.com", 
+        pass: "plender-techgroup-$23082021", 
+      },
+      tls:{
+        rejectUnauthorized: false
+      }
+    });
+
+    // send mail with defined transport object
+    await transporter.sendMail({
+        from: req.body.name+'<'+req.body.email+'>', // sender address
+        to: "maxincolla@gmail.com", // list of receivers
+        subject: "Palermo Lender - Contact Message", // Subject line
+        text: req.body.message, // plain text body
+        html: "<b>"+req.body.message+"</b>", // html body
+    });    
+
+      
+    res.redirect('/');
   },
 
   loadAllFaqs: function(req,res){ 

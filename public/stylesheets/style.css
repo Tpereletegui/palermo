@@ -553,47 +553,75 @@ nav #check{
   text-align: center;
   padding-bottom: 5px;
   border-bottom: 5px solid var(--color-mostaza);
+  margin-bottom: 30px;
 }
 
 .container-testimonials{
-  min-height: 500px;
   width: 60%;
-  border: 10px solid var(--color-mostaza);
-  padding: 20px 100px;
-  font-family: var(--fuente-secundaria);
+  padding: 20px 0;
+  font-family: var(--fuente-principal);
 }
 
-.quote-container{
-  align-self: flex-start;
-  justify-self: flex-start;
+
+.container-testimonials .arrows-testimonials {
+  background: none!important;
 }
 
-.quote-container i{
-  font-size: 4em;
+
+.container-testimonials .arrows-testimonials .fas{
   color: var(--color-mostaza);
+  font-size: x-large;
 }
 
-.splide-testimonial-item{
-  height: 100%;
-  padding: 20px 80px;
-  text-align: center;
+.container-testimonials .splide-testimonial-item{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-around;
+  align-items: center;
 }
 
-
-.arrows-testimonials{
-  background: none!important;
-  color: #DBB90F;
-  font-size: xx-large;
+.container-testimonials .splide-testimonial-item .testimonial-img{
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  border: 1px solid silver;
+  margin-bottom: 15px;
 }
 
-.splide-testimonial-item p{
+.container-testimonials .splide-testimonial-item .testimonial-author{
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--color-azul)
+}
 
-  margin: 20px 0;
+.container-testimonials .splide-testimonial-item .testimonial-time{
+  width: fit-content;
+  padding: 5px;
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid silver;
+  margin: 0 0 10px 0;
+}
 
+.container-testimonials .splide-testimonial-item .testimonial-time .fab{
+  margin-right: 10px;
+  color: var(--color-azul);
+}
+
+.container-testimonials .splide-testimonial-item .testimonial-time p{
+  color: var(--color-cement);
+}
+
+.container-testimonials .splide-testimonial-item .testimonial-text{
+  color: var(--color-cement);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.container-testimonials .splide-testimonial-item .rating .fas{
+  color:var(--color-mostaza);
+  margin: 0 5px;
 }
 
 /* FAQ */
