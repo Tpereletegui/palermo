@@ -1,9 +1,9 @@
 {
     "title": "Calculadora de Interés",
-    "itemTitles": ["Valor estimado de la Propiedad","Monto del Préstamo", "Tasa de Interés", "Tarifa de originación estimada","Costo del préstamo estimado"],
+    "itemTitles": ["Valor estimado de la propiedad", "Monto de la hipoteca", "Plazo de la hipoteca", "Tasa de interés", "Cuota de originación estimada", "Costos estimados del préstamo"],
     "tenorSubs" : ["Meses","Años"],
     "submitButton" : "Enviar",
     "outputTitle" : "Detalles del Préstamo",
-    "outputsTitles" : ["Valor estimado de la Propiedad", "Depósito", "Monto del Préstamo", "Interes", "Términos", "Pago de Interes mensual", "Pago de Interes anual", "Costo del préstamo estimado", "Tarifa de originación estimada", "Costo total de cierre"],
-    "paymentsTitles" : ["Pago de Intereses", "Pago acumulativo"]
+    "outputsTitles" : ["Valor estimado de la propiedad", "Pago inicial", "Monto del préstamo", "Interés", "Plazo", "Pago de intereses del mes", "Pago anual de intereses", "Costos estimados del préstamo", "Sin originación estimada", "Costos totales de cierre"],
+    "paymentsTitles" : ["Pago de intereses", "Pago acumulativo"]
 }

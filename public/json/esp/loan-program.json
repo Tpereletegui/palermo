@@ -1,6 +1,6 @@
 {
     "title":"Programas",
-    "programs": ["Crédito a corto plazo","Rehabilitación / Reparación y volteo","Retiro / Refinanciamiento", "Préstamo de Alquiler"],
+    "programs": ["Préstamo Puente", "Rehab / Arreglar y Voltear", "Retiro / Refinanciamiento", "Préstamo de Alquiler"],
     "links": ["bridge-loan","fix-flip","cash-out","rental"],
-    "buttons": ["Aplicar ahora","Descargar"]
+    "buttons": ["Aplicar Ahora","Descargar"]
 }

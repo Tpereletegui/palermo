@@ -73,8 +73,6 @@
             let offset = document.querySelector('.animatedNumbers').offsetTop;
             let scroll = document.documentElement.scrollTop;
 
-            console.log(offset, scroll);
-
             if (offset - window.innerHeight < scroll && !one){
                 one = true;
                 animateValue(obj1, 0, 20, 2000);

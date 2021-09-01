@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "run": "nodemon src/bin/www",
-    "start": "node src/bin/www"
+    "runmon": "nodemon ./www",
+    "start": "node ./www"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -21,6 +21,6 @@
     "pdfmake": "^0.2.2"
   },
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   }
 }

@@ -1770,7 +1770,7 @@ input.other-property-type:focus
 .footer-container{
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   padding: 40px 100px;
   font-family: var(--fuente-principal);
@@ -1783,6 +1783,14 @@ input.other-property-type:focus
 .footer-item .footer-title{
   font-weight: 700;
   margin: 15px 0;
+}
+
+.footer-item a,
+.footer-item a:active,
+.footer-item a:visited{
+  text-decoration: none;
+  color: var(--color-fog);
+  cursor: pointer;
 }
 
 #logo-pl-footer{

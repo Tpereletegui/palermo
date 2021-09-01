@@ -175,7 +175,6 @@ let itemTenorTitle = document.querySelector('.item-tenor-field-title');
 
 itemTenorWeeksLabel.addEventListener('click',()=>{
     if (!itemTenorWeeks.checked){
-        console.log('cambio a semanas');
         slider3.setAttribute('max',slider3.max*4);
         slider3.value = slider3.value*4;
         value3.innerHTML = slider3.value;
@@ -192,7 +191,6 @@ itemTenorWeeksLabel.addEventListener('click',()=>{
 
 itemTenorMonthLabel.addEventListener('click',()=>{
     if (!itemTenorMonth.checked){
-        console.log('cambio a meses');
         slider3.setAttribute('max',slider3.max/4);
         slider3.value = slider3.value/4;
         value3.innerHTML = Math.round(slider3.value);

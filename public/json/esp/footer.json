@@ -1,7 +1,6 @@
 {
-
-    "titles": ["Nosotros", "Seguir", "Aplicar Ahora"],
-    "company": ["Acerca de nosotros", "Contáctenos", "Preguntas frecuentes", "Testimonios", "Corredores y agentes inmobiliarios"],
+    "titles" : ["Compañía", "Seguinos", "Prestamos"],
+    "company" : ["Nosotros", "Contacto", "P. Frecuentes", "Opiñiones", "Corredores y Agentes"],
     "follow": ["Facebook", "Instagram", "Linkedin"],
-    "applyNow": ["Pre-Aprobación"]
+    "applyNow": ["Aplicar Ahora", "Pre Aprobación", "Calculadora"]
 }

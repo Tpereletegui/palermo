@@ -1,4 +1,9 @@
 const loadLang = require('./loadLangController');
+const moneyFormat = new Intl.NumberFormat('en-US',{
+    style:'currency',
+    currency:'USD',
+})
+
 
 module.exports = {
     getCalculator: function(req,res){
@@ -81,7 +86,7 @@ module.exports = {
 
     
 
-    
+    /* OUTPUT TO VIEW */
     let output = {
         estimatedValue:  _estimatedValue, //VALOR DE LA CASA COMO VIENE EN INPUT
         mortgageAmount: _mortgageAmount, //PORCENTAJE DE PRESTAMO COMO VIENE
@@ -98,11 +103,7 @@ module.exports = {
         payments: _payments
     }
 
-
-    
-
     /* PDF CREATE */
-
     const content = [
         { text: 'Mortgage Loan Calculator Results', style: 'header' },
         { text: 'Brought to you by Palermo Lender', style: 'subHeader' },

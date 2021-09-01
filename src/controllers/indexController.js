@@ -153,7 +153,7 @@ module.exports = {
       port: 26,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: "mail@palermolender.com", 
+        user: "mails@palermolender.com", 
         pass: "plender-techgroup-$23082021", 
       },
       tls:{
@@ -161,9 +161,11 @@ module.exports = {
       }
     });
 
+
+
     // send mail with defined transport object
     await transporter.sendMail({
-        from: req.body.name+'<'+req.body.email+'>', // sender address
+        from: req.body.name+' <mails@palermolender.com>', // sender address
         to: "maxincolla@gmail.com", // list of receivers
         subject: "Palermo Lender - Contact Message", // Subject line
         text: req.body.message, // plain text body
