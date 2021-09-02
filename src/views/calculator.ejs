@@ -144,7 +144,7 @@
                             <h3>Send pdf to mail?</h3>
                         </div>
                         <div class="pdf-email-container">
-                            <input type="text" placeholder="Email" class="send-pdf-email">
+                            <input type="text" name="sendEmail" placeholder="Email" id="sendEmailId" class="send-pdf-email">
                         </div>
                     </label>
                 </div>
@@ -205,8 +205,10 @@
                             <label class="table-payment-date"><%= calculatorDat.paymentsTitles[0] %></label>
                             <label class="table-payment-date"><%= calculatorDat.paymentsTitles[1] %></label>    
                         </div>
+                        
                         <% for (let j = 0; j < payments.length; j++) { %>
                             <div class="table-payments-item">
+                                
                                 <label class="table-payment-date table-payment-indice"> <%= payments[j].id %></label>
                                 <label class="table-payment-date"><span class="calculator-output-value-11"><%= output.monthInterest %></span></label>
                                 <label class="table-payment-date"><span class="calculator-output-value-12"><%= payments[j].cumulativePayment %></span></label>

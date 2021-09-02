@@ -1,10 +1,9 @@
 const { validationResult } = require('express-validator');
 const loadLang = require('./loadLangController');
-const nodemailer = require('nodemailer'); 
 const fs = require('fs');
 const PDFprinter = require('pdfmake');
 const axios = require('axios');
-
+const transporter = require('./transporterMail');
 
 /* PDF MAKE */
 const fonts = {
@@ -23,7 +22,6 @@ const fonts = {
     )
 	}
 };
-
 const styles = {
   header: {
     fontSize: 18,
@@ -99,8 +97,6 @@ const moneyFormat = new Intl.NumberFormat('en-US',{
 })
 
 
-
-
 module.exports = {
   index: async function(req,res){
 
@@ -116,12 +112,10 @@ module.exports = {
     let apiKey = 'AIzaSyDAFtKXjhSeh9Q9syCuSs3l0lEjmQsEVK0';
     let placeID = 'ChIJJZfUlGDMyWQRJs3wVWApGrU'
 
-     
-
     let { data } = await axios.get('https://maps.googleapis.com/maps/api/place/details/json?place_id='+placeID+'&key='+apiKey)
-    
 
     res.render('index',{
+      title: "Home | Palermo Lender",
       principalDat: language._principalDat, 
       whyusDat: language._whyusDat, 
       aboutusDat:language._aboutusDat, 
@@ -140,28 +134,10 @@ module.exports = {
 
   message: async function(req, res) {
     /* let errors = validationResult(req);
-    
     if (errors.isEmpty()){
-      
-      
     }else{
       res.render("index",{errors:errors.message});
     } */
-    // create reusable transporter object using the default SMTP transport
-    const transporter = nodemailer.createTransport({
-      host: "mail.palermolender.com",
-      port: 26,
-      secure: false, // true for 465, false for other ports
-      auth: {
-        user: "mails@palermolender.com", 
-        pass: "plender-techgroup-$23082021", 
-      },
-      tls:{
-        rejectUnauthorized: false
-      }
-    });
-
-
 
     // send mail with defined transport object
     await transporter.sendMail({
@@ -188,6 +164,7 @@ module.exports = {
 
 
     return res.render('faq-complete',{
+      title: "FAQ | Palermo Lender",
       questions: language._faqsDat, 
       navbarDat: language._navbarDat, 
       langFlag: lang, 

@@ -3,7 +3,7 @@
     <div class="multiple-step-title"><label><%=applyNowDat.titles[0]%></label></div>
     
     <div class="loan-type-field">
-      <input type="radio" name="loan-type" class="first-step-input" id="bridge-loan">
+      <input type="radio" name="loanType" value="Brigde Loan" class="first-step-input" id="bridge-loan">
       <label class="loan-select" for="bridge-loan">
         <img src="/images/icons/programs/program-1.png" alt="">
         <h3><%=applyNowDat.loanTypeTitles[0]%></h3>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="loan-type-field">
-      <input type="radio" name="loan-type" class="first-step-input" id="rehab-loan">
+      <input type="radio" name="loanType" value="Rehab Loan" class="first-step-input" id="rehab-loan">
       <label class="loan-select rehab-loan-label" for="rehab-loan">
         <img src="/images/icons/programs/program-2.png" alt="">
         <h3><%=applyNowDat.loanTypeTitles[1]%></h3>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="loan-type-field">
-      <input type="radio" name="loan-type" class="first-step-input" id="cash-loan">
+      <input type="radio" name="loanType" value="Cash Loan" class="first-step-input" id="cash-loan">
       <label class="loan-select" for="cash-loan">
         <img src="/images/icons/programs/program-3.png" alt="">
         <h3><%=applyNowDat.loanTypeTitles[2]%></h3>
@@ -30,7 +30,7 @@
     </div>
     
     <div class="loan-type-field">
-      <input type="radio" name="loan-type" class="first-step-input" id="rental-loan">
+      <input type="radio" name="loanType" value="Rental Loan" class="first-step-input" id="rental-loan">
       <label class="loan-select" for="rental-loan">
         <img src="/images/icons/programs/program-4.png" alt="">
         <h3><%=applyNowDat.loanTypeTitles[3]%></h3>
@@ -39,11 +39,11 @@
     </div>
     
     <div class="loan-type-field">
-      <input type="radio" name="loan-type" class="first-step-input first-step-other" id="other-type-loan">
+      <input type="radio" name="loanType" value="Other Loan" class="first-step-input first-step-other" id="other-type-loan">
       <label class="loan-select loan-type-field-other" for="other-type-loan">
         <img src="/images/icons/other.png" alt="">
         <h3><%=applyNowDat.loanTypeOther[0]%></h3>
-        <input type="text" class="other-loan-type" placeholder="<%=applyNowDat.loanTypeOther[1]%>">
+        <input type="text" name="otherLoanType" class="other-loan-type" placeholder="<%=applyNowDat.loanTypeOther[1]%>">
       </label>
     </div>            
   </div>

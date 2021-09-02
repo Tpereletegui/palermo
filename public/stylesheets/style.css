@@ -852,7 +852,7 @@ nav #check{
   border: none;
   background-color: transparent;
   outline: none !important;
-  cursor: pointer;
+  cursor: default;
 }
 @media (min-width: 500px) {
   .multisteps-form__progress-btn {

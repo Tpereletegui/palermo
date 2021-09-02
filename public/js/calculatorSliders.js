@@ -202,3 +202,38 @@ itemTenorMonthLabel.addEventListener('click',()=>{
         itemTenorTitle.innerHTML = ' Months';
     }
 })
+
+const calculatorForm = document.querySelector('.calculator-form-container');
+const rule = {
+    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+}
+const calculatorFormInput = document.querySelector('.calculator-form-container #sendEmailId');
+let email = false;
+
+
+const contactFormValidate = (e) =>{
+    const event = e.target;
+
+    switch(event.name){
+        
+        case 'sendEmail':
+            if (!rules.email.test(event.value) || event.value.length == 0){
+                email = false;
+            }else{
+                email = true;
+            }
+            break;
+    }
+}
+
+
+calculatorFormInput.addEventListener('keyup',contactFormValidate);
+
+calculatorForm.addEventListener('submit', (e)=>{
+    
+    if (email){
+        alert('el email no pasa')
+        e.preventDefault();
+    }
+})
+

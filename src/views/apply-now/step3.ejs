@@ -11,7 +11,7 @@
          <label ><%=applyNowDat.dealInformationPlaceHolders[0]%></label>
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marker-alt"></i></span>
-            <input type="text" class="form-control third-step-input" placeholder="123 Main Street" >
+            <input type="text" class="form-control third-step-input" name="address" placeholder="123 Main Street" >
           </div>
         </div>
 
@@ -21,16 +21,16 @@
           <label ><%=applyNowDat.dealInformationPlaceHolders[1]%></label>
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1"><i class="far fa-building"></i></span>
-            <input type="text" class="form-control third-step-input" placeholder="Miami">
+            <input type="text" class="form-control third-step-input" name="city" placeholder="Miami">
           </div>          
         </div>
         <div class="col-12 col-md mt-2">
           <label ><%=applyNowDat.dealInformationPlaceHolders[2]%></label>
-          <input type="text" class="form-control third-step-input" placeholder="Florida">
+          <input type="text" class="form-control third-step-input" name="state" placeholder="Florida">
         </div>
         <div class="col-12 col-md mt-2 mb-5">
           <label ><%=applyNowDat.dealInformationPlaceHolders[3]%></label>
-          <input type="text" class="form-control third-step-input" placeholder="PL-5431">
+          <input type="text" class="form-control third-step-input" name="zip" placeholder="PL-5431">
         </div>
       </div>
 
@@ -60,7 +60,7 @@
         <div class="field">
           <label><%=applyNowDat.dealInformationTitles[4]%></label>
           <p class="value"><span class="moneyValueToChange" id="an-value4"></span> Weeks</p>
-          <input name="anMortgageInterest" type="range" style="margin:0;" id="an-range4"  min="1" max="144" value="36" class="slider">
+          <input name="anClosingTime" type="range" style="margin:0;" id="an-range4"  min="1" max="144" value="36" class="slider">
         </div>
        <% }%>
      </div>

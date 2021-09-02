@@ -195,3 +195,14 @@ new Cleave('#borrower-phone-input', {
     phone: true,
     phoneRegionCode: 'US'
 });
+
+
+
+
+const formMultiple = document.querySelector('#formMultiple');
+
+window.addEventListener('load', ()=>{
+
+    formMultiple.setAttribute('action', location.pathname);
+    /* formMultiple.setAttribute('action') */
+})

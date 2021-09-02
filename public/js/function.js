@@ -104,7 +104,7 @@
     formHeight(activePanel);
   };
   
-  DOMstrings.stepsBar.addEventListener('click', e => {
+  /* DOMstrings.stepsBar.addEventListener('click', e => {
   
     const eventTarget = e.target;
   
@@ -117,7 +117,7 @@
     setActiveStep(activeStep);
   
     setActivePanel(activeStep);
-  });
+  }); */
   
   DOMstrings.stepsForm.addEventListener('click', e => {
   
@@ -235,8 +235,6 @@
         break;
         }
     }
-
-    
   
     setActiveStep(activePanelNum);
     setActivePanel(activePanelNum);

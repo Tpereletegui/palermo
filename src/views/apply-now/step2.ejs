@@ -4,7 +4,7 @@
   
       <div class="loan-property-field">
         
-        <input type="radio" name="property-type" class="second-step-input"  id="property-residential">
+        <input type="radio" name="property-type" value="Residential" class="second-step-input" id="property-residential">
         <label id="property-residential-label"  class="loan-select" for="property-residential" data-toggle="modal" data-target="#modalQ" onclick="notAbleOnly()" >    
             <img src="/images/icons/property-type/property-1.png" alt="">
             <h3><%=applyNowDat.propertyTypeTitles[0]%></h3>
@@ -14,7 +14,7 @@
       </div>
   
       <div class="loan-property-field">
-        <input type="radio" name="property-type" class="second-step-input" id="property-multifamily">
+        <input type="radio" name="property-type" value="Multifamily" class="second-step-input" id="property-multifamily">
         <label class="loan-select" for="property-multifamily">
           <img src="/images/icons/property-type/property-2.png" alt="">
           <h3><%=applyNowDat.propertyTypeTitles[1]%></h3>
@@ -23,7 +23,7 @@
       </div>
   
       <div class="loan-property-field">
-        <input type="radio" name="property-type" class="second-step-input" id="property-commercial">
+        <input type="radio" name="property-type" value="Commercial" class="second-step-input" id="property-commercial">
         <label class="loan-select" for="property-commercial">
           <img src="/images/icons/property-type/property-3.png" alt="">
           <h3><%=applyNowDat.propertyTypeTitles[2]%></h3>
@@ -33,11 +33,11 @@
       
       
       <div class="loan-property-field">
-        <input type="radio" name="property-type" class="second-step-input second-step-other" id="property-other">
+        <input type="radio" name="property-type" value="Other" class="second-step-input second-step-other" id="property-other">
         <label class="loan-select property-field-other" for="property-other">
           <img src="/images/icons/other.png" alt="">
           <h3><%=applyNowDat.propertyTypeOther[0]%></h3>
-          <input type="text" class="other-property-type" placeholder="<%=applyNowDat.propertyTypeOther[1]%>">
+          <input type="text" class="other-property-type" name="otherProperty" placeholder="<%=applyNowDat.propertyTypeOther[1]%>">
         </label>
       </div>
   

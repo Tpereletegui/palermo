@@ -15,6 +15,7 @@ module.exports = {
     
 
     res.render('brokers',{
+      title: "Brokers | Palermo Lender",
       navbarDat:language._navbarDat, 
       langFlag: lang, 
       footerDat: language._footerDat,
@@ -35,6 +36,7 @@ module.exports = {
     let language = loadLang(lang);
 
     res.render('brokers', {
+      title: "Brokers | Palermo Lender",
       loan: loan, 
       navbarDat: language._navbarDat, 
       langFlag: lang,
