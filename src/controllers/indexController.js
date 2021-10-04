@@ -110,7 +110,7 @@ module.exports = {
     let language = loadLang(lang);
 
     let apiKey = 'AIzaSyDAFtKXjhSeh9Q9syCuSs3l0lEjmQsEVK0';
-    let placeID = 'ChIJJZfUlGDMyWQRJs3wVWApGrU'
+    let placeID = 'ChIJNWQQDP0b2YgRH4XNFLQL9t4'
 
     let { data } = await axios.get('https://maps.googleapis.com/maps/api/place/details/json?place_id='+placeID+'&key='+apiKey)
 
