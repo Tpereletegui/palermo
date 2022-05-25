@@ -18,7 +18,7 @@
     "morgan": "~1.9.1",
     "nodemailer": "^6.6.2",
     "nodemailer-express-handlebars": "^4.0.0",
-    "nodemon": "^2.0.12",
+    "nodemon": "^2.0.15",
     "pdfmake": "^0.2.2"
   },
   "engines": {

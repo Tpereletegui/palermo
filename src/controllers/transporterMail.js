@@ -10,6 +10,7 @@ const transporter = nodemailer.createTransport({
       user: "mails@palermolender.com", 
       pass: "plender-techgroup-$23082021", 
     },
+    requireTLS:true,
     tls:{
       rejectUnauthorized: false
     }

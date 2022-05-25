@@ -30,7 +30,7 @@ langIcon.addEventListener('click',()=>{
 
 
 /* AJUSTE NAVBAR CUANDO HACEMOS SCROLL */
-window.addEventListener('load', ()=>{
+/* window.addEventListener('load', ()=>{
   if (window.innerWidth > 768){
     window.addEventListener('scroll', function () {
       if (window.pageYOffset > 0) {
@@ -53,7 +53,7 @@ window.addEventListener('load', ()=>{
     logo.innerHTML = '<img id="logo-img" src="/images/logos/logo-navbar-landscape.png" alt="" width="160px">'
   }
   
-  
+   */
   /* CUANDO HACEMOS CLICK EN ALGÚN LINK, QUE SE CIERRE EL NAV */
   if (window.innerWidth <= 768){
     links.forEach(link=>{

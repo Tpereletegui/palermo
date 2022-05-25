@@ -5,7 +5,7 @@ const brokersController = require('../controllers/brokersController');
 const stepsFormsController = require('../controllers/stepsFormsController');
 const messageValidator = require('../middlewares/messageValidator');
 const calculatorController = require('../controllers/calculatorController');
-
+const testimonialsController =require('../controllers/testimonialsController');
 
 router.get('/', indexController.index);
 router.get('/apply-now', stepsFormsController.applyNow);
@@ -19,5 +19,6 @@ router.post('/calculator', calculatorController.processCalculator)
 router.get('/brokers', brokersController.brokersAndRealtors);
 router.post('/brokers', brokersController.loanSelect)
 router.post('/lang', indexController.langChange)
+router.get('/deals',testimonialsController.dealsTestimonials )
 
 module.exports = router;

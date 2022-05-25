@@ -5,223 +5,244 @@
 
     <%- include('./partials/navbar') -%>
     <%- include('./partials/float-button') -%>
-    
-    <section class="section-calculator margin-nav-section">
 
+    <div class="section-calculo" style="height: max-content;">
         <div class="calculator-title-container section-title-container">
-            <div class="section-title">
+            <div id="calculo-form" class="section-title">
                 <label class="section-title-label" style="color:white;">
                     <%=calculatorDat.title%>
                 </label>
             </div>
         </div>
-
-        <div class="lang-hidden-value" style="position: absolute; width: 0; height: 0; opacity: 0;"><%=langFlag%></div>
-
-        <div class="calculator-container">     
-            <form action="/calculator/" method="post" class="calculator-form-container">        
-                <div class="content-container">
-
-                    <div class="first-line">
-                        <!-- Estimated Property Value -->
-                        <div class="item-container">
-                            <label for="" class="slider-title"><%=calculatorDat.itemTitles[0]%></label>
-                            <p class="value"><input type="text" id="value1-hidden-input"><span class="moneyValueToChange" id="value1"></span></p>
-                            
-                            <hr>
-                            <% if(typeof output != 'undefined'){ %>
-                                <input name="estimatedValue" type="range" id="range1" min="1" max="10000000" value="<%=output.estimatedValue%>" class="slider">        
-                            <% } else { %>
-                                <input name="estimatedValue" type="range" id="range1" min="1" max="10000000" value="100000" class="slider">
-                            <% }  %>
-                        </div>
-
-                        <!-- Mortgage Amount -->
-                        <div class="item-container">
-                            <label for="" class="slider-title"><%=calculatorDat.itemTitles[1]%></label>
-                            <p class="value"><span class="moneyValueToChange" id="value2"></span>%</p>
-                            <hr>
-                            <% if(typeof output != 'undefined'){ %>
-                                <input name="mortgageAmount" type="range" id="range2" step="0.1" min="0" max="75" value="<%=output.mortgageAmount%>" class="slider">
-                            <% } else { %>
-                                <input  name="mortgageAmount" type="range" id="range2" step="0.1" min="0" max="75" value="15" class="slider">
-                            <% }  %>
-                        </div>
-
-                        <!-- Tenor -->
-                        <div class="item-container">
-                            <label for="" class="slider-title"><%=calculatorDat.itemTitles[2]%></label>                
-                            
-                            <div class="item-tenor-radio-container">
-                                <div class="item-tenor-field">
-                                    <input type="radio" name="itemTenorInput"  id="item-tenor-months" checked>    
-                                    <label class="item-tenor-months-label" for="item-tenor-months">
-                                        <div class="item-tenor-circle">&nbsp;</div>
-                                        <% if(langFlag=='eng'){ %>
-                                            <span>Months</span>
-                                        <% } else { %>
-                                            <span>Meses</span>
-                                        <% } %>
-                                    </label>
-                                </div>
-    
-                                <div class="item-tenor-field">
-                                    <input type="radio" name="itemTenorInput" id="item-tenor-weeks">    
-                                    <label class="item-tenor-weeks-label" for="item-tenor-weeks">
-                                        <div class="item-tenor-circle">&nbsp;</div>
-                                        <% if(langFlag=='eng'){ %>
-                                            <span>Weeks</span>
-                                        <% } else { %>
-                                            <span>Semanas</span>
-                                        <% } %>
-                                        
-                                    </label>
-                                </div>
-                            </div>
-                            <% if(langFlag=='eng'){ %>
-                                <p class="value"><span id="value3"></span><span class="item-tenor-field-title"> Months</span></p>
-                            <% } else { %>
-                                <p class="value"><span id="value3"></span><span class="item-tenor-field-title"> Meses</span></p>
-                            <% } %>
-                            <hr>
-
-                            <% if(typeof output != 'undefined'){ %>
-                                <input name="mortgageTenor" type="range" id="range3" min="1" max="36" value="<%=output.mortgageTenor%>" class="slider">
-                            <% } else { %>
-                                <input name="mortgageTenor" type="range" id="range3" min="1" max="36" value="36" class="slider">
-
-                            <% }  %>
-                        </div>
-                    </div>
-                    <div class="second-line">
-
-                        <!-- Interest Rate (%)  -->
-                        <div class="item-container">
-                            <label for="" class="slider-title"><%= calculatorDat.itemTitles[3]%> (%)</label>
-                            <p class="value"><span class="moneyValueToChange" id="value4"></span>%</p>
-                            <hr>
-                            <% if(typeof output != 'undefined'){ %>
-                                <input name="mortgageInterest" type="range" id="range4" step="0.01" min="7.99" max="13.99"  value="<%=output.mortgageInterest%>" class="slider">
-                            <% } else { %>
-                                <input name="mortgageInterest" type="range" id="range4" step="0.01" min="7.99" max="13.99" value="8.50" class="slider">
-                            <% }  %>
-                        </div>
-
-                        <!-- Est. Origination Fee   -->
-                        <div class="item-container">
-                            <label for="" class="slider-title"><%= calculatorDat.itemTitles[4]%></label>
-                            <p class="value"><span class="moneyValueToChange" id="value5"></span>%</p>
-                            <hr>
-                            <% if(typeof output != 'undefined'){ %>
-                                <input name="estOrigFree" type="range" id="range5" step="0.1" min="0" max="5" value="<%=output.estOrigPercent%>" class="slider">
-                            <% } else { %>
-                                <input name="estOrigFree" type="range" id="range5" step="0.1" min="0" max="5" value="2.5" class="slider">
-                            <% }  %>
-                        </div>
-
-                        <!-- Est. Loan Costs -->
-                        <div class="item-container">
-                            <label for="" class="slider-title"><%= calculatorDat.itemTitles[5]%></label>
-                            <p class="value"><span class="moneyValueToChange" id="value6"></span>%</p>
-                            <hr>
-                            <% if(typeof output != 'undefined'){ %>
-                                <input name="estLoanCosts" type="range" id="range6" step="0.1" min="0" max="5" value="<%=output.loanCostPercent%>" class="slider">
-                            <% } else { %>
-                                <input name="estLoanCosts" type="range" id="range6" step="0.1" min="0" max="5" value="2.0" class="slider">
-                            <% }  %>
-                        </div>
-
-                    </div>           
+       <div class="calculo-form">
+        <div class="calculo-container">
+            <div class="calculo-column">
+                <div class="calculo-input">
+                    <label class="calculo-label">Loan Program</label>
+                    <p class="calculo-error" style="display: none; color: red;">error</p>
+                    <select class="calculo-select">
+                        <option value="bridge">Bridge Loan</option>
+                        <option value="fix" >Fix & Flip</option>
+                        <option value="rental">Rental Loan</option>
+                        <option value="refinance">Refinance</option>
+                    </select>
                 </div>
-                <button type="submit" class="button-calculator principal-button">
-                    <%= calculatorDat.submitButton%>
-                </button>
-                <div class="sendpdf-container">
-                    <input type="checkbox" name="pdf-calculator-hidden" id="pdf-calculator">
-                    <label class="send-pdf-label" for="pdf-calculator">
-                        <div class="pdf-checkbox-container">
-                            <div class="pdf-calculator-checkbox">&nbsp;</div>
-                            <h3>Send pdf to mail?</h3>
-                        </div>
-                        <div class="pdf-email-container">
-                            <input type="text" name="sendEmail" placeholder="Email" id="sendEmailId" class="send-pdf-email">
-                        </div>
-                    </label>
+                <div class="calculo-input">
+                    <label class="calculo-label">Est. As-Is Property Value ($)</label>
+                    <p id="error-property" class="calculo-error" style="display: none; color: red;">Please Complete this field</p>
+                    <input id="property" class="calculo-input-value" type="text" placeholder="e.g., 400000 "/>
                 </div>
-            </form>
-        
-            <% if(typeof output != 'undefined'){ %>
-                <div class="output-container" >
-                    <label class="output-title"><%= calculatorDat.outputTitle%></label>
-
-                    <div class="output-container-first">
-                        <div class="output-detail-item">
-                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[0] %>: </label>
-                            <label class="output-detail-item-value"><span id="calculator-output-value-1"><%= output.estimatedValue %></span></label>
-                        </div>
-                        <div class="output-detail-item">
-                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[1] %>: </label>
-                            <label class="output-detail-item-value"><span><%= output.mortgageAmount %></span>%</label>
-                        </div>
-                        <div class="output-detail-item">
-                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[2] %>: </label>
-                            <label class="output-detail-item-value"><span id="calculator-output-value-3"><%= output.loanAmount %></span></label>
-                        </div>
-                        <div class="output-detail-item">
-                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[3] %>: </label>
-                            <label class="output-detail-item-value"><span><%= output.mortgageInterest %></span>%</label>
-                        </div>
-                        <div class="output-detail-item">
-                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[4] %>: </label>
-                            <label class="output-detail-item-value"><span><%=output.mortgageTenor %></span></label>
-                        </div>         
-                    </div>                 
-
-                    <div class="output-container-second">
-                        <div class="output-detail-item">
-                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[5] %>: </label>
-                            <label class="output-detail-item-value"><span id="calculator-output-value-6"><%= output.monthInterest %></span></label>
-                        </div>
-                        <div class="output-detail-item">
-                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[6] %>: </label>
-                            <label class="output-detail-item-value"><span  id="calculator-output-value-7"><%= output.annualInterest %></span></label>
-                        </div>
-                        <div class="output-detail-item">
-                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[7] %>: </label>
-                            <label class="output-detail-item-value"><span  id="calculator-output-value-8"><%= output.estLoanCosts %></span></label>
-                        </div>
-                        <div class="output-detail-item">
-                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[8] %>: </label>
-                            <label class="output-detail-item-value"><span  id="calculator-output-value-9"><%= output.estOrigFree %></span></label>
-                        </div>
-                        <div class="output-detail-item">
-                            <label class="output-detail-item-title"><%= calculatorDat.outputsTitles[9] %>:</label>
-                            <label class="output-detail-item-value"><span  id="calculator-output-value-10"><%= output.totalClosing %></span></label>
-                        </div>
-                    </div>
-                    <div class="table-payments">
-                        <div class="table-payments-header">
-                            <label class="table-payment-date table-payment-indice">&nbsp;</label>
-                            <label class="table-payment-date"><%= calculatorDat.paymentsTitles[0] %></label>
-                            <label class="table-payment-date"><%= calculatorDat.paymentsTitles[1] %></label>    
-                        </div>
+                <div class="calculo-input">
+                    <label class="calculo-label">Mortgage Tenor</label>
+                    <p class="calculo-error" style="display: none; color: red;">error</p>
+                    <select id="mortgage" class="calculo-select">
+                        <option>12 months</option>
+                        <option>18 months</option>
+                        <option>24 months</option>
+                        <option>30 months</option>
+                        <option>36 months</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="calculo-column">
+                <div class="calculo-input">
+                    <label class="calculo-label">Collateral Type</label>
+                    <p class="calculo-error" style="display: none; color: red;">error</p>
+                    <select id="collateral" class="calculo-select">
+                        <option value="75">SFR</option>
+                        <option value="75">Condo</option>
+                        <option value="75">Townhouse</option>
+                        <option value="75">Multi-family</option>
+                        <option value="75">Retail</option>
+                        <option value="75">Office</option>
+                        <option value="50">Land</option>
+                        <option value="75">Other</option>
+                    </select>
+                </div>
+                <div class="calculo-input">
+                    <label  class="calculo-label">Requested LTV (<p style="display: inline;" id="showRange"></p>)</label>
+                    <input id="requested" type="range" max="75" min="0" class="calculo-input-value" placeholder="e.g., 50"/>
+                    <p class="calculo-error" style="display: none; color: red;">error</p>
+                </div>
+                <div class="calculo-input">
+                    <label class="calculo-label">Est. FICO Score</label>
+                    
+                    <p class="calculo-error" style="display: none; color: red;">error</p>
+                    <select id="fico" class="calculo-select">
+                        <option value="499"> &#60 499 </option>
+                        <option value="500">500 - 600</option>
+                        <option value="600">601 - 660</option>
+                        <option value="700">661 - 780</option>
+                        <option value="800">&#62 781</option>
                         
-                        <% for (let j = 0; j < payments.length; j++) { %>
-                            <div class="table-payments-item">
-                                
-                                <label class="table-payment-date table-payment-indice"> <%= payments[j].id %></label>
-                                <label class="table-payment-date"><span class="calculator-output-value-11"><%= output.monthInterest %></span></label>
-                                <label class="table-payment-date"><span class="calculator-output-value-12"><%= payments[j].cumulativePayment %></span></label>
-                            </div>
-                        <% } %>
-                    </div>
+                    </select>
                 </div>
-            <% } %>
-
+            </div>
         </div>
+        <button id="calculate" class="calculo-calculate">Calculate</button>
+        </div>
+        <div id="results" class="calculo-result">
+            <div class="calculo-input">
+                <label for="" class="calculo-label-total">Total Monthly Payment</label>
+                <input id="total" type="text" class="calculo-input-total"/>
+            </div>
+        <div class="calculo-container">
+            <div class="calculo-column">
+                <div class="calculo-input">
+                    <label for="" class="calculo-label-result">Est. Loan Amount</label>
+                    <input id="loanAmount" type="text" class="calculo-input-result" />
+                </div>
+                <div class="calculo-input">
+                    <label for="" class="calculo-label-result">Lender Fee</label>
+                    <input class="calculo-input-result" value=" 2.00%" type="text" />
+                </div>
+            </div>
+            <div class="calculo-column">
+                <div class="calculo-input">
+                    <label for="" class="calculo-label-result">Est. Interest Rate</label>
+                    <input id="rate" type="text" value="9,499%" class="calculo-input-result"/>
+                </div>
+                <div class="calculo-input">
+                    <label for="" class="calculo-label-result">Est. Title / Legal / Charges*</label>
+                    <input id="recording" type="text" value="3,50%" class="calculo-input-result"/>
+                </div>
+            </div>
+            
+        </div>
+      
+        <button id="again" class="calculo-calculate">Try Again</button>
+    </div>
+    </div>
     </section>
+
+   
     <%- include('./partials/footer') -%>
 
+    
+    <script>
+
+        //Define variables
+        let error = document.getElementById('error-property');
+        let dollarUSLocale = Intl.NumberFormat('en-US');
+        //INPUTS
+        let property =document.getElementById('property');
+        console.log('property', property.value)
+        let collateral = document.getElementById('collateral');
+        let fico= document.getElementById('fico');
+        let requested =document.getElementById('requested');
+        let mortgage = document.getElementById('mortgage');
+        //OUTPUTS
+        let rate = document.getElementById('rate');
+        let recording = document.getElementById('recording');
+        let loanAmount= document.getElementById('loanAmount');
+        let total = document.getElementById('total');
+        //UTILITIES
+        let calculate= document.getElementById('calculate');
+        let results= document.getElementById('results');
+        let range = document.getElementById('showRange');
+
+        range.innerHTML = requested.value + '%'
+        requested.max = collateral.value
+        collateral.addEventListener('change', ()=>{
+            collateral = document.getElementById('collateral') 
+            requested.max = collateral.value;
+            rate.value = getFico();
+            
+            
+        })
+
+        requested.addEventListener('change', ()=>{
+            range.innerHTML = requested.value + '%' 
+        })
+        //DEBUGGING
+        function numberWithCommas(x) {
+        var parts = x.toString().split(".");
+        parts[0]=parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,",");
+        return parts.join(",");
+        }
+        //
+        calculate.addEventListener('click', ()=> {
+
+            if(!property.value) {
+                
+              return  error.style.cssText = 'display : flex; margin-bottom: 5px; color: red; font-family: inherit;'
+            }
+            error.style.cssText = 'display: none;'
+            loanAmount.value= (parseInt(property.value) * parseInt(requested.value)) / 100;  
+            rate.value = getFico();
+            if(loanAmount.value <= 200000) recording.value = '4.00%';
+            else if(loanAmount.value > 200000 && loanAmount.value <= 400000) recording.value = '3.50%';
+            else if(loanAmount.value > 400000) recording.value = '3.00%';
+            console.log('float', parseFloat(rate.value))
+            let valor= (loanAmount.value * (parseFloat(rate.value) / 100) / 12);
+            
+            
+                
+            let format = valor.toFixed(2); 
+            // let formatAmount = loanAmount.value.toFixed(2);   
+            console.log(format)
+            total.value = '$' + dollarUSLocale.format(format)
+            loanAmount.value = '$ ' + dollarUSLocale.format(loanAmount.value);
+            rate.value = rate.value + '%'
+            
+            results.style.cssText += 'display: flex;'
+            window.location.href = '#results'
+           
+        })
+
+        let again= document.getElementById('again');
+
+        again.addEventListener('click', ()=>{
+            
+            results.style.cssText += 'display: none;'
+            window.location.href = '#calculo-form'
+        })
+
+        console.log('requestedvalue',getFico());
+                console.log((parseInt(requested.value) > 0 && parseInt(requested.value) < 40 ), 'ficoo');
+        function getFico(){
+            let test = document.getElementById('fico');
+            if(test.value === '499'){
+                if(parseInt(requested.value) >= 0 && parseInt(requested.value) < 40 ) return '8.999';
+                if(parseInt(requested.value) >= 40 && parseInt(requested.value) < 50 ) return '9.249';
+                if(parseInt(requested.value) >= 50 && parseInt(requested.value) < 60 ) return '9.499';
+                if(parseInt(requested.value) >= 60 && parseInt(requested.value) < 70 ) return '9.749';
+                if(parseInt(requested.value) >= 70) return '9.999';
+            }
+            if(test.value === '500'){
+                if(parseInt(requested.value) >= 0 && parseInt(requested.value) < 40 ) return '7.999';
+                if(parseInt(requested.value) >= 40 && parseInt(requested.value) < 50 ) return '8.999';
+                if(parseInt(requested.value) >= 50 && parseInt(requested.value) < 60 ) return '9.249';
+                if(parseInt(requested.value) >= 60 && parseInt(requested.value) < 70 ) return '9.499';
+                if(parseInt(requested.value) >= 70) return '9.749';
+            }
+            if(test.value === '600'){
+                if(parseInt(requested.value) >= 0 && parseInt(requested.value) < 40 ) return '7.499';
+                if(parseInt(requested.value) >= 40 && parseInt(requested.value) < 50 ) return '8.499';
+                if(parseInt(requested.value) >= 50 && parseInt(requested.value) < 60 ) return '8.999';
+                if(parseInt(requested.value) >= 60 && parseInt(requested.value) < 70 ) return '9.249';
+                if(parseInt(requested.value) >= 70) return '9.499';
+            }
+            if(test.value === '700'){
+                if(parseInt(requested.value) >= 0 && parseInt(requested.value) < 40 ) return '6.999';
+                if(parseInt(requested.value) >= 40 && parseInt(requested.value) < 50 ) return '7.999';
+                if(parseInt(requested.value) >= 50 && parseInt(requested.value) < 60 ) return '8.499';
+                if(parseInt(requested.value) >= 60 && parseInt(requested.value) < 70 ) return '8.999';
+                if(parseInt(requested.value) >= 70) return '9.249';
+            }
+            if(test.value === '800'){
+                if(parseInt(requested.value) >= 0 && parseInt(requested.value) < 40 ) return '6.999';
+                if(parseInt(requested.value) >= 40 && parseInt(requested.value) < 50 ) return '7.499';
+                if(parseInt(requested.value) >= 50 && parseInt(requested.value) < 60 ) return '7.999';
+                if(parseInt(requested.value) >= 60 && parseInt(requested.value) < 70 ) return '8.499';
+                if(parseInt(requested.value) >= 70) return '8.999';
+            }
+          
+            
+        }
+       
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
     <script src="/js/calculatorSliders.js"></script>
     <script src="/js/navbarResponsive.js"></script>

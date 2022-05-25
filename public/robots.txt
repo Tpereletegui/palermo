@@ -1,0 +1,4 @@
+User-Agents: *
+Disallow:
+
+sitemap: https://palermolender.com/sitemap.xml

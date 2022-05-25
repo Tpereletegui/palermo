@@ -5,6 +5,7 @@
 
     <%- include('./partials/navbar') -%>
     <%- include('./partials/float-button') -%>
+    
 
     <div class="container-faq-view margin-nav-section" id="faq-section">
         
@@ -18,8 +19,8 @@
         
         </div>
     
-
-        <div class="questions-container">
+        <%- include('./sections/faq') -%>
+        <!-- <div class="questions-container">
             <% for (let i = 0; i < questions.length; i++) {%>
                 <div class=" question-container-all <%= i<questions.length/2 ? 'question-container-first':'question-container-second' %>">
                     <label class="question-title"> <%=questions[i].title %></label>
@@ -32,15 +33,9 @@
                     <% } %>
                 </div>
             <% } %>
-        </div>
+        </div> -->
 
-        <div class="section-title">
-            <label class="section-title-label" style="color:black;">
-                More Questions? 
-            </label>
-        </div>
-        <%- include('./sections/contact') -%>
-
+       
 
 
         

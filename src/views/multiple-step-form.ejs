@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=windowTitle%></title>
+    <title>Palermo Lender, LCC - Miami</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
     <%- include('./partials/head') -%>
@@ -12,135 +12,16 @@
 <body style="max-width: 100w; overflow-x: hidden;">  
 
   <%- include('./partials/navbar') -%>
-  <%- include('./partials/float-button') -%>
-
-
-  <section class="section-apply-now margin-nav-section"  style="max-width: 100vw!important;">
-    <div class="container">
-      
-      <!-- tienes pensado ir a vivir ahí? -->
-      <div class="modal fade" id="modalQ" tabindex="-1" style="max-width: 100vw!important;" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class=" modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content ">
-            <div class="modal-header" style="border:none!important;">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body" style="border:none!important;">
-              <h5 class="text-center">
-                <%=applyNowDat.modalFirst%>
-              </h5>
-            </div>
-            <div class="modal-footer modal-buttons-container  d-flex justify-content-around" style="border:none!important;">
-              <button type="button" class="principal-button principal-button applynow-button-modal" data-dismiss="modal"><%=applyNowDat.brokerWork[1]%></button>
-              <button type="button" class="principal-button principal-button applynow-button-modal"  data-dismiss="modal" data-toggle="modal" data-target="#modalW"><%=applyNowDat.brokerWork[0]%></button>            
-            </div>
-          </div>
-        </div>
-      </div>
-    
-      <!-- No es posible -->
-      <div class="modal fade" id="modalW" tabindex="-1" role="dialog" style="max-width: 100vw!important;" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class=" modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content ">
-            <div class="modal-header" style="border:none!important;">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body" style="border:none!important;">
-              <h3 class="text-center">
-                <%=applyNowDat.modalSecond[0]%>
-              </h3>
-              <h6 class="text-center">
-                <%=applyNowDat.modalSecond[1]%>
-              </h6>
-            </div>
-            <div class="modal-footer modal-buttons-container d-flex justify-content-center" style="border:none!important;">
-              <button type="button" class="principal-button principal-button applynow-button-modal" data-dismiss="modal" onclick="unselect()">Ok</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="applynow-title-container section-title-container">
-      <div class="section-title">
-          <label class="section-title-label" style="color:white;">
-              <%=title%> 
-          </label>
-      </div>
-    </div>
-
-    <div class="content" style="padding-top: 10vh;">
-      <div class="content__inner">
-        <div class="container overflow-hidden">
-          <div class="multisteps-form">
-            <div class="row">
-              <div class="col-12 col-lg-8 ml-auto mr-auto mt-4 mb-4">
-                <div class="multisteps-form__progress">
-                  <button class="multisteps-form__progress-btn js-active" type="button"><%=applyNowDat.titles[0]%></button>
-                  <button class="multisteps-form__progress-btn" type="button"><%=applyNowDat.titles[1]%></button>
-                  <button class="multisteps-form__progress-btn" type="button"><%=applyNowDat.titles[2]%></button>
-                  <button class="multisteps-form__progress-btn" type="button"><%=applyNowDat.titles[3]%></button>
-                  <button class="multisteps-form__progress-btn" type="button"><%=applyNowDat.titles[4]%></button>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-lg-8 m-auto">
-                <form class="multisteps-form__form" id="formMultiple" method="post">
-                  
-                  <div class="multisteps-form__panel shadow  p-4 rounded bg-white js-active" data-animation="slideHorz">
-                    <div class="multisteps-form__content">
-                      <%- include('./apply-now/step1') -%>
-                    </div>
-                  </div>
-    
-                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="slideHorz">
-                    <div class="multisteps-form__content">                    
-                      <%- include('./apply-now/step2') -%>
-                    </div>
-                  </div>
-                  
-                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="slideHorz">
-                    <div class="multisteps-form__content">
-                      <%- include('./apply-now/step3') -%>
-                    </div>
-                  </div>
-
-                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="slideHorz">
-                    <div class="multisteps-form__content">
-                      <%- include('./apply-now/step4') -%>
-                    </div>
-                  </div>
-
-                  <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="slideHorz">
-                    <div class="multisteps-form__content">
-                      <%- include('./apply-now/step5') -%>
-                    </div>
-                  </div>
-
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <iframe style="width: 100vw; height: 80vh; border:0px solid #333333;" scrolling="yes" frameborder="1" name="top" src="https://app.lendingwise.com/HMLOWebForm.php?view=c5e7c430d26333b5&bRc=522c7f6fc77d03e3&fOpt=8e614f58c0d670e4&op=aa4465703ef4b17e"></iframe>
   <%- include('./partials/footer') -%>
 
 
   <!-- Inputs formateados -->
-  <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/addons/cleave-phone.us.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/addons/cleave-phone.us.min.js"></script> -->
   <!-- Funciones de control -->
-  <script  src="/js/function.js"></script>
-  <script  src="/js/applyNow.js"></script>
+  <!-- <script  src="/js/function.js"></script> -->
+  <!-- <script  src="/js/applyNow.js"></script> -->
   <!-- Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -151,11 +32,11 @@
   <script src="/js/navbarResponsive.js"></script>
   <!-- Para los carrusels -->
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js"></script>
-  <script>
+  <!-- <script>
     var elms = document.getElementsByClassName( 'splide' );
     for ( var i = 0, len = elms.length; i < len; i++ ) {
       new Splide( elms[ i ] ).mount();
     }
-  </script>
+  </script> -->
 </body>
 </html>

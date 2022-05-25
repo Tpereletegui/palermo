@@ -6,7 +6,7 @@
     <%- include('./partials/navbar') -%>
     <%- include('./partials/float-button') -%>
     
-    <section class="section-brokers margin-nav-section" >
+    <section class="section-brokers margin-nav-section" style="background: #eef0f8; height: 130vh;">
 
         <div class="brokers-title-container section-title-container">
             <div class="section-title">
@@ -18,72 +18,10 @@
                 <p class="brokers-subtitle-text"><%=brokersDat.subtitle%></p>
             </div>
         </div>
+        <div class="hideOnSize" style="position: absolute; right: 0; top: 42vh; height: 90vh; background-color: #eef0f8; z-index: 1000;"></div>
+        <div class="hideOnSize" style="position: absolute; left: 0; top: 42vh; height: 90vh; background-color: #eef0f8; z-index: 1000;"></div>
+        <iframe src="https://app.lendingwise.com/brokerRegistration.php?bRc=522c7f6fc77d03e3" name="top" width="100%" frameborder="1" id="iframe1" height="63%" scrolling="yes" style="border:0px solid #333333; background: #eef0f8; margin-top: 10vh;"></iframe>
 
-        <div class="brokers-container">
-            <form action="/brokers" method="post">
-                <div class="brokers-subtitle-container-resp">
-                    <p class="brokers-subtitle-text-resp"><%=brokersDat.subtitle%></p>
-                </div>
-                <div class="brokers-programs-container">
-                    <div class="broker-field">
-                        <input type="radio" name="brokerOption" value="bridge-loan" id="bridge-loan">
-                        <label for="bridge-loan" class="program-container-item-icon">
-                            <img src="/images/icons/programs/program-1.png" alt="">
-                        </label>
-                        <h2><%=programsDat.programs[0]%></h2>
-                    </div>
-    
-                    <div class="broker-field">
-                        <input type="radio" name="brokerOption" value="fix-flip" id="fix-flip">
-                        <label for="fix-flip" class="program-container-item-icon">
-                            <img src="/images/icons/programs/program-2.png" alt="">
-                        </label>
-                        <h2><%=programsDat.programs[1]%></h2>
-                    </div>
-    
-                    <div class="broker-field">
-                        <input type="radio" name="brokerOption" value="cash-out" id="cash-out">
-                        <label for="cash-out" class="program-container-item-icon">
-                            <img src="/images/icons/programs/program-3.png" alt="">
-                        </label>
-                        <h2><%=programsDat.programs[2]%></h2>
-                    </div>
-    
-                    <div class="broker-field">
-                        <input type="radio" name="brokerOption" value="rental" id="rental">
-                        <label for="rental" class="program-container-item-icon">
-                            <img src="/images/icons/programs/program-4.png" alt="">
-                        </label>
-                        <h2><%=programsDat.programs[3]%></h2>
-                    </div>
-                </div>
-
-                <div class="broker-button-contain">
-                    <button type="submit" class="principal-button"><%=brokersDat.buttons[0]%></button>
-                    <% if(typeof loan != 'undefined'){ %>
-                        <a href="./pdf/<%-loan%>.pdf"><button class="principal-button" ><%=brokersDat.buttons[1]%></button></a>
-                    <% } %>
-                </div>
-
-                <% if(typeof loan != 'undefined'){ %>
-                    <div style="display:none;" class="property">
-                        <%- loan %>
-                    </div>
-                    <div class="brokers-pdf-out">
-                        <div id="my_pdf_viewer">
-                            <div id="canvas_container">
-                                <canvas id="pdf_renderer"></canvas>
-                            </div>     
-                        </div>
-                    </div>
-                <% } %>        
-            </form>
-        </div>
-
-        
-        
-        
-                  
     </section>
 
     <%-include('./partials/footer')%>

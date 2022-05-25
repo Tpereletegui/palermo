@@ -140,13 +140,14 @@ module.exports = {
     } */
 
     // send mail with defined transport object
-    await transporter.sendMail({
-        from: req.body.name+' <mails@palermolender.com>', // sender address
-        to: "maxincolla@gmail.com", // list of receivers
-        subject: "Palermo Lender - Contact Message", // Subject line
-        text: req.body.message, // plain text body
-        html: "<b>"+req.body.message+"</b>", // html body
-    });    
+    const API_KEY = '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';
+    // await transporter.sendMail({
+    //     from: req.body.name+' <mails@palermolender.com>', // sender address
+    //     to: "maxincolla@gmail.com", // list of receivers
+    //     subject: "Palermo Lender - Contact Message", // Subject line
+    //     text: req.body.message, // plain text body
+    //     html: "<b>"+req.body.message+"</b>", // html body
+    // });    
 
       
     res.redirect('/');
@@ -170,7 +171,9 @@ module.exports = {
       langFlag: lang, 
       footerDat:language._footerDat, 
       contactDat: language._contactDat,
-      titlesDat: language._titlesDat
+      titlesDat: language._titlesDat,
+      faqSectionDat: language._faqSectionDat,
+      faqsDat: language._faqsDat,
     });
   },
 

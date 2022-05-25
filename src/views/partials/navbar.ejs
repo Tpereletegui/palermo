@@ -2,26 +2,29 @@
   <input type="checkbox" id="check">
   <label for="check" class="checkbtn"><i id="icon" class="fas fa-bars"></i></label>
   <a href="/" class="logo">
-    <img id="logo-img" style="margin-left: 20px; margin-top:15px;" src="/images/logos/logo-navbar.png" alt="" width="100px">
+    <img id="logo-img" style="margin-left: 20px;  width: 150px;" src="/images/logos/logo-navbar-landscape.png" alt="" width="100px">
   </a>
 
   <ul>
     <div class="_nav-links">
-      <li><a id="programs-link" class="overeable nav-link"><%- navbarDat.titles[1] %></a></li>
-      <li><a id="deals-link" class="overeable nav-link"><%- navbarDat.titles[2] %></a></li>
-      <li><a id="testimonials-link" class="overeable nav-link"><%- navbarDat.titles[3] %></a></li>
-      <li><a href="/brokers" id="brokers-link" class="overeable nav-link"><%- navbarDat.titles[4] %></a></li>
-      <li><a id="faq-link" class="overeable nav-link"><%- navbarDat.titles[5] %></a></li>
-      <li><a id="contact-link"class="overeable nav-link"><%- navbarDat.titles[6] %></a></li>
-      <li><a id="aboutus-link" class="overeable nav-link"><%- navbarDat.titles[0] %></a></li>
+      <li style="display: none;"><a id="programs-link" class="overeable nav-link"><%- navbarDat.titles[1] %></a></li>
+      <li style="display: none;"><a id="deals-link" class="overeable nav-link"><%- navbarDat.titles[2] %></a></li>
+      <li><a href="/apply-now" style="color: #093147;" class="overeable nav-link">Apply Now</a></li>
+      <li><a href="/calculator" class="overeable nav-link">Loan Estimate</a></li>
+      <li><a href="/deals" class="overeable nav-link">Transactions</a></li>
+      <li style="display: none;"><a id="testimonials-link" class="overeable nav-link"><%- navbarDat.titles[3] %></a></li>
+      <li style="display: none;"><a href="/brokers" id="brokers-link" class="overeable nav-link"><%- navbarDat.titles[4] %></a></li>
+      <li><a href="/faq" class="overeable nav-link">FAQ</a></li>
+      <li><a href="/" id="contact-link" class="overeable nav-link">Contact Us</a></li>
+      <li><a id="aboutus-link" class="overeable nav-link">About Us</a></li>
     </div>
-    <li class="lang-link">
+   <!--  <li class="lang-link">
       <form action="/lang" method="post"> 
         <input type="text" name="hiddenInput" id="hidden-input-nav" style="display:none;">
         <button class="lang-button" type="submit" style="background: none; border:none; cursor:pointer;">
           <img class="lang-img"  src="/images/icons/<%-langFlag%>.png" alt="">
         </button>
       </form>
-    </li>
+    </li> -->
   </ul>
 </nav>

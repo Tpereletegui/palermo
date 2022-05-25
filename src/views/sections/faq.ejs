@@ -1,15 +1,15 @@
 <section class="section section-faq"  id="faq-section">
   
-  <div class="section-title" data-aos="fade-down">
+<!--   <div class="section-title" data-aos="fade-down">
     <label class="section-title-label faq-title-label">
       <%-faqSectionDat.title%>
     </label>
-  </div>
+  </div> -->
 
   
   <div class="accordion">
 
-    <% for (let i = 0; i < 3; i++ ) {%>
+    <% for (let i = 0; i < faqsDat.length; i++ ) {%>
 
       <div class="accordion-item" data-aos="fade-up">
         <div class="accordion-item-title"><p><%-faqsDat[i].title%></p><p class="accordion-item-toggle-icon">+</p></div>
@@ -28,7 +28,7 @@
 
   </div>
 
-  <a href="/faq" class="faq-more-button"><label><%-faqSectionDat.button%></label></a>
+  <!-- <a href="/faq" class="faq-more-button"><label><%-faqSectionDat.button%></label></a> -->
 
 
   <script>

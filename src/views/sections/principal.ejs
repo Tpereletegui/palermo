@@ -17,16 +17,110 @@
       </div>
     </div>
   
+    <div class="new-principal">
+      <div id="principal-text" class="new-principal-text">
+        <p class="new-principal-title"> We Finance Investment Properties</p>
+        <p class="new-principal-paragraph">Palermo Lender strives to makes real estate financing about the real estate. 
 
-
-
-    <p class="section-principal-title animate__animated animate__fadeInUp animate__delay-1s"><%- principalDat.title %></p>
-    <div class="container-buttons">
-      <a href="/prequalify"><button class="principal-button principal-button-big"><%- principalDat.button1 %></button></a>
-      <a href="/apply-now"><button class="principal-button principal-button-big"><%- principalDat.button2 %></button></a> 
+          As a direct, private lender, Palermo Lender takes a common sense approach to underwriting, focusing on the underlying value of the subject property.
+          
+          Take 5 minutes to fill out our application and receive your same day loan offer!</p>
+        <a href="/apply-now"><button class="principal-button principal-button-big"><%- principalDat.button2 %></button></a>
+      </div>
+      <section  id="contact-section" class="section section-contact">
+  
+        <div class="section-title" data-aos="fade-down">
+        <!--   <label class="section-title-label" style="color:black;">
+            <%-contactDat.title%>
+          </label> -->
+        </div>
+      
+        <div id="desktop"  class="contain-contact" data-aos="zoom-in-up">  
+          <p class="new-contact-title">Need a Hard Money Loan?</p>
+          <p class="new-contact-subtitle">Fill out the form below, and one of our experts will contact you within 24 hours.</p>
+          <form class="form-message" action="/message" method="post">
+            
+            <div class="form-group form-group-name">
+              <input type="text" name="name" class="input input-name" placeholder="<%-contactDat.placeholders[0]%>">
+              <p class="name-error"></p>
+            </div>
+      
+            <div class="form-group form-group-email">
+              <input type="email" name="email" class="input input-email" placeholder="<%-contactDat.placeholders[1]%>">
+              <p class="email-error"></p>
+            </div>
+      
+            <div class="form-group form-group-message">
+              <textarea type="text" name="message" class="input input-message"  placeholder="<%-contactDat.placeholders[2]%>" maxlength="240"></textarea>
+              <p class="message-error"></p>
+            </div>
+      
+            <button type="submit" class="contact-button"><%-contactDat.button%></button>
+            <p class="form-submit-message"></p>
+          </form>
+      
+          <div class="errores">
+            <% if(typeof errors != 'undefined'){ %>
+                <p class="errorTitle">ERROR</p>
+                <ul>
+                    <% for(let i=0; i<errors.length; i++){ %>
+                        <li style="font-size: 13px"><%= errors[i].msg %> </li> 
+                    <% } %> 
+                </ul> 
+            <% } %>
+          </div>
+      
+        </div>
+        <div id="phone" class="contain-contact" data-aos="zoom-in-up">  
+          <p class="new-contact-phone">Need a Hard Money Loan?</p>
+          <button id='button-phone' class="contact-button-phone">Contact Us</button>          
+      
+        </div>
     </div>
 
 
+    <!-- <p class="section-principal-title animate__animated animate__fadeInUp animate__delay-1s"><%- principalDat.title %></p>
+    <div class="container-buttons"> -->
+      <!-- <a href="/prequalify"><button class="principal-button principal-button-big"><%- principalDat.button1 %></button></a> -->
+      <!-- <a href="/apply-now"><button class="principal-button principal-button-big"><%- principalDat.button2 %></button></a> 
+    </div> -->
+
+    <script src="/js/contactValidate.js"></script>  
+    <script>
+      let principal = document.getElementById('principal-text');
+      let contactPhone = document.getElementById('phone')
+      let desktop = document.getElementById('desktop')
+      let contact = document.getElementById('button-phone');
+      if(window.innerWidth < 780) {
+        contactPhone.style.cssText = 'display: flex';
+        desktop.style.cssText = 'display: none';
+      }else {
+        contactPhone.style.cssText = 'display: none';
+        desktop.style.cssText = 'display: flex';
+      }
+
+      contact.addEventListener('click', ()=>{
+        console.log('click');
+        contactPhone.style.cssText = 'display: none;'
+        principal.style.cssText = 'display: none';
+        desktop.style.cssText = 'display: flex';
+      })
+
+      function shadow () {
+        console.log('local', window.localStorage)
+        if(window.localStorage.getItem('firsTime')=== 'true') {
+          desktop.style.cssText = 'box-shadow: 1px -4px 8px 4px rgba(219,185,15,0.75);'
+          setTimeout(() => {
+          desktop.style.cssText = 'box-shadow: none;'
+        },3000);
+        } else {
+          window.localStorage.setItem('firsTime', 'true') ;
+        }
+       
+      }
+      shadow();
+
+    </script>
 </section>
 
 
